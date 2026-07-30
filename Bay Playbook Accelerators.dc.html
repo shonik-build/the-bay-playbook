@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S5 · COMPANY MATTERS</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">VERIFIED LIST</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">TERMS VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">US accelerators and founder programs</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 12px;max-width:640px">Forty-five programs that were still running when we checked, with the terms they actually offer. Refreshed quarterly, because deal terms and dates move. Anything you read here older than a quarter is a prompt to open the program's own site.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 24px;max-width:640px">Programs that have shut down don't appear. Two well-known names, Pioneer and AngelPad, failed that check and were dropped rather than left on the list to waste your afternoon.</p>
+
+    <div style="display:flex;align-items:flex-end;gap:28px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">ACTIVE PROGRAMS</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">45</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">EQUITY-FREE</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">9</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">THAT SPONSOR A VISA</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">0</div>
+      </div>
+      <div style="flex:1;min-width:220px;font-size:13.5px;line-height:1.5;color:#5A5243;padding-bottom:4px">That last number is the one to sit with. Not one program on this page sponsors your visa, including the ones that will hand you a million dollars.</div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">READ THIS BEFORE YOU APPLY ANYWHERE</div>
+      <div style="font-size:17px;font-weight:800;letter-spacing:-0.015em;line-height:1.3;margin-bottom:10px">Nobody sponsors your visa, and acceptance is not a criterion</div>
+      <div style="font-size:15px;line-height:1.6;color:#C9C0AD;max-width:620px">The standard path on an Indian passport is a B-1 visitor visa for the batch, because ESTA isn't available to Indian passports, then O-1A for the long term. Getting into one of these strengthens an O-1 petition but doesn't satisfy any criterion on its own. Start your evidence file, meaning press, funding, judging and published work, six to twelve months before you need to work legally, and get a real immigration lawyer rather than a forum thread.</div>
+      <div style="border-top:1px solid #332D24;margin-top:16px;padding-top:14px;display:flex;gap:22px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">TWO PROGRAMS GO FURTHER</div>
+          <div style="font-size:14px;line-height:1.55;color:#C9C0AD">Activate and Antler require existing US work authorisation just to participate, which rules out most new arrivals. They're flagged in the list below and excluded automatically if you filter for working from India.</div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">THE OTHER PRECONDITION</div>
+          <div style="font-size:14px;line-height:1.55;color:#C9C0AD">Most invest only in Delaware C-corps, or a short list of accepted foreign parents like Cayman and Singapore. An Indian private limited company means a flip, and a flip is much harder to undo than to do.</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">The flip triggers Indian tax on the share swap plus FEMA filings. Get the cross-border consult before an acceptance forces the timeline, not after.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which of the 45 are actually for you</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Three questions. Most people should be applying to four or five of these, not thirty.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHERE YOU ARE</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ stageChips }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT YOU'RE BUILDING</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ sectorChips }}" as="c" hint-placeholder-count="8">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">YOUR CONSTRAINT</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ constraintChips }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:11px 0;border-top:1.5px solid #1A1712;border-bottom:1px solid #E2DACA;margin-bottom:14px">
+      <div style="font-size:15px;font-weight:800">{{ matchCount }}</div>
+      <button onClick="{{ resetFilters }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset filters</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ matches }}" as="p" hint-placeholder-count="6">
+        <div style="border:1px solid {{ p.border }};background:#FFFDF8;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;align-items:flex-start;gap:11px">
+            <span style="position:relative;width:34px;height:34px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#F1EBDD;display:grid;place-items:center">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:#8A8172">{{ p.initial }}</span>
+              {{ p.logo }}
+            </span>
+            <span style="flex:1;min-width:0">
+              <a href="{{ p.url }}" target="_blank" style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;color:#1A1712" style-hover="color:var(--accent)">{{ p.name }}</a>
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;margin-top:2px">{{ p.terms }}</span>
+            </span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ p.line }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:#5A5243;padding-top:7px;border-top:1px solid #EFE9DC">{{ p.apps }}</div>
+          <sc-if value="{{ p.hasFlag }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.5;color:var(--accent);font-weight:600">{{ p.flag }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <sc-if value="{{ noMatches }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1.5px dashed #C9C0AD;border-radius:10px;padding:18px;font-size:14.5px;line-height:1.55;color:#5A5243;margin-bottom:14px">Nothing matches all three answers. Loosen the sector or the constraint. Sector-specific programs are a small minority of this list, so pairing a narrow sector with a hard constraint usually empties it.</div>
+    </sc-if>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Terms shown are what each program publishes. Several are ranges because the program tailors per company, and a few conflict between the program's own pages. Get the current SAFE in writing before you sign anything.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Deadlines that are actually live</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Counted from today. The dated ones are confirmed; everything under them is a window to watch rather than a date to trust.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ deadlines }}" as="d" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:34px minmax(160px,1fr) 128px;gap:6px 13px;align-items:center;padding:13px 16px;border-bottom:1px solid #EFE9DC;background:{{ d.rowBg }}">
+          <span style="position:relative;width:30px;height:30px;border-radius:7px;overflow:hidden;background:#F1EBDD;display:grid;place-items:center">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:#8A8172">{{ d.initial }}</span>
+            {{ d.logo }}
+          </span>
+          <span>
+            <span style="display:block;font-size:14.5px;font-weight:700">{{ d.name }}</span>
+            <span style="display:block;font-size:13px;line-height:1.45;color:#5A5243;margin-top:1px">{{ d.what }}</span>
+          </span>
+          <span style="text-align:right">
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:{{ d.color }}">{{ d.countdown }}</span>
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;margin-top:1px">{{ d.dateLabel }}</span>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#F7F3EA;padding:14px 16px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">WINDOWS TO WATCH, NO CONFIRMED DATE</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:7px 18px">
+        <sc-for list="{{ expected }}" as="e" hint-placeholder-count="6">
+          <div style="display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:#3D3629">
+            <span style="font-weight:600">{{ e.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;white-space:nowrap">{{ e.when }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What one point of your company buys</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Cash divided by equity taken, for the eighteen programs that publish both. This is the only number that makes these offers comparable, and it spans a factor of thirty.</p>
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <sc-for list="{{ perPoint }}" as="r" hint-placeholder-count="18">
+        <div style="display:grid;grid-template-columns:minmax(96px,132px) 1fr 96px;gap:12px;align-items:center;padding:4px 0">
+          <div style="font-size:13px;font-weight:{{ r.weight }};line-height:1.25">{{ r.name }}</div>
+          <div style="height:13px;background:#EFE9DC;border-radius:999px;overflow:hidden">
+            <div style="height:100%;width:{{ r.w }};background:{{ r.fill }};border-radius:999px"></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A5243;text-align:right">{{ r.label }}</div>
+        </div>
+      </sc-for>
+      <div style="display:grid;grid-template-columns:minmax(96px,132px) 1fr 96px;gap:12px;margin-top:6px">
+        <div></div>
+        <div style="position:relative;height:14px">
+          <sc-for list="{{ ppTicks }}" as="t" hint-placeholder-count="5">
+            <span style="position:absolute;left:{{ t.left }};top:0;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8A8172;white-space:nowrap">{{ t.label }}</span>
+          </sc-for>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Read it carefully rather than top-down. HF0 and Neo lead because they take very little for a lot, and Neo's equity is capped at 5% of your next round rather than taken up front. Alchemist sits at the bottom because its check is tiny, not because it's a bad program: for enterprise founders the six months of B2B-specific help is the product and the money is incidental.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">WHAT THE CHART CAN'T SHOW</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Signal. YC is mid-table on this measure and still the strongest signal in the market, which is most of what you're buying. Follow-on money doesn't show either: South Park Commons guarantees $600K into your next round and a16z Speedrun puts in another $500K within 18 months, so both are better than they look here. Use the chart to catch a genuinely bad trade, not to rank the good ones.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Is any of this worth 7 to 10 percent?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Answer honestly. The dishonest answer costs a tenth of your company.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+      <sc-for list="{{ worthChips }}" as="c" hint-placeholder-count="2">
+        <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};text-align:left" style-hover="border-color:#1A1712">{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">THE VERDICT</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ worth.color }}">{{ worth.head }}</div>
+      <div style="font-size:15px;line-height:1.6;color:#C9C0AD;margin-top:10px;max-width:600px">{{ worth.body }}</div>
+      <div style="border-top:1px solid #332D24;margin-top:16px;padding-top:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">EITHER WAY</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#FAF7F1">Check the low-cost stack first. Z Fellows, Inception Studio, Solo Founders and the nine equity-free programs on this page, before you price ten percent of your company.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">All forty-five, at a glance</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Logos are pulled live from each program's own domain, so what you see is whatever mark they currently serve. Tap any of them to open the site.</p>
+    <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:12px">
+      <sc-for list="{{ wall }}" as="grp" hint-placeholder-count="4">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #E2DACA">{{ grp.label }}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:14px 10px">
+            <sc-for list="{{ grp.items }}" as="p" hint-placeholder-count="12">
+              <a href="{{ p.url }}" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;color:#3D3629" style-hover="color:var(--accent)">
+                <span style="position:relative;width:44px;height:44px;border-radius:10px;overflow:hidden;background:#F1EBDD;display:grid;place-items:center;border:1px solid #E2DACA">
+                  <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;color:#8A8172">{{ p.initial }}</span>
+                  {{ p.logo }}
+                </span>
+                <span style="font-size:11.5px;font-weight:600;line-height:1.3">{{ p.name }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Where a program serves no icon, the tile falls back to its initial rather than showing a broken image or somebody else's logo.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="7">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="7">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+// stage: pre = no team/idea yet, build = building pre-seed, trac = product in market
+// perPt: [cash in $K, equity points] only where the program publishes both
+const P = [
+  // ---- Bay Area ----
+  { n: 'Y Combinator', d: 'ycombinator.com', u: 'https://ycombinator.com/apply', grp: 'bay',
+    t: '$500K · 7%', st: ['build'], sec: ['gen'], perPt: [500, 7],
+    l: '$125K for 7% plus $375K on an uncapped MFN SAFE, three months in SF. The strongest signal in the market, and that signal is most of what you are buying.',
+    a: '4 batches a year. Winter 2027 deadline expected late Oct to early Nov, and late applications are always read.' },
+  { n: 'South Park Commons', d: 'southparkcommons.com', u: 'https://www.southparkcommons.com', grp: 'bay',
+    t: '$400K · 7%', st: ['pre'], sec: ['gen'], perPt: [400, 7], remote: true,
+    l: '$400K for 7% plus $600K guaranteed into your next round, built for the minus-one-to-zero stage. The Fall 2026 bootcamp can be done from their Bangalore office.',
+    a: '2 cohorts a year. Fall 2026 closes 2 Aug 2026.',
+    flag: 'Bangalore bootcamp option, so you can start this one without moving.' },
+  { n: 'HF0', d: 'hf0.com', u: 'https://www.hf0.com/apply', grp: 'bay',
+    t: 'up to $1M · 5%', st: ['build'], sec: ['gen'], perPt: [1000, 5], lowDil: true,
+    l: 'Up to $1M uncapped for 5%. A twelve-week live-in SF residency of about ten teams, built for repeat and deeply technical founders.',
+    a: 'Rolling, multiple cohorts a year.' },
+  { n: 'Neo', d: 'neo.com', u: 'https://neo.com', grp: 'bay',
+    t: '$750K · ≤5%', st: ['pre', 'build'], sec: ['gen'], perPt: [750, 5], lowDil: true,
+    l: '$750K on an uncapped SAFE with equity capped at 5% of your next round. The lowest-dilution real check on this page, on terms new as of Feb 2026.',
+    a: 'Rolling. One residency cohort a year: Oregon bootcamp then three months in SF.' },
+  { n: 'a16z Speedrun', d: 'a16z.com', u: 'https://speedrun.a16z.com', grp: 'bay',
+    t: '$500K · 10%', st: ['build'], sec: ['ai', 'consumer'], perPt: [500, 10],
+    l: '$500K for 10% plus another $500K into your next round within 18 months, and $5M-plus in credits. Under 0.4% acceptance.',
+    a: '2 cohorts a year. Next deadline likely late Sept 2026.' },
+  { n: 'PearX', d: 'pear.vc', u: 'https://pear.vc/pearx-application', grp: 'bay',
+    t: '$250K–2M · ~10%', st: ['build'], sec: ['gen'],
+    l: '$250K to $2M tailored per company, around 10% typical, over twelve weeks. Requires relocating to the Bay.',
+    a: '2 batches a year. Next window opens fall 2026.' },
+  { n: 'Sequoia Arc', d: 'sequoiacap.com', u: 'https://www.sequoiacap.com', grp: 'bay',
+    t: '$500K–1M', st: ['build'], sec: ['gen'],
+    l: '$500K to $1M on company-specific terms across a seven-week immersion. An Americas or Europe HQ is required, so the US entity comes first.',
+    a: '2 open calls a year. Fall 2026 reported 17 Aug. Confirm on their site.' },
+  { n: 'Berkeley SkyDeck', d: 'skydeck.berkeley.edu', u: 'https://skydeck.berkeley.edu', grp: 'bay',
+    t: '$200K · 7.5%', st: ['build'], sec: ['gen'], perPt: [200, 7.5],
+    l: '$200K for 7.5% plus roughly $810K in perks over six months. No Berkeley tie needed and about two thirds of teams are international, which makes it underrated for corridor founders.',
+    a: '2 batches a year. Next window opens late 2026.',
+    flag: 'Two thirds international. One of the friendliest doors on this page.' },
+  { n: '500 Global', d: '500.co', u: 'https://500.co', grp: 'bay',
+    t: '$150K · 6%', st: ['build'], sec: ['gen'], perPt: [112.5, 6],
+    l: '$150K for 6%, netting about $112.5K after the program fee, over four months in Palo Alto. Strong track record with emerging-market founders.',
+    a: 'About 2 batches a year. Check the site, batch dates shift.' },
+  { n: 'Entrepreneur First', d: 'joinef.com', u: 'https://www.joinef.com', grp: 'bay',
+    t: '~$125K · 8%', st: ['pre'], sec: ['gen'], perPt: [125, 8],
+    l: 'Co-founder matching first, investment at launch, reported at about $125K for 8%. For people who have neither a team nor an idea yet.',
+    a: 'Cohort-based. Check their site for the next SF intake.' },
+  { n: 'LAUNCH', d: 'launch.co', u: 'https://launch.co', grp: 'bay',
+    t: '$125K · 7%', st: ['trac'], sec: ['gen'], perPt: [125, 7], remote: true,
+    l: '$125K for 7% over fourteen weeks, hybrid. One of the very few with no relocation required. Wants product in market, pre-Series A.',
+    a: 'Rolling, 2 to 3 cohorts a year.',
+    flag: 'No relocation required, which is rare on this list.' },
+  { n: 'Founders, Inc.', d: 'f.inc', u: 'https://f.inc', grp: 'bay',
+    t: '$100–250K', st: ['build'], sec: ['hw'],
+    l: 'First checks commonly $100K to $250K on varying terms, at a Fort Mason campus with a full hardware lab. A rare open door for hardware founders.',
+    a: 'Rolling.' },
+
+  // ---- Sector-specific ----
+  { n: 'Conviction Embed', d: 'conviction.com', u: 'https://embed.conviction.com', grp: 'sector',
+    t: '$250K uncapped', st: ['build'], sec: ['ai'], remote: true, lowDil: true,
+    l: 'AI-native only. $250K on an uncapped no-discount MFN SAFE plus about $1.2M in credits, over eight weeks, mostly remote with an SF retreat.',
+    a: 'About 2 cohorts a year. Embed 6 closed Feb 2026, next window expected late summer.' },
+  { n: 'AI Grant', d: 'aigrant.com', u: 'https://aigrant.com', grp: 'sector',
+    t: '$250K uncapped', st: ['build'], sec: ['ai'], remote: true, lowDil: true,
+    l: 'AI-native products. $250K on an uncapped MFN SAFE plus $600K-plus in credits, Delaware corps only.',
+    a: 'Irregular. Check the site before planning around it.',
+    flag: 'No new cohort announced since the founders joined Meta. Confirm it is running.' },
+  { n: 'The Mint', d: 'themint.vc', u: 'https://www.themint.vc', grp: 'sector',
+    t: '$500K · 10%', st: ['build'], sec: ['fin'], perPt: [500, 10],
+    l: 'Fintech only. $500K for 10% on a clean SAFE across roughly ten weeks in SF.',
+    a: 'About 1 to 2 cohorts a year. Last public cohort spring 2025, so confirm the next one.' },
+  { n: 'Alchemist', d: 'alchemistaccelerator.com', u: 'https://www.alchemistaccelerator.com', grp: 'sector',
+    t: '~$25–36K · 5%', st: ['build'], sec: ['b2b'], perPt: [30, 5], lowDil: true,
+    l: 'Enterprise and B2B only, six months. The check is small and the six months of B2B-specific help is the actual product.',
+    a: 'Rolling, about 2 classes a year.',
+    flag: 'Published figures conflict between $25K and $36K. Confirm directly.' },
+  { n: 'IndieBio', d: 'indiebio.co', u: 'https://indiebio.co', grp: 'sector',
+    t: '~$525K · ~10%', st: ['build'], sec: ['bio'], perPt: [525, 10],
+    l: 'Biotech, climate and food. About $525K for roughly 10% with wet-lab access included, over four months in SF.',
+    a: 'Rolling, about 2 cohorts a year.' },
+  { n: 'HAX', d: 'hax.co', u: 'https://hax.co', grp: 'sector',
+    t: '~$250K · ~9%', st: ['build'], sec: ['hw'], perPt: [250, 9],
+    l: 'Hardware and robotics. About $250K for roughly 9% over six months, with real engineering support in Newark and Shenzhen.',
+    a: 'Rolling.' },
+  { n: 'Boost VC', d: 'boost.vc', u: 'https://www.boost.vc', grp: 'sector',
+    t: '$500K · 15%', st: ['build'], sec: ['deep'], perPt: [500, 15],
+    l: 'Deep tech across crypto, VR, robotics, space and bio. $500K for 15% in San Mateo, housing included.',
+    a: 'Rolling.' },
+  { n: 'Alliance', d: 'alliance.xyz', u: 'https://alliance.xyz', grp: 'sector',
+    t: 'free · ~$500K', st: ['build'], sec: ['crypto', 'ai', 'fin'], remote: true,
+    l: 'Crypto, AI and fintech. A free three-month program built around a $500K investment, mostly remote, with decisions in about two weeks.',
+    a: 'Rolling year-round. Next cohort ALL18 starts 7 Sept 2026.',
+    flag: 'Mostly remote and fast decisions. Realistic to run from India.' },
+  { n: 'a16z CSX', d: 'a16zcrypto.com', u: 'https://a16zcrypto.com', grp: 'sector',
+    t: 'cohort program', st: ['build'], sec: ['crypto'],
+    l: 'Web3. The a16z crypto cohort program across New York, SF and London, and the strongest brand signal in the category.',
+    a: 'About 2 cohorts a year. Check a16z crypto for the next window.' },
+  { n: 'Dreamit', d: 'dreamit.com', u: 'https://www.dreamit.com', grp: 'sector',
+    t: 'no equity to Series A', st: ['trac'], sec: ['health'], lowDil: true,
+    l: 'Healthtech and securetech, at traction stage. Takes zero equity until your Series A.',
+    a: 'Cohort-based. Confirm current intake on their site.' },
+
+  // ---- Beyond the Bay ----
+  { n: 'Antler US', d: 'antler.co', u: 'https://www.antler.co', grp: 'beyond',
+    t: '~$100–190K · 10–12%', st: ['pre'], sec: ['gen'], perPt: [145, 11], auth: true,
+    l: 'Co-founder matching from day zero, then roughly $100K to $190K for 10 to 12%, in New York and Austin.',
+    a: 'Multiple cohorts a year per city.',
+    flag: 'Requires existing US work authorisation. No visa path.' },
+  { n: 'Techstars', d: 'techstars.com', u: 'https://www.techstars.com', grp: 'beyond',
+    t: '$220K · 5%', st: ['build'], sec: ['gen'], perPt: [220, 5], lowDil: true,
+    l: '$20K for 5% plus $200K on an uncapped MFN SAFE, mentor-driven and city-based. There is no dedicated SF batch, so pick the city program that fits.',
+    a: 'Varies by city program.' },
+  { n: 'ERA', d: 'eranyc.com', u: 'https://www.eranyc.com', grp: 'beyond',
+    t: 'seed check', st: ['build'], sec: ['gen'],
+    l: 'New York\u2019s largest generalist accelerator. A seed check plus a very large mentor network.',
+    a: '2 cohorts a year. Confirm terms on their site.' },
+  { n: 'Betaworks Camp', d: 'betaworks.com', u: 'https://www.betaworks.com', grp: 'beyond',
+    t: 'up to $500K', st: ['build'], sec: ['ai', 'consumer'],
+    l: 'Thematic AI camps in New York, up to $500K per company. Strong for consumer and agent-native products.',
+    a: 'Camp by camp. Watch for the next theme.' },
+  { n: 'MuckerLab', d: 'mucker.com', u: 'https://mucker.com/accelerator/', grp: 'beyond',
+    t: '~$100–175K · 10–15%', st: ['build'], sec: ['gen'], perPt: [137.5, 12.5],
+    l: 'Los Angeles. No demo day, month-to-month hands-on company building. A serious option if you are not Bay-shaped.',
+    a: 'Rolling.' },
+  { n: 'gener8tor', d: 'gener8tor.com', u: 'https://www.gener8tor.com', grp: 'beyond',
+    t: '$100K · 7.5%', st: ['build'], sec: ['gen'], perPt: [100, 7.5],
+    l: 'A Midwest network. $100K for 7.5% over twelve weeks in six-company cohorts. Also runs gBETA, a free pre-accelerator.',
+    a: 'Multiple cohorts a year across cities.' },
+  { n: 'Capital Factory', d: 'capitalfactory.com', u: 'https://www.capitalfactory.com', grp: 'beyond',
+    t: '~1% equity', st: ['build'], sec: ['gen'], lowDil: true,
+    l: 'Austin. About 1% equity for the program plus workspace membership, and the centre of gravity for Texas.',
+    a: 'Rolling.' },
+  { n: 'AI2 Incubator', d: 'ai2incubator.com', u: 'https://www.ai2incubator.com', grp: 'beyond',
+    t: 'up to $600K', st: ['pre', 'build'], sec: ['ai'],
+    l: 'Seattle. Up to $600K plus roughly $1M in compute, and they will pair you with Allen Institute AI researchers as co-founders.',
+    a: 'Rolling.' },
+  { n: 'Forum Ventures', d: 'forumvc.com', u: 'https://www.forumvc.com', grp: 'beyond',
+    t: '~$100K', st: ['build'], sec: ['b2b'], remote: true,
+    l: 'B2B SaaS. About $100K at pre-seed with dedicated go-to-market support, and remote-friendly.',
+    a: 'Rolling.' },
+
+  // ---- Fellowships and equity-free ----
+  { n: 'Z Fellows', d: 'zfellows.com', u: 'https://www.zfellows.com', grp: 'free',
+    t: 'optional $10K', st: ['pre', 'build'], sec: ['gen'], remote: true, lowDil: true,
+    l: 'An optional $10K at a $1B cap. One week, mostly virtual with a final day in SF or New York. A network hook you can grab from India.',
+    a: 'Rolling, cohorts every couple of months.',
+    flag: 'Mostly virtual. The cheapest way onto the map from Bengaluru.' },
+  { n: 'Greylock Edge', d: 'greylock.com', u: 'https://greylock.com/edge', grp: 'free',
+    t: 'flexible, incl. none', st: ['pre', 'build'], sec: ['gen'], lowDil: true,
+    l: 'A bespoke three-month program on flexible terms, whether a priced round, an uncapped SAFE or no capital at all, plus $500K-plus in credits.',
+    a: 'Rolling, a handful of founders at a time. Mostly warm-intro sourced.' },
+  { n: 'Soma Fellows', d: 'somacap.com', u: 'https://programs.somacap.com/fellows', grp: 'free',
+    t: 'up to $2M uncapped', st: ['build'], sec: ['gen'], remote: true, lowDil: true,
+    l: 'An uncapped SAFE advertised up to $2M, remote-first, skewing early-to-mid twenties.',
+    a: 'Rolling.',
+    flag: 'Terms shift often. Get the current SAFE in writing.' },
+  { n: 'Solo Founders', d: 'solofounders.com', u: 'https://solofounders.com', grp: 'free',
+    t: '2.5% MFN', st: ['build'], sec: ['gen'], lowDil: true,
+    l: '2.5% for an MFN uncapped SAFE, three months in SF with weekly one-to-ones. Built to stack on top of YC or a pre-seed round.',
+    a: 'Cohort-based. Check site.' },
+  { n: 'Inception Studio', d: 'inceptionstudio.org', u: 'https://www.inceptionstudio.org', grp: 'free',
+    t: 'zero equity', st: ['pre', 'build'], sec: ['ai'], free: true, lowDil: true,
+    l: 'Zero equity, zero cost. Seventy-two-hour retreats for experienced AI founders, with 84% repeat attendance. The highest-value free room in SF if you qualify.',
+    a: 'Retreats several times a year, by application or invite.' },
+  { n: 'OpenAI Grove', d: 'openai.com', u: 'https://openai.com/index/openai-grove/', grp: 'free',
+    t: 'equity-free', st: ['pre'], sec: ['ai'], free: true, lowDil: true,
+    l: 'An equity-free five-week program at OpenAI HQ for pre-idea technical talent, around fifteen people a cohort.',
+    a: 'Periodic. The Jan 2026 cohort closed, so watch for the next announcement.' },
+  { n: 'StartX', d: 'startx.com', u: 'https://web.startx.com', grp: 'free',
+    t: 'equity-free', st: ['build'], sec: ['gen'], free: true, lowDil: true,
+    l: 'An equity-free, fee-free accelerator with deep Stanford integration.',
+    a: '2 cohorts a year.',
+    flag: 'Stanford affiliation is required.' },
+  { n: 'On Deck', d: 'beondeck.com', u: 'https://www.beondeck.com', grp: 'free',
+    t: 'no equity, ~$1K', st: ['pre', 'build'], sec: ['gen'], free: true, remote: true, lowDil: true,
+    l: 'Pay-what-you-can at around $1K suggested, no equity. A one-week SF sprint plus a year-long founder community.',
+    a: '2 to 3 cohorts a year.' },
+  { n: 'Afore FIR', d: 'afore.vc', u: 'https://www.afore.vc', grp: 'free',
+    t: '$100K+', st: ['pre'], sec: ['gen'],
+    l: '$100K-plus for minus-one-to-zero stage founders, over ten weeks in SF with Afore Capital.',
+    a: 'Rolling.' },
+  { n: 'Founder University', d: 'founder.university', u: 'https://founder.university', grp: 'free',
+    t: 'free · $25–125K after', st: ['pre', 'build'], sec: ['gen'], free: true, remote: true, lowDil: true,
+    l: 'A free twelve-week remote pre-accelerator, with $25K or $125K invested in top graduates. A reasonable step to take from Bengaluru before you move.',
+    a: 'Rolling, multiple cohorts a year.',
+    flag: 'Fully remote and free. Do this one before you fly.' },
+  { n: 'MassChallenge', d: 'masschallenge.org', u: 'https://masschallenge.org', grp: 'free',
+    t: 'zero equity', st: ['build'], sec: ['gen'], free: true, lowDil: true,
+    l: 'Zero equity, zero fees, four months in Boston, Dallas and abroad, with up to $100K in cash prizes.',
+    a: 'Annual cohorts per city.' },
+  { n: 'Plug and Play', d: 'plugandplaytechcenter.com', u: 'https://www.plugandplaytechcenter.com', grp: 'free',
+    t: 'zero equity', st: ['trac'], sec: ['b2b'], free: true, lowDil: true,
+    l: 'Zero equity. A corporate-partnership accelerator in Sunnyvale across a dozen industry verticals, where the product is pilot customers.',
+    a: 'Multiple batches a year per vertical.' },
+  { n: 'Activate', d: 'activate.org', u: 'https://activate.org/the-fellowship', grp: 'free',
+    t: '$300K+ · zero equity', st: ['build'], sec: ['sci'], free: true, auth: true, lowDil: true,
+    l: 'Hard science. Two years and $300K-plus in stipend and research funding, at zero equity.',
+    a: 'Annual. Next deadline expected around Oct 2026.',
+    flag: 'Requires US work authorisation for the full two years, which rules out most new arrivals.' },
+  { n: 'Founder Institute', d: 'founderinstitute.com', u: 'https://fi.co', grp: 'free',
+    t: 'equity via warrants', st: ['pre'], sec: ['gen'], remote: true,
+    l: 'A part-time four-month pre-accelerator running in 200-plus cities, with equity taken via warrants. Doable from India before you move.',
+    a: 'Rolling by city.',
+    flag: 'Runs in Indian cities too. No relocation needed to start.' },
+];
+
+const GROUPS = [
+  ['bay', 'BAY AREA ACCELERATORS'],
+  ['sector', 'SECTOR-SPECIFIC'],
+  ['beyond', 'BEYOND THE BAY'],
+  ['free', 'FELLOWSHIPS, EQUITY-FREE, AND FREE ROOMS'],
+];
+
+const DEADLINES = [
+  { n: 'South Park Commons', d: 'southparkcommons.com', date: '2026-08-02', what: 'Fall 2026 Founder Fellowship applications close' },
+  { n: 'Sequoia Arc', d: 'sequoiacap.com', date: '2026-08-17', what: 'Fall 2026 open call, reported date. Confirm on their site' },
+  { n: 'Alliance', d: 'alliance.xyz', date: '2026-09-07', what: 'ALL18 cohort starts. Rolling applications, about two weeks to a decision' },
+];
+
+const EXPECTED = [
+  { name: 'Conviction Embed 7', when: 'late summer 2026' },
+  { name: 'a16z Speedrun', when: 'late Sept 2026' },
+  { name: 'Activate Fellowship', when: '~Oct 2026' },
+  { name: 'Y Combinator W27', when: 'late Oct–early Nov' },
+  { name: 'PearX', when: 'fall 2026' },
+  { name: 'Berkeley SkyDeck', when: 'late 2026' },
+];
+
+const CHECKS = [
+  { id: 'shortlist', text: 'Filter this page down to five programs, and write the list somewhere you will see it' },
+  { id: 'lowcost', text: 'Apply to the low-cost stack first: Z Fellows, Founder University, Inception Studio' },
+  { id: 'flip', text: 'Book the cross-border consult on the flip before any acceptance forces the timeline' },
+  { id: 'evidence', text: 'Start the O-1A evidence file now: press, funding, judging, published work' },
+  { id: 'lawyer', text: 'Retain an immigration lawyer, not a forum thread' },
+  { id: 'b1', text: 'Understand the B-1 route for the batch itself, since ESTA is not available on an Indian passport' },
+  { id: 'verify', text: 'Before applying anywhere, open the program\u2019s own site and re-check the terms on this page' },
+];
+
+const KEY = 'bp-accelerators';
+const MS = 86400000;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const icon = d => 'https://www.google.com/s2/favicons?domain=' + d + '&sz=64';
+
+class Component extends DCLogic {
+  state = { stage: 'any', sector: 'any', constraint: 'none', worth: 'cold', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  // Built here rather than in the template: an inline onError attribute in the streamed
+  // markup gets evaluated as JS by the browser before the runtime hydrates.
+  logoEl(domain, pad, alt) {
+    return React.createElement('img', {
+      src: icon(domain), alt: alt || '',
+      onError: e => { e.currentTarget.style.display = 'none'; },
+      style: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+        objectFit: 'contain', background: '#FFFFFF', padding: pad, boxSizing: 'border-box' },
+    });
+  }
+
+  card(p, accent) {
+    return {
+      name: p.n, url: p.u, terms: p.t, line: p.l, apps: p.a,
+      logo: this.logoEl(p.d, '4px'), initial: p.n.replace(/^(The|a16z) /, '').charAt(0).toUpperCase(),
+      hasFlag: !!p.flag, flag: p.flag || '',
+      border: p.flag ? '#C9C0AD' : '#E2DACA',
+    };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { stage, sector, constraint, worth } = this.state;
+
+    const matched = P.filter(p => {
+      if (stage !== 'any' && !p.st.includes(stage)) return false;
+      if (sector !== 'any' && !p.sec.includes(sector) && !(sector !== 'gen' && p.sec.includes('gen'))) return false;
+      if (constraint === 'india' && (!p.remote || p.auth)) return false;
+      if (constraint === 'free' && !p.free) return false;
+      if (constraint === 'lowdil' && !p.lowDil) return false;
+      return true;
+    });
+    // when a sector is chosen, surface the sector-specific programs above the generalists
+    if (sector !== 'any') {
+      matched.sort((a, b) => (a.sec.includes(sector) ? 0 : 1) - (b.sec.includes(sector) ? 0 : 1));
+    }
+
+    const pp = P.filter(p => p.perPt).map(p => ({ n: p.n, v: p.perPt[0] / p.perPt[1] })).sort((a, b) => b.v - a.v);
+    const ppMax = 200;
+
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+
+    const WORTH = {
+      cold: { head: 'Take the batch', color: '#7FD1A6',
+        body: 'An accelerator compresses roughly two years of network-building into three months, and landing cold from Bengaluru with no US network, the equity is usually worth it. The programs above with two-thirds international cohorts or a remote-friendly format are the realistic first applications.' },
+      warm: { head: 'The 7 to 10% buys little', color: accent,
+        body: 'With US customers, a lead investor and twenty warm contacts, you already own the thing the program sells. SF\u2019s communities, TFF included, deliver most of the same surface area for free, just slower. Run a pre-seed round instead and keep the tenth of your company.' },
+    };
+
+    const money = v => v >= 1000 ? '$' + (v / 1000).toFixed(1).replace('.0', '') + 'M' : '$' + Math.round(v) + 'K';
+
+    return {
+      stageChips: [['any', 'Any stage'], ['pre', 'No team or idea yet'], ['build', 'Building, pre-seed'], ['trac', 'Product in market']].map(([v, label]) => ({
+        label, pick: () => this.setState({ stage: v }),
+        border: stage === v ? '#1A1712' : '#C9C0AD', bg: stage === v ? '#1A1712' : '#FFFDF8', color: stage === v ? '#FAF7F1' : '#3D3629',
+      })),
+      sectorChips: [['any', 'Anything'], ['ai', 'AI'], ['fin', 'Fintech'], ['crypto', 'Crypto'], ['bio', 'Bio & climate'], ['hw', 'Hardware'], ['b2b', 'B2B & enterprise'], ['health', 'Healthtech'], ['consumer', 'Consumer']].map(([v, label]) => ({
+        label, pick: () => this.setState({ sector: v }),
+        border: sector === v ? '#1A1712' : '#C9C0AD', bg: sector === v ? '#1A1712' : '#FFFDF8', color: sector === v ? '#FAF7F1' : '#3D3629',
+      })),
+      constraintChips: [['none', 'No constraint'], ['india', 'Must run it from India'], ['free', 'Equity-free only'], ['lowdil', 'Low dilution only']].map(([v, label]) => ({
+        label, pick: () => this.setState({ constraint: v }),
+        border: constraint === v ? '#1A1712' : '#C9C0AD', bg: constraint === v ? '#1A1712' : '#FFFDF8', color: constraint === v ? '#FAF7F1' : '#3D3629',
+      })),
+      resetFilters: () => this.setState({ stage: 'any', sector: 'any', constraint: 'none' }),
+
+      matchCount: matched.length === P.length
+        ? 'All ' + P.length + ' programs. Answer the three questions above to cut this down.'
+        : matched.length + (matched.length === 1 ? ' program matches' : ' programs match') + ', out of ' + P.length,
+      matches: matched.map(p => this.card(p, accent)),
+      noMatches: matched.length === 0,
+
+      deadlines: DEADLINES.map(d => {
+        const date = new Date(d.date + 'T00:00:00');
+        const days = Math.round((date - today) / MS);
+        const urgent = days >= 0 && days <= 14;
+        return {
+          name: d.n, what: d.what, logo: this.logoEl(d.d, '4px'), initial: d.n.charAt(0),
+          countdown: days < 0 ? 'passed' : days === 0 ? 'today' : days + (days === 1 ? ' day' : ' days'),
+          dateLabel: date.getDate() + ' ' + MONTHS[date.getMonth()] + ' ' + date.getFullYear(),
+          color: days < 0 ? '#8A8172' : urgent ? accent : '#1A1712',
+          rowBg: urgent ? '#FBEFE7' : 'transparent',
+        };
+      }),
+      expected: EXPECTED,
+
+      perPoint: pp.map((r, i) => ({
+        name: r.n,
+        weight: i < 2 ? 800 : 600,
+        w: Math.max(1.5, (r.v / ppMax) * 100) + '%',
+        fill: i < 2 ? accent : '#1A1712',
+        label: money(r.v) + ' / pt',
+      })),
+      ppTicks: [50, 100, 150, 200].map(v => ({ left: (v / ppMax) * 100 + '%', label: '$' + v + 'K' })),
+
+      worthChips: [['cold', 'Landing cold, no US network'], ['warm', 'US customers and a lead investor already']].map(([v, label]) => ({
+        label, pick: () => this.setState({ worth: v }),
+        border: worth === v ? '#1A1712' : '#C9C0AD', bg: worth === v ? '#1A1712' : '#FFFDF8', color: worth === v ? '#FAF7F1' : '#3D3629',
+      })),
+      worth: WORTH[worth],
+
+      wall: GROUPS.map(([k, label]) => ({
+        label: label + ' · ' + P.filter(p => p.grp === k).length,
+        items: P.filter(p => p.grp === k).map(p => ({
+          name: p.n, url: p.u, logo: this.logoEl(p.d, '5px', p.n),
+          initial: p.n.replace(/^(The|a16z) /, '').charAt(0).toUpperCase(),
+        })),
+      })),
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+
+      nobody: [
+        { t: 'Late applications are read', d: 'YC reads them, and so do most rolling programs. The deadline is a forcing function for them rather than a gate for you. A strong late application beats a rushed on-time one.' },
+        { t: 'The flip is the real deadline', d: 'An acceptance compresses a cross-border restructuring into a few weeks, with Indian tax on the share swap and FEMA filings attached. Have the consult done before you need it, because a flip is far harder to undo than to do.' },
+        { t: 'Uncapped is not the same as free', d: 'Several programs here take no fixed percentage and convert at your next round instead. That is genuinely lower dilution now, and unknown dilution later. Ask what happens at a $50M cap before you call it generous.' },
+        { t: 'Two of these will not let you participate', d: 'Activate and Antler require existing US work authorisation. Every other program on this page will happily accept you and then leave the visa entirely to you.' },
+      ],
+
+      sources: [
+        { label: 'YC · the deal', url: 'https://www.ycombinator.com/deal' },
+        { label: 'SPC · founder fellowship', url: 'https://www.southparkcommons.com' },
+        { label: 'a16z speedrun', url: 'https://speedrun.a16z.com' },
+        { label: 'alliance · terms & cohorts', url: 'https://alliance.xyz' },
+        { label: 'activate · eligibility', url: 'https://activate.org/the-fellowship' },
+        { label: 'starter to SF · Michelle Fang', url: 'https://www.startertosf.guide/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__accel';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

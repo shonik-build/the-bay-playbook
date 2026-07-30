@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:var(--accent)}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:860px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S1 · BEFORE YOU FLY · 4–6 WEEKS OUT</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">CHECKLIST</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Before you fly: remote setup</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 12px;max-width:640px">Four things get harder the moment you board: your Indian mobile number, your resident bank account, your driving paperwork, and the money you plan to move. Doing any of them from a sublet in Sunnyvale means a notarised affidavit, a consulate appointment, or a courier to a branch in Bangalore.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 30px;max-width:640px">Everything else waits. Apps, groceries, a US credit card, the DMV. Trying to pre-solve those from India is wasted effort, and a couple of items on the standard before-you-fly list are actively better done late. The eSIM is one of them.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Set your flight date, get your sequence</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Nine tasks with real lead times. Every date below is counted back from the day you fly.</p>
+
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <label for="fly" style="font-size:15px;font-weight:700">I fly on</label>
+      <input id="fly" type="date" value="{{ fly }}" onChange="{{ setFly }}" style="font-family:'IBM Plex Mono',monospace;font-size:14px;padding:7px 10px;border:1px solid #C9C0AD;border-radius:7px;background:#FAF7F1;color:#1A1712">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8A8172">{{ flyLabel }}</div>
+    </div>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <sc-for list="{{ tasks }}" as="t" hint-placeholder-count="9">
+        <div style="display:grid;grid-template-columns:1fr 116px;gap:6px 14px;padding:13px 16px;border-bottom:1px solid #EFE9DC;background:{{ t.rowBg }}">
+          <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+            <span style="font-size:14.5px;font-weight:700">{{ t.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.08em;padding:2px 7px;border-radius:4px;background:{{ t.pillBg }};color:{{ t.pillColor }}">{{ t.status }}</span>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#1A1712;text-align:right;font-weight:600">{{ t.startLabel }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ t.why }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;text-align:right">{{ t.latestLabel }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Keep the Indian number alive</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Every Indian bank, UPI app, mutual fund, DigiLocker and Aadhaar service authenticates you with an SMS. Lose the number and you lose access to your Indian financial life, and getting it back from California is a months-long problem routed through your bank's overseas branch.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Two separate risks, and people conflate them.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:5px">RISK 1 · ROAMING</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">A SIM in a drawer in India receives nothing. You need international roaming active for the number to attach to a US network at all. Do it before you fly. On some plans the activation itself triggers an OTP, and that's a loop you can't break from a US IP address.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:5px">RISK 2 · DEACTIVATION</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Under TRAI's rules a prepaid connection survives 90 days of non-usage while it holds ₹20 or more. Past 90 days, ₹20 buys another 30. Then 15 days of grace. Then the number is recycled, and every institution that authenticates you by SMS is authenticating someone else. Incoming calls and SMS count as usage.</div>
+      </div>
+    </div>
+
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Convert to postpaid before flying if you're staying past six months. It costs more monthly, removes the recycling risk entirely, and postpaid roaming packs carry 365-day validity from purchase where prepaid packs expire in 30.</div>
+    </div>
+
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">On the pack itself, most people over-buy. You're not browsing on Indian roaming at ₹45 a minute. You're receiving OTPs.</p>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ roaming }}" as="r" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(150px,200px) minmax(200px,1fr);gap:6px 14px;align-items:baseline;padding:13px 16px;border-bottom:1px solid #EFE9DC;background:{{ r.bg }}">
+          <div>
+            <div style="font-size:14.5px;font-weight:700">{{ r.option }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ r.priceColor }};margin-top:2px">{{ r.price }}</div>
+          </div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ r.gets }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">The ₹118 Airtel pack is the one nobody mentions and it's the right answer for most readers. Free incoming SMS is the entire requirement. Buy an annual pack only if you also want a working Indian number for calls.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Two things to check yourself. Jio prices by country group, so confirm the US sits in the coverage tier of the pack you're buying. And Indian roaming prices moved twice in the last six months, so price it the week you fly, not off any post you read earlier.</p>
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">A FRIEND WILL TELL YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Keep WhatsApp registered on the Indian number. It runs over wifi and US data without roaming, and your groups and history stay intact.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Your US number: buy it late</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">The standard advice is to buy a US eSIM four weeks out so you land with data. Half right. Buy it early and install the profile early, but check when billing starts. On Tello the 30 days begin as soon as the order processes, not when you activate in San Francisco. Order three weeks out and you've paid for three weeks of service in a country you weren't in. <strong>Buy in the last few days, install in India, switch on after landing.</strong></p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ carriers }}" as="c" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(150px,200px) minmax(200px,1fr);gap:6px 14px;align-items:baseline;padding:13px 16px;border-bottom:1px solid #EFE9DC">
+          <div>
+            <div style="font-size:14.5px;font-weight:700">{{ c.name }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:2px">{{ c.price }}</div>
+          </div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ c.notes }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">All three are prepaid on T-Mobile's network, and prepaid means no SSN and no credit check. Verizon, AT&amp;T and T-Mobile postpaid will want an SSN or a deposit in the hundreds, neither of which you can clear in week one.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Your US number becomes an identity anchor faster than you'd expect: bank verification, deliveries, two-factor on everything. Pick a carrier you'll keep for a year, and don't run your primary line on Google Voice. US banks routinely reject VoIP numbers for verification.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Tell your bank you're leaving</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">This costs the most to skip and appears on almost no checklist. Under FEMA you cannot hold a resident savings account once your status changes to NRI. It isn't triggered by a day count alone. Leaving for business or an uncertain period establishes intent, which for a founder means the day you land. Running a resident account after that surfaces later as a frozen account or a KYC block, usually at the worst moment.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin:14px 0 14px">
+      <sc-for list="{{ bankSteps }}" as="s" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start">
+          <span style="width:26px;height:26px;border:1.5px solid #1A1712;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600">{{ s.n }}</span>
+          <div><div style="font-size:15.5px;font-weight:700">{{ s.t }}</div><div style="font-size:14.5px;line-height:1.55;color:#5A5243;margin-top:2px">{{ s.d }}</div></div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Do this in a branch while you're still in India. The alternative is notarised or consulate-attested forms, couriered originals, and at some banks a voice verification call with a relationship manager. It works. It takes six weeks.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Move the money before you're an NRI</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The LRS ceiling is USD 250,000 per PAN per year. That's not the constraint. TCS is.</p>
+
+    <div style="border:1.5px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+        <label for="amt" style="font-size:15px;font-weight:700">Remitting this financial year</label>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8A8172">{{ amtLabel }}</div>
+      </div>
+      <input id="amt" type="range" min="0" max="100" step="1" value="{{ amt }}" onChange="{{ setAmt }}" onInput="{{ setAmt }}" style="width:100%;margin:14px 0 18px;height:4px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="border-right:1px solid #EFE9DC;padding-right:16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">ONE TRANSFER</div>
+          <div style="font-size:28px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;color:var(--accent);margin-top:2px">{{ tcsOne }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#5A5243;margin-top:4px">collected at source, 20% above the ₹10 lakh threshold</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">SPLIT ACROSS 1 APRIL</div>
+          <div style="font-size:28px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-top:2px">{{ tcsSplit }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#5A5243;margin-top:4px">two ₹10 lakh windows, one on each side of the reset</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #EFE9DC;margin-top:16px;padding-top:14px;font-size:15px;font-weight:700;color:#1A1712">{{ tcsVerdict }}</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">You get it back. TCS is an advance credit: it shows in your Form 26AS and offsets your liability when you file. But "back" means after your return is processed, which is a year of runway sitting with the tax department.</p>
+    <ul style="margin:0 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:7px;max-width:640px">
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">The threshold resets on 1 April. Flying between January and March, split the transfer across the boundary and you get two ₹10 lakh windows.</li>
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">Quote your PAN on every transaction and check the PAN–Aadhaar link is live. Unlinked, the rate doubles.</li>
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">Spending abroad on an international credit card sits outside LRS, so it carries no TCS. That's a standing deferral rather than a repeal, so confirm it still holds before you build a plan around it.</li>
+    </ul>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Not tax advice. Above roughly ₹50 lakh, or if you'll be RNOR in your first year, the split-year residency question is worth an hour with someone who does this professionally.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">A US address that isn't your friend's couch</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Mercury, Brex and Stripe all want a US mailing address before onboarding finishes, and your first debit card needs somewhere to go. A virtual mailbox solves it for $10–30 a month.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">One real gate. USPS Form 1583 authorises a Commercial Mail Receiving Agency to accept mail for you, and it needs notarising with two forms of ID. As a non-US applicant you do this in an online notary session for $10–35, then the provider takes 1–5 business days. <a href="https://www.anytimemailbox.com/usps-form-1583" target="_blank">Anytime Mailbox</a> is the cheap marketplace option with 2,500+ locations of uneven quality. Traveling Mailbox is a single operator, so scanning is consistent and included rather than roughly $4 an item.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">A CMRA address is widely rejected as proof of residence. The DMV, landlords and consumer banks opening a personal account all turn it down. It's a business mailing address and a package destination. You'll still need a lease or utility bill for the DMV, and that's a week-three problem.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">The IDP is a rental-counter document, not a licence</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;border-radius:10px;padding:16px 18px;background:#FFFDF8">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">WHAT THE IDP DOES</div>
+        <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;margin-bottom:8px">Translates</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">California doesn't require one and recognises your Indian licence outright while you're a non-resident. The IDP carries no driving privilege of its own and extends no deadline. It's worth ₹1,000 for two reasons: rental agencies frequently ask for one, and a police officer can read it.</div>
+      </div>
+      <div style="border:1.5px solid var(--accent);border-radius:10px;padding:16px 18px;background:#FFFDF8">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">WHAT ACTUALLY BINDS YOU</div>
+        <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;margin-bottom:8px;color:var(--accent)">10 days</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Once you establish residency, meaning a lease or a job, Vehicle Code §12505 gives you ten days to <em>hold</em> a California licence. Not ten days to start the paperwork. California has no reciprocity with India, so you take the written and road tests from scratch.</div>
+      </div>
+    </div>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 10px">Get it only if you'll rent a car in month one. If you are:</p>
+    <ul style="margin:0 0 34px;padding-left:20px;display:flex;flex-direction:column;gap:7px;max-width:640px">
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">₹1,000 via Form 4A at the RTO with jurisdiction over the address on your driving licence. An address mismatch is the most common rejection, so file a change of address first if your DL still says your parents' house.</li>
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">Most states also want a Form 1-A medical certificate and many want your air ticket, so you can't do this one very early.</li>
+      <li style="font-size:15px;line-height:1.55;color:#3D3629"><a href="https://parivahan.gov.in/en/content/international-driving-permit" target="_blank">Parivahan</a> handles the form and payment, but end-to-end online issuance isn't available in most states. Budget for an RTO visit and 3–7 working days.</li>
+      <li style="font-size:15px;line-height:1.55;color:#3D3629">Valid one year from issue, or until your Indian licence expires, whichever comes first. Treat it as non-renewable from the US.</li>
+    </ul>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:34px">
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Health cover for the gap</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">You will land uninsured. Employer coverage doesn't exist if you're the employer, and Covered California enrolment takes weeks even though moving opens a 60-day special enrolment window.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">For the gap, buy a travel medical policy before you board. It runs roughly $1–5 a day for a healthy person in their thirties. Take $100,000 minimum; US emergency care makes lower limits meaningless.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">Buy it in India. Policies bought after arrival typically impose a 5–10 day waiting period on illness claims, which defeats the purpose. It's a four-to-eight week bridge: emergency and acute onset only, pre-existing conditions excluded.</p>
+      </div>
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Entity, EIN and the bank account</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">Mercury opens accounts for non-US founders on a passport and an EIN. No SSN, no US visit. It wants a real entity behind it, a live website, and a business description that reads like an operating company. Thin single-member LLCs with no web presence get held or declined.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">The long pole is the EIN, not the bank. Without an SSN it's weeks. Start there and Mercury takes days once it's in hand.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">The structure decision (C-Corp versus LLC, flip versus fresh entity, ODI and FEMA) is in the <a href="Bay Playbook Guides.dc.html#entity">entity guide</a>. Don't make that call off a checklist page.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The documents folder</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 12px">One cloud folder plus offline copies on your phone. The test for what belongs: can you get this from California? If no, it goes in.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-bottom:34px">
+      <sc-for list="{{ docs }}" as="d" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:6px;height:6px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:14px;line-height:1.5;color:#3D3629">{{ d.v }}</span></div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Housing: four weeks, nothing longer</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Don't sign a lease from India. Photos lie, the block-to-block variation here is real, and you haven't made the SF-versus-Peninsula call yet. Book a furnished month, whether that's a co-living, a hacker house or a monthly Airbnb, and decide from the ground. The <a href="Bay Playbook Guides.dc.html#short-term-housing">short-term housing guide</a> has the co-living maths and the neighbourhood decision tree.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="11">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="9">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const TASKS = [
+  { name: 'US entity + EIN', early: 8, late: 4, why: 'EIN issuance without an SSN runs in weeks, not days' },
+  { name: 'NRO conversion / NRE opening', early: 4, late: 0.5, why: 'Needs a branch visit. From the US it needs consulate attestation and courier' },
+  { name: 'Large LRS transfer', early: 4, late: 2, why: 'The ₹10 lakh TCS threshold resets on 1 April, so split across it if you fly Jan–Mar' },
+  { name: 'International Driving Permit', early: 3.5, late: 2, why: "Most RTOs want your air ticket, and it isn't fully online" },
+  { name: 'Virtual mailbox', early: 3, late: 1, why: 'Form 1583 notarisation plus 1–5 business days' },
+  { name: 'Indian SIM: prepaid → postpaid', early: 3, late: 1, why: 'Needs KYC and sometimes a store visit' },
+  { name: 'Travel medical cover', early: 2, late: 0.15, why: 'Bought after landing, illness claims carry a waiting period' },
+  { name: 'Indian roaming pack', early: 1, late: 0.15, why: 'Activating roaming abroad can itself require an OTP' },
+  { name: 'US eSIM', early: 0.45, late: 0, why: 'Some carriers start the 30-day clock when the order processes, not when you land' },
+];
+
+const CHECKS = [
+  { id: 'postpaid', text: 'Convert your Indian SIM to postpaid if you\u2019re staying past six months' },
+  { id: 'roaming', text: 'Buy the ₹118 Airtel roaming service pack or your operator\u2019s equivalent, and confirm roaming is live before you fly' },
+  { id: 'nro', text: 'Book a branch appointment to redesignate your savings account to NRO and open an NRE' },
+  { id: 'tcs', text: 'Model the TCS on whatever you\u2019re transferring, and split across 1 April if your dates allow' },
+  { id: 'ein', text: 'Start entity and EIN. It\u2019s the only item here with a multi-week floor' },
+  { id: 'mailbox', text: 'Set up a virtual mailbox and get Form 1583 notarised' },
+  { id: 'idp', text: 'Apply for the IDP only if you\u2019ll rent a car in month one' },
+  { id: 'health', text: 'Buy travel medical cover, $100,000 minimum, before departure' },
+  { id: 'docs', text: 'Assemble the documents folder, weighted toward what you can\u2019t get from the US' },
+  { id: 'housing', text: 'Book four weeks of furnished housing and nothing longer' },
+  { id: 'esim', text: 'Buy the US eSIM in the last three days' },
+];
+
+const KEY = 'bp-remote-setup-checks';
+const MS = 86400000;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function iso(d) { return d.toISOString().slice(0, 10); }
+function fmt(d) { return d.getDate() + ' ' + MONTHS[d.getMonth()]; }
+
+class Component extends DCLogic {
+  state = { fly: iso(new Date(Date.now() + 56 * MS)), amt: 40, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw) || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const fly = new Date(this.state.fly + 'T00:00:00');
+    const valid = !isNaN(fly.getTime());
+    const weeksOut = valid ? Math.round((fly - today) / MS / 7 * 10) / 10 : 0;
+
+    const tasks = TASKS.map(t => {
+      const start = new Date(fly.getTime() - t.early * 7 * MS);
+      const latest = new Date(fly.getTime() - t.late * 7 * MS);
+      let status = 'LATER', pillBg = '#EFE9DC', pillColor = '#8A8172', rowBg = 'transparent';
+      if (!valid) { status = '—'; }
+      else if (today > latest) { status = 'OVERDUE'; pillBg = accent; pillColor = '#FFFFFF'; rowBg = '#FBEFE7'; }
+      else if (today >= start) { status = 'START NOW'; pillBg = '#1A1712'; pillColor = '#FAF7F1'; rowBg = '#F5F1E7'; }
+      return { name: t.name, why: t.why, status, pillBg, pillColor, rowBg,
+        startLabel: valid ? 'start ' + fmt(start) : '—',
+        latestLabel: valid ? 'latest ' + fmt(latest) : '—' };
+    });
+
+    const lakh = this.state.amt;
+    const one = Math.max(0, lakh - 10) * 0.2;
+    const split = Math.max(0, lakh - 20) * 0.2;
+    const money = v => v === 0 ? '₹0' : '₹' + (v >= 1 ? v.toFixed(2).replace(/\.00$/, '') + 'L' : Math.round(v * 100000).toLocaleString('en-IN'));
+    let tcsVerdict;
+    if (lakh === 0) tcsVerdict = 'Nothing to collect. TCS is nil on your first ₹10 lakh of outward remittance in a financial year.';
+    else if (lakh <= 10) tcsVerdict = 'Under the threshold. No TCS, and no reason to split the transfer.';
+    else if (one === split) tcsVerdict = 'Splitting saves nothing here; the whole amount clears the second window too.';
+    else tcsVerdict = 'Splitting across 1 April keeps ' + money(one - split) + ' out of the tax department\u2019s hands for a year.';
+
+    const doneCount = CHECKS.filter(c => this.state.done[c.id]).length;
+
+    return {
+      fly: this.state.fly,
+      setFly: e => this.setState({ fly: e.target.value }),
+      flyLabel: valid ? (weeksOut >= 0 ? weeksOut + ' weeks from today' : 'in the past') : 'pick a date',
+      tasks,
+      roaming: [
+        { option: 'Airtel prepaid IR service pack', price: '₹118 / 28 days', gets: 'Roaming activation with free incoming SMS. Everything else at standard rates. The OTP-only option, and the right answer for most readers.', bg: '#F5F1E7', priceColor: '#E8500A' },
+        { option: 'Jio annual IR pack', price: '₹2,799 / 365 days', gets: '3GB, 100 min, 50 SMS. Confirm the US sits in your pack\u2019s coverage tier.', bg: 'transparent', priceColor: '#8A8172' },
+        { option: 'Airtel prepaid Global pack', price: '₹4,999 / 365 days', gets: '5GB, 100 min, 100 outgoing SMS.', bg: 'transparent', priceColor: '#8A8172' },
+        { option: 'Airtel prepaid 10-day', price: '₹1,198', gets: '3GB, 200 min, 20 SMS.', bg: 'transparent', priceColor: '#8A8172' },
+        { option: 'Airtel postpaid 30-day', price: '₹3,999', gets: '30GB, then 80 Kbps.', bg: 'transparent', priceColor: '#8A8172' },
+      ],
+      carriers: [
+        { name: 'Mint Mobile', price: '$15/mo · $45 for 3 · $180 for 12', notes: 'That price covers every plan including unlimited. Promo ends 30 September 2026; renewal is $30/mo on the annual plan. Throttled over 50GB.' },
+        { name: 'Tello', price: 'From $5/mo · unlimited $25/mo', notes: 'Build-your-own plans and free calls to 60+ countries. The eSIM clock starts on order, not on activation.' },
+        { name: 'Ultra Mobile', price: '~$19/mo for 4GB', notes: 'Bundles unlimited calling to India, which is the only reason it\u2019s on this list.' },
+      ],
+      bankSteps: [
+        { n: 1, t: 'Redesignate your resident savings account as NRO', d: 'The account number usually survives; the card and cheque book get reissued.' },
+        { n: 2, t: 'Open an NRE separately if you\u2019ll send USD home', d: 'You can\u2019t convert a resident account into an NRE, so do both in the same branch visit.' },
+        { n: 3, t: 'Ask whether your bank will pre-stage the conversion against your visa', d: 'Some, ICICI among them, process NRO applications before departure for people with documented reason to move.' },
+        { n: 4, t: 'Update your status with your AMC, demat and PAN records', d: 'Or your folios freeze on the first post-move transaction.' },
+      ],
+      amt: lakh,
+      amtLabel: '₹' + lakh + ' lakh',
+      setAmt: e => this.setState({ amt: Number(e.target.value) }),
+      tcsOne: money(one),
+      tcsSplit: money(split),
+      tcsVerdict,
+      docs: [
+        'Passport and visa scans, every stamped page',
+        'Degree certificates and transcripts, for O-1 and H-1B evidence and the occasional landlord',
+        '6–12 months of Indian bank statements, for rental proof of funds',
+        'Landlord reference letter and rent receipts, raw material for the rental resume',
+        'Vaccination records and prescriptions, using generic drug names not Indian brands',
+        'CIBIL report download, PAN and Aadhaar copies, US-spec passport photos',
+      ].map(v => ({ v })),
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: doneCount + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+      sources: [
+        { label: 'airtel · IR packs', url: 'https://www.airtel.in/ir-packs/' },
+        { label: 'jio · roaming USA', url: 'https://www.jio.com/international-roaming-plans/usa/' },
+        { label: 'mint mobile', url: 'https://www.mintmobile.com/plans/' },
+        { label: 'tello esim', url: 'https://tello.com/buy/esim' },
+        { label: 'parivahan · IDP', url: 'https://parivahan.gov.in/en/content/international-driving-permit' },
+        { label: 'ca foreign licence rule', url: 'https://www.shouselaw.com/ca/blog/driving-in-california-with-a-foreign-license/' },
+        { label: 'icici · NRO conversion', url: 'https://www.icici.bank.in/nri-banking/nriedge/nri-articles/convert-your-savings-account-to-an-nro' },
+        { label: 'TCS on remittances', url: 'https://www.bookmyforex.com/blog/new-tcs-rate-on-foreign-remittances/' },
+        { label: 'usps form 1583', url: 'https://www.anytimemailbox.com/usps-form-1583' },
+        { label: 'expat health cover', url: 'https://americajosh.com/learn-more/healthcare-health-insurance-for-expats/' },
+      ],
+      navGroups: (() => {
+        const SELF = '__remote';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S4 · LIVING THERE · ONGOING</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">PRICES VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">What to do on weekends</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">A San Francisco library card gets you free entry to more than 50 Bay Area museums and a free vehicle pass to 200-plus California state parks. It costs nothing, takes one visit to a branch, and almost nobody who moves here for work signs up for one in their first year.</p>
+
+    <div style="display:flex;align-items:flex-end;gap:28px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:22px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">MUSEUMS</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">50+</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">STATE PARKS</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">200+</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">WHAT IT COSTS</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">$0</div>
+      </div>
+      <div style="flex:1;min-width:220px;font-size:13.5px;line-height:1.5;color:#5A5243;padding-bottom:4px">The reason people end up doing none of it isn't money or time. It's that the good stuff is buried under parking permit programs, reservation windows that open 90 days out, and seasons nobody mentions until you've missed them.</div>
+    </div>
+
+    <div style="border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0 0 14px;max-width:640px">
+      <div style="font-family:'Caveat',cursive;font-size:27px;font-weight:700;line-height:1.25;color:#1A1712">Weekday events produce contacts. Weekends produce friends.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">The standard move here is to meet someone at a Tuesday event and then invite them to a Saturday hike or run, and it is a completely normal invitation to make of someone you've met once. If you take one thing from this page, take that.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Build a Saturday</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two questions decide almost everything. A lot of month-one arrivals have no US licence and no easy path to a rental, so the car answer matters more here than in most guides.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:14px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">TRANSPORT</div>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{ carChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHO'S COMING</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ whoChips }}" as="w" hint-placeholder-count="4">
+            <button onClick="{{ w.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ w.border }};background:{{ w.bg }};color:{{ w.color }}" style-hover="border-color:#1A1712">{{ w.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">{{ itinLabel }}</div>
+        <button onClick="{{ shuffle }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;padding:8px 16px;border-radius:999px;cursor:pointer;border:1px solid #4A4336;background:transparent;color:#FAF7F1" style-hover="background:var(--accent);border-color:var(--accent)">{{ shuffleCta }}</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ itinerary }}" as="i" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:88px 1fr;gap:14px;padding:12px 0;border-top:1px solid #332D24">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#8A8172;padding-top:4px">{{ i.slot }}</div>
+            <div>
+              <div style="font-size:19px;font-weight:800;letter-spacing:-0.015em;line-height:1.25;color:{{ i.color }}">{{ i.name }}</div>
+              <div style="font-size:13.5px;line-height:1.5;color:#C9C0AD;margin-top:2px">{{ i.note }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">{{ matchLabel }}</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">★ = one of the four defaults</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:14px">
+      <sc-for list="{{ pool }}" as="p" hint-placeholder-count="12">
+        <div style="border:1px solid {{ p.border }};background:#FFFDF8;border-radius:10px;padding:13px 15px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172">{{ p.cat }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:{{ p.starColor }}">{{ p.star }}</span>
+          </div>
+          <div style="font-size:14.5px;font-weight:700;line-height:1.3">{{ p.name }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#5A5243;margin-top:3px">{{ p.note }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;margin-top:7px">{{ p.meta }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Founders Running Club is the one to start with. It meets at the William McKinley Monument in the Panhandle at 9:30 every Saturday, with 5K and 10K options, pace groups, coffee afterwards, and pets and friends welcome. It started in San Francisco in July 2022 and now runs in more than 60 cities. It is the single easiest standing plan for someone who has been here three weeks and knows four people.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The free infrastructure nobody uses</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Two programmes, both free, both requiring a library card, both largely unknown to people who arrive on a work visa. This is the section to bookmark.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">DISCOVER &amp; GO</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Library-run museum passes: 50+ museums and cultural attractions across the Bay. Two active reservations at a time. New passes become reservable at 12:01am on the first day of each month, and the calendar shows the current month plus two out. Popular venues go fast.</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#5A5243;margin-top:10px;padding-top:10px;border-top:1px solid #EFE9DC">The eligibility catch is real: you need a full-membership card, not an eCard or a limited-access or student account, and the system checks your zip against the library's service area. Minimum age varies, 14 in Oakland to 18 in Santa Clara County.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">STATE LIBRARY PARKS PASS</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Your library card checks out a free vehicle day-use pass for 200-plus state parks, valid for one passenger vehicle carrying up to nine people, or one highway-licensed motorcycle. That's the usual $10–20 day-use fee, gone. It now has a permanent $6.75 million ongoing appropriation in the 2026–27 state budget, so it's safe to build a habit around.</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#5A5243;margin-top:10px;padding-top:10px;border-top:1px solid #EFE9DC">Read the limit before you rely on it: not accepted at units operated by federal or local government, or by private concessionaires. That rules out Muir Woods, Point Reyes and Angel Island, which are the three people assume it covers.</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">On museums, the headline is simpler than most listicles make it. Free Saturdays at the de Young and the Legion of Honor give Bay Area residents free admission every Saturday, and both are free for everyone on the first Tuesday of the month. The Asian Art Museum is free on the first Sunday. Qualifying counties are Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Santa Clara, Solano and Sonoma, and you'll need a driver's licence or a postmarked envelope as proof. Free admission covers permanent collections only; special exhibitions still cost.</p>
+    <div style="border-left:2px solid #C9C0AD;padding-left:14px;margin:0 0 20px;max-width:600px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">ASIDE · DON'T BOTHER WITH THE FREE-DAY CALENDAR</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.65;color:#5A5243">Chasing monthly free days across a dozen institutions is a hobby, not a strategy. Every-Saturday de Young access plus the library card covers almost everything you'd actually use.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The booking clock</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Half the good weekends here are decided weeks earlier by somebody with a calendar reminder. Dates below are live, counted from today.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <sc-for list="{{ clock }}" as="c" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(140px,190px) minmax(180px,1fr) 120px;gap:6px 14px;align-items:baseline;padding:13px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14.5px;font-weight:700">{{ c.what }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ c.rule }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;text-align:right;color:{{ c.color }}">{{ c.date }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Hikes, and the two that go wrong</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The car-free hiking here is genuinely good, which surprises people expecting a car-dependent American metro. Lands End is the right first hike: ocean cliffs, Golden Gate views, no planning, no car.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The Marin Headlands has a bus that exists specifically for weekends and that almost no guide mentions. Muni's 76X runs Saturdays, Sundays and holidays from downtown San Francisco all the way to Fort Cronkhite at Rodeo Beach, roughly hourly. Check the current SFMTA schedule before you commit, because the last bus back has historically been early evening and there is no easy fallback. On weekdays you're on Golden Gate Transit to the Spencer Avenue bus pad instead, where a trailhead starts more or less at the stop, served by lines 101, 132 and 150.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">MISSION PEAK · THE PARKING TICKET</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">This is the hike most Indians here end up doing, and it has the most expensive mistake attached to it. Permits are required on weekends and holidays for the streets around the Stanford Avenue staging area, restricted from Saturday 12:01am through Sunday 11:59pm plus holidays. The staging lot has 43 spaces and fills by 8am. Overflow is 150 spaces on Antelope Drive and Vineyard Avenue. After that it's Ohlone College: 900+ spaces, $4, machines take cash or card, and the route to the summit from there is longer and quieter. Park in the residential streets on a Saturday and you will come back to a ticket.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">MUIR WOODS · THE RESERVATION</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Reservations for parking and for shuttle seats are required seven days a week, year-round, bookable up to 90 days out at gomuirwoods.com. Parking is $10, entry $15 per adult 16 and over, shuttle $4 round trip with under-16s free. The shuttle runs from the Sausalito Ferry Terminal and Larkspur Landing, which makes it a clean no-car day: ferry, shuttle, redwoods, ferry back. There's no cell service or wifi there, so download the reservation before you go. Weekend slots sell out.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">How far is everything, really</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Dark bar is the drive with no traffic. The orange is what a summer Saturday morning heading north or east adds.</p>
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <sc-for list="{{ drives }}" as="d" hint-placeholder-count="9">
+        <div style="display:grid;grid-template-columns:minmax(100px,132px) 1fr 74px;gap:12px;align-items:center;padding:5px 0">
+          <div style="font-size:13.5px;font-weight:700;line-height:1.25">{{ d.name }}</div>
+          <div style="display:flex;height:12px;border-radius:999px;overflow:hidden;background:#EFE9DC">
+            <div style="height:100%;background:#1A1712;width:{{ d.baseW }}"></div>
+            <div style="height:100%;background:var(--accent);width:{{ d.trafficW }}"></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A5243;text-align:right">{{ d.label }}</div>
+        </div>
+      </sc-for>
+      <div style="display:grid;grid-template-columns:minmax(100px,132px) 1fr 74px;gap:12px;align-items:center;margin-top:8px">
+        <div></div>
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8A8172">
+          <span>0</span><span>2 HR</span><span>4 HR</span><span>6 HR</span>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">An opinion: Napa is the wrong default. Livermore does the same job forty minutes closer, at a fraction of the tasting-fee cost, with far less booking friction. It's also a twenty-minute drive from the Shiva-Vishnu Temple, which makes a temple-plus-wine Saturday a genuinely good day out and a slightly funny one.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ gotchas }}" as="g" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:5px">{{ g.tag }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ g.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Sport as social infrastructure</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The fastest route into a standing weekend group here is a sport, and for this reader that's more likely to be cricket or badminton than pickleball.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Cricket is serious in the Bay in a way that surprises people. The Bay Area Cricket Alliance runs a summer T20 season and a winter T25 across three divisions, on grounds spread over Serramonte, Fischer, MLK, Sierramont, Bay Point and Richmond. The useful mechanic nobody mentions: BACA's own site runs a public board where players post a profile, batting order, bowling style, where they live, contact address, and clubs recruit from it. That's a concrete way in rather than emailing clubs cold. Join before the season, not mid-way, because fields are limited and rosters fill.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Watching is new. The San Francisco Unicorns play Major League Cricket at the Oakland Coliseum, which hosted 12 MLC games in 2026 including the July 18 final, and R. Ashwin signed with them this season after retiring from the IPL in 2025. Tickets started at $15 and the Coliseum is a BART stop, but the season runs June to July, so for most of the year it's a calendar item rather than a weekend plan.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Badminton is the gap in most Bay guides</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Bay Badminton Center runs 22 regulation courts across South San Francisco and Milpitas. Bintang has six sites in Burlingame, Campbell, Dublin, Fremont, San Carlos and Santa Clara, and its Fremont location claims 54 badminton courts plus 6 for pickleball. Drop-ins are welcome at all of them. Prices move, so check the site rather than a number in a guide.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Pickleball, if you've never played</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Free walk-on play is at Presidio Wall, Louis Sutter in McLaren Park, and Larsen Playground in the Sunset. Presidio Wall has six courts open dawn to dusk, a paddle-queue system, loaner paddles in the storage box, and an introductory class every Tuesday at 10:30am, which is the right entry point. Goldman Tennis Center is the only lit facility, 7am to 10pm, but reservation-only with court fees, and Rec &amp; Park reservations open seven days ahead at 8am and go fast. Parking at Presidio Wall: street parking is allowed south of the rock wall, and street-cleaning tickets there run over $80.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Desi weekend rituals</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The honest geography first. Desi density is in the South Bay and East Bay: Fremont, Milpitas, Sunnyvale, Santa Clara. The founder scene is in San Francisco. Most Indian founders end up doing SF on weekdays and one South Bay weekend a month, and the ones who don't build that trip into the calendar tend to stop going entirely by month four.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The classic Saturday or Sunday is temple, then food. All of these have deep Indian food within a few minutes' drive.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ temples }}" as="t" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:minmax(150px,210px) minmax(180px,1fr);gap:6px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14.5px;font-weight:700">{{ t.name }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ t.addr }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Full listings, including Jain centres and the other gurdwaras, sit in the <a href="Bay Playbook Directory.dc.html">Desi Directory</a> rather than here.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The India Community Center at 525 Los Coches Street in Milpitas is the institutional centre of Bay Area desi life: the largest Indian American community center in North America, a 38,000 square foot facility plus a separate 10,000 square foot table tennis centre. Open seven days a week, explicitly non-religious and non-political, running table tennis, carrom, chess, billiards, Bollywood dance, yoga, language classes, and free legal, medical and career clinics. One thing to check at the desk before you sign up: the Fitness Membership covers gym equipment 8am to 6pm Monday to Friday, which on the face of it doesn't include weekends.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Festivals run year-round and the two that matter are Navratri and Diwali. Diwali falls on Sunday, November 8, 2026, with the five-day sequence starting on Dhanteras on Friday, November 6. Garba season runs the weeks before, and the large Santa Clara Convention Center nights with touring Gujarati artists sell tiered tickets that get meaningfully cheaper if you buy early. The Bay Area Diwali Festival of Lights at Cupertino Memorial Park is free and draws over 13,000 people. For everything else, EventMozo and Sulekha both list dozens of Bay Area Indian events at any given time.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;margin-bottom:34px">
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">City weekends</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">Golden Gate Park is the default when you have four hours and no plan. Rent bikes, walk the Botanical Garden, do the de Young on a Saturday when it's free.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">The Ferry Building farmers market on Saturday morning is the other institution. Go before 10am, eat down the stalls, and expect to run into people from work. For families, Discover &amp; Go covers a good chunk of the museums kids actually like, which is where the library card starts paying for itself twice over.</p>
+      </div>
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Unwinding</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">The bathhouse and cold-plunge scene here is bigger than in most American cities, partly worth knowing because it's one of the few social settings in SF where nobody is pitching.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">Archimedes Banya in Bayview is the loud, social end: saunas, hammam, cold plunge, a rooftop deck over the Bay, chess nights, rooftop yoga, a recurring comedy show for guests in robes. Book carefully. It's co-ed most days but runs separate men's and women's nights, and people turn up on the wrong night and get turned away. Clothing is optional in the water areas, which catches some people out.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">Onsen in the Mission is the quiet opposite: a 104-degree communal tub, redwood sauna, steam room, cold plunge, swimsuits required on co-ed days, no phones. Kabuki in Japantown is the Japanese-style option. In the East Bay, Good Hot runs cedar saunas on the shore at around $120 for a six-person sauna, which is $20 a head with friends. Day passes across the city run $45 to $95.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Nightlife, and one legal warning</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Bars and clubs here are venues rather than an activity. The social value is in who you go with, and most founder drinking happens at someone's house or after an event rather than at a destination bar. Wine country is the exception, with the standard caveats: book tastings ahead, fees are per person and add up fast, and someone has to drive.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:16px 18px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">CANNABIS · THE ASYMMETRY</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Recreational cannabis is legal under California law and dispensaries are everywhere. It remains a Schedule I controlled substance under federal law, and immigration is federal. The consequence that catches people: a conviction isn't required. An admission of use to a consular officer or to CBP at the border can be enough to support a finding of inadmissibility, and that applies to use that was legal where it happened, including medical use with a state card. Working in the industry carries its own risk. For a non-immigrant visa holder the downside is asymmetric in a way no weekend is worth, because a bad outcome here is your status rather than a fine.</div>
+      <div style="font-size:13.5px;line-height:1.55;color:#5A5243;margin-top:10px;padding-top:10px;border-top:1px solid #EFE9DC">I'm not a lawyer and this page shouldn't be your only source on it. If it's relevant to you, talk to an immigration attorney rather than to the internet.</div>
+    </div>
+
+    <div style="border-top:1.5px solid #1A1712;padding-top:18px;margin:34px 0;max-width:640px">
+      <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">A note against the thesis of this page</h2>
+      <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">The premise here is that weekends make friendships, and I think that's right. But there's a version of it that goes wrong, which is treating every Saturday as a networking surface. Two things hold up better in practice than the optimising version.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">Show up to the same thing repeatedly rather than sampling twelve different things once. The people who end up with actual friends here are the ones at the same run or the same court every week, not the ones with the most varied calendar. Familiarity does the work, and it takes about six weeks.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">And some weekends should have no networking value at all. Fly to Tahoe with people you already like, sit in a sauna, drive to Point Reyes and not talk to anyone. The Bay is very good at converting rest into a professional activity, and the people who let it do that tend to be the ones who burn out around month nine.</p>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="9">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="5">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="14">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const POOL = [
+  { name: 'Founders Running Club', cat: 'MORNING · RUN', slot: 'morning', car: false, who: ['solo', 'couple'], cost: 'Free', star: true, note: 'Panhandle, Saturdays 9:30am. 5K and 10K with pace groups, coffee after, pets and friends welcome.' },
+  { name: 'Lands End coastal loop', cat: 'MORNING · HIKE', slot: 'morning', car: false, who: ['solo', 'couple', 'family'], cost: 'Free', star: true, note: '3.5 easy miles of ocean cliff. Muni along Geary to the Sutro Baths end. No booking, no planning.' },
+  { name: 'Ferry Building farmers market', cat: 'MORNING · FOOD', slot: 'morning', car: false, who: ['solo', 'couple', 'family'], cost: 'Cheap', note: 'Saturday morning institution. Go before 10am, eat down the stalls, expect to run into people from work.' },
+  { name: 'Twin Peaks', cat: 'MORNING · HIKE', slot: 'morning', car: false, who: ['solo', 'couple'], cost: 'Free', note: 'Short and steep. Muni plus a walk up. The whole city, laid out, in under two hours.' },
+  { name: 'Rodeo Beach, Marin Headlands', cat: 'MORNING · HIKE', slot: 'morning', car: false, who: ['solo', 'couple', 'family'], cost: 'Free', note: 'Muni 76X runs weekends and holidays only, roughly hourly, all the way to Fort Cronkhite. Check the last bus back.' },
+  { name: 'Sausalito stairways', cat: 'MORNING · HIKE', slot: 'morning', car: false, who: ['solo', 'couple'], cost: 'Ferry fare', note: '3.5 to 9.7 moderate miles into the Headlands. Ferry over, walk from the terminal.' },
+  { name: 'Temple, then lunch', cat: 'MORNING · RITUAL', slot: 'morning', car: true, who: ['solo', 'couple', 'family'], cost: 'Free + food', star: true, note: 'Fremont or Milpitas on a Sunday morning, then the best Indian food within a few minutes drive.' },
+  { name: 'Mission Peak', cat: 'MORNING · HARD HIKE', slot: 'morning', car: true, who: ['solo', 'couple'], cost: '$4 parking', note: '2,500 feet of climb. Park at Ohlone College, not the residential streets, and read the parking card below.' },
+  { name: 'Muir Woods', cat: 'MORNING · REDWOODS', slot: 'morning', car: false, who: ['solo', 'couple', 'family'], cost: '$15 + $4', note: 'Ferry then shuttle makes it car-free. Reservation required, bookable 90 days out, weekends sell out.' },
+  { name: 'Mount Tamalpais', cat: 'DAY · HIKE', slot: 'day', car: true, who: ['solo', 'couple', 'family'], cost: 'Parks pass', note: 'A full day. Easiest by car; ferry plus the West Marin Stagecoach also works if you plan it.' },
+
+  { name: 'de Young or Legion of Honor', cat: 'AFTERNOON · MUSEUM', slot: 'afternoon', car: false, who: ['solo', 'couple', 'family'], cost: 'Free Saturdays', star: true, note: 'Free every Saturday for Bay Area residents, and free for everyone the first Tuesday. Bring ID.' },
+  { name: 'Golden Gate Park, no plan', cat: 'AFTERNOON · PARK', slot: 'afternoon', car: false, who: ['solo', 'couple', 'family'], cost: 'Free', note: 'The default when you have four hours and nothing booked. Rent bikes, walk the Botanical Garden.' },
+  { name: 'Asian Art Museum', cat: 'AFTERNOON · MUSEUM', slot: 'afternoon', car: false, who: ['solo', 'couple', 'family'], cost: 'Free 1st Sunday', note: 'Permanent collection only on free days. Special exhibitions still cost.' },
+  { name: 'Pickleball at Presidio Wall', cat: 'AFTERNOON · SPORT', slot: 'afternoon', car: false, who: ['solo', 'couple', 'family'], cost: 'Free', note: 'Six courts, dawn to dusk, paddle queue, loaner paddles in the box. Intro class Tuesdays 10:30am.' },
+  { name: 'Badminton drop-in', cat: 'AFTERNOON · SPORT', slot: 'afternoon', car: true, who: ['solo', 'couple', 'family'], cost: '~$15–20', note: 'Bintang across six sites, Bay Badminton in SSF and Milpitas, Synergy in Fremont. Drop-ins welcome everywhere.' },
+  { name: 'Cricket with a BACA club', cat: 'AFTERNOON · SPORT', slot: 'afternoon', car: true, who: ['solo'], cost: 'Club fees', note: 'Post your profile on the BACA board and clubs recruit from it. Join before the season, not mid-way.' },
+  { name: 'SF Unicorns at the Coliseum', cat: 'AFTERNOON · CRICKET', slot: 'afternoon', car: false, who: ['solo', 'couple', 'family'], cost: 'From $15', note: 'Major League Cricket, June to July only. The Coliseum is a BART stop. Ashwin signed this season.' },
+  { name: 'India Community Center', cat: 'AFTERNOON · COMMUNITY', slot: 'afternoon', car: true, who: ['solo', 'couple', 'family'], cost: 'Membership', note: 'Milpitas. Table tennis, carrom, chess, dance, yoga, plus free legal and career clinics. Seven days a week.' },
+  { name: 'Half Moon Bay', cat: 'AFTERNOON · COAST', slot: 'afternoon', car: true, who: ['couple', 'family'], cost: 'Cheap', note: '45 minutes for a coastal walk and seafood. The easiest drive on this page.' },
+  { name: 'Livermore wine country', cat: 'AFTERNOON · WINE', slot: 'afternoon', car: true, who: ['couple'], cost: 'A third of Napa', note: 'Tasting rooms an hour out, and twenty minutes from the Shiva-Vishnu Temple.' },
+
+  { name: 'Archimedes Banya', cat: 'EVENING · SAUNA', slot: 'evening', car: false, who: ['solo', 'couple'], cost: '$45–95', note: 'Bayview. Saunas, hammam, cold plunge, rooftop over the Bay. Check the calendar for co-ed versus single-sex nights.' },
+  { name: 'Onsen, Mission', cat: 'EVENING · SAUNA', slot: 'evening', car: false, who: ['solo', 'couple'], cost: '$45–95', note: 'The quiet opposite. 104-degree communal tub, redwood sauna, cold plunge, no phones.' },
+  { name: 'Good Hot, East Bay', cat: 'EVENING · SAUNA', slot: 'evening', car: true, who: ['solo', 'couple', 'family'], cost: '~$120 for six', note: 'Cedar saunas on the shore of the Bay. $20 a head if you bring five friends.' },
+  { name: 'Garba night', cat: 'EVENING · FESTIVAL', slot: 'evening', car: true, who: ['solo', 'couple', 'family'], cost: 'Tiered tickets', note: 'Santa Clara Convention Center in the weeks before Diwali, with touring Gujarati artists. Buy early, it gets cheaper.' },
+  { name: 'Someone\u2019s house, after an event', cat: 'EVENING · SOCIAL', slot: 'evening', car: false, who: ['solo', 'couple'], cost: 'Free', note: 'Most founder drinking here happens in a kitchen rather than at a destination bar. Bars are venues, not an activity.' },
+
+  { name: 'Yosemite', cat: 'DAY TRIP', slot: 'day', car: true, who: ['solo', 'couple', 'family'], cost: 'Entrance fee', note: 'Four hours. No reservation system in 2026, but Valley lots fill by 7:30am. Be through the gate before 8 or don\u2019t bother.' },
+  { name: 'Lake Tahoe', cat: 'DAY TRIP', slot: 'day', car: true, who: ['solo', 'couple', 'family'], cost: 'Varies', note: 'Ski in winter, swim in summer. In winter it is a chain-control problem rather than a driving problem.' },
+  { name: 'Point Reyes', cat: 'DAY TRIP', slot: 'day', car: true, who: ['couple', 'family'], cost: 'Entrance fee', note: 'Two hours for coastline, a lighthouse and oysters. The library parks pass does not work here.' },
+  { name: 'Santa Cruz', cat: 'DAY TRIP', slot: 'day', car: true, who: ['family'], cost: 'Cheap', note: 'Boardwalk and redwoods in the same day, 90 minutes out.' },
+  { name: 'Big Sur', cat: 'DAY TRIP', slot: 'day', car: true, who: ['couple'], cost: 'Fuel', note: 'Open but unreliable. Check Caltrans QuickMap the morning you leave, not the week before.' },
+  { name: 'Mendocino', cat: 'DAY TRIP', slot: 'day', car: true, who: ['couple'], cost: 'Fuel', note: '3.5 hours for quiet coast and no crowds. The one on this list nobody else is driving to.' },
+  { name: 'Napa or Sonoma', cat: 'DAY TRIP', slot: 'day', car: true, who: ['couple'], cost: 'Fees add up', note: 'Book tastings ahead and designate a driver. Livermore does the same job forty minutes closer.' },
+];
+
+const DRIVES = [
+  { name: 'Half Moon Bay', min: 45 },
+  { name: 'Livermore', min: 60 },
+  { name: 'Santa Cruz', min: 90 },
+  { name: 'Napa / Sonoma', min: 90 },
+  { name: 'Point Reyes', min: 120 },
+  { name: 'Big Sur', min: 180 },
+  { name: 'Mendocino', min: 210 },
+  { name: 'Lake Tahoe', min: 210 },
+  { name: 'Yosemite', min: 240 },
+];
+
+const CHECKS = [
+  { id: 'card', text: 'Get a library card at your nearest branch, then set a reminder for 12:01am on the 1st to book Discover & Go passes' },
+  { id: 'parks', text: 'Check out a California State Library Parks Pass while you\u2019re there' },
+  { id: 'landsend', text: 'Do Lands End this weekend. No car, no booking, no planning' },
+  { id: 'invite', text: 'Invite one person you met at a weekday event to come with you' },
+  { id: 'run', text: 'Turn up at the Panhandle at 9:30 on Saturday for Founders Running Club' },
+  { id: 'baca', text: 'If you play cricket, post your profile on the BACA board before the next season opens' },
+  { id: 'muir', text: 'Book Muir Woods 90 days out if you want a weekend slot' },
+  { id: 'diwali', text: 'Put Diwali weekend, November 6–8, in your calendar now and buy Garba tickets early' },
+  { id: 'southbay', text: 'Schedule one Fremont or Livermore temple-and-food run and one ICC Milpitas visit this month' },
+];
+
+const KEY = 'bp-weekend-checks';
+const MS = 86400000;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const fmt = d => d.getDate() + ' ' + MONTHS[d.getMonth()];
+
+class Component extends DCLogic {
+  state = { car: 'any', who: 'any', roll: 0, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw) || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { car, who, roll } = this.state;
+
+    const matches = POOL.filter(p => (car === 'any' || !p.car) && (who === 'any' || p.who.includes(who)));
+    const pick = (slot, seed) => {
+      const opts = matches.filter(p => p.slot === slot);
+      if (!opts.length) return null;
+      const h = (roll * 9301 + seed * 49297 + 233) % 233280;
+      return opts[Math.floor((h / 233280) * opts.length) % opts.length];
+    };
+    const slots = [['MORNING', 'morning', 7], ['AFTERNOON', 'afternoon', 41], ['EVENING', 'evening', 97]];
+    const itinerary = slots.map(([label, s, seed]) => {
+      const item = pick(s, seed);
+      return { slot: label, color: '#FAF7F1',
+        name: item ? item.name : 'Nothing here yet',
+        note: item ? item.note : 'Loosen a filter and roll again. Not much survives "no car" plus "family" in the same evening.' };
+    });
+
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const nextFirst = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+    const diwali = new Date(2026, 10, 8);
+    const diwaliDays = Math.round((diwali - today) / MS);
+
+    return {
+      carChips: [['any', 'I have a car'], ['nocar', 'No car']].map(([v, label]) => ({
+        label, pick: () => this.setState({ car: v }),
+        border: car === v ? '#1A1712' : '#C9C0AD',
+        bg: car === v ? '#1A1712' : '#FFFDF8',
+        color: car === v ? '#FAF7F1' : '#3D3629',
+      })),
+      whoChips: [['any', 'Anyone'], ['solo', 'Solo'], ['couple', 'Couple'], ['family', 'Family']].map(([v, label]) => ({
+        label, pick: () => this.setState({ who: v }),
+        border: who === v ? '#1A1712' : '#C9C0AD',
+        bg: who === v ? '#1A1712' : '#FFFDF8',
+        color: who === v ? '#FAF7F1' : '#3D3629',
+      })),
+      itinLabel: roll === 0 ? 'A SATURDAY, PICKED FOR YOU' : 'ROLL ' + roll,
+      shuffleCta: roll === 0 ? 'Shuffle my Saturday' : 'Shuffle again',
+      shuffle: () => this.setState({ roll: roll + 1 }),
+      itinerary,
+      matchLabel: matches.length + ' of ' + POOL.length + ' things match',
+      pool: matches.map(p => ({
+        name: p.name, cat: p.cat, note: p.note,
+        star: p.star ? '★' : '',
+        starColor: accent,
+        border: p.star ? '#1A1712' : '#E2DACA',
+        meta: (p.car ? 'car' : 'no car') + ' · ' + p.who.join(', ') + ' · ' + p.cost,
+      })),
+      clock: [
+        { what: 'Discover & Go passes', rule: 'New passes open at 12:01am on the 1st, calendar runs the current month plus two out. Two active reservations at a time.', date: fmt(nextFirst), color: accent },
+        { what: 'Muir Woods', rule: 'Bookable 90 days ahead. Today you can hold a slot up to this date, and weekends go first.', date: fmt(new Date(today.getTime() + 90 * MS)), color: '#1A1712' },
+        { what: 'Rec & Park courts', rule: 'Reservations open seven days in advance at 8am and go fast on weekends.', date: fmt(new Date(today.getTime() + 7 * MS)), color: '#1A1712' },
+        { what: 'Diwali weekend', rule: 'Sunday 8 November 2026, with Dhanteras starting the five-day sequence on Friday 6 November. Garba tickets get cheaper the earlier you buy.', date: diwaliDays > 0 ? diwaliDays + ' days' : 'passed', color: accent },
+        { what: 'Cricket season', rule: 'BACA runs summer T20 and winter T25. Rosters fill before the season, and grounds are limited.', date: 'before it opens', color: '#8A8172' },
+      ],
+      drives: DRIVES.map(d => ({
+        name: d.name,
+        baseW: Math.round((d.min / 360) * 100) + '%',
+        trafficW: Math.round((d.min * 0.5 / 360) * 100) + '%',
+        label: d.min >= 60 ? (d.min / 60).toFixed(1).replace('.0', '') + ' hr' : d.min + ' min',
+      })),
+      gotchas: [
+        { tag: 'YOSEMITE · BE THROUGH BY 8AM', body: 'There is no day-use or peak-hours reservation system in 2026, including for Firefall. That is not the same as it being easy. Valley lots have been filling by 7:30am on weekends, and the park manages crowds with real-time traffic diversions rather than a booking website. Entrance fees still apply; Half Dome and wilderness permits are separate.' },
+        { tag: 'BIG SUR · CHECK THE MORNING OF', body: 'Highway 1 from Carmel to Cambria reopened on 14 January 2026 after the Regent\u2019s Slide closure, nearly 90 days early. It then closed again in February when storm debris overtopped the barriers, reopened later that month, and has had overnight closures near Point Sur since. Check Caltrans QuickMap the morning you leave.' },
+        { tag: 'TAHOE · BUY CHAINS IN THE BAY', body: 'Caltrans runs three levels. R-1 requires chains except on lighter vehicles with snow tyres on the drive wheels, R-2 exempts AWD and 4WD with snow-tread tyres, R-3 requires chains on everything and usually the highway closes first. Rental companies often don\u2019t supply chains and some contracts prohibit fitting them, so ask at the desk. Shops sell out during storms, and dodging a restriction on local streets doesn\u2019t work either.' },
+      ],
+      temples: [
+        { name: 'Shiva-Vishnu Temple', addr: '1232 Arrowhead Ave, Livermore. The largest in Northern California, and twenty minutes from the wine.' },
+        { name: 'Fremont Hindu Temple', addr: '3676 Delaware Dr, Fremont. Vedic Dharma Samaj.' },
+        { name: 'BAPS Shri Swaminarayan Mandir', addr: '1430 California Circle, Milpitas. Also at 950 Avalon Ave in SF.' },
+        { name: 'Sunnyvale Hindu Temple', addr: '450 Persian Dr, Sunnyvale. South Bay community hub.' },
+        { name: 'Gurdwara Sahib', addr: '300 Gurdwara Rd, Fremont.' },
+        { name: 'ISKCON Berkeley', addr: '2334 Stuart St, Berkeley. Sunday feast.' },
+      ],
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+      nobody: [
+        { t: 'The weekend invite is the networking move, not the event', d: '"Want to join our Saturday hike?" converts a business card into a friend, and asking someone you\u2019ve met once is expected rather than forward.' },
+        { t: 'Mission Peak\u2019s streets are permit-only all weekend', d: 'And the enforcement is real. Park at Ohlone College for $4 and take the longer route.' },
+        { t: 'Bay Area cricket is oversubscribed', d: 'Clubs compete over limited grounds. Join a roster before the season rather than assuming you can walk on mid-way.' },
+        { t: 'San Francisco empties on summer weekends', d: 'Everyone is in Tahoe, Marin or wine country, which means the city\u2019s best events have the least competition for a spot. Check the calendar before assuming nothing is on.' },
+        { t: 'Your library card beats any paid membership', d: 'Worth more than anything you\u2019ll consider signing up for in your first year here.' },
+      ],
+      sources: [
+        { label: 'famsf · free saturdays', url: 'https://www.famsf.org/' },
+        { label: 'sfpl · discover & go', url: 'https://sfpl.org/discover-and-go' },
+        { label: 'parks.ca.gov · library pass', url: 'https://www.parks.ca.gov/' },
+        { label: 'ebparks · mission peak', url: 'https://www.ebparks.org/parks/mission-peak' },
+        { label: 'gomuirwoods reservations', url: 'https://gomuirwoods.com/' },
+        { label: 'parksconservancy · transit to trails', url: 'https://parksconservancy.org/' },
+        { label: 'nps · yosemite', url: 'https://www.nps.gov/yose/index.htm' },
+        { label: 'caltrans quickmap', url: 'https://quickmap.dot.ca.gov/' },
+        { label: 'caltrans · chain requirements', url: 'https://dot.ca.gov/travel/winter-driving-tips/chain-requirements' },
+        { label: 'bay area cricket alliance', url: 'https://bayareacricket.org/' },
+        { label: 'sf unicorns', url: 'https://sfunicorns.com/' },
+        { label: 'pickleballsf', url: 'https://pickleballsf.com/' },
+        { label: 'sf rec & park', url: 'https://sfrecpark.org/' },
+        { label: 'founders running club', url: 'https://foundersrc.com/' },
+        { label: 'india community center', url: 'https://indiacc.org/' },
+        { label: 'bay badminton center', url: 'https://baybadminton.com/' },
+        { label: 'archimedes banya', url: 'https://banyasf.com/' },
+        { label: 'onsen sf', url: 'https://onsensf.com/' },
+      ],
+      navGroups: (() => {
+        const SELF = '__weekends';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S4 · LIVING THERE · ONGOING</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">DIRECTORY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">PRICES VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Indian groceries, and the American equivalents</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">Where to buy dal, paneer and <span style="position:relative;display:inline-block"><button onClick="{{ g.atta.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.atta.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">atta</button><sc-if value="{{ g.atta.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.atta.tag }}</span>{{ g.atta.def }}</span></sc-if></span>, what the American-store equivalents actually are, and how to eat well without cooking every night.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 24px;max-width:640px">The dotted words are for whoever is reading over your shoulder. Tap one.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:26px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT CHANGED, ONE</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Costco's Indian aisle is genuinely good now. Gopi paneer, Nanak ghee, atta, roti, basmati and Sona Masoori in bulk. The old habit of buying everything from the desi store quietly overpays for staples.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT CHANGED, TWO</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Delivery flipped the geography. With Weee! and Quicklly covering the city, living in SF is no longer grocery exile. The Fremont trip becomes monthly and social rather than weekly and necessary.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What do you actually need this week?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Tick the list, then set your situation. The answer is which trips you have to make, and which you don't.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHERE YOU LIVE</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ placeChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">YOUR SETUP</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ setupChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.toggle }}" style="display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">
+              <span style="width:9px;height:9px;border-radius:50%;background:{{ c.dot }};flex-shrink:0"></span>{{ c.label }}
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:6px 0;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:0 18px;padding:0 16px">
+        <sc-for list="{{ items }}" as="i" hint-placeholder-count="13">
+          <label style="display:grid;grid-template-columns:20px 1fr;gap:11px;align-items:baseline;padding:9px 0;cursor:pointer">
+            <input type="checkbox" checked="{{ i.on }}" onChange="{{ i.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+            <span>
+              <span style="display:block;font-size:14px;font-weight:600;line-height:1.35;color:{{ i.color }}">{{ i.name }}</span>
+              <sc-if value="{{ i.onlyDesi }}" hint-placeholder-val="{{ false }}">
+                <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--accent);margin-top:2px">NO SUBSTITUTE</span>
+              </sc-if>
+            </span>
+          </label>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">THIS WEEK'S TRIPS</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ plan.color }}">{{ plan.head }}</div>
+      <sc-if value="{{ plan.hasRuns }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px">
+          <sc-for list="{{ plan.runs }}" as="r" hint-placeholder-count="3">
+            <div style="border:1px solid #332D24;border-radius:10px;padding:14px 15px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ r.tagColor }};margin-bottom:6px">{{ r.tag }}</div>
+              <div style="font-size:15px;font-weight:800;line-height:1.25;margin-bottom:7px">{{ r.where }}</div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="3">
+                  <div style="font-size:13px;line-height:1.45;color:#C9C0AD">{{ it.v }}</div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ plan.note }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">A Costco membership runs about $65 a year for Gold Star. Split it with your co-living house, because Costco quantities assume a family of six anyway.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The translation table</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">What each thing is called on this side, and how close the substitute gets.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(180px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>YOU WANT</div><div>WHAT TO BUY HERE</div>
+      </div>
+      <sc-for list="{{ table }}" as="t" hint-placeholder-count="13">
+        <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(180px,1fr);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;background:{{ t.bg }}">
+          <div>
+            <div style="font-size:14px;font-weight:700;line-height:1.3">{{ t.name }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:{{ t.srcColor }};margin-top:3px">{{ t.src }}</div>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ t.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Where to go</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">In the city there is essentially one serious option, and it's a good one. The density is in Fremont and Sunnyvale, where Indian grocery is a solved problem rather than a hunt.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ stores }}" as="s" hint-placeholder-count="5">
+        <div style="border:1px solid {{ s.border }};background:#FFFDF8;border-radius:10px;padding:14px 15px">
+          <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:8px">
+            <span style="position:relative;width:32px;height:32px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#F1EBDD;display:grid;place-items:center">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:#8A8172">{{ s.initial }}</span>
+              {{ s.logo }}
+            </span>
+            <span style="flex:1;min-width:0">
+              <span style="display:block;font-size:14.5px;font-weight:800;letter-spacing:-0.01em;line-height:1.25">{{ s.name }}</span>
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:#8A8172;margin-top:3px">{{ s.area }}</span>
+            </span>
+          </div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ s.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">GO WEEKEND MORNINGS</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Desi store produce turns over fast but unevenly, so mornings just after a restock is when the methi and curry leaves are worth buying. And do not skip the freezer aisle: parathas and cut sabzi are the real weeknight survival kit on a founder's schedule.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Delivery, if you're in the city without a car</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">This is the part that changed. Two apps plus one monthly Fremont run covers everything.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ delivery }}" as="d" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 15px">
+          <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:8px">
+            <span style="position:relative;width:32px;height:32px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#F1EBDD;display:grid;place-items:center">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700;color:#8A8172">{{ d.initial }}</span>
+              {{ d.logo }}
+            </span>
+            <span style="flex:1;min-width:0">
+              <span style="display:block;font-size:14.5px;font-weight:800;letter-spacing:-0.01em;line-height:1.25">{{ d.name }}</span>
+            </span>
+          </div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ d.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Tiffin, when you stop cooking</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.tiffin.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.tiffin.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">tiffin</button><sc-if value="{{ g.tiffin.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tiffin.tag }}</span>{{ g.tiffin.def }}</span></sc-if></span> subscription is the single highest-leverage thing on this page if your evenings keep disappearing.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ tiffins }}" as="t" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(180px,1fr) 84px;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:700;line-height:1.3">{{ t.name }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ t.note }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#3D3629;text-align:right">{{ t.price }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Quality varies more than price does, so trial one for a week before you commit to a month.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Eating out, by area</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Where to look rather than what to order.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ eating }}" as="e" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ e.area }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ e.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  atta: { tag: 'ATTA', def: 'Whole-wheat flour, milled fine for rotis. American "whole wheat flour" is the same grain and a coarser grind, which is why the rotis come out denser.' },
+  tiffin: { tag: 'TIFFIN', def: 'A subscription of home-style Indian meals, delivered daily or weekly. Usually one cook or a small kitchen rather than a restaurant.' },
+};
+
+// at: sources in preference order. 'costco' only counts if you hold a membership.
+const ITEMS = [
+  { id: 'paneer', n: 'Paneer', at: ['costco', 'desi'], def: true,
+    note: 'Costco carries Gopi, whole-milk and firm, around $10, plus Royal Mahout. Fresh from any desi store otherwise, and Whole Foods halloumi at a push.' },
+  { id: 'atta', n: 'Atta', at: ['costco', 'desi'], def: true,
+    note: 'Costco carries it. Otherwise 20 lb bags at every desi store. Plain "whole wheat flour" works and is coarser, so the rotis come out denser.' },
+  { id: 'ghee', n: 'Ghee', at: ['costco', 'american', 'desi'], def: true,
+    note: 'Costco: Nanak Desi, 3.5 lb for about $25, or Kirkland Organic. Trader Joe\u2019s sells small jars if you just want to try one.' },
+  { id: 'rice', n: 'Basmati or Sona Masoori', at: ['costco', 'desi'],
+    note: 'Costco has Royal Basmati and Sona Masoori, both in bulk, at prices the desi stores can\u2019t match on volume.' },
+  { id: 'dahi', n: 'Dahi', at: ['american', 'desi'],
+    note: 'Whole-milk plain yogurt. Trader Joe\u2019s or Straus European-style is the closest to home dahi; desi brands are the thicker set.' },
+  { id: 'spices', n: 'Whole spices', at: ['american', 'costco', 'desi'],
+    note: 'Cumin, turmeric, coriander. Any Whole Foods or Trader Joe\u2019s aisle covers these, and there is no reason to make a special trip.' },
+  { id: 'frozen', n: 'Frozen parathas and roti', at: ['costco', 'desi'],
+    note: 'Costco carries both. The freezer aisle is the real weeknight survival kit on a founder\u2019s schedule.' },
+  { id: 'produce', n: 'Onions, tomatoes, ginger', at: ['costco', 'american'],
+    note: 'Bulk produce staples. Costco wins on volume; any American store does fine for a week\u2019s worth.' },
+  { id: 'masala', n: 'Masala blends', at: ['desi'], only: true, def: true,
+    note: 'Garam masala, chhole masala. MDH, Everest and Shan are everywhere in a desi store, and no American spice aisle substitutes for a blend.' },
+  { id: 'greens', n: 'Curry leaves, methi, small brinjal', at: ['desi'], only: true, def: true,
+    note: 'No real substitute exists at any American store. This is the thing the Fremont run is actually for.' },
+  { id: 'dals', n: 'Dals beyond the basics', at: ['desi'], only: true,
+    note: 'Toor and moong turn up in mainstream stores. Everything past that is a desi store or a delivery order.' },
+  { id: 'snacks', n: 'Indian snacks', at: ['desi'], only: true,
+    note: 'Not a substitution problem, a stocking problem. Buy more than you think you need, because you will not be back next week.' },
+  { id: 'pooja', n: 'Pooja items', at: ['desi'], only: true,
+    note: 'Bharat Bazar in Fremont is the reliable one for this, and has been since it was the Bay\u2019s first Indian grocery.' },
+];
+
+const RUNS = {
+  costco: { tag: 'BULK LAYER', where: 'One Costco run' },
+  american: { tag: 'ALREADY ON YOUR STREET', where: 'Your local supermarket' },
+  delivery: { tag: 'NO TRIP AT ALL', where: 'Weee! or Quicklly' },
+  desi: { tag: 'WORTH THE DRIVE', where: 'The desi store run' },
+};
+
+const CHECKS = [
+  { id: 'orientation', text: 'Do one Fremont or Sunnyvale orientation run: India Cash & Carry, Bharat Bazar, and a chaat stop. About two hours' },
+  { id: 'apps', text: 'Install Weee! and Quicklly, and test which one covers your ZIP at a low minimum' },
+  { id: 'costco', text: 'Get or split a Costco membership, and buy the ghee, rice, atta and paneer layer first' },
+  { id: 'tiffin', text: 'Trial one tiffin service for a week before subscribing monthly' },
+  { id: 'vouch', text: 'Add your own vouched store, tiffin or restaurant to the TFF directory' },
+];
+
+const KEY = 'bp-groceries';
+const favicon = d => 'https://www.google.com/s2/favicons?domain=' + d + '&sz=64';
+
+class Component extends DCLogic {
+  state = {
+    place: 'sf', car: false, costco: false, term: null, align: 'left',
+    picked: ITEMS.filter(i => i.def).map(i => i.id), done: {},
+  };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  saveChecks(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  logoEl(dom, pad) {
+    if (!dom) return null;
+    return React.createElement('img', {
+      src: favicon(dom), alt: '',
+      onError: e => { e.currentTarget.style.display = 'none'; },
+      style: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+        objectFit: 'contain', background: '#FFFFFF', padding: pad, boxSizing: 'border-box' },
+    });
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { place, car, costco, picked, term } = this.state;
+    const sfNoCar = place === 'sf' && !car;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 278 > window.innerWidth && r.right - 278 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // route each ticked item to the first source that is actually open to you
+    const route = i => {
+      for (const s of i.at) {
+        if (s === 'costco' && !costco) continue;
+        if (s === 'desi') return sfNoCar ? 'delivery' : 'desi';
+        return s;
+      }
+      return sfNoCar ? 'delivery' : 'desi';
+    };
+
+    const chosen = ITEMS.filter(i => picked.includes(i.id));
+    const bucket = {};
+    chosen.forEach(i => {
+      const k = route(i);
+      (bucket[k] = bucket[k] || []).push({ v: i.n });
+    });
+
+    const order = ['costco', 'american', 'delivery', 'desi'];
+    const runs = order.filter(k => bucket[k]).map(k => ({
+      tag: RUNS[k].tag, where: RUNS[k].where, items: bucket[k],
+      tagColor: k === 'desi' ? '#F5B896' : '#8A8172',
+    }));
+
+    const trips = order.filter(k => k !== 'delivery' && bucket[k]).length;
+    let head, note;
+    if (chosen.length === 0) {
+      head = 'Nothing on the list';
+      note = 'Tick what you actually need and this becomes a route rather than a directory.';
+    } else if (trips === 0) {
+      head = 'No trip at all';
+      note = 'Everything you ticked delivers. This is the part that changed: from the city without a car, Weee! and Quicklly cover a full Indian shop.';
+    } else {
+      head = trips === 1 ? 'One trip' : trips + ' trips';
+      const bits = [];
+      if (bucket.desi && !costco) bits.push('You are driving to Fremont for things Costco would have covered. A membership, or a share of one, removes most of that list.');
+      else if (bucket.desi) bits.push('The desi run is down to what genuinely has no substitute, which is the right size for it.');
+      if (bucket.delivery) bits.push('Everything else on your list delivers, so it does not need a trip.');
+      if (sfNoCar && bucket.desi) bits.push('Without a car this is a BART-and-carry job, so consider ordering it instead and saving the Fremont trip for a monthly social one.');
+      note = bits.join(' ') || 'Straightforward week.';
+    }
+
+    const srcLabel = { costco: 'COSTCO', american: 'ANY US STORE', desi: 'DESI STORE ONLY', delivery: 'DELIVERS' };
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      placeChips: [['sf', 'San Francisco'], ['south', 'South Bay or Fremont']].map(([v, label]) => ({
+        label, pick: () => this.setState({ place: v }),
+        border: place === v ? '#1A1712' : '#C9C0AD', bg: place === v ? '#1A1712' : '#FFFDF8', color: place === v ? '#FAF7F1' : '#3D3629',
+      })),
+      setupChips: [
+        { label: 'I have a car', on: car, toggle: () => this.setState({ car: !car }) },
+        { label: 'Costco membership', on: costco, toggle: () => this.setState({ costco: !costco }) },
+      ].map(c => ({
+        label: c.label, toggle: c.toggle,
+        border: c.on ? '#1A1712' : '#C9C0AD', bg: c.on ? '#1A1712' : '#FFFDF8',
+        color: c.on ? '#FAF7F1' : '#3D3629', dot: c.on ? '#7FD1A6' : '#C9C0AD',
+      })),
+
+      items: ITEMS.map(i => {
+        const on = picked.includes(i.id);
+        return {
+          name: i.n, on, onlyDesi: !!i.only,
+          color: on ? '#1A1712' : '#8A8172',
+          toggle: () => this.setState({ picked: on ? picked.filter(x => x !== i.id) : picked.concat(i.id) }),
+        };
+      }),
+
+      plan: { head, note, runs, hasRuns: runs.length > 0, color: trips === 0 && chosen.length > 0 ? '#7FD1A6' : '#FAF7F1' },
+
+      table: ITEMS.map(i => {
+        const k = route(i);
+        return {
+          name: i.n, note: i.note,
+          src: srcLabel[k],
+          srcColor: k === 'desi' ? accent : '#8A8172',
+          bg: picked.includes(i.id) ? '#F5F1E7' : 'transparent',
+        };
+      }),
+
+      stores: [
+        { name: 'New India Bazar', dom: 'nibsf.com', area: 'SF · 1107 POLK ST, NOB HILL', border: '#1A1712',
+          note: 'SF\u2019s oldest Indian grocery, thirty-plus years and an official SF Legacy Business. Spices, frozen parathas, fresh produce, and two-hour local delivery. Selection is thin next to the South Bay, so most city dwellers use it to fill gaps.' },
+        { name: 'India Cash & Carry', dom: 'indiacashandcarry.com', area: 'SUNNYVALE · FREMONT · SAN MATEO', border: '#1A1712',
+          note: 'The widest selection and the lowest prices, plus a chaat counter and home delivery. If you make one orientation trip, make it this one. Fremont is at 39175 Farwell Dr.' },
+        { name: 'Bharat Bazar', dom: 'bharatbazar.com', area: 'FREMONT · SUNNYVALE · UNION CITY', border: '#E2DACA',
+          note: 'The Bay\u2019s first Indian grocery. Strongest on produce and pooja items. Fremont is at 3400 Mowry Ave.' },
+        { name: 'Namaste Plaza', dom: 'namastecart.com', area: 'FREMONT · 3269 WALNUT AVE', border: '#E2DACA',
+          note: 'Spices and fresh greens, with online ordering through namastecart.com if you would rather not drive.' },
+        { name: 'Apna Bazar and Patel Brothers', dom: 'patelbros.com', area: 'SANTA CLARA · SAN JOSE · SUNNYVALE', border: '#E2DACA',
+          note: 'Apna Bazar runs 24x7, which matters more than it sounds like it should. Patel Brothers is the national chain, so the stock is predictable.' },
+      ].map(s => ({ ...s, logo: this.logoEl(s.dom, '4px'), initial: s.name.charAt(0) })),
+
+      delivery: [
+        { name: 'Weee!', dom: 'sayweee.com',
+          note: 'A full Indian store section with free delivery at low minimums. The default if you are in the city.' },
+        { name: 'Quicklly', dom: 'quicklly.com',
+          note: 'Groceries, tiffins and meal kits Bay-wide, with same-day through Instacart in SF and Oakland.' },
+        { name: 'The stores themselves', dom: null,
+          note: 'India Cash & Carry and New India Bazar both run their own delivery, and Namaste Plaza takes online orders. Worth checking against the apps on a big shop.' },
+      ].map(d => ({ ...d, logo: this.logoEl(d.dom, '4px'), initial: d.name.charAt(0) })),
+
+      tiffins: [
+        { name: 'Tiffin Bay', price: '~$12/day', note: 'Bay-wide homemade tiffin, running since 2001, with free delivery. The safe first subscription.' },
+        { name: 'Akshar Tiffins', price: 'ask', note: 'Veg and Jain tiffin across Sunnyvale, Cupertino, Mountain View, Santa Clara and Palo Alto.' },
+        { name: 'India Food Kitchen', price: 'ask', note: 'Office lunch catering across SF, the Peninsula and the South Bay, rather than a home subscription.' },
+        { name: 'Sulekha listings', price: 'from ~$15', note: 'Dozens more, including regional kitchens like Andhra-style. Quality varies widely, so ask the Slack before subscribing.' },
+      ],
+
+      eating: [
+        { area: 'SAN FRANCISCO', note: 'Dosa and modern Indian cluster in the Mission and the Financial District. Good, and narrower than what sits an hour south.' },
+        { area: 'SUNNYVALE AND SANTA CLARA', note: 'The densest Indian restaurant strip in the Bay, and the only place with real regional range: Andhra, Gujarati thali, Chettinad. This is what SF lacks.' },
+        { area: 'FREMONT', note: 'The best chaat-to-price ratio anywhere in the Bay, including the counter inside India Cash & Carry itself.' },
+      ],
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.saveChecks({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.saveChecks({}),
+
+      sources: [
+        { label: 'new india bazar · sf', url: 'https://nibsf.com' },
+        { label: 'india cash & carry', url: 'https://www.indiacashandcarry.com' },
+        { label: 'bharat bazar', url: 'https://www.bharatbazar.com' },
+        { label: 'namaste plaza · online', url: 'https://www.namastecart.com' },
+        { label: 'weee! · indian store', url: 'https://www.sayweee.com' },
+        { label: 'quicklly', url: 'https://www.quicklly.com' },
+        { label: 'tiffin bay', url: 'https://www.tiffinbay.com' },
+        { label: 'the kitchn · costco indian list', url: 'https://www.thekitchn.com' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__groceries';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

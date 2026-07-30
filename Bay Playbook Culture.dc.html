@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S4 · LIVING THERE · ONGOING</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">V2 · VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">SF culture for Indian founders and operators</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 28px;max-width:640px">The unwritten rules of professional life in the Bay, translated for someone arriving from India. Everyone here is extremely nice to you and almost nobody will tell you no. Those two facts are the same fact.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:22px 24px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">{{ raceLabel }}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+        <sc-for list="{{ founders }}" as="f" hint-placeholder-count="2">
+          <div style="border:1px solid {{ f.border }};background:{{ f.bg }};border-radius:10px;padding:16px 18px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ f.tag }}</div>
+            <div style="font-size:20px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;color:{{ f.headColor }};margin-bottom:8px">{{ f.head }}</div>
+            <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ f.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC">
+        <div style="font-size:14.5px;line-height:1.55;color:#5A5243;max-width:420px">{{ raceNote }}</div>
+        <button onClick="{{ toggleRace }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer;border:1px solid #1A1712;background:#1A1712;color:#FAF7F1;white-space:nowrap" style-hover="background:var(--accent);border-color:var(--accent)">{{ raceCta }}</button>
+      </div>
+    </div>
+
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">That's Thiyagarajan Maruthavan's example, not mine. He runs Upekkha out of SF and Bangalore and says he watches it repeat every month. His diagnosis is one sentence long, and if you only keep one line from this page, keep his rather than any of mine.</p>
+    <div style="border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0 0 20px;max-width:640px">
+      <div style="font-family:'Caveat',cursive;font-size:27px;font-weight:700;line-height:1.25;color:#1A1712">The Valley is a network that occasionally manifests as a market.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The optimistic version is also true, and it's worth holding both. NFAP counted 96 US unicorns with Indian-origin founders in June 2026, more than any other country of origin. Roughly a quarter of all US billion-dollar companies have a founder who first arrived as an international student.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Read the fine print on that list, though. Most of them landed at 22, spent a decade inside the network, and then started something. Arriving at 34 with a company that already works is the harder version of the same move, because you skipped the decade. Culture is the part of that gap you can close in months rather than years, which is the only reason this page exists.</p>
+    <div style="border-left:2px solid #C9C0AD;padding-left:14px;margin:0 0 34px;max-width:600px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">ASIDE · GEOGRAPHY, SO YOU DON'T SAY IT WRONG</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.65;color:#5A5243">Silicon Valley is the South Bay. The Peninsula runs roughly Palo Alto to Daly City. San Francisco is neither. This is why nobody in San Francisco says they work in Silicon Valley and everybody outside California assumes they do.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The mismatch everything else comes from</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Erin Meyer's culture map plots professional communication on axes that turn out to be uncomfortably predictive. Two of them matter here, and the interesting thing is not where India sits. It's where the US sits.</p>
+
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px 16px;margin-bottom:12px">
+      <div style="position:relative;height:250px;border-left:1.5px solid #C9C0AD;border-bottom:1.5px solid #C9C0AD;margin:0 0 0 8px">
+        <div style="position:absolute;left:0;right:0;top:50%;height:1px;background:#EFE9DC"></div>
+        <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:#EFE9DC"></div>
+        <sc-for list="{{ mapDots }}" as="d" hint-placeholder-count="4">
+          <div style="position:absolute;left:{{ d.x }};top:{{ d.y }};width:0;height:0">
+            <span style="position:absolute;left:0;top:0;transform:translate(-50%,-50%);width:{{ d.size }};height:{{ d.size }};border-radius:50%;background:{{ d.color }}"></span>
+            <span style="position:absolute;top:0;left:{{ d.labelLeft }};right:{{ d.labelRight }};transform:translateY(-50%);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:{{ d.font }};font-weight:{{ d.weight }};color:{{ d.color }}">{{ d.label }}</span>
+          </div>
+        </sc-for>
+        <div style="position:absolute;top:-2px;left:6px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172">BLUNT ABOUT BAD NEWS</div>
+        <div style="position:absolute;bottom:4px;left:6px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172">CUSHIONED ABOUT BAD NEWS</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin:8px 0 0 8px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172">
+        <span>EXPLICIT · SAYS THE OBVIOUS TWICE</span>
+        <span>IMPLICIT · READ THE ROOM</span>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #EFE9DC;font-size:14px;line-height:1.6;color:#3D3629">Look at the bottom-left corner. The most explicit culture on earth about information is also one of the most cushioned about verdicts. Americans will spell out the obvious, put it in writing, and say it twice, then decline to tell you no. India and the US are close neighbours on cushioning; they are opposite ends of the room on everything else. That is the whole misunderstanding, plotted.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">The practical consequence: nobody will tell you no. They will tell you everything else, at length, warmly, with follow-up reading, and you will walk out of the room believing something happened.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Your first conversations</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Leading with the pitch signals seriousness in Bangalore. Here it signals that you have classified the person in front of you as a lead. The sequence is relationship, then trust, then ask, and if they are interested they will ask what you're building without any prompting from you.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ r.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ r.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border-left:2px solid #C9C0AD;padding-left:14px;margin:0 0 14px;max-width:600px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">ASIDE · SMALL TELLS THAT MARK YOU AS NEW</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.65;color:#5A5243">Physical business cards now read slightly badly at tech events; the swap is LinkedIn or a phone contact. Dress smart casual with a layer you can shed, because the temperature moves 20–30°F between the South Bay and SF in an hour's drive, and you will otherwise be the person carrying a wet jacket around a rooftop party.</div>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">WHERE THIS BREAKS</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">At demo days, office hours and accelerator sessions, pitching immediately is the protocol and holding back reads as unprepared. The no-pitch rule is for unstructured rooms, which is most of them, but not all of them. Read the room type before you read the room.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The decoder</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Tap what you heard. This is the page you'll actually come back to.</p>
+    <div style="display:flex;gap:6px;margin-bottom:12px">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <button onClick="{{ m.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:0.06em;padding:7px 14px;border-radius:7px;cursor:pointer;border:1px solid {{ m.border }};background:{{ m.bg }};color:{{ m.color }}" style-hover="border-color:#1A1712">{{ m.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+      <sc-for list="{{ phrases }}" as="p" hint-placeholder-count="6">
+        <button onClick="{{ p.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ p.border }};background:{{ p.bg }};color:{{ p.color }};text-align:left" style-hover="border-color:#1A1712">{{ p.said }}</button>
+      </sc-for>
+    </div>
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div style="min-width:220px;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">WHAT IT USUALLY MEANS</div>
+          <div style="font-size:24px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-top:3px">{{ decode.means }}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">TEMPERATURE</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;margin-top:4px;color:{{ decode.tempColor }}">{{ decode.temp }}</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:16px;padding-top:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">WHAT TO DO</div>
+        <div style="font-size:15px;line-height:1.6;color:#C9C0AD;max-width:600px">{{ decode.action }}</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Investors here almost never say no to your face, and it isn't cowardice. There's no upside in it. The market is small, founders talk, and the company they pass on today might be one their best portfolio founder drags them into in eighteen months. So the door stays technically open while the decision is fully closed.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The only reliable signal of a live deal is velocity plus a concrete next step. Warmth is not signal. Warmth is the ambient temperature of the entire city.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The expensive mistake is reading "keep me posted" as a maybe and then mailing monthly updates into a dead inbox for a year. A soft pass is more recoverable than most founders think, but not through persistence. Only through a changed fact. Work out the objection underneath it, fix it or reframe it, then come back once.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The same cushioning runs through ordinary work, which matters as much for an operator joining a US company as for a founder raising. To get the direct version you have to ask for it, and the phrasing does the work: "what's the strongest reason this fails?" gets you an answer where "any feedback?" gets you a compliment. The good question makes the honest answer socially safe.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Silence does not read as respect</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Open disagreement about ideas is normal here, and Meyer places India among the cultures that view publicly aired disagreement dimly. Staying quiet out of deference reads as having no view. Say the thing, courteously, in the room, while the room is still open.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Trust is task-based, and it evaporates</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">It gets built by working together rather than by years of knowing someone. Indian operators underrate both halves: you can build real trust with an American colleague in six weeks, faster than you'd manage at home, and it thins out just as fast once the shared work stops.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Money at the table</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Bills split evenly by default. Nobody is embarrassed by it, you aren't expected to host, and insisting on paying for the table can land as a status move rather than as hospitality. If someone says they've got it, accept it and get the next one.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:12px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">TIPPING · USE THE REAL NUMBER</div>
+        <div style="display:flex;gap:24px;margin-bottom:8px">
+          <div><div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">19.3%</div><div style="font-size:12px;color:#8A8172">full service</div></div>
+          <div><div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">15.8%</div><div style="font-size:12px;color:#8A8172">quick service</div></div>
+        </div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Toast's Q1 2026 transaction data. Twenty percent at a sit-down meal never reads badly. At counter service, take the suggested button or round up.</div>
+      </div>
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">THE TRAP IS THE PAYMENT RAIL</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Venmo is the social default, and Venmo cannot complete identity verification without an SSN or ITIN. You can still send and receive off a linked bank account or card, but it may demand an SSN once you're sending $300 or more in a rolling seven-day window, which one founder dinner and two group Ubers will clear. Install it in week one, expect the cap, and run group maths through Splitwise until your number lands. Sequencing is on the <a href="Bay Playbook Guides.dc.html#money">money and ITIN page</a>.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:26px 0 10px">Hierarchy is genuinely flat</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Interns email partners. New arrivals DM famous founders. Titles buy nothing in conversation, first names go for everyone including people twenty years senior, and visible deference reads as weakness rather than courtesy. You don't wait to be invited before approaching someone. The approach is the norm.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">The inverse gets forgotten, and it's the half that actually compounds. Be as generous with the 22-year-old nobody as with the partner, because in this town they are frequently next year's somebody, and people remember exactly which version of you they met.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The part nobody writes down</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Pattern matching here is documented rather than imagined, and the documentation is bleak enough to be useful. A UCLA Anderson study of more than 93,000 potential VC-founder deals found this:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:12px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">+10%</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629;margin-top:4px">odds of getting funded when the investor's face resembles the founder's, holding shared age, ethnicity and gender constant.</div>
+      </div>
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">−14%</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629;margin-top:4px">odds of a successful exit for every 10-point rise in the share of investors who closely resemble the founder. This is the number to hold onto.</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Read those two together and the conclusion is oddly freeing: it's a defect in their process rather than a verdict on you, and it is measurably expensive for them.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Your credentials also don't travel, which is the quiet one. IIT and IIM are known quantities to Indian investors and to Indian-origin operators here. To a generalist partner they are a line on a page. Maruthavan's framing is that roots come from an education layer, an experience layer or an ambition layer, and with none of the three locally you start below zero rather than at it. Joining things fixes it, over roughly a year.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">THE MONTH-THREE COUNT</div>
+      <div style="font-size:15.5px;font-weight:700;line-height:1.4;margin-bottom:14px">Of your last ten meetings, how many were with the diaspora?</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+        <sc-for list="{{ counters }}" as="c" hint-placeholder-count="2">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">{{ c.label }}</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <button onClick="{{ c.dec }}" style="width:30px;height:30px;border-radius:8px;border:1px solid #C9C0AD;background:#FAF7F1;color:#1A1712;font-family:'IBM Plex Mono',monospace;font-size:15px;cursor:pointer" style-hover="border-color:#1A1712">−</button>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;min-width:28px;text-align:center">{{ c.n }}</div>
+              <button onClick="{{ c.inc }}" style="width:30px;height:30px;border-radius:8px;border:1px solid #C9C0AD;background:#FAF7F1;color:#1A1712;font-family:'IBM Plex Mono',monospace;font-size:15px;cursor:pointer" style-hover="border-color:#1A1712">+</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:10px;background:#EFE9DC;border-radius:999px;overflow:hidden;margin-top:16px;display:flex">
+        <div style="height:100%;background:var(--accent);width:{{ diasporaW }}"></div>
+      </div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid #EFE9DC;font-size:15px;font-weight:700;color:#1A1712">{{ diasporaVerdict }}</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">One call of my own, and it's the one I'd argue about. The diaspora is the fastest way to land and the slowest way to build a US customer base, if it's the only network you build. It is genuinely easy to spend a year inside desi founder WhatsApp groups feeling well connected while having met nobody who could be a customer or a co-founder. If fewer than half your meetings by month three are outside it, correct that deliberately, because it will not correct itself.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="border-top:1.5px solid #1A1712;padding-top:18px;margin-bottom:34px;max-width:640px">
+      <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Have you made this move?</h2>
+      <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">We're collecting first-hand accounts from Indian founders and operators one to ten years in. What you misread, what it cost you, what you'd tell someone landing next month. Send it over and we'll credit you, or keep it anonymous if you'd rather.</p>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="7">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const INVESTOR = [
+  { said: '"Keep me posted"', means: 'A pass, said warmly', temp: 'DEAD', action: 'Stop the update drip. Come back only with a changed fact.' },
+  { said: '"Let me know when you have more traction"', means: 'A pass, re-openable', temp: 'DEAD', action: 'Ask which metric they doubted, directly, before you leave the room. That answer is the only thing worth carrying out of the meeting.' },
+  { said: '"This is interesting"', means: 'Interest without commitment', temp: 'NEUTRAL', action: 'Treat it as neutral until a next step is on the calendar. Interesting is what people say about weather.' },
+  { said: '"Happy to make some intros"', means: 'A pass with a consolation prize', temp: 'DEAD', action: 'Take the intros anyway. They are real and they compound, which is more than the meeting gave you.' },
+  { said: '"You\u2019re a bit early for us"', means: 'A pass that keeps their option open', temp: 'DEAD', action: 'Ask what specifically would make you not-early. Vague answer means it was never about the stage.' },
+  { said: 'A partner meeting, within days', means: 'Actual interest', temp: 'LIVE', action: 'Clear your calendar. Velocity plus a concrete next step is the only reliable signal there is.' },
+];
+
+const WORK = [
+  { said: '"Interesting"', means: 'Unconvinced', temp: 'DEAD', action: 'Ask what would convince them. You have one shot before the topic moves on.' },
+  { said: '"Have you considered X?"', means: 'Do X', temp: 'NEUTRAL', action: 'Do X, or say clearly why not. This is an instruction wearing a question mark.' },
+  { said: '"I love the energy, and one thing to think about..."', means: 'The message starts after the "and"', temp: 'NEUTRAL', action: 'Ignore the first clause entirely. Write down the second one word for word.' },
+  { said: '"This is great, just a couple of small things"', means: 'Possibly a rewrite', temp: 'DEAD', action: 'Ask which of the small things they would fix first. The order tells you the real size.' },
+];
+
+const CHECKS = [
+  { id: 'intro', text: 'Write the 15-second no-pitch intro. Plain English, ends with a question for them' },
+  { id: 'decoder', text: 'Read the decoder before your first investor meeting, and again after it' },
+  { id: 'invite', text: 'Make "calendar invite within the hour" your permanent default' },
+  { id: 'venmo', text: 'Install Venmo now, set 20% as your mental default, keep Splitwise for group maths until your SSN lands' },
+  { id: 'ask', text: 'Ask one person this week what the strongest reason your thing fails is, then sit through the answer' },
+  { id: 'count', text: 'At the end of month three, count what share of your meetings were outside the diaspora' },
+];
+
+const KEY = 'bp-culture-checks';
+
+class Component extends DCLogic {
+  state = { later: false, mode: 'investor', phrase: 0, inside: 7, outside: 3, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw) || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const later = this.state.later;
+    const list = this.state.mode === 'investor' ? INVESTOR : WORK;
+    const sel = list[Math.min(this.state.phrase, list.length - 1)];
+    const tempColor = sel.temp === 'LIVE' ? '#7FD1A6' : sel.temp === 'NEUTRAL' ? '#F5B896' : accent;
+
+    const inside = this.state.inside, outside = this.state.outside;
+    const total = inside + outside;
+    const share = total ? Math.round((outside / total) * 100) : 0;
+    let diasporaVerdict;
+    if (total === 0) diasporaVerdict = 'Zero meetings is its own answer, and the fix is a Luma account rather than a spreadsheet.';
+    else if (share >= 50) diasporaVerdict = share + '% of your meetings are outside the diaspora. That is the right side of the line. Keep it there.';
+    else diasporaVerdict = 'Only ' + share + '% of your meetings are outside the diaspora. Comfortable, and it will quietly cost you a year.';
+
+    const doneCount = CHECKS.filter(c => this.state.done[c.id]).length;
+
+    return {
+      raceLabel: later ? 'SIX MONTHS LATER' : 'THE WEEK THEY BOTH LANDED',
+      raceCta: later ? '← Back to landing week' : 'Six months later →',
+      toggleRace: () => this.setState({ later: !later }),
+      raceNote: later
+        ? 'Same market, same six months. One of them had a decade of the network already banked, and the network is the part that was never on the pitch deck.'
+        : 'Two founders, same week, same city. Guess which one is closing a Series A by Christmas.',
+      founders: [
+        { tag: 'FOUNDER A', border: later ? '#C9C0AD' : '#1A1712', bg: later ? '#F7F3EA' : '#FFFDF8',
+          headColor: later ? '#8A8172' : '#1A1712',
+          head: later ? 'Still can\u2019t get meetings' : '$2M ARR',
+          body: later ? 'The product still works. The customers still pay. The inbox is still warm and entirely useless.' : '100 paying customers, 40% margins, a product people buy on purpose. Landed at 34 with a company that already works.' },
+        { tag: 'FOUNDER B', border: later ? '#1A1712' : '#C9C0AD', bg: later ? '#FFFDF8' : '#F7F3EA',
+          headColor: later ? accent : '#8A8172',
+          head: later ? 'Closing a Series A' : 'No product',
+          body: later ? 'Nothing shipped. Ten years of the network, three of them at Stripe, and a room full of people who owe him a reply.' : 'Finished at Stanford, three years at Stripe. A deck, a thesis and a Notion doc.' },
+      ],
+      mapDots: [
+        { label: 'US', x: '13%', y: '84%', size: '13px', color: accent, font: '13px', weight: 700, labelLeft: '12px', labelRight: 'auto' },
+        { label: 'India', x: '66%', y: '72%', size: '13px', color: '#1A1712', font: '13px', weight: 700, labelLeft: '12px', labelRight: 'auto' },
+        { label: 'Netherlands', x: '20%', y: '16%', size: '8px', color: '#8A8172', font: '11px', weight: 500, labelLeft: '10px', labelRight: 'auto' },
+        { label: 'Japan', x: '80%', y: '90%', size: '8px', color: '#8A8172', font: '11px', weight: 500, labelLeft: 'auto', labelRight: '10px' },
+      ],
+      rules: [
+        { t: 'Have the 15-second answer ready before you land', d: '"What are you building?" is the standard opener in this city and you will answer it several times a week. Plain English, no category jargon, ends with a question back at them.' },
+        { t: 'Small talk is the handshake, not the delay', d: 'Every meeting opens with two or three minutes of it. Skipping straight to business reads as transactional, which is a strange thing to be accused of in a business meeting, and yet.' },
+        { t: 'Give first, and give before you need anything', d: 'Steve Blank traces the norm to Bob Noyce taking calls from a 20-year-old Steve Jobs. People help strangers and expect the ecosystem rather than the individual to repay it. An intro, a real answer in a group chat, a document already sitting in your Drive.' },
+        { t: 'Send the calendar invite within the hour', d: '"Let\u2019s get coffee" is vapor until an invite exists with a location or a link on it. Rescheduling with notice is fine. Silent no-shows get remembered for years.' },
+      ],
+      modes: [
+        { label: 'FROM AN INVESTOR', pick: () => this.setState({ mode: 'investor', phrase: 0 }),
+          border: this.state.mode === 'investor' ? '#1A1712' : '#C9C0AD',
+          bg: this.state.mode === 'investor' ? '#1A1712' : '#FFFDF8',
+          color: this.state.mode === 'investor' ? '#FAF7F1' : '#3D3629' },
+        { label: 'AT WORK', pick: () => this.setState({ mode: 'work', phrase: 0 }),
+          border: this.state.mode === 'work' ? '#1A1712' : '#C9C0AD',
+          bg: this.state.mode === 'work' ? '#1A1712' : '#FFFDF8',
+          color: this.state.mode === 'work' ? '#FAF7F1' : '#3D3629' },
+      ],
+      phrases: list.map((p, i) => ({
+        said: p.said,
+        border: i === this.state.phrase ? '#1A1712' : '#C9C0AD',
+        bg: i === this.state.phrase ? '#1A1712' : '#FFFDF8',
+        color: i === this.state.phrase ? '#FAF7F1' : '#3D3629',
+        pick: () => this.setState({ phrase: i }),
+      })),
+      decode: { means: sel.means, action: sel.action, temp: sel.temp, tempColor },
+      counters: [
+        { label: 'WITH THE DIASPORA', n: inside,
+          inc: () => this.setState({ inside: Math.min(50, inside + 1) }),
+          dec: () => this.setState({ inside: Math.max(0, inside - 1) }) },
+        { label: 'OUTSIDE IT', n: outside,
+          inc: () => this.setState({ outside: Math.min(50, outside + 1) }),
+          dec: () => this.setState({ outside: Math.max(0, outside - 1) }) },
+      ],
+      diasporaW: share + '%',
+      diasporaVerdict,
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: doneCount + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+      nobody: [
+        { t: 'The only real yes is speed', d: 'A concrete next step within days. Everything warm and unscheduled is a no wearing a nicer coat.' },
+        { t: 'Who introduced you matters more than people admit', d: 'The Bay is tribal, and a sponsor beats any amount of cold outreach. Give-first isn\u2019t charity. It\u2019s how sponsors get acquired.' },
+        { t: 'Being liked is not the same as being funded or hired', d: 'You can have a wonderful year here, be well regarded by everyone you meet, and end it no closer to anything. The give-first norm has no natural stopping point built into it, so you have to build one yourself.' },
+      ],
+      sources: [
+        { label: 'Maruthavan · roots, credentials, momentum', url: 'https://medium.com/@mtrajan/roots-reputation-momentum-what-silicon-valley-actually-values-7cb2f1975549' },
+        { label: 'Steve Blank · pay-it-forward culture', url: 'https://steveblank.com/2011/09/15/the-pay-it-forward-culture/' },
+        { label: 'NFAP · immigrant billion-dollar companies', url: 'https://nfap.com/studies/3170/' },
+        { label: 'Erin Meyer · culture map tool', url: 'https://erinmeyer.com/corporate-mapping-tool-report/' },
+        { label: 'Adamant · translating VC email', url: 'https://adamantventures.substack.com/p/translating-the-9-most-common-lines' },
+        { label: 'Owyang · Silicon Valley culture', url: 'https://jowyang.beehiiv.com/p/silicon-valley-culture' },
+        { label: 'Cerebral Valley · event index', url: 'https://cerebralvalley.ai/' },
+      ],
+      navGroups: (() => {
+        const SELF = '__culture';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+textarea{font-family:'Archivo',sans-serif}
+textarea:focus{outline:2px solid #1A1712;outline-offset:1px}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S4 · LIVING THERE · ONGOING</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">V2 · VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Networking in SF</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 12px;max-width:640px">A channel-by-channel map of how this actually works. Where the events live, which rooms are worth paying for, and how to run all of it on a calendar that still has a team in IST attached to it.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 24px;max-width:640px">In any given week this city runs more founder galas, hackathons, demo nights and late-night builders' cafes than you could attend if attending were your job, and half the good ones are waitlisted before you hear about them. That density is the promise and the trap. It is also what turns a calendar into a badge collection, which is the one thing your first 90 days should not produce.</p>
+
+    <div style="display:flex;align-items:flex-end;gap:28px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">DISTINCT CHANNELS</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">8</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">YOU SHOULD PICK</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">2 or 3</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">THAT ASK FOR AN SSN</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">0</div>
+      </div>
+    </div>
+
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Networking here is not one activity. It is eight distinct channels, each with its own rules and its own failure mode, which is why one person's six months of SF beats nine years of New York and the next person's report says the only thing worth attending was a small dinner. Both are right. The move is to pick two or three and go deep, and the only real question is which.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which channels are yours</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">It depends on what you are short of, not on what sounds impressive. Answer three things.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT YOU'RE SHORT OF</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ shortChips }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT YOU ARE</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ roleChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHERE YOU SLEEP</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ placeChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">GO DEEP ON THESE, IGNORE THE REST</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ picked }}" as="p" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #332D24">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.08em;color:{{ p.rankColor }};padding-top:4px">{{ p.rank }}</span>
+            <span>
+              <span style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                <span style="font-size:19px;font-weight:800;letter-spacing:-0.015em;line-height:1.2">{{ p.name }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#F5B896">{{ p.cost }}</span>
+              </span>
+              <span style="display:block;font-size:14px;line-height:1.55;color:#C9C0AD;margin-top:3px">{{ p.why }}</span>
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:5px">HOW YOU GET IN · {{ p.entry }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ prescription }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:20px">Nothing on this page checks your credit score, your SSN, or your visa class. Housing and banking will make you feel like you arrived yesterday. This layer runs at full speed from day one, so front-load it while the bureaucratic systems catch up.</div>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(160px,1fr) 118px;gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>ALL EIGHT CHANNELS</div><div>WHAT IT IS</div><div style="text-align:right">COST</div>
+      </div>
+      <sc-for list="{{ allChannels }}" as="c" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(160px,1fr) 118px;gap:6px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;background:{{ c.bg }}">
+          <div style="display:flex;align-items:baseline;gap:7px">
+            <span style="font-size:14px;font-weight:{{ c.weight }};line-height:1.3">{{ c.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent)">{{ c.mark }}</span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ c.what }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#3D3629;text-align:right">{{ c.cost }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Luma is the rail, and the good stuff is unlisted</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Most SF events never surface on Luma's public discover page. By some counts the large majority are unlisted and visible only if you follow the host's calendar. So don't browse. Subscribe to ten or fifteen host calendars and let the events come to you.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Partiful is the second layer, house parties and socials rather than talks, and it genuinely gates on a US phone number, so sort your eSIM first. Which makes a cheap eSIM and a filled-out LinkedIn networking infrastructure, weirdly.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">GO · ALL THREE MUST BE TRUE</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ goodSigns }}" as="s" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:16px 1fr;gap:9px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#1A1712;font-weight:700">✓</span><span style="font-size:14px;line-height:1.5;color:#3D3629">{{ s.v }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:8px">SKIP · ANY ONE IS ENOUGH</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <sc-for list="{{ badSigns }}" as="s" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:16px 1fr;gap:9px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);font-weight:700">×</span><span style="font-size:14px;line-height:1.5;color:#3D3629">{{ s.v }}</span></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">The city's permanent circuit of ticketed mega-mixers fails every part of that test, so skip it entirely. One or two high-value events a week beats five random ones, because you're optimising for repeat encounters with the same people rather than contact volume. Where an event asks for your LinkedIn or a short application, fill it out properly: the host is curating the room and a blank profile gets rejected. Apply the day a listing posts, not the day before it happens, because half the good ones waitlist.</p>
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">THE OTHER HALF OF THE GRAPH</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Group chats. The WhatsApp and Discord threads where hosts drop events before they're listed and intros get traded in real time. There is no application form. You get added by someone who has seen you twice, which is the repeat-encounters thesis converting itself into infrastructure. Once you have that context, ask outright: "is there a group where this crew coordinates?" is a normal question here, not a presumptuous one.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">The annual anchor is SF Tech Week each October, run by a16z. The public calendar is maybe half of what is happening that week. The value is in the unlisted side dinners, and you get into those by asking the hosts of the small events you did attend.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Draft the cold DM</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Cold DMs work here in a way they don't in most cities, and length is the tell. Write yours now, while you have the etiquette in front of you. It saves in your browser.</p>
+    <div style="border:1.5px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:18px 20px;margin-bottom:12px">
+      <textarea value="{{ dm }}" onChange="{{ setDm }}" onInput="{{ setDm }}" rows="5" placeholder="Engage with their posts for a week first. Then: one line on who you are, one sharp specific question about something they actually said, and nothing else." style="width:100%;box-sizing:border-box;font-size:15px;line-height:1.6;color:#1A1712;background:#FAF7F1;border:1px solid #C9C0AD;border-radius:8px;padding:12px 14px;resize:vertical"></textarea>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid #EFE9DC">
+        <div style="font-size:14.5px;font-weight:700;color:{{ dmColor }};max-width:440px;line-height:1.5">{{ dmVerdict }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:700;color:{{ dmColor }};white-space:nowrap">{{ dmCount }}<span style="font-size:12px;font-weight:500;color:#8A8172"> / 70 words</span></div>
+      </div>
+      <div style="height:8px;background:#EFE9DC;border-radius:999px;overflow:hidden;margin-top:10px">
+        <div style="height:100%;width:{{ dmBarW }};background:{{ dmColor }};border-radius:999px"></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">DO</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <sc-for list="{{ dmDo }}" as="s" hint-placeholder-count="4">
+            <div style="font-size:14px;line-height:1.5;color:#3D3629">{{ s.v }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">DON'T</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <sc-for list="{{ dmDont }}" as="s" hint-placeholder-count="4">
+            <div style="font-size:14px;line-height:1.5;color:#8A8172;text-decoration:line-through">{{ s.v }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">The channel compounds with the public one: post a demo, a teardown, a real number, and the replies start flowing toward you instead.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-bottom:34px">
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Hackathons</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">Weekend builds nearly every week, AI-heavy, with <a href="https://cerebralvalley.ai" target="_blank">Cerebral Valley</a> and <a href="https://aitinkerers.org" target="_blank">AI Tinkerers</a> as the two rails to watch. Building alongside people creates trust in a way small talk never does, so demo something even if it's rough. The demo is the networking.</p>
+      </div>
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Coffee walks</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">The default first one-to-one is not a conference room. It's a 30 to 45 minute walk with coffee, and you suggest it explicitly: "want to do a coffee walk near the Mission?" Side by side makes candid conversation easier than across a table.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">Three or four a week is the ceiling if you're also running a company, not the target. Two or three, each ending with a concrete next step or an intro you owe, compounds fine.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Dinners, and the rung below hosting</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">An eight-person curated dinner produces more real relationships than a 200-person mixer. Hosting one is the strongest move available to a newcomer, and you don't need to feel established to do it.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">There's a rung below hosting that costs nothing, though. Most SF events run understaffed, so message the organiser on the Luma page and offer to work check-in or take photos. You've just upgraded from attendee to team, with a reason to talk to everyone who walks in. Thank the organisers on your way out regardless. They're the best-connected and least-thanked people in the room, and helpers get invited back, sometimes onto the stage.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">When you do host, use one serial host's trick: go around the table and have each person introduce the person to their left, not themselves. Everyone has to have a real conversation before dinner starts and nobody gets to recite their pitch. Venues, budgets and the sponsor model sit on the Where to Host Events page.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Recurring rooms, and the two with doors</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Relationships compound with frequency, so a weekly community builds trust far faster than a monthly one. Choosing between two groups, pick the one that meets weekly. The desi founder communities are mapped with entry paths in the <a href="Bay Playbook Directory.dc.html">Desi Directory</a>: pick one anchor there, then make sure at least half your meetings by month three happen outside it, for the reasons on the <a href="Bay Playbook Culture.dc.html">culture page</a>.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">A large share of it happens in workout clothes, with the pitch pressure removed. Founders Running Club meets Saturdays in the Panhandle, casual pace groups, coffee after. Show up three weeks in a row and you have a network. The <a href="Bay Playbook Weekends.dc.html">weekends page</a> has the rest of the circuit.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="2">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:5px">{{ r.price }}</div>
+          <div style="font-size:15.5px;font-weight:800;letter-spacing:-0.01em;margin-bottom:8px">{{ r.name }}</div>
+          <div style="font-size:14px;line-height:1.6;color:#3D3629">{{ r.body }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#5A5243;margin-top:9px;padding-top:9px;border-top:1px solid #EFE9DC">{{ r.way }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Neither room is necessary. Both are shortcuts to density if the free channels are already working for you, and following Frontier Tower's open events calendar for a month is the cheap way to find out whether you'd use it.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your evenings are India's mornings</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">This is where corridor networking runs aground, and people quietly stop showing up by month two. Same day, both clocks.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">{{ clockLabel }}</div>
+        <button onClick="{{ toggleClock }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;border:1px solid #1A1712;background:#1A1712;color:#FAF7F1;white-space:nowrap" style-hover="background:var(--accent);border-color:var(--accent)">{{ clockCta }}</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:118px 1fr;gap:10px 14px;align-items:center">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#8A8172">SF EVENTS</div>
+        <div style="position:relative;height:26px;background:#EFE9DC;border-radius:6px">
+          <div style="position:absolute;top:0;bottom:0;left:70.6%;width:17.6%;background:var(--accent);border-radius:6px;display:grid;place-items:center">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:#FFFFFF;white-space:nowrap">6–9PM</span>
+          </div>
+        </div>
+
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#8A8172">INDIA SYNC</div>
+        <div style="position:relative;height:26px;background:#EFE9DC;border-radius:6px">
+          <div style="position:absolute;top:0;bottom:0;left:{{ syncLeft }};width:5.88235%;background:#1A1712;border-radius:6px"></div>
+          <span style="position:absolute;top:0;bottom:0;left:{{ syncLabelLeft }};display:flex;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:#1A1712;white-space:nowrap">{{ syncLabel }}</span>
+        </div>
+
+        <div></div>
+        <div style="position:relative;height:15px;border-top:1px solid #E2DACA;margin-top:2px">
+          <sc-for list="{{ sfTicks }}" as="t" hint-placeholder-count="6">
+            <span style="position:absolute;left:{{ t.left }};top:3px;transform:{{ t.xf }};font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8A8172;white-space:nowrap">{{ t.label }}</span>
+          </sc-for>
+        </div>
+
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;text-align:right">SAME MOMENT,<br>IN IST</div>
+        <div style="position:relative;height:15px">
+          <sc-for list="{{ istTicks }}" as="t" hint-placeholder-count="6">
+            <span style="position:absolute;left:{{ t.left }};top:0;transform:{{ t.xf }};font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:{{ t.color }};white-space:nowrap">{{ t.label }}</span>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ clockNote }}</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Solve it structurally rather than nightly. Pick two protected event evenings a week and tell your India team they're immovable, then move the recurring syncs to your early morning, which is their evening. Nightly negotiation is what fails, because it makes every event a decision and eventually the answer is no.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">SPEND THIS WHILE YOU HAVE IT</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">"I just moved to SF" is the best cold-outreach line you will ever hold, and it expires. Use it in month one on the people you'd otherwise be too intimidated to message.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">The two rules that govern everything</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:17px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Don't pitch first</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The give-first norm is real. Lead with curiosity or a useful offer and let the other person ask what you're building. Pitching in the first five minutes marks you as a taker. The full translation of this, and how to read the polite American no, is on the <a href="Bay Playbook Culture.dc.html">culture page</a>.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:17px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Follow up inside 24 hours</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">While they still remember you. Reference something specific from the conversation and include something useful, a link or an intro offer. Never a generic "great to meet you." And past the first dozen people memory stops scaling: a plain spreadsheet of who, where, and what you owe them beats every networking app.</div>
+      </div>
+    </div>
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">If you're an operator, not a founder</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">"What are you building?" still opens every conversation, so have an answer about your craft or the problem you own, because "I work at X" ends conversations here in a way it doesn't in Bangalore. Hiring runs through the dinner-and-group-chat graph long before it reaches a listing, and the person who pulls you into your next role will be someone who has watched you think out loud three times. If you're technical, shipping something over a weekend is the fastest way to become legible to the founders who are hiring.</p>
+
+    <div style="border:1.5px solid #C9C0AD;background:#F7F3EA;border-radius:10px;padding:16px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">THE COUNTER-POSITION, WHICH SERIOUS BUILDERS HOLD</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">That the circuit is mostly hype, and that New York founders network half the week while SF founders disappear and ship. They aren't entirely wrong, and this page is built to survive the critique: one or two events a week, protected shipping time, and the demo as the best networking there is.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">One caveat: the venue layer churns fast, and today's centre of gravity is usually a building nobody was talking about two years ago. Trust the channels on this page longer than the addresses, and check membership prices on the room's own site rather than here.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="8">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const CH = {
+  luma: { name: 'Luma host calendars', cost: 'Free',
+    what: 'The rail almost every SF tech event runs on',
+    entry: 'subscribe to hosts; many events take a short application',
+    why: 'Not a channel you choose so much as the one everything else arrives through. Ten to fifteen host calendars, then let events come to you.' },
+  hack: { name: 'Hackathons', cost: 'Free',
+    what: 'Weekend builds, AI-heavy, nearly every week',
+    entry: 'apply via Cerebral Valley or AI Tinkerers listings',
+    why: 'Forty-eight hours of building alongside people does what six months of small talk cannot. The demo is the pitch.' },
+  coffee: { name: 'Coffee walks', cost: 'Free',
+    what: 'The SF default first one-to-one',
+    entry: 'you suggest it',
+    why: 'Thirty to forty-five minutes walking. Lower stakes than a table, and candid in a way a meeting room never is.' },
+  dm: { name: 'Cold DMs on X', cost: 'Free',
+    what: 'The channel that works here and almost nowhere else',
+    entry: 'engage for a week, then keep it under 70 words',
+    why: 'The one channel you can run from Bengaluru before you land. Compounds with posting: ship a teardown and the replies come to you.' },
+  dinner: { name: 'Curated dinners', cost: 'Usually free',
+    what: '8 to 12 people, the highest-density format there is',
+    entry: 'get invited once, then volunteer, then host',
+    why: 'Eight people beats two hundred every time. Investors are in these rooms and not at the mixers.' },
+  comm: { name: 'Recurring communities', cost: 'Mostly free',
+    what: 'Same faces weekly: run clubs, demo nights, desi groups',
+    entry: 'show up three weeks in a row',
+    why: 'Frequency is the whole mechanism. Weekly cadence builds trust faster than anything monthly, and shared work does the filtering for you.' },
+  frontier: { name: 'Frontier Tower', cost: 'Paid membership',
+    what: 'A 16-floor deep-tech hub at 995 Market, several events a day',
+    entry: 'application at frontiertower.io, or just follow its open calendar',
+    why: 'The gravitational centre of the deep-tech scene. Worth paying for only once the free channels are already working.' },
+  shack: { name: 'SHACK15', cost: 'Paid, by referral',
+    what: 'A founder social club upstairs in the Ferry Building',
+    entry: 'a member nominates you, or come as a guest',
+    why: 'Referral-gated, which is exactly why the room is warm. The honest way in as a newcomer is a guest invite, not the application form.' },
+};
+
+const ORDER = ['luma', 'hack', 'coffee', 'dm', 'dinner', 'comm', 'frontier', 'shack'];
+
+// what you're short of -> the two channels that actually address it
+const SHORT = {
+  customers: { label: 'Customers', picks: ['dm', 'hack'],
+    line: 'Your users already gather at the hackathons and demo nights. Go where they are and demo, rather than describing the product at a mixer.' },
+  investors: { label: 'Investors', picks: ['dinner', 'shack'],
+    line: 'Investors are at the small curated tables and the referral-gated rooms, not the ticketed mixers. Read the polite-no table on the culture page before your first meeting rather than after.' },
+  peers: { label: 'Peers or a co-founder', picks: ['comm', 'hack'],
+    line: 'Shared work does the filtering for you. Weekly cadence and a weekend build tell you more about someone than any number of coffees.' },
+  job: { label: 'A job', picks: ['coffee', 'comm'],
+    line: 'Hiring here moves through the dinner-and-group-chat graph long before it reaches a listing. The person who pulls you into your next role will have watched you think out loud three times.' },
+};
+
+const CHECKS = [
+  { id: 'luma', text: 'Subscribe to 10 Luma host calendars' },
+  { id: 'pick', text: 'Pick your one or two events for this week and apply today, because the good ones waitlist' },
+  { id: 'hack', text: 'Register for one hackathon in the next 30 days via Cerebral Valley or AI Tinkerers' },
+  { id: 'run', text: 'Show up to Founders Running Club this Saturday' },
+  { id: 'dm', text: 'Draft your 70-word cold DM above, then send three this week' },
+  { id: 'evenings', text: 'Block your two protected event evenings and move India syncs off them' },
+  { id: 'southbay', text: 'South Bay based? Block one SF evening a week around the train and pick one local anchor' },
+  { id: 'followup', text: 'Set a recurring 15-minute daily slot for 24-hour follow-ups' },
+];
+
+const KEY = 'bp-networking';
+// The strip spans SF 6am to 11pm. IST is 12h30m ahead.
+const LO = 6, SPAN = 17;
+const pct = h => ((h - LO) / SPAN) * 100;
+const pos = h => pct(h) + '%';
+// Anchoring depends on where a tick actually sits, not on its place in the
+// array: only a tick ON an edge may hang off it, everything else centres.
+const tick = h => {
+  const p = pct(h);
+  return { left: p + '%', xf: p <= 0 ? 'none' : p >= 100 ? 'translateX(-100%)' : 'translateX(-50%)' };
+};
+
+class Component extends DCLogic {
+  state = { short: 'customers', role: 'founder', place: 'sf', fixed: false, dm: '', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ done: s.done || {}, dm: s.dm || '' });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { done: this.state.done, dm: this.state.dm, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { short, role, place, fixed, dm } = this.state;
+    const sh = SHORT[short];
+
+    // Luma is the rail regardless. Operators get coffee walks and communities pushed up.
+    let ids = sh.picks.slice();
+    if (role === 'operator') {
+      ['comm', 'coffee'].forEach(k => { if (!ids.includes(k)) ids.unshift(k); });
+      ids = ids.slice(0, 2);
+    }
+    // Paying for a room only makes sense if you are in the city.
+    if (place === 'south') ids = ids.filter(k => k !== 'frontier' && k !== 'shack');
+    if (ids.length < 2) ids.push(short === 'investors' ? 'comm' : 'dinner');
+    const picked = ['luma'].concat(ids.filter(k => k !== 'luma')).slice(0, 3);
+
+    let prescription = sh.line;
+    if (place === 'south') {
+      prescription += ' And the networking maths runs against you in the South Bay: the founder scene has re-concentrated hard in SF proper. Protect one SF evening a week around the train, plus one local anchor with weekly cadence, rather than pretending the two scenes are interchangeable.';
+    }
+    if (role === 'operator') {
+      prescription += ' As an operator, have an answer about your craft or the problem you own, because "I work at X" ends conversations here in a way it doesn\u2019t in Bangalore.';
+    }
+
+    const words = dm.trim() ? dm.trim().split(/\s+/).filter(Boolean).length : 0;
+    let dmVerdict, dmColor;
+    if (words === 0) { dmVerdict = 'One line on who you are, one sharp question. That\u2019s the whole message.'; dmColor = '#8A8172'; }
+    else if (words <= 45) { dmVerdict = 'Short, which is right. Check there is exactly one ask in there.'; dmColor = '#1A1712'; }
+    else if (words <= 70) { dmVerdict = 'In range. Anything you can cut, cut.'; dmColor = '#1A1712'; }
+    else if (words <= 90) { dmVerdict = 'Over. Find the sentence explaining your company and delete it.'; dmColor = accent; }
+    else { dmVerdict = 'This reads as a pitch, and it will not get a reply. Cut it roughly in half.'; dmColor = accent; }
+
+    // Even 3-hour steps only. A tick at 23 sits 2 hours from 21 and the IST
+    // labels, widened by the +1-day superscript, collide there.
+    const sfTicks = [6, 9, 12, 15, 18, 21];
+    const istLabel = h => {
+      const t = (h + 12.5) % 24;
+      const hh = Math.floor(t), mm = t % 1 ? '30' : '00';
+      const ampm = hh < 12 ? 'am' : 'pm';
+      const h12 = hh % 12 === 0 ? 12 : hh % 12;
+      return h12 + ':' + mm + ampm + (h + 12.5 >= 24 ? '⁺¹' : '');
+    };
+
+    return {
+      shortChips: Object.keys(SHORT).map(k => ({
+        label: SHORT[k].label, pick: () => this.setState({ short: k }),
+        border: short === k ? '#1A1712' : '#C9C0AD', bg: short === k ? '#1A1712' : '#FFFDF8', color: short === k ? '#FAF7F1' : '#3D3629',
+      })),
+      roleChips: [['founder', 'Founder'], ['operator', 'Operator']].map(([v, label]) => ({
+        label, pick: () => this.setState({ role: v }),
+        border: role === v ? '#1A1712' : '#C9C0AD', bg: role === v ? '#1A1712' : '#FFFDF8', color: role === v ? '#FAF7F1' : '#3D3629',
+      })),
+      placeChips: [['sf', 'San Francisco'], ['south', 'South Bay']].map(([v, label]) => ({
+        label, pick: () => this.setState({ place: v }),
+        border: place === v ? '#1A1712' : '#C9C0AD', bg: place === v ? '#1A1712' : '#FFFDF8', color: place === v ? '#FAF7F1' : '#3D3629',
+      })),
+
+      picked: picked.map((k, i) => ({
+        name: CH[k].name, cost: CH[k].cost, why: CH[k].why, entry: CH[k].entry,
+        rank: i === 0 ? 'THE RAIL' : 'GO DEEP',
+        rankColor: i === 0 ? '#8A8172' : accent,
+      })),
+      prescription,
+
+      allChannels: ORDER.map(k => ({
+        name: CH[k].name, what: CH[k].what, cost: CH[k].cost,
+        mark: picked.includes(k) ? '●' : '',
+        weight: picked.includes(k) ? 800 : 500,
+        bg: picked.includes(k) ? '#F5F1E7' : 'transparent',
+      })),
+
+      goodSigns: [
+        { v: 'A named host with a track record' },
+        { v: 'A specific topic, not a vibe' },
+        { v: 'An application or a capped guest list' },
+      ],
+      badSigns: [
+        { v: '"Networking mixer" with no agenda' },
+        { v: 'Open bar as the headline' },
+        { v: '500-plus RSVPs' },
+      ],
+
+      dm,
+      setDm: e => this.persist({ dm: e.target.value }),
+      dmCount: words,
+      dmVerdict, dmColor,
+      dmBarW: Math.min(100, (words / 70) * 100) + '%',
+      dmDo: [
+        { v: 'Engage with their posts for a week first' },
+        { v: 'Keep it under about 70 words, one clear ask' },
+        { v: 'Make the ask small and specific: does X apply to Y?' },
+        { v: 'One follow-up after 48 hours, then stop' },
+      ],
+      dmDont: [
+        { v: 'DM out of nowhere with "can we hop on a call"' },
+        { v: 'Send your deck in message one' },
+        { v: 'Ask for 30 minutes of their time' },
+        { v: 'Bump three times' },
+      ],
+
+      rooms: [
+        { name: 'Frontier Tower', price: 'PAID · BY APPLICATION',
+          body: 'Sixteen themed floors at 995 Market, event venues on floors 2 and 16, and a calendar running several events a day by its own count, many of them open to non-members via Luma. They call membership citizenship.',
+          way: 'You do not need to join to benefit. Follow the open events calendar for a month first.' },
+        { name: 'SHACK15', price: 'PAID · BY REFERRAL',
+          body: 'The softer-edged founder club upstairs in the Ferry Building. Coworking with bay views by day, AI events and dinners by night.',
+          way: 'Referral-gated: a member nominates you. As a newcomer the real path in is a guest invite or a ticketed public event.' },
+      ],
+
+      clockLabel: fixed ? 'THE FIX · SYNCS MOVED TO YOUR MORNING' : 'THE COLLISION · WHY PEOPLE STOP SHOWING UP BY MONTH TWO',
+      clockCta: fixed ? '← Show the collision' : 'Show the fix →',
+      toggleClock: () => this.setState({ fixed: !fixed }),
+      syncLeft: fixed ? pos(7) : pos(18.5),
+      // label rides just outside the band: one hour is only ~20px wide
+      syncLabelLeft: 'calc(' + ((fixed ? 7 : 18.5) - LO + 1) / SPAN * 100 + '% + 8px)',
+      syncLabel: fixed ? '7–8AM' : '6:30–7:30PM',
+      clockNote: fixed
+        ? 'Same sync, moved to 7am your time, which is 7:30pm theirs. Their evening instead of their morning, and your two protected evenings are now free every week without a negotiation.'
+        : 'Read the two rows against each other. SF events run 6 to 9pm, which is 6:30 to 9:30am in Bengaluru the next day, exactly when your team wakes up and your standup wants you. These are not competing commitments you can balance. They are the same three hours.',
+      sfTicks: sfTicks.map(h => ({
+        ...tick(h),
+        label: (h % 12 === 0 ? 12 : h % 12) + (h < 12 ? 'am' : 'pm'),
+      })),
+      istTicks: sfTicks.map(h => ({
+        ...tick(h),
+        label: istLabel(h),
+        color: h >= 18 && h <= 21 ? accent : '#8A8172',
+      })),
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+
+      sources: [
+        { label: 'luma · sf', url: 'https://luma.com/sf' },
+        { label: 'cerebral valley', url: 'https://cerebralvalley.ai' },
+        { label: 'ai tinkerers', url: 'https://aitinkerers.org' },
+        { label: 'frontier tower', url: 'https://frontiertower.io' },
+        { label: 'shack15', url: 'https://www.shack15.com' },
+        { label: 'founders running club', url: 'https://foundersrc.com' },
+        { label: 'sf tech week', url: 'https://www.sftechweek.com' },
+        { label: 'partiful', url: 'https://partiful.com' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__networking';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

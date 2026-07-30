@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#FAF7F1">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FAF7F1"/>
+    <rect x="470" y="280" width="240" height="240" rx="36" fill="#1A1712"/>
+    <rect x="450" y="260" width="240" height="240" rx="36" fill="#6C8CF5"/>
+    <path d="M510 380 L555 428 L640 322" fill="none" stroke="#FAF7F1" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&family=Silkscreen:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input::placeholder{color:#9B927F}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 28px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:22px">
+    <div>
+      <div style="line-height:1;width:fit-content">
+        <div style="font-family:'Caveat',cursive;font-size:21px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:31px;font-weight:700;color:var(--accent);text-shadow:3px 3px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:21px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:10px">India → SF, for founders</div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#8A8172">YOUR MOVE</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#1A1712">{{ progressLabel }}</span>
+      </div>
+      <div style="height:6px;background:#E7E0D2;border-radius:99px;overflow:hidden;margin-bottom:18px"><div style="height:100%;background:var(--accent);border-radius:99px;transition:width .3s;width:{{ progressPct }}%"></div></div>
+      <nav style="display:flex;flex-direction:column">
+        <sc-for list="{{ navStages }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" style="display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:10px;padding:10px 10px;border-radius:8px;color:#1A1712" style-hover="background:#F1EBDD">
+            <span style="width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;border:1.5px solid {{ n.dotBorder }};background:{{ n.dotBg }};color:{{ n.dotColor }}">{{ n.num }}</span>
+            <span style="font-size:14px;font-weight:600">{{ n.title }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">{{ n.count }}</span>
+          </a>
+        </sc-for>
+      </nav>
+    </div>
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SHOW</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+          <button onClick="{{ f.onClick }}" style="display:flex;align-items:center;gap:8px;text-align:left;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px;cursor:pointer;border:1.5px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }}"><span style="width:8px;height:8px;border-radius:50%;background:{{ f.dot }}"></span>{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:13px;padding-top:16px;border-top:1px solid #E2DACA">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">ALL 20 GUIDES</div>
+      <sc-for list="{{ pageIndex }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#B3A995;margin-bottom:4px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:1px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:block;padding:5px 8px;border-radius:6px;font-size:12.5px;font-weight:600;color:#1A1712" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px">
+      <a href="Bay Playbook Decisions.dc.html" style="display:block;border:1.5px solid #1A1712;color:#1A1712;padding:10px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:#F1EBDD;color:#1A1712">Decision index</a>
+      <a href="Bay Playbook Directory.dc.html" style="display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;text-align:center">Last verified Jul 2026 · SA</div>
+    </div>
+  </aside>
+
+  <main style="padding:56px 56px 64px;box-sizing:border-box;min-width:0">
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;margin-bottom:28px">
+      <div style="flex:1;min-width:340px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;color:var(--accent);font-weight:600;margin-bottom:14px">S0 · START HERE</div>
+        <h1 style="font-size:46px;line-height:1.05;font-weight:900;letter-spacing:-0.03em;margin:0 0 16px;max-width:620px;text-wrap:balance">You&rsquo;ve <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">decided</em> to move. This is the <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">checklist</em>.</h1>
+        <p style="font-size:17px;line-height:1.55;max-width:580px;margin:0;color:#3D3629">For the founder with tickets booked and a visa appointment taken. A friend in SF will tell you half of this — we cover the half <strong>nobody tells you</strong>.</p>
+      </div>
+      <img src="https://framerusercontent.com/images/53D5YShf24JrgYPgiJngc0hKkA.png?width=1536&height=1024" alt="Founders walking by the Golden Gate Bridge — watercolor" style="width:280px;flex:none;mix-blend-mode:multiply;border-radius:4px">
+    </div>
+
+    <div style="border:1.5px solid #1A1712;border-radius:10px;background:#FFFDF8;margin-bottom:12px;overflow:hidden">
+      <button onClick="{{ toggleReality }}" style="width:100%;display:flex;align-items:center;gap:12px;padding:16px 20px;background:transparent;border:none;cursor:pointer;font-family:'Archivo',sans-serif;text-align:left" style-hover="background:#F6F1E6">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;background:var(--accent);color:#FAF7F1;padding:4px 8px;border-radius:4px">REALITY CHECK</span>
+        <span style="font-size:15px;font-weight:700;color:#1A1712">The honest 60-second version — read before anything else</span>
+        <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8A8172">{{ realityChevron }}</span>
+      </button>
+      <sc-if value="{{ realityOpen }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:4px 20px 20px;border-top:1px solid #EFE9DC">
+          <p style="margin:12px 0 10px;font-size:15.5px;line-height:1.65;color:#3D3629;max-width:640px">It&rsquo;s expensive, it&rsquo;s lonely for the first two months, and your visa is the single biggest thing between you and everything else here. Rent will hurt — the SF 1-bed median just crossed $4,000/mo (Jul 2026, +21.9% in a year). If you haven&rsquo;t raised, aren&rsquo;t default-alive, or are moving because the timeline looks good on X — <strong>don&rsquo;t move yet</strong>.</p>
+          <a href="https://thefounderfolks.com/bay-playbook/reality-check" target="_blank" style="font-size:14px;font-weight:700">Read the full Reality Check →</a>
+        </div>
+      </sc-if>
+    </div>
+
+    <a href="Bay Playbook Decisions.dc.html" style="display:flex;align-items:center;gap:14px;background:#1A1712;color:#FAF7F1;border-radius:10px;padding:15px 20px;margin-bottom:44px" style-hover="background:#2B2620;color:#FAF7F1">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;background:var(--accent);color:#FAF7F1;padding:4px 8px;border-radius:4px;white-space:nowrap">D1–D10</span>
+      <span style="font-size:14.5px;font-weight:600;line-height:1.4">Arriving mid-decision? Start with the 10 questions founders actually ask — go or wait, visa path, entity, where to live.</span>
+      <span style="margin-left:auto;font-weight:800">→</span>
+    </a>
+
+    <div style="display:flex;flex-direction:column;gap:40px">
+      <sc-for list="{{ stages }}" as="stage" hint-placeholder-count="5">
+        <section id="{{ stage.id }}" data-screen-label="{{ stage.num }}" style="scroll-margin-top:24px">
+          <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px">
+            <h2 style="font-size:21px;font-weight:800;letter-spacing:-0.01em;margin:0">{{ stage.title }}</h2>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">{{ stage.when }}</span>
+          </div>
+          <div style="font-size:13.5px;color:#6B6252;margin-bottom:14px">{{ stage.blurb }}</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ stage.items }}" as="item" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:#FFFDF8;border:1px solid {{ item.rowBorder }};border-radius:10px;cursor:pointer;transition:border-color .15s" style-hover="border-color:#1A1712" onClick="{{ item.onToggle }}">
+                <div style="width:22px;height:22px;flex:none;margin-top:1px;border:1.5px solid #1A1712;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#FAF7F1;background:{{ item.boxBg }};transition:background .15s">{{ item.mark }}</div>
+                <div style="min-width:0;flex:1">
+                  <div style="font-size:15.5px;font-weight:600;line-height:1.4;color:{{ item.txtColor }};text-decoration:{{ item.deco }};text-decoration-color:#B8AE9A">{{ item.text }}</div>
+                  <div style="display:flex;align-items:center;gap:12px;margin-top:5px">
+                    <a href="{{ item.href }}" onClick="{{ item.onLinkClick }}" style="font-size:12.5px;font-weight:700;color:var(--accent)" style-hover="color:#1A1712">{{ item.link }} →</a>
+                    <span style="display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:{{ item.tagColor }}"><span style="width:7px;height:7px;border-radius:50%;background:{{ item.tagDot }}"></span>{{ item.tagLabel }}</span>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+
+    <section id="directory" style="margin-top:56px;scroll-margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:10px">
+        <h3 style="font-size:20px;font-weight:800;margin:0">The Directory</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#C9C0AD">Communities, event series, VCs, workspaces, newsletters — one filterable database. TFF-vouched entries first, every link human-clicked.</p>
+        <a href="Bay Playbook Directory.dc.html" style="font-weight:700;font-size:14px;color:#F5B896;margin-top:auto" style-hover="color:#FAF7F1">Browse the database →</a>
+      </div>
+      <div style="background:#FFFDF8;border:1.5px solid #1A1712;border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:10px">
+        <h3 style="font-size:20px;font-weight:800;margin:0">Live events calendar</h3>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#3D3629">~30 curated Luma hosts, auto-updating. Land Thursday, be at an event Friday.</p>
+        <a href="Bay Playbook Directory.dc.html#events" style="font-weight:700;font-size:14px;margin-top:auto" style-hover="color:#1A1712">Open the calendar →</a>
+      </div>
+    </section>
+
+    <section style="margin-top:40px;border-top:1.5px solid #1A1712;padding-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:17px;font-weight:800;margin-bottom:4px">One email when new guides drop.</div>
+        <div style="font-size:13.5px;color:#6B6252">Visa and healthcare guides land next. No weekly filler.</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <input type="email" placeholder="you@startup.com" style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;padding:11px 14px;border:1.5px solid #1A1712;border-radius:8px;background:#FFFDF8;color:#1A1712;width:220px;outline:none">
+        <button style="font-family:'Archivo',sans-serif;font-size:14px;font-weight:700;padding:11px 20px;border:none;border-radius:8px;background:var(--accent);color:#FAF7F1;cursor:pointer" style-hover="background:#1A1712">Subscribe</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#6C8CF5&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#6C8CF5&quot;, &quot;#E8500A&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot; },
+  &quot;defaultFilter&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;all&quot;, &quot;options&quot;: [&quot;all&quot;, &quot;friend&quot;, &quot;nobody&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Checklist&quot; }
+}">
+class Component extends DCLogic {
+  state = { checked: {}, filter: 'all', realityOpen: true };
+  componentDidMount() {
+    try { const s = localStorage.getItem('bp-checklist'); if (s) this.setState({ checked: JSON.parse(s) }); } catch(e) {}
+    this.setState({ filter: this.props.defaultFilter ?? 'all' });
+    this.applyAccent();
+  }
+  componentDidUpdate() { this.applyAccent(); }
+  applyAccent() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#6C8CF5'); }
+  toggle(id) {
+    this.setState(s => {
+      const checked = { ...s.checked, [id]: !s.checked[id] };
+      try { localStorage.setItem('bp-checklist', JSON.stringify(checked)); } catch(e) {}
+      return { checked };
+    });
+  }
+  renderVals() {
+    const STAGES = [
+      { id:'s0', num:'S0', title:'Deciding', when:'Still on the fence', blurb:'Four honest checks before anything gets booked.', items:[
+        { id:'gocheck', text:'Run the go/wait/don\u2019t self-check — runway vs SF burn, market location, visa readiness, support system', tag:'nobody', link:'Reality Check' },
+        { id:'notmove', text:'Read \u201CWho should NOT move\u201D honestly', tag:'nobody', link:'Reality Check' },
+        { id:'triptype', text:'Pick your trip type: 2-week scout / 3-month sprint / permanent — everything below branches on this', tag:'nobody', link:'Decision index' },
+        { id:'talk2', text:'Talk to 2 founders who moved in the last year — we\u2019ll intro via the directory', tag:'friend', link:'Directory' },
+      ]},
+      { id:'s1', num:'S1', title:'Before you fly', when:'4–6 weeks out', blurb:'Sort these from India — half get much harder after you land.', items:[
+        { id:'visa', text:'Decide your visa path — B-1 / O-1 / H-1B — and book the appointment; wait times move', tag:'nobody', link:'Visa guide' },
+        { id:'evidence', text:'Start the O-1 evidence folder now, even if filing later: press, funding docs, awards, judge roles, LORs', tag:'nobody', link:'Visa guide' },
+        { id:'entity', text:'Make the entity call — flip / fresh Delaware / India HQ + subsidiary — before US revenue or fundraising talks', tag:'nobody', link:'Entity guide' },
+        { id:'mercury', text:'Open a US business account remotely — Mercury/Brex, no SSN needed', tag:'friend', link:'Money guide' },
+        { id:'roaming', text:'Enable Airtel/Jio roaming so Indian OTPs work; keep WhatsApp on the Indian number', tag:'friend', link:'SIM guide' },
+        { id:'esim', text:'Order a US eSIM before you fly', tag:'friend', link:'SIM guide' },
+        { id:'idp', text:'Get the International Driving Permit — takes days in India, painful to fix from SF', tag:'nobody', link:'Remote setup' },
+        { id:'docs', text:'Build the documents folder: passport scans, transcripts, bank statements, India rental history', tag:'nobody', link:'Remote setup' },
+        { id:'groups', text:'Join 3 WhatsApp/Slack groups before landing — housing + desi founders + your sector', tag:'friend', link:'Directory' },
+        { id:'stay14', text:'Book weeks 1–4 housing only (co-living or Airbnb) — do NOT sign a lease from India', tag:'friend', link:'Short-term housing' },
+        { id:'bridge', text:'Buy travel/bridge health insurance covering your first 60 days; do checkups + refills in India first', tag:'nobody', link:'Healthcare' },
+        { id:'meds', text:'Pack the medications kit — generics that are prescription-only or 10× the price in the US', tag:'nobody', link:'Packing list' },
+      ]},
+      { id:'s2', num:'S2', title:'Landing — Week 1', when:'Day 0–7', blurb:'The mobile-first week: SIM, money, safety — and one deadline that starts ticking.', items:[
+        { id:'sim', text:'Activate the US eSIM day 0; verify Indian OTPs still arrive', tag:'friend', link:'SIM guide' },
+        { id:'cash', text:'Withdraw cash + get the Clipper card', tag:'friend', link:'Day 0–7' },
+        { id:'ssn', text:'Apply for an SSN in week 1 if your visa allows; if not, note the ITIN path for later', tag:'nobody', link:'SSN & licence' },
+        { id:'bank', text:'Open the in-person bank account if you need one beyond Mercury', tag:'friend', link:'Bank basics' },
+        { id:'apps', text:'Download the apps list — one tap each', tag:'friend', link:'Apps list' },
+        { id:'grocery', text:'First Indian grocery run — store list by area', tag:'friend', link:'Everyday essentials' },
+        { id:'emergency', text:'Save emergency contacts + consulate to your lock screen; share live location with family for week 1', tag:'nobody', link:'Emergency' },
+        { id:'qle', text:'Start marketplace insurance enrollment — arrival is a Qualifying Life Event and the 60-day window does NOT wait', tag:'nobody', link:'Healthcare' },
+        { id:'event7', text:'Attend one event within 7 days of landing — momentum beats jet lag', tag:'nobody', link:'Networking' },
+      ]},
+      { id:'s3', num:'S3', title:'First month', when:'Weeks 2–4', blurb:'The decisions that compound: where, insured, credit — with two hard deadlines.', items:[
+        { id:'hood', text:'Pick your area with the persona decision tree — SF / Peninsula / South Bay / East Bay', tag:'friend', link:'Housing guide' },
+        { id:'resume', text:'Build the rental resume + no-credit workaround: bigger deposit, guarantor service, landlord letter from India', tag:'nobody', link:'Housing guide' },
+        { id:'day60', text:'Finish health insurance enrollment before day 60 — hard deadline', tag:'nobody', link:'Healthcare' },
+        { id:'credit', text:'First US credit card via Nova Credit (your Indian history counts with Amex) or a secured card — the 12–24-month clock to 670+ starts now', tag:'nobody', link:'Money & ITIN' },
+        { id:'itin', text:'Apply for an ITIN if no SSN; set up the India↔US money rail — Wise vs wire, LRS limits', tag:'nobody', link:'SSN & licence' },
+        { id:'dl', text:'Start the CA driver\u2019s license process — residency rules kick in faster than people think', tag:'nobody', link:'SSN & licence' },
+        { id:'weekly', text:'Join one recurring community — something weekly, not just events', tag:'friend', link:'Networking' },
+      ]},
+      { id:'s4', num:'S4', title:'Operating', when:'Ongoing', blurb:'Community is the product from here on — and the corridor is your edge.', items:[
+        { id:'corridor', text:'Map 5 corridor VCs + 5 diaspora angels relevant to your stage and sector', tag:'nobody', link:'Fundraising' },
+        { id:'workspace', text:'Pick your workspace pattern: home / caf\u00E9 circuit / coworking', tag:'friend', link:'Directory' },
+        { id:'cadence', text:'Set an events cadence — 1–2 high-value per week; curate, don\u2019t chase', tag:'friend', link:'Networking' },
+        { id:'milestones', text:'Calendar your visa milestones: extension windows, EB-1A priority-date strategy if O-1', tag:'nobody', link:'Visa guide' },
+        { id:'giveback', text:'Give back: host one dinner or answer one newcomer thread a month — the network compounds', tag:'nobody', link:'Directory' },
+        { id:'planb', text:'Know your if-it-goes-wrong plan: visa denial, runway out, going home with dignity', tag:'nobody', link:'Reality Check' },
+      ]},
+    ];
+    const accent = this.props.accent ?? '#6C8CF5';
+    const { checked, filter, realityOpen } = this.state;
+    const all = STAGES.flatMap(s => s.items);
+    const done = all.filter(i => checked[i.id]).length;
+    const G = 'Bay Playbook Guides.dc.html#', D = 'Bay Playbook Directory.dc.html';
+    const P = {
+      remote: 'Bay Playbook Remote Setup.dc.html', packing: 'Bay Playbook Packing.dc.html',
+      apps: 'Bay Playbook Apps.dc.html', around: 'Bay Playbook Getting Around.dc.html',
+      emergency: 'Bay Playbook Emergency.dc.html', housing: 'Bay Playbook Housing.dc.html',
+      ssn: 'Bay Playbook SSN ITIN License.dc.html', culture: 'Bay Playbook Culture.dc.html',
+      networking: 'Bay Playbook Networking.dc.html', groceries: 'Bay Playbook Groceries.dc.html',
+      weekends: 'Bay Playbook Weekends.dc.html', accel: 'Bay Playbook Accelerators.dc.html',
+    };
+    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': G+'visa', 'Entity guide': G+'entity', 'Money guide': G+'money', 'Money & ITIN': G+'money', 'SIM guide': G+'sim', 'Bank basics': G+'bank', 'Short-term housing': G+'short-term-housing', 'Healthcare': G+'healthcare', 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking };
+    const decorate = (item) => {
+      const c = !!checked[item.id];
+      const nobody = item.tag === 'nobody';
+      return { ...item,
+        href: HREF[item.link] || '#',
+        onLinkClick: (e) => e.stopPropagation(),
+        onToggle: () => this.toggle(item.id),
+        mark: c ? '\u2713' : '', boxBg: c ? '#1A1712' : 'transparent',
+        txtColor: c ? '#8A8172' : '#1A1712', deco: c ? 'line-through' : 'none',
+        rowBorder: c ? '#EFE9DC' : '#E2DACA',
+        tagLabel: nobody ? 'NOBODY TELLS YOU' : 'A FRIEND WILL TELL YOU',
+        tagDot: nobody ? accent : '#B8AE9A',
+        tagColor: nobody ? '#1A1712' : '#8A8172',
+      };
+    };
+    const stages = STAGES.map(s => {
+      const items = s.items.filter(i => filter === 'all' || i.tag === filter).map(decorate);
+      const doneN = s.items.filter(i => checked[i.id]).length;
+      return { ...s, items, count: doneN + '/' + s.items.length };
+    }).filter(s => s.items.length > 0);
+    const navStages = STAGES.map(s => {
+      const doneN = s.items.filter(i => checked[i.id]).length;
+      const full = doneN === s.items.length;
+      return { href: '#' + s.id, num: s.num, title: s.title.split(' — ')[0], count: doneN + '/' + s.items.length,
+        dotBg: full ? '#1A1712' : 'transparent', dotColor: full ? '#FAF7F1' : '#1A1712', dotBorder: full ? '#1A1712' : '#C9C0AD' };
+    });
+    const filters = [
+      { key:'all', label:'Everything', dotOff:'#1A1712' },
+      { key:'friend', label:'A friend will tell you', dotOff:'#B8AE9A' },
+      { key:'nobody', label:'Nobody tells you', dotOff: accent },
+    ].map(f => {
+      const active = filter === f.key;
+      return { key: f.key, label: f.label, onClick: () => this.setState({ filter: f.key }),
+        dot: f.dotOff, bg: active ? '#1A1712' : 'transparent', color: active ? '#FAF7F1' : '#3D3629', border: active ? '#1A1712' : '#DCD4C3' };
+    });
+    const pageIndex = [
+      { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', G+'visa'], ['Remote setup', P.remote], ['Short-term housing', G+'short-term-housing'], ['Packing + medications', P.packing]] },
+      { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', G+'day07'], ['SIM + phone', G+'sim'], ['Apps to download', P.apps], ['Bank, cash & Clipper', G+'bank'], ['Getting around', P.around], ['Emergency contacts', P.emergency]] },
+      { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', G+'money'], ['Healthcare & insurance', G+'healthcare']] },
+      { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', P.culture], ['Networking in SF', P.networking], ['Indian groceries & food', P.groceries], ['What to do on weekends', P.weekends]] },
+      { label: 'S5 \u00B7 COMPANY', pages: [['US entity', G+'entity'], ['Accelerators & programs', P.accel]] },
+    ].map(g => ({ label: g.label, pages: g.pages.map(p => ({ title: p[0], href: p[1] })) }));
+    return { stages, navStages, filters, realityOpen, pageIndex,
+      realityChevron: realityOpen ? '−' : '+',
+      toggleReality: () => this.setState(s => ({ realityOpen: !s.realityOpen })),
+      progressLabel: done + '/' + all.length, progressPct: all.length ? Math.round(done / all.length * 100) : 0 };
+  }
+}
+</script>
+</body>
+</html>

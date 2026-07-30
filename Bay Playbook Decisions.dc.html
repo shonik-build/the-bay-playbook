@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&family=Silkscreen:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#6C8CF5}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:50;background:#FAF7F1;border-bottom:1.5px solid #1A1712;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px">
+  <a href="Bay Playbook Landing v2.dc.html" style="display:flex;align-items:center;gap:7px;color:#1A1712">
+    <span style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg)">The</span>
+    <span style="font-family:'Silkscreen',monospace;font-size:21px;font-weight:700;color:var(--accent);text-shadow:2px 2px 0 #1A1712;letter-spacing:-1px">bay</span>
+    <span style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg)">Playbook</span>
+  </a>
+  <nav style="display:flex;align-items:center;gap:22px;font-size:13.5px;font-weight:600">
+    <a href="Bay Playbook Landing v2.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">← Checklist</a>
+    <a href="Bay Playbook Guides.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">Guides</a>
+    <a href="Bay Playbook Directory.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">Directory</a>
+  </nav>
+</header>
+
+<section style="max-width:1060px;margin:0 auto;padding:44px 32px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;color:var(--accent);font-weight:600;margin-bottom:12px">DECISION INDEX · QUICK-REFERENCE</div>
+  <h1 style="font-size:42px;line-height:1.05;font-weight:900;letter-spacing:-0.03em;margin:0 0 12px;text-wrap:balance">Start with your <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">decision</em>.</h1>
+  <p style="font-size:16.5px;line-height:1.55;max-width:620px;margin:0;color:#3D3629">Nobody arrives thinking in site sections — you arrive mid-decision. Ten questions, what each turns on, and the exact guides that answer it.</p>
+</section>
+
+<section style="max-width:1060px;margin:32px auto 0;padding:0 32px 64px;display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:16px">
+  <sc-for list="{{ cards }}" as="d" hint-placeholder-count="10">
+    <div id="{{ d.id }}" style="background:#FFFDF8;border:1.5px solid #E2DACA;border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:80px" style-hover="border-color:#1A1712">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;background:var(--accent);color:#FAF7F1;padding:4px 8px;border-radius:4px">{{ d.num }}</span>
+        <h2 style="font-size:18.5px;font-weight:800;letter-spacing:-0.01em;margin:0;line-height:1.25">{{ d.q }}</h2>
+      </div>
+      <div style="font-size:14px;line-height:1.55;color:#5A5243"><strong style="color:#8A8172;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;font-weight:600">TURNS ON&nbsp;&nbsp;</strong>{{ d.on }}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px">
+        <sc-for list="{{ d.links }}" as="l" hint-placeholder-count="2">
+          <a href="{{ l.href }}" style="font-size:12.5px;font-weight:700;padding:6px 12px;border:1.5px solid #1A1712;border-radius:999px;color:#1A1712" style-hover="background:#1A1712;color:#FAF7F1">{{ l.label }} →</a>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+</section>
+
+<footer style="max-width:1060px;margin:0 auto;padding:0 32px 48px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <span>A decision with no guide behind it is a content gap — tell us which one we missed.</span>
+  <span>Last verified Jul 2026 · SA</span>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#6C8CF5&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#6C8CF5&quot;, &quot;#E8500A&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot; }
+}">
+class Component extends DCLogic {
+  componentDidMount() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#6C8CF5'); }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#6C8CF5'); }
+  renderVals() {
+    const G = 'Bay Playbook Guides.dc.html#', D = 'Bay Playbook Directory.dc.html', L = 'Bay Playbook Landing v2.dc.html';
+    const cards = [
+      { num:'D1', q:'Go, wait, or don\u2019t?', on:'Runway vs SF burn, market location, visa readiness, personal support system.', links:[['Reality Check', 'https://thefounderfolks.com/bay-playbook/reality-check'], ['Self-check on the checklist', L + '#s0']] },
+      { num:'D2', q:'Which visa path — B-1 scout, O-1, or the H-1B route?', on:'Evidence you can assemble, timeline, funding stage, how permanent the move is.', links:[['Visa guide', G+'visa']] },
+      { num:'D3', q:'Entity: flip to Delaware, incorporate fresh, or India HQ + US subsidiary?', on:'Raising from US VCs? US revenue? ODI/FEMA exposure, cost and a 3–6 month timeline.', links:[['Entity & flip guide', G+'entity']] },
+      { num:'D4', q:'How long is this trip — 2-week scout, 3-month sprint, or permanent?', on:'Changes everything downstream: insurance, SIM, banking, housing type.', links:[['Master checklist', L]] },
+      { num:'D5', q:'Solo or with family?', on:'Area choice, housing size, insurance plan, schools.', links:[['Housing', G+'housing'], ['Healthcare', G+'healthcare']] },
+      { num:'D6', q:'SF vs Peninsula vs South Bay vs East Bay?', on:'Persona: AI-density solo founder → SF; family + car → Fremont/Santa Clara; budget → East Bay.', links:[['Neighborhood decision tree', G+'housing']] },
+      { num:'D7', q:'Short-term first, or commit to a lease?', on:'No US credit history, guarantor workarounds, co-living vs Airbnb math.', links:[['Short-term housing', G+'short-term-housing'], ['Housing', G+'housing']] },
+      { num:'D8', q:'Keep Indian number & banking, or cut over fully?', on:'OTP dependence, WhatsApp identity, LRS transfer costs.', links:[['SIM & phone', G+'sim'], ['Money guide', G+'money']] },
+      { num:'D9', q:'Health cover: travel insurance or a marketplace plan?', on:'The 60-day enrollment window after arrival; visa status; the cost of being wrong is one ER visit.', links:[['Healthcare guide', G+'healthcare']] },
+      { num:'D10', q:'Raise from corridor VCs, US-native VCs, or angels first?', on:'Stage, sector, and who actually opens doors for Indian founders.', links:[['Corridor VCs', D+'#vcs'], ['Entity guide', G+'entity']] },
+    ].map(c => ({ ...c, id: c.num.toLowerCase(), links: c.links.map(l => ({ label: l[0], href: l[1] })) }));
+    return { cards };
+  }
+}
+</script>
+</body>
+</html>

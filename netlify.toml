@@ -1,0 +1,95 @@
+[build]
+  publish = "."
+
+# Serve .dc.html files with the correct type so browsers render them.
+[[headers]]
+  for = "/*.dc.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+
+# Cache the runtime aggressively; it's regenerated on release, not per-edit.
+[[headers]]
+  for = "/support.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Preserve friendly deep-links: /apps → the apps page, /guides/visa → guides page.
+[[redirects]]
+  from = "/apps"
+  to = "/Bay Playbook Apps.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/decisions"
+  to = "/Bay Playbook Decisions.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/directory"
+  to = "/Bay Playbook Directory.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/around"
+  to = "/Bay Playbook Getting Around.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/remote"
+  to = "/Bay Playbook Remote Setup.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/packing"
+  to = "/Bay Playbook Packing.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/emergency"
+  to = "/Bay Playbook Emergency.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/housing"
+  to = "/Bay Playbook Housing.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/ssn"
+  to = "/Bay Playbook SSN ITIN License.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/culture"
+  to = "/Bay Playbook Culture.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/networking"
+  to = "/Bay Playbook Networking.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/groceries"
+  to = "/Bay Playbook Groceries.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/weekends"
+  to = "/Bay Playbook Weekends.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/accel"
+  to = "/Bay Playbook Accelerators.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/guides"
+  to = "/Bay Playbook Guides.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/guides/*"
+  to = "/Bay Playbook Guides.dc.html"
+  status = 200

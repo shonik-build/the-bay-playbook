@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:var(--accent)}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:860px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S2 · LANDING — WEEK 1</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">PRICES VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Getting around SF (and the Bay)</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:620px">Living in the city and using transit properly costs about $160 a month. Defaulting to Uber costs closer to $800. That gap is the entire argument for this page.</p>
+
+    <div style="display:flex;align-items:flex-end;gap:28px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:22px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">TRANSIT-FIRST</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">~$160<span style="font-size:15px;font-weight:600;color:#8A8172">/mo</span></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8A8172;padding-bottom:8px">vs</div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">UBER-FIRST</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">~$790<span style="font-size:15px;font-weight:600;color:#8A8172">/mo</span></div>
+      </div>
+      <div style="flex:1;min-width:220px;font-size:13.5px;line-height:1.5;color:#5A5243;padding-bottom:4px">Uber-first assumes two trips a day at around $18. Most people land in between for month one, then drift left once the pass is in their wallet.</div>
+    </div>
+
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin:0 0 30px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">San Francisco is not the Bay Area. The city is seven miles by seven at the tip of a peninsula. Palo Alto is 35 miles south, Berkeley is across a bridge, and both are an hour each way. People book a coffee in Mountain View like it's across town and lose the afternoon.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Where you're going, and what to take</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Pick the trip. One-way, with Clipper.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px">
+      <sc-for list="{{ trips }}" as="t" hint-placeholder-count="10">
+        <button onClick="{{ t.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }}" style-hover="border-color:#1A1712">{{ t.chip }}</button>
+      </sc-for>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap">
+        <div style="min-width:240px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">TAKE</div>
+          <div style="font-size:30px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:2px">{{ sel.take }}</div>
+        </div>
+        <div style="display:flex;gap:28px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">COST</div>
+            <div style="font-size:24px;font-weight:800;letter-spacing:-0.01em;color:#F5B896;margin-top:2px">{{ sel.cost }}</div>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">TIME</div>
+            <div style="font-size:24px;font-weight:800;letter-spacing:-0.01em;margin-top:2px">{{ sel.time }}</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #3A342A;margin-top:16px;padding-top:14px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap">
+        <div style="font-size:14.5px;line-height:1.55;color:#C9C0AD;max-width:520px">{{ sel.note }}</div>
+        <sc-if value="{{ sel.hasLink }}" hint-placeholder-val="{{ false }}">
+          <a href="{{ sel.href }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #4A4336;border-radius:999px;color:#FAF7F1;white-space:nowrap" style-hover="border-color:#FAF7F1;color:#FAF7F1">{{ sel.linkLabel }} ↗</a>
+        </sc-if>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Check any BART trip on the <a href="https://www.bart.gov/tickets/calculator" target="_blank">fare calculator</a>.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Is the Muni pass worth it yet?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">A single ride is $2.85 and includes 120 minutes of transfers. The pass is $86 — about thirty rides.</p>
+
+    <div style="border:1.5px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+        <label for="rt" style="font-size:15px;font-weight:700">Round trips a month</label>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8A8172">{{ rtLabel }}</div>
+      </div>
+      <input id="rt" type="range" min="0" max="45" step="1" value="{{ rt }}" onChange="{{ setRt }}" onInput="{{ setRt }}" style="width:100%;margin:14px 0 18px;height:4px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:5px"><span>Pay per ride</span><span style="font-family:'IBM Plex Mono',monospace">{{ paygLabel }}</span></div>
+          <div style="height:10px;background:#EFE9DC;border-radius:999px;overflow:hidden"><div style="height:100%;border-radius:999px;background:#C9C0AD;width:{{ paygW }}"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:5px"><span>$86 monthly pass</span><span style="font-family:'IBM Plex Mono',monospace">$86.00</span></div>
+          <div style="height:10px;background:#EFE9DC;border-radius:999px;overflow:hidden"><div style="height:100%;border-radius:999px;background:var(--accent);width:{{ passW }}"></div></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #EFE9DC;margin-top:16px;padding-top:14px;font-size:15px;font-weight:700;color:#1A1712">{{ verdict }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The $104 version adds BART inside the city — worth it only above roughly seven in-city BART trips a month.</div>
+
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin:0 0 34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Passes are sold from the 17th of one month through the 16th of the next. Land on the 20th and you pay per ride until the window reopens.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Set up before you land</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">All of this works from India.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ setup }}" as="s" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(150px,190px) minmax(220px,1fr);gap:6px 16px;align-items:baseline;padding:13px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14.5px;font-weight:700">{{ s.do }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ s.why }} <a href="{{ s.href }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;white-space:nowrap">{{ s.linkLabel }} ↗</a></div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px">You can tap a contactless credit card at BART and Muni gates instead of using Clipper. It works for single rides, but monthly passes and every discount live on Clipper only, so set the card up regardless.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Arriving at SFO</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">BART is inside the International Terminal</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#5A5243">Land at Terminal 1, 2 or 3 and take the free AirTrain to reach it.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Rideshare pickup is on departures</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#5A5243">Not arrivals. People wait at baggage claim while their driver circles a level above them.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">BART runs 5am–midnight</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#5A5243">6am Saturday, 8am Sunday. Land later than that and it isn't an option.</div>
+      </div>
+    </div>
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">A FRIEND WILL TELL YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Arriving with two bags after a sixteen-hour flight? Take the Uber. The $30 is not the hill to die on. Every other time, BART.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 14px">Discounts worth knowing</h2>
+    <div style="overflow-x:auto;margin-bottom:12px;border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8">
+      <table style="border-collapse:collapse;width:100%;min-width:600px">
+        <thead><tr>
+          <th style="text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:#8A8172;padding:11px 14px;border-bottom:1.5px solid #E2DACA">WHAT</th>
+          <th style="text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:#8A8172;padding:11px 14px;border-bottom:1.5px solid #E2DACA">VALUE</th>
+          <th style="text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:#8A8172;padding:11px 14px;border-bottom:1.5px solid #E2DACA">WHO GETS IT</th>
+          <th style="text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:#8A8172;padding:11px 14px;border-bottom:1.5px solid #E2DACA">HOW</th>
+        </tr></thead>
+        <tbody>
+          <sc-for list="{{ discounts }}" as="d" hint-placeholder-count="5">
+            <tr>
+              <td style="font-size:13.5px;line-height:1.5;color:#1A1712;font-weight:700;padding:11px 14px;border-bottom:1px solid #EFE9DC;vertical-align:top"><a href="{{ d.href }}" target="_blank">{{ d.what }}</a></td>
+              <td style="font-size:13.5px;line-height:1.5;color:#3D3629;padding:11px 14px;border-bottom:1px solid #EFE9DC;vertical-align:top">{{ d.value }}</td>
+              <td style="font-size:13.5px;line-height:1.5;color:#3D3629;padding:11px 14px;border-bottom:1px solid #EFE9DC;vertical-align:top">{{ d.who }}</td>
+              <td style="font-size:13.5px;line-height:1.5;color:#3D3629;padding:11px 14px;border-bottom:1px solid #EFE9DC;vertical-align:top">{{ d.how }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">NOBODY TELLS YOU</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">BART charges on entry <em>and</em> exit. Forget to tag out and it's a $7.55 penalty.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:34px">
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Hills, fog and bikes</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">Check the elevation before committing to a classic bike. Fillmore north of Broadway is the hill that humbles people; pay the extra $0.30 a minute for an e-bike and stop thinking about it. Cyclists route around the topography rather than through it, which is why the Wiggle exists — a marked zigzag of flat side streets from near Market up to the Panhandle.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">The fog is a planning input. Summer evenings in the city sit in the low-to-mid teens Celsius while Palo Alto is at 25. Carry a layer in July. The Sunset and Richmond are colder and greyer than the Mission on the same afternoon, and riding west means a headwind the whole way.</p>
+      </div>
+      <div>
+        <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">After midnight</h2>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px">BART stops at midnight, every night, Fridays included. <a href="https://www.sfmta.com/getting-around/muni/routes-stops/muni-owl-service-late-night-transportation" target="_blank">Muni's Owl buses</a> run half-hourly until 5am and are the best overnight transit in the region — but a 30-minute wait at 2am in the Tenderloin is a different product from what the map suggests.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0">Take a Waymo or an Uber. Waymo runs 10–30% above UberX before you account for not tipping, and a lot of people prefer it at night — nobody else in the car and the ride is recorded.</p>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Should you buy a car?</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;border-radius:10px;padding:16px 18px;background:#FFFDF8">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">IN THE CITY</div>
+        <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;margin-bottom:8px">No</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Garage parking is $350–500 a month in SoMa and downtown, $150–250 in the avenues. Street parking means a <a href="https://www.sfmta.com/permits/residential-parking-permits-rpp" target="_blank">residential permit</a> and a sweeping schedule you'll misread twice. Rent from Zipcar, Getaround or Turo for weekends — check each one's policy on foreign licences first.</div>
+      </div>
+      <div style="border:1.5px solid var(--accent);border-radius:10px;padding:16px 18px;background:#FFFDF8">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">FREMONT, SUNNYVALE, SANTA CLARA</div>
+        <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;margin-bottom:8px;color:var(--accent)">Yes</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">South Bay was built around driving, and transit roughly doubles every journey. On break-ins: reported car burglaries are down to roughly a quarter of their 2017 peak and still falling. The rule still holds because what's left is opportunistic — leave nothing visible in a parked car. Not a bag, not a jacket, not a phone charger.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:26px 0 4px">If you're driving: the licence</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">California gives new residents <strong>ten days</strong> from establishing residency to hold a California licence, and twenty to register a vehicle. Residency starts when you sign the lease or take the job, so the clock is usually already running.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 16px;max-width:640px">California has no licence reciprocity with any country. You cannot exchange an Indian licence — you take the written test and the road test as a brand-new driver. Budget for a few lessons if you learned on the left: four-way stops barely exist outside North America, right-on-red is legal here, and examiners fail people for rolling stops constantly.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
+      <sc-for list="{{ dmv }}" as="d" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14.5px;font-weight:700">{{ d.bring }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#5A5243">{{ d.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px"><a href="https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/" target="_blank">Book an appointment</a> — walk-in waits are punishing and tests stop at 4:30pm. If you want a REAL ID (needed for domestic flights), employment and student visa holders are eligible; read <a href="https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/real-id-info-non-u-s-citizens/" target="_blank">the DMV's page for non-citizens</a>.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your first week</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go — this saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="7">
+        <label style="display:grid;grid-template-columns:20px 1fr auto;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+          <a href="{{ c.href }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;white-space:nowrap" style-hover="color:var(--accent)">{{ c.linkLabel }} ↗</a>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:8px">Four of the five agencies here changed fares in the last year. Check the operator's site before you budget anything long-term.</div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · SA</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const TRIPS = [
+  { id: 'walk', chip: 'Under 3km, flat', take: 'Walk or Bay Wheels', cost: '$0–4', time: '10–20 min', note: 'Flat and short beats waiting for anything. Bay Wheels docks are everywhere in the flat parts of the city.', linkLabel: 'bay wheels pricing', href: 'https://www.lyft.com/bikes/bay-wheels/pricing' },
+  { id: 'city', chip: 'Across the city', take: 'Muni', cost: '$2.85', time: '20–40 min', note: 'One fare includes 120 minutes of transfers, so a bus-then-train counts as one ride.' },
+  { id: 'mission', chip: 'Mission ↔ downtown', take: 'BART', cost: '$2.55', time: '10 min', note: 'The fastest thing in the city on that corridor. Tag in and out — BART charges on both.' },
+  { id: 'sfo', chip: 'SFO → downtown', take: 'BART', cost: '$11.80', time: '~30 min', note: 'The station is inside the International Terminal — free AirTrain from Terminals 1, 2 and 3.', linkLabel: 'bart from sfo', href: 'https://www.bart.gov/guide/airport/sfo' },
+  { id: 'oak', chip: 'OAK → downtown', take: 'BART', cost: '$13.45', time: '~40 min', note: 'The AirTrain connector to Coliseum station is included in the fare.', linkLabel: 'bart from oak', href: 'https://www.bart.gov/guide/airport/oak' },
+  { id: 'paloalto', chip: 'Palo Alto, Mountain View', take: 'Caltrain', cost: '$8.50', time: '40–50 min', note: 'An hour each way once you add the walk on both ends. Do not book this like a coffee across town.', linkLabel: 'caltrain fares', href: 'https://www.caltrain.com/fares' },
+  { id: 'sj', chip: 'San Jose', take: 'Caltrain', cost: '$10.75', time: '60–90 min', note: 'Check the timetable before you commit — the express saves half an hour over the local.', linkLabel: 'caltrain fares', href: 'https://www.caltrain.com/fares' },
+  { id: 'east', chip: 'Berkeley, Oakland', take: 'BART', cost: '$5.30', time: '~25 min', note: 'Across the bridge, under the bay. Faster than driving at almost every hour.' },
+  { id: 'late', chip: 'After midnight', take: 'Waymo or Uber', cost: 'app pricing', time: '—', note: 'BART stops at midnight, Fridays included. Owl buses run half-hourly until 5am, but a 30-minute wait at 2am is a different product from what the map suggests.' },
+  { id: 'bags', chip: 'Anything with two bags', take: 'Uber', cost: 'app pricing', time: '—', note: 'Stairs, gates and turnstiles with luggage is the one place transit reliably loses.' },
+];
+
+const CHECKS = [
+  { id: 'clipper', text: 'Clipper in your wallet app, $25 loaded', linkLabel: 'clippercard.com', href: 'https://www.clippercard.com/clipper-on-your-phone' },
+  { id: 'bart', text: 'BART from SFO on arrival day', linkLabel: 'bart.gov', href: 'https://www.bart.gov/guide/airport/sfo' },
+  { id: 'pass', text: '$86 Muni pass once you\u2019re past fifteen round trips a month — mind the 17th-to-16th window', linkLabel: 'sfmta.com', href: 'https://www.sfmta.com/fares/monthly-adult-ages-19-64' },
+  { id: 'bike', text: '$165 Bay Wheels annual if you\u2019ll cycle at all', linkLabel: 'lyft.com', href: 'https://www.lyft.com/bikes/bay-wheels/pricing' },
+  { id: 'autoload', text: 'Autoload on Clipper if BART is your commute', linkLabel: 'clippercard.com', href: 'https://www.clippercard.com/' },
+  { id: 'baypass', text: 'Ask your company about BayPass or a Caltrain GoPass', linkLabel: 'clipperbaypass.com', href: 'https://www.clipperbaypass.com/' },
+  { id: 'dmv', text: 'South Bay: book the DMV, print the I-94 first', linkLabel: 'dmv.ca.gov', href: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/' },
+];
+
+const KEY = 'bp-getting-around-checks';
+
+class Component extends DCLogic {
+  state = { trip: 'sfo', rt: 18, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw) || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const sel = TRIPS.find(t => t.id === this.state.trip) || TRIPS[0];
+    const rt = this.state.rt;
+    const rides = rt * 2;
+    const payg = rides * 2.85;
+    const max = Math.max(payg, 86, 1);
+
+    let verdict;
+    if (rt === 0) verdict = 'Pick a number. Below fifteen round trips a month the pass never pays for itself.';
+    else if (payg < 86) verdict = 'Pay per ride — the pass costs $' + (86 - payg).toFixed(2) + ' more than you\u2019d spend.';
+    else if (payg < 92) verdict = 'Line ball. Buy the pass for the convenience, not the savings.';
+    else verdict = 'Buy the pass — it saves you $' + (payg - 86).toFixed(2) + ' a month.';
+
+    const doneCount = CHECKS.filter(c => this.state.done[c.id]).length;
+
+    return {
+      trips: TRIPS.map(t => ({
+        chip: t.chip,
+        border: t.id === this.state.trip ? '#1A1712' : '#C9C0AD',
+        bg: t.id === this.state.trip ? '#1A1712' : '#FFFDF8',
+        color: t.id === this.state.trip ? '#FAF7F1' : '#3D3629',
+        pick: () => this.setState({ trip: t.id }),
+      })),
+      sel: { ...sel, hasLink: !!sel.href, linkLabel: sel.linkLabel || '' },
+      rt,
+      rtLabel: rt + ' round trips · ' + rides + ' rides',
+      setRt: e => this.setState({ rt: Number(e.target.value) }),
+      paygLabel: '$' + payg.toFixed(2),
+      paygW: Math.round((payg / max) * 100) + '%',
+      passW: Math.round((86 / max) * 100) + '%',
+      verdict,
+      setup: [
+        { do: 'Add Clipper to Apple or Google Wallet', why: 'One card for Muni, BART, Caltrain, ferries and ~20 agencies. Free on your phone, $3 for plastic.', linkLabel: 'clippercard.com', href: 'https://www.clippercard.com/clipper-on-your-phone' },
+        { do: 'Load $25', why: 'BART needs $2.55 on the card just to open the gate.', linkLabel: 'clippercard.com', href: 'https://www.clippercard.com/' },
+        { do: 'Install Transit', why: 'Trip planning across every agency at once.', linkLabel: 'android', href: 'https://play.google.com/store/apps/details?id=com.thetransitapp.droid' },
+        { do: 'Install Waymo', why: 'Driverless rides, no tipping.', linkLabel: 'ios', href: 'https://apps.apple.com/us/app/waymo/id1343524838' },
+        { do: 'Install Bay Wheels, Uber, Lyft', why: 'Bikes and rideshare.', linkLabel: 'bay wheels', href: 'https://www.lyft.com/bikes/bay-wheels' },
+      ],
+      discounts: [
+        { what: 'Inter-agency transfer', value: 'Up to $2.85 off your second operator within 2 hours', who: 'Everyone', how: 'Automatic — BART→Muni is effectively free', href: 'https://www.clippercard.com/' },
+        { what: 'BART high-value discount', value: '$48 of fare for $45', who: 'Anyone on BART', how: 'Autoload in your Clipper account. Not sold at station machines', href: 'https://www.bart.gov/tickets' },
+        { what: 'Caltrain monthly, 2+ zones', value: '$204 for three zones', who: 'Anyone', how: 'Clipper. Doubles as a SamTrans and VTA bus pass', href: 'https://www.caltrain.com/fares' },
+        { what: 'Clipper BayPass / GoPass', value: 'Unlimited travel', who: 'Employees of participating companies — cannot be bought individually', how: 'Ask whoever runs ops. Most firms will set it up if someone asks', href: 'https://www.clipperbaypass.com/' },
+        { what: 'Clipper START', value: '50% off single rides', who: 'Household income at or below 200% of the federal poverty level', how: 'Worth ten minutes if you\u2019ve incorporated but aren\u2019t paying yourself yet', href: 'https://www.sfmta.com/fares/clipper-start' },
+      ],
+      dmv: [
+        { bring: 'Social Security number', note: 'Or proof you aren\u2019t eligible for one.' },
+        { bring: 'Passport + valid US visa', note: 'Originals.' },
+        { bring: 'Printed I-94', note: 'From i94.cbp.dhs.gov. They won\u2019t look it up for you and people get turned away over this.' },
+        { bring: 'Two California address documents', note: 'Signed lease, bank or utility statement. Must match the application.' },
+      ],
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: doneCount + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+      navGroups: (() => {
+        const SELF = '__around';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

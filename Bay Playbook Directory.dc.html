@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&family=Silkscreen:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input::placeholder{color:#9B927F}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:50;background:#FAF7F1;border-bottom:1.5px solid #1A1712;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px">
+  <div style="display:flex;align-items:baseline;gap:10px">
+    <a href="Bay Playbook Landing v2.dc.html" style="display:flex;align-items:center;gap:7px;color:#1A1712">
+      <span style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg)">The</span>
+      <span style="font-family:'Silkscreen',monospace;font-size:21px;font-weight:700;color:var(--accent);text-shadow:2px 2px 0 #1A1712;letter-spacing:-1px">bay</span>
+      <span style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg)">Playbook</span>
+    </a>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">The Directory</span>
+  </div>
+  <nav style="display:flex;align-items:center;gap:22px;font-size:13.5px;font-weight:600">
+    <a href="Bay Playbook Landing v2.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">← Checklist</a>
+    <a href="Bay Playbook Decisions.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">Decisions</a>
+    <a href="Bay Playbook Guides.dc.html" style="color:#1A1712" style-hover="color:var(--accent)">Guides</a>
+  </nav>
+</header>
+
+<section style="max-width:1120px;margin:0 auto;padding:44px 32px 0;display:flex;flex-wrap:wrap;gap:32px;align-items:center">
+  <div style="flex:1;min-width:340px">
+    <h1 style="font-size:42px;line-height:1.05;font-weight:900;letter-spacing:-0.03em;margin:0 0 10px">Every <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">room</em> worth being in.</h1>
+    <p style="font-size:16.5px;line-height:1.55;max-width:640px;margin:0;color:#3D3629">Communities, event series, VCs, workspaces and newsletters — one database. <strong>Vouched</strong> means a TFF member was in the room within 6 months. Every link human-clicked.</p>
+  </div>
+  <img src="https://framerusercontent.com/images/L3pC2A7vFtUruK0vZ5IjOr5drE.png?width=1536&height=1024" alt="Founders co-working in a cafe — watercolor" style="width:260px;flex:none;mix-blend-mode:multiply;border-radius:4px">
+</section>
+
+<section style="max-width:1120px;margin:28px auto 0;padding:0 32px;position:sticky;top:60px;z-index:40;background:#FAF7F1">
+  <div style="display:flex;flex-direction:column;gap:10px;padding:14px 0;border-bottom:1.5px solid #1A1712">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input type="text" value="{{ q }}" onChange="{{ onSearch }}" placeholder="Search name or description…" style="font-family:'IBM Plex Mono',monospace;font-size:13px;padding:9px 14px;border:1.5px solid #1A1712;border-radius:8px;background:#FFFDF8;color:#1A1712;width:250px;outline:none">
+      <sc-for list="{{ typeChips }}" as="c" hint-placeholder-count="6">
+        <button onClick="{{ c.onClick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:8px 13px;border-radius:999px;cursor:pointer;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <sc-for list="{{ areaChips }}" as="c" hint-placeholder-count="6">
+        <button onClick="{{ c.onClick }}" style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}">{{ c.label }}</button>
+      </sc-for>
+      <span style="width:1px;height:20px;background:#DCD4C3"></span>
+      <button onClick="{{ toggleDesi }}" style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;border:1.5px solid {{ desiBorder }};background:{{ desiBg }};color:{{ desiColor }}">Desi-focused</button>
+      <button onClick="{{ toggleVouched }}" style="font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;border:1.5px solid {{ vouchedBorder }};background:{{ vouchedBg }};color:{{ vouchedColor }}">★ TFF-vouched</button>
+      <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172">{{ countLabel }}</span>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1120px;margin:14px auto 0;padding:0 32px 64px;display:flex;flex-direction:column;gap:8px">
+  <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:#FFFDF8;border:1px solid #E2DACA;border-radius:10px;padding:14px 18px" style-hover="border-color:#1A1712">
+      <div style="min-width:0">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-size:15.5px;font-weight:700">{{ r.name }}</span>
+          <sc-if value="{{ r.vouched }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.05em;background:var(--accent);color:#FAF7F1;padding:3px 7px;border-radius:4px">★ VOUCHED</span></sc-if>
+          <sc-if value="{{ r.desi }}" hint-placeholder-val="{{ false }}"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.05em;border:1px solid #1A1712;color:#1A1712;padding:2px 7px;border-radius:4px">DESI</span></sc-if>
+        </div>
+        <div style="font-size:13.5px;color:#5A5243;margin-top:3px;line-height:1.45">{{ r.one }}</div>
+        <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172">
+          <span style="color:#3D3629;font-weight:600">{{ r.type }}</span><span>{{ r.area }}</span><span>{{ r.cost }}</span><span>verified {{ r.ver }}</span>
+        </div>
+      </div>
+      <a href="{{ r.url }}" target="_blank" style="font-size:13px;font-weight:700;white-space:nowrap;padding:9px 16px;border:1.5px solid #1A1712;border-radius:999px;color:#1A1712" style-hover="background:#1A1712;color:#FAF7F1">{{ r.cta }}</a>
+    </div>
+  </sc-for>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;margin-top:18px;text-align:center">Sort: vouched first, then freshness · Entries &gt;6 months old auto-flag for recheck · ★ flags pending TFF confirmation</div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#6C8CF5&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#6C8CF5&quot;, &quot;#E8500A&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot; }
+}">
+class Component extends DCLogic {
+  state = { q: '', type: 'All', area: 'All', desi: false, vouched: false };
+  componentDidMount() {
+    const h = (location.hash || '').replace('#', '');
+    if (h === 'events') this.setState({ type: 'Event series' });
+    if (h === 'vcs') this.setState({ type: 'VC' });
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#6C8CF5');
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#6C8CF5'); }
+  renderVals() {
+    // [name, one-liner, type, area, desi, vouched, cost, url, verified]
+    const E = [
+      ['Bay Area Desi Founders', 'WhatsApp home base for early-stage desi founders — meetups, jobs, referrals, room shares', 'Community', 'Online', 1, 1, 'Invite via TFF', '#', 'Jul 2026 · SA'],
+      ['SF Indian Founders+Builders', 'Fundraising help, peer pushes and advice for Indian startup founders', 'Community', 'Online', 1, 1, 'Invite via TFF', '#', 'Jul 2026 · SA'],
+      ['South Asian Techies in SF', 'Immigrant tech workers — jobs, venting, IRL events', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
+      ['Indian Women in Tech + Founders', 'Supportive, safe, real talk for women founders and professionals', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
+      ['Bay Area Desi Friends', 'Social-first desi meetups — food crawls, karaoke, poetry; the friend-making gap filler', 'Community', 'SF', 1, 0, 'Free', 'https://www.meetup.com/bay-area-desi-friends/', 'Jul 2026 · SA'],
+      ['eChai Ventures SF', 'Demo days, hackathons and Startup Touchdown Dinners for Indian-origin founders', 'Community', 'Peninsula', 1, 1, 'Free', 'https://echai.ventures/', 'Jul 2026 · SA'],
+      ['Founders Brew', 'No-agenda Sunday meetups — no entry fees, no corporate agenda, just vibes', 'Community', 'SF', 0, 1, 'Free', 'https://foundersbrew.org/', 'Jul 2026 · SA'],
+      ['Founders Common', 'Third spaces for early-stage founders and builders', 'Community', 'SF', 0, 0, 'Free', 'https://lu.ma/founderscommon', 'Jun 2026 · SU'],
+      ['Sundays in SF', 'Weekly co-working club for side projects and creative interests', 'Community', 'SF', 0, 1, 'Free', 'https://lu.ma/sundaysinsf', 'Jul 2026 · SA'],
+      ['Homebrew Club', '24/7 member-run DIY space — co-working and experimentation at the frontier', 'Community', 'SF', 0, 0, 'Application', 'https://bento.me/homebrew', 'Jun 2026 · SU'],
+      ['AGI House', 'ML hacker house bringing hackathon life back to Silicon Valley', 'Community', 'Peninsula', 0, 1, 'Application', 'https://agihouse.ai/', 'Jul 2026 · SA'],
+      ['AI Tinkerers', 'Exclusive meetup for practitioners actually shipping with LLMs', 'Community', 'SF', 0, 0, 'Application', 'https://sf.tinkerer.ai/', 'Jun 2026 · SU'],
+      ['The AI Collective', 'Grassroots non-profit uniting 70k+ AI founders, researchers and investors', 'Community', 'SF', 0, 0, 'Free', 'https://www.aicollective.com/', 'Jun 2026 · SU'],
+      ['Product Folks', 'Volunteer-driven PM community with IRL output marathons', 'Community', 'Online', 0, 0, 'Free', 'https://www.theproductfolks.com/', 'Jun 2026 · SU'],
+      ['Design Buddies', 'The world\u2019s largest design community — SF events and online', 'Community', 'Online', 0, 0, 'Free', 'https://www.designbuddies.community/', 'Jun 2026 · SU'],
+      ['Lenny\u2019s Community', 'Paid Slack + monthly meetups with thousands of PMs and founders', 'Community', 'Online', 0, 0, 'Paid', 'https://www.lennysnewsletter.com/p/community', 'Jun 2026 · SU'],
+      ['Impact Hustlers SF Bay', 'Low-ego pitch sessions and mentorship for mission-driven founders', 'Community', 'SF', 0, 0, 'Application', 'https://www.impacthustlers.com/chapters/san-francisco-bay-area', 'Jun 2026 · SU'],
+      ['Work on Climate', 'Mobilizing talent for climate — Slack + working groups', 'Community', 'Online', 0, 0, 'Free', 'https://workonclimate.org/', 'Jun 2026 · SU'],
+      ['This Week in Fintech', 'Fintech meetups, happy hours and dinners worldwide', 'Community', 'Online', 0, 0, 'Free', 'https://www.thisweekinfintech.com/', 'Jun 2026 · SU'],
+      ['SF Hardware Meetup', 'Monthly meetup for people building physical products', 'Community', 'SF', 0, 0, 'Free', 'https://www.meetup.com/hardwarestartupsf/', 'Jun 2026 · SU'],
+      ['Marina Plunge Club', 'Weekly cold plunges at Crissy Field — founders in towels', 'Community', 'SF', 0, 0, 'Free', 'https://x.com/marinaplunge', 'Jun 2026 · SU'],
+      ['The Board Walks', 'Saturday 8am 5-mile walks with curious people', 'Community', 'SF', 0, 0, 'Free', 'https://www.theboardwalks.com/', 'Jun 2026 · SU'],
+      ['Pitch & Run Fridays', 'Run with angels and VCs — pitching without the pitch meeting', 'Event series', 'SF', 0, 1, 'Free', 'https://lu.ma/pnr', 'Jul 2026 · SA'],
+      ['Founders You Should Know', 'Jen Yip\u2019s recurring showcase of the best seed-to-growth founders', 'Event series', 'SF', 0, 0, 'Application', 'https://foundersysk.com/', 'Jun 2026 · SU'],
+      ['Brex Startup Community', 'Flex clubs, supper clubs, golf clubs — Brex-powered founder socials', 'Event series', 'SF', 0, 0, 'Free', 'https://lu.ma/brexevents', 'Jun 2026 · SU'],
+      ['TiEcon', 'The largest Indian founder/VC conference in the world — deep desi connects', 'Event series', 'South Bay/Fremont', 1, 1, 'Paid', 'https://tiecon.org/', 'Jul 2026 · SA'],
+      ['Indian Startups Silicon Valley', 'Hyperactive Meetup group — mixers, pitch events, mentorship', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/indianstartupssiliconvalley/', 'Jun 2026 · SU'],
+      ['FUNDA Club', 'Founders, VCs and C-suite in Los Altos — with food and an afterparty', 'Event series', 'Peninsula', 1, 1, 'Application', 'https://www.funda.club/', 'Jul 2026 · SA'],
+      ['SaaSBoomi US–India', 'Top Asia SaaS founders + investors; Bay Area editions', 'Event series', 'SF', 1, 0, 'Application', 'https://saasboomi.org/events/', 'Jun 2026 · SU'],
+      ['Bootstrappers Breakfast', 'Recurring breakfasts for founders growing on revenue, not raises', 'Event series', 'SF', 0, 0, 'Free', 'https://www.eventbrite.com/o/bootstrappers-breakfast-10771471165', 'Jun 2026 · SU'],
+      ['We The Builders', 'Podcasts, live events and dinners with heavyweight guests', 'Event series', 'SF', 0, 0, 'Application', 'https://lu.ma/user/suffiyanmalik', 'Jun 2026 · SU'],
+      ['Bay Area Investing in India', 'NRI investors and founders — Syndicate 101, India pitch nights', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/investinginindia/', 'Jun 2026 · SU'],
+      ['Indiaspora Forum for Good', 'Annual mega-event of top diaspora founders, VCs and CXOs', 'Event series', 'SF', 1, 0, 'Application', 'https://indiaspora.vfairs.com/', 'Jun 2026 · SU'],
+      ['Peak XV Partners', 'Ex-Sequoia India — AI, SaaS, consumer; full SF office', 'VC', 'SF', 1, 1, 'Application', 'https://www.peakxv.com/', 'Jul 2026 · SA'],
+      ['Elevation Capital', 'Heavy US–India corridor, AI focus; SF office and constant dealflow', 'VC', 'SF', 1, 0, 'Application', 'https://elevationcapital.com/', 'Jun 2026 · SU'],
+      ['Blume Ventures', 'SaaS, fintech, AI — dual Bengaluru/SF presence', 'VC', 'SF', 1, 0, 'Application', 'https://blume.vc/', 'Jun 2026 · SU'],
+      ['Z47', 'Early/growth AI, expanding SF presence', 'VC', 'SF', 1, 0, 'Application', 'https://www.z47.com/', 'Jun 2026 · SU'],
+      ['Monta Vista Capital', 'US–India corridor, founder-to-founder network, invite events', 'VC', 'Peninsula', 1, 0, 'Invite-only', 'https://www.montavc.com/', 'Jun 2026 · SU'],
+      ['WeWork Salesforce Tower', 'Desi-heavy WeWork location; informal founder meetups', 'Workspace', 'SF', 0, 0, 'Paid', 'https://www.wework.com/l/coworking-space/sf-bay-area--CA', 'Jun 2026 · SU'],
+      ['eChai cowork pop-ups', 'Rotating desi co-work + chai + demo days, Palo Alto and Fremont', 'Workspace', 'Peninsula', 1, 1, 'Free', 'https://echai.ventures/', 'Jul 2026 · SA'],
+      ['Bay Area Founders Club', 'Weekly pulse on desi and cross-border VC events', 'Newsletter', 'Online', 1, 1, 'Free', 'https://bayareafoundersclub.substack.com/', 'Jul 2026 · SA'],
+      ['SeedToScale Events', 'Every recent Indian founder event in SF, tracked', 'Newsletter', 'Online', 1, 0, 'Free', 'https://www.seedtoscale.com/events', 'Jun 2026 · SU'],
+      ['The Founder Folks', 'Insights and opportunities from the two Silicon Valleys', 'Newsletter', 'Online', 1, 1, 'Free', 'https://thefounderfolks.substack.com/', 'Jul 2026 · SA'],
+    ];
+    const TYPES = ['All', 'Community', 'Event series', 'VC', 'Workspace', 'Newsletter'];
+    const AREAS = ['All', 'SF', 'Peninsula', 'South Bay/Fremont', 'Online'];
+    const { q, type, area, desi, vouched } = this.state;
+    const ql = q.toLowerCase();
+    let items = E.map(e => ({ name: e[0], one: e[1], type: e[2], area: e[3], desi: !!e[4], vouched: !!e[5], cost: e[6], url: e[7], ver: e[8] }));
+    items = items.filter(r =>
+      (type === 'All' || r.type === type) && (area === 'All' || r.area === area) &&
+      (!desi || r.desi) && (!vouched || r.vouched) &&
+      (!ql || (r.name + ' ' + r.one).toLowerCase().includes(ql)));
+    items.sort((a, b) => (b.vouched - a.vouched) || b.ver.localeCompare(a.ver));
+    const rows = items.map(r => ({ ...r, cta: r.url === '#' ? 'Invite via TFF' : 'Join ↗' }));
+    const chip = (label, active, onClick, mono) => ({ label, onClick,
+      bg: active ? '#1A1712' : 'transparent', color: active ? '#FAF7F1' : '#3D3629', border: active ? '#1A1712' : '#C9C0AD' });
+    return {
+      q, rows,
+      onSearch: e => this.setState({ q: e.target.value }),
+      typeChips: TYPES.map(t => chip(t === 'All' ? 'All types' : t, type === t, () => this.setState({ type: t }))),
+      areaChips: AREAS.map(a => chip(a === 'All' ? 'All areas' : a, area === a, () => this.setState({ area: a }))),
+      toggleDesi: () => this.setState(s => ({ desi: !s.desi })),
+      toggleVouched: () => this.setState(s => ({ vouched: !s.vouched })),
+      desiBg: desi ? '#1A1712' : 'transparent', desiColor: desi ? '#FAF7F1' : '#3D3629', desiBorder: desi ? '#1A1712' : '#C9C0AD',
+      vouchedBg: vouched ? (this.props.accent ?? '#6C8CF5') : 'transparent', vouchedColor: vouched ? '#FAF7F1' : '#3D3629', vouchedBorder: vouched ? (this.props.accent ?? '#6C8CF5') : '#C9C0AD',
+      countLabel: rows.length + ' of ' + E.length + ' entries',
+    };
+  }
+}
+</script>
+</body>
+</html>

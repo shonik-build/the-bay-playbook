@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:var(--accent)}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="5">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:880px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S3 · FIRST MONTH</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">PRICES VERIFIED JUL 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Housing and neighbourhoods, the whole Bay</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 12px;max-width:640px">Decide which part of the Bay to live in, know what rent actually costs right now, and sign a lease without a US credit history or getting scammed.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 26px;max-width:640px">This page is about the 12-month lease. Your first four weeks belong in a furnished co-living or a monthly sublet, which is the <a href="Bay Playbook Guides.dc.html#short-term-housing">landing pad guide</a>, because you should never sign a year of your life onto a block you haven't walked at 9pm.</p>
+
+    <div style="display:flex;align-items:flex-end;gap:28px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:26px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">SF MEDIAN 1BR</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">$4,060</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">YEAR ON YEAR</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">+22%</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">US MEDIAN 1BR</div>
+        <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">$1,526</div>
+      </div>
+      <div style="flex:1;min-width:220px;font-size:13.5px;line-height:1.5;color:#5A5243;padding-bottom:4px">You are arriving into the most expensive SF rental market ever recorded, at the most expensive time of year. SF is running about two and a half times the national median, and the growth is the fastest in the country.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Start with the persona, not the neighbourhood</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The SF-versus-everywhere-else debate resolves fast once you're honest about your daily graph: where your co-founder, your customers and your weeknight events actually are. Three answers.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHERE YOUR WEEK HAPPENS</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ dayChips }}" as="c" hint-placeholder-count="4">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHO'S MOVING</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ houseChips }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="border:1.5px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap">
+        <label for="ceil" style="font-size:15px;font-weight:700">What you'll pay a month, at the top end</label>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--accent)">{{ ceilLabel }}</div>
+      </div>
+      <input id="ceil" type="range" min="1800" max="5000" step="50" value="{{ ceil }}" onChange="{{ setCeil }}" onInput="{{ setCeil }}" style="width:100%;margin:12px 0 0;height:4px">
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div style="min-width:220px;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">LIVE HERE</div>
+          <div style="font-size:30px;font-weight:900;letter-spacing:-0.025em;line-height:1.1;margin-top:3px;color:{{ verdict.color }}">{{ verdict.region }}</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#C9C0AD;margin-top:8px;max-width:420px">{{ verdict.why }}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">TYPICAL 1BR</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:700;margin-top:4px">{{ verdict.range }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:{{ verdict.fitColor }};margin-top:6px">{{ verdict.fit }}</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">START YOUR 9PM WALKS HERE</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+          <sc-for list="{{ verdictPicks }}" as="p" hint-placeholder-count="3">
+            <div style="border:1px solid #3A342A;border-radius:9px;padding:12px 14px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+                <span style="font-size:14.5px;font-weight:800">{{ p.name }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#F5B896">{{ p.price }}</span>
+              </div>
+              <div style="font-size:13px;line-height:1.5;color:#C9C0AD;margin-top:3px">{{ p.note }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:16px;padding-top:14px;display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">WHAT YOU GIVE UP</div>
+          <div style="font-size:14px;line-height:1.55;color:#C9C0AD">{{ verdict.tradeoff }}</div>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">RUNNER-UP</div>
+          <div style="font-size:14px;line-height:1.55;color:#C9C0AD">{{ verdict.runnerUp }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Neighbourhood numbers are thin and jumpy. A few buildings turning over can move an average double digits in a month, so treat all of this as a starting point for your own walk rather than a verdict.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What rent costs right now</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Bars are the range between sources, because they measure different buildings. The dotted line is your ceiling from the slider above.</p>
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <sc-for list="{{ rentRows }}" as="r" hint-placeholder-count="11">
+        <div style="display:grid;grid-template-columns:minmax(96px,124px) 1fr 104px;gap:12px;align-items:center;padding:4px 0">
+          <div style="font-size:13.5px;font-weight:{{ r.weight }};line-height:1.25">{{ r.name }}</div>
+          <div style="position:relative;height:14px;background:#EFE9DC;border-radius:999px">
+            <div style="position:absolute;top:0;bottom:0;left:{{ r.left }};width:{{ r.width }};background:{{ r.fill }};border-radius:999px"></div>
+            <div style="position:absolute;top:-4px;bottom:-4px;left:{{ ceilPos }};width:0;border-left:1.5px dashed #1A1712"></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5A5243;text-align:right">{{ r.label }}</div>
+        </div>
+      </sc-for>
+      <div style="display:grid;grid-template-columns:minmax(96px,124px) 1fr 104px;gap:12px;margin-top:6px">
+        <div></div>
+        <div style="position:relative;height:14px">
+          <sc-for list="{{ ticks }}" as="t" hint-placeholder-count="6">
+            <span style="position:absolute;left:{{ t.left }};top:0;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#8A8172;white-space:nowrap">{{ t.label }}</span>
+          </sc-for>
+        </div>
+        <div></div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">The gap between the low and the high number is roughly the gap between an older small building and a new corporate tower, and that gap is the most useful thing on the chart. RentCafe only counts complexes with 50 or more units, while broader indexes catch smaller stock.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">One timing note. SF rents peak in July and bottom out in December, a swing of around 4%. You usually can't choose your landing month, but if a lease start can drift a few weeks toward late autumn, let it.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Run your own numbers</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two things matter before you sign: the cash to get keys, and what this unit can legally charge you in year two. The building's age decides the second one, and it's worth more than any negotiation.</p>
+
+    <div style="border:1.5px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px">
+        <label for="rent" style="font-size:15px;font-weight:700">Asking rent</label>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:700;color:var(--accent)">{{ rentLabel }}</div>
+      </div>
+      <input id="rent" type="range" min="1800" max="6000" step="50" value="{{ rent }}" onChange="{{ setRent }}" onInput="{{ setRent }}" style="width:100%;margin:0 0 18px;height:4px">
+
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE BUILDING</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px">
+        <sc-for list="{{ tierChips }}" as="t" hint-placeholder-count="3">
+          <button onClick="{{ t.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};text-align:left" style-hover="border-color:#1A1712">{{ t.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">CASH TO GET KEYS</div>
+          <sc-for list="{{ moveIn }}" as="m" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid #EFE9DC">
+              <span style="font-size:13.5px;color:#3D3629">{{ m.what }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600">{{ m.amt }}</span>
+            </div>
+          </sc-for>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0 0">
+            <span style="font-size:14.5px;font-weight:800">Before furniture</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:800">{{ moveInTotal }}</span>
+          </div>
+          <div style="font-size:13px;line-height:1.5;color:#5A5243;margin-top:8px">Land with three months of total costs in an accessible account and no landlord can pressure you into a bad lease with a deadline.</div>
+        </div>
+        <div style="border-left:1px solid #EFE9DC;padding-left:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:8px">YEAR TWO, LEGAL MAXIMUM</div>
+          <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:{{ tier.color }}">{{ yearTwoDelta }}<span style="font-size:15px;font-weight:700;color:#8A8172">/mo more</span></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-top:4px">{{ tier.capLabel }} · new rent {{ yearTwoRent }}</div>
+          <div style="height:10px;background:#EFE9DC;border-radius:999px;overflow:hidden;margin-top:14px;display:flex">
+            <div style="height:100%;background:{{ tier.color }};width:{{ tier.barW }}"></div>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629;margin-top:10px">{{ tier.note }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">{{ augLabel }}</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">The statewide cap resets from 6.3% to 8.8% on 1 August. Your year-two increase is being decided right now, by which building you pick, not by anything you'll negotiate later. I'd take the older building at slightly higher starting rent almost every time: your rent barely moves in years two through five while market rent climbs 20% or more.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Check any SF building's construction year before you tour, and confirm a specific unit's status with the SF Rent Board on <a href="tel:+14152524602">(415) 252-4602</a>. A <span style="position:relative;display:inline-block"><button onClick="{{ g.co.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.co.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">certificate of occupancy</button><sc-if value="{{ g.co.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.co.tag }}</span>{{ g.co.def }}</span></sc-if></span> before 13 June 1979, in a multi-unit building, is what puts an SF unit under city rent control.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Since July 2024, <span style="position:relative;display:inline-block"><button onClick="{{ g.ab12.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.ab12.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">AB 12</button><sc-if value="{{ g.ab12.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:285px;max-width:calc(100vw - 44px);background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.ab12.tag }}</span>{{ g.ab12.def }}</span></sc-if></span> caps security deposits at one month's rent for most landlords. Bangalore trained you to budget ten months. California went the other way, and "first, last and deposit" is dead too, because last month's rent counts toward the same cap. Individuals who own at most two rental properties totalling four units may still ask for two months. When you leave, the deposit must come back within 21 days, itemised. Note the quiet good news threaded through all of this: every protection here attaches to the tenancy, not the tenant. Your visa status is irrelevant to the deposit cap, the rent caps and the eviction rules.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Renting with zero US credit history</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">On arrival you have no <span style="position:relative;display:inline-block"><button onClick="{{ g.score.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.score.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">credit score</button><sc-if value="{{ g.score.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.score.tag }}</span>{{ g.score.def }}</span></sc-if></span> and often no US income. Three doors still open, and the whole trick is matching the door to the landlord. Which one are you looking at?</p>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+      <sc-for list="{{ doorChips }}" as="d" hint-placeholder-count="3">
+        <button onClick="{{ d.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ d.border }};background:{{ d.bg }};color:{{ d.color }};text-align:left" style-hover="border-color:#1A1712">{{ d.label }}</button>
+      </sc-for>
+    </div>
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap">
+        <div style="min-width:220px;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">USE THIS DOOR</div>
+          <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px">{{ door.head }}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">WHAT IT COSTS</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:700;margin-top:4px;color:#F5B896">{{ door.cost }}</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:16px;padding-top:14px;font-size:15px;line-height:1.6;color:#C9C0AD;max-width:620px">{{ door.body }}</div>
+      <div style="border-top:1px solid #332D24;margin-top:14px;padding-top:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">DO THIS FIRST</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#FAF7F1">{{ door.first }}</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Before any of them, build a <strong>rental resume</strong>. One PDF with your visa status, funding announcement or bank balance, LinkedIn, a reference letter from your Indian landlord, and what you're offering as security. Send it with every enquiry, because you are marketing yourself past a missing number. The documents folder in the <a href="Bay Playbook Remote Setup.dc.html">remote setup guide</a> has you collecting these ingredients before you fly.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Six or more is the whole rule</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">The deposit cap has exactly one pressure valve written into it: a landlord may accept an advance of six months' rent or more, if the lease runs six months or longer. Below six there is no middle option, and two or three months upfront is just an over-cap deposit the landlord shouldn't take.</div>
+      </div>
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">Who runs the credit check tells you everything</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">A landlord runs your credit themselves for that $66 fee. Anyone who instead sends you a link to buy your own credit report is running a scam, not a screening. And building the actual US score starts the week you land, before the SSN arrives.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Scams, and where they start</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The FTC counted $65 million in reported rental-scam losses in the year to mid-2025. About half of those started with a fake Facebook ad and another 16% on Craigslist, which is awkward, because Facebook groups and Craigslist are also where the real sublet and small-landlord inventory lives. So don't avoid the channels. Refuse to pay on them.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ redFlags }}" as="f" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:11px 16px;border-bottom:1px solid #EFE9DC">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);font-weight:700">×</span>
+          <span style="font-size:14.5px;line-height:1.5;color:#3D3629">{{ f.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Scammers now fake legitimacy with self-guided lockbox tours of homes they don't control, so a tour alone proves nothing. Check the owner's name against the county assessor's record or the management company's own site, and reverse-image-search the photos. Rent meaningfully below the chart above is bait, not luck.</p>
+    <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">AT NIGHT</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Be careful around the Tenderloin, Civic Center, and SoMa near 6th Street, with Market around 6th the roughest stretch. It's mostly open drug use and street disorder rather than violence aimed at you, but walk a block over. Street View every exact address before viewing, then walk the block at 9pm before signing. No listing site can do that for you, and neither can this page.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="8">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="10">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Jul 2026 · Shonik</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  score: { tag: 'CREDIT SCORE', def: 'A US lending-history number from 300 to 850 that most landlords screen for, alongside income verification at 2.5 to 3 times the monthly rent. On arrival you have neither.' },
+  co: { tag: 'CERTIFICATE OF OCCUPANCY', def: 'The city document certifying a building is legal to live in, dated when it was first approved. Before 13 June 1979 and multi-unit is what puts an SF building under city rent control.' },
+  ab12: { tag: 'AB 12 · CIVIL CODE 1950.5', def: 'The 2024 California law capping security deposits at one month\u2019s rent for most landlords, and folding last month\u2019s rent into the same cap.' },
+};
+
+const REGIONS = {
+  sf: {
+    name: 'San Francisco', range: '$4,050–4,060', low: 3395, color: '#FAF7F1',
+    why: 'Your investors, hiring pool and every weeknight event are here. For a solo founder building AI or software this isn\u2019t close, and the commute cost of being anywhere else is measured in relationships rather than minutes.',
+    tradeoff: 'The most expensive rental market ever recorded, arriving in its most expensive month. You will pay roughly two and a half times the national median for less space than anywhere else on this page.',
+    runnerUp: 'East Bay. Rockridge or Temescal keeps BART underfoot and halves the rent, at the cost of not being in the room after 9pm.',
+    picks: [
+      { name: 'Hayes Valley', price: '~$4,100', note: 'The default first-year founder pick. Dense with AI founders, and you can walk to almost everything that matters.' },
+      { name: 'The Mission', price: '~$4,000', note: 'Trades polish for sun and food. SF\u2019s best weather and a younger crowd.' },
+      { name: 'SoMa', price: 'varies hard', note: 'The cheapest way to be central, but quality changes violently block by block. Walk it at 9pm.' },
+    ],
+  },
+  west: {
+    name: 'The SF fog belt', range: '~$3,395', low: 3100, color: '#FAF7F1',
+    why: 'Sunset and Richmond were the reliable discount, about $1,300 under the citywide median in early-2026 data. The boom has spilled west and the discount survives, just thinner and noisier than its reputation.',
+    tradeoff: 'Zumper had Outer Sunset one-bedrooms averaging $3,395 by May, on inventory so thin the monthly numbers swing by double digits. You\u2019re cold in July and 30 to 40 minutes from everything.',
+    runnerUp: 'East Bay at $2,000–2,300, where the discount is real rather than eroding, and BART is faster than the N Judah.',
+    picks: [
+      { name: 'Outer Sunset', price: '~$3,395', note: 'The classic discount, now averaging within a few hundred of the city. Thin inventory, jumpy numbers.' },
+      { name: 'Inner Richmond', price: 'under median', note: 'Food, park access and the fog. Closer in than the Sunset for a similar trade.' },
+      { name: 'NoPa / Alamo Square', price: 'between', note: 'Splits the difference between Hayes prices and westside quiet.' },
+    ],
+  },
+  south: {
+    name: 'South Bay and Fremont', range: '$2,150–3,276', low: 2150, color: '#7FD1A6',
+    why: 'Fremont, Sunnyvale, Santa Clara and Cupertino are the actual desi hubs. Fremont has roughly 69,000 Indian residents and San Jose 79,000, the two largest Indian populations of any California city. Indian groceries on the main roads, temples, and schools full of kids who look like yours.',
+    tradeoff: 'You\u2019ll pay $1,500 to $1,900 a month less than SF for more space, and you\u2019ll be an hour from the weeknight event calendar. Plan one deliberate SF day a week or you will drift out of the network entirely.',
+    runnerUp: 'The Peninsula if your calendar genuinely splits between Sand Hill Road and the city, though you pay for both and get neither upside.',
+    picks: [
+      { name: 'Fremont', price: '$2,150–2,575', note: 'Nearly one in five residents is Indian-American. Ardenwood and Niles around $2,050–2,085; Mission San Jose carries the school-district markup.' },
+      { name: 'Sunnyvale', price: '$2,489–3,140', note: 'The El Camino corridor is the desi spine, and no longer a quiet bargain. Up about 14% in a year.' },
+      { name: 'Santa Clara', price: '$2,575–3,276', note: 'The value play beside the big campuses.' },
+    ],
+  },
+  peninsula: {
+    name: 'The Peninsula', range: '$2,800–3,700', low: 2807, color: '#FAF7F1',
+    why: 'San Mateo and Redwood City sit on Caltrain between SF and Palo Alto: investor proximity, quieter streets, functioning downtowns. Right if your week genuinely splits between Sand Hill Road and the city.',
+    tradeoff: 'A compromise at full price. I\u2019d pick it only if that split is real, because otherwise it\u2019s Peninsula prices for neither city\u2019s upside.',
+    runnerUp: 'San Francisco. If you\u2019re honest that most of your calendar is in the city, live in the city and take Caltrain south on the two days it isn\u2019t.',
+    picks: [
+      { name: 'San Mateo', price: '$2,807–3,302', note: 'The balance point. A real downtown, Caltrain, and the lowest prices on the Peninsula.' },
+      { name: 'Redwood City', price: '$3,345–3,733', note: 'Costs more but sits on the Caltrain express stop. Redwood Shores runs about $750 under the city average if you\u2019ll trade walkability for water.' },
+      { name: 'Burlingame', price: 'above San Mateo', note: 'San Mateo\u2019s pricier, more polished sibling.' },
+    ],
+  },
+  east: {
+    name: 'The East Bay', range: '$2,000–2,300', low: 2000, color: '#7FD1A6',
+    why: 'Roughly half of SF, and BART gets you from the central stations to downtown SF in about 20 to 30 minutes. The only answer that keeps real SF access on a tight budget.',
+    tradeoff: 'You\u2019re across the water, which means the last BART home is a real constraint on how late you stay out. The Getting Around guide has the transport maths.',
+    runnerUp: 'Fremont, which technically sits in the East Bay too and doubles as the budget desi option.',
+    picks: [
+      { name: 'Rockridge / Temescal', price: '~$2,666', note: 'The walkable picks. College and Telegraph avenues, BART underfoot, a few hundred over the Oakland average.' },
+      { name: 'Downtown Oakland', price: '$2,000–2,300', note: 'The pure-value play. Cheapest real urban living with a fast train to the city.' },
+      { name: 'Downtown Berkeley', price: '$2,250–2,300', note: 'Same value band, a university town instead of a city.' },
+    ],
+  },
+};
+
+const RENTS = [
+  { name: 'Oakland', low: 2000, high: 2250 },
+  { name: 'Fremont', low: 2150, high: 2575 },
+  { name: 'Berkeley', low: 2250, high: 2300 },
+  { name: 'Sunnyvale', low: 2489, high: 3140 },
+  { name: 'San Jose', low: 2500, high: 2930 },
+  { name: 'Santa Clara', low: 2575, high: 3276 },
+  { name: 'San Mateo', low: 2807, high: 3302 },
+  { name: 'Redwood City', low: 3345, high: 3733 },
+  { name: 'Mountain View', low: 3900, high: 3900 },
+  { name: 'SF — Mission', low: 4000, high: 4000 },
+  { name: 'SF citywide', low: 4050, high: 4060, mark: true },
+];
+
+const TIERS = {
+  controlled: { label: 'SF, multi-unit, pre-1979', pct: 1.6, capLabel: '1.6% SF cap', color: '#7FD1A6', barW: '18%',
+    note: 'Rent-controlled, and eviction protections are strong. The allowable increase from 1 March 2026 through 28 February 2027 is 1.6%. This is the tier worth paying slightly more to get into.' },
+  statewide: { label: 'Older than ~15 years, anywhere in the Bay', pct: 8.8, capLabel: '8.8% statewide cap', color: '#F5B896', barW: '62%',
+    note: 'The statewide cap is 5% plus regional CPI, which is 6.3% through 31 July 2026 and 8.8% from 1 August. Legal, and in this market landlords use the whole allowance.' },
+  uncapped: { label: 'Under 15 years old, or a single-family home', pct: 20, capLabel: 'no cap at all', color: '#E8500A', barW: '100%',
+    note: 'No cap applies. The figure shown is what market growth has actually been doing, not a legal ceiling. There is no ceiling. This is the tier where year two prices you out of your own flat.' },
+};
+
+const DOORS = {
+  small: { head: 'Small landlords, and a conversation', cost: 'one month deposit',
+    body: 'Owners of two-to-four-unit buildings decide with judgment rather than screening software. The rental resume, a real conversation and the full one-month deposit routinely close them. They surface on Craigslist and neighbourhood walks more than on the big listing sites.',
+    first: 'Finish the rental resume PDF before you send a single enquiry. It is the whole pitch.' },
+  tower: { head: 'A guarantor service', cost: '40–130% of one month',
+    body: 'Large property managers won\u2019t bend their software, but most accept TheGuarantors, which insures your lease so you qualify without US credit. It explicitly serves international arrivals, one policy covers the whole lease, and it takes wires from non-US banks. The one-time premium is priced after underwriting, and no-US-credit profiles land toward the top of that band.',
+    first: 'Get the quote before you tour, so approval takes hours instead of days.' },
+  cash: { head: 'Prepay six months', cost: 'six months of rent, wired',
+    body: 'The deposit cap has exactly one pressure valve written into it: a landlord may accept an advance payment of six months\u2019 rent or more, if the lease runs six months or longer. If you have the cash and want a specific unit, "six months wired at signing" ends most credit conversations on the spot.',
+    first: 'Six or more is the whole rule. Two or three months upfront is just an over-cap deposit the landlord shouldn\u2019t take.' },
+};
+
+const CHECKS = [
+  { id: 'persona', text: 'Pick your region before you tour anything' },
+  { id: 'resume', text: 'Build the one-page rental resume PDF this week' },
+  { id: 'quote', text: 'Get a TheGuarantors quote so it\u2019s ready the day you apply' },
+  { id: 'year', text: 'Check any SF building\u2019s construction year, and confirm coverage with the Rent Board on (415) 252-4602' },
+  { id: 'alerts', text: 'Set saved searches on Zumper, Zillow and Craigslist now, so you learn real prices before you land' },
+  { id: 'walk', text: 'Street View every address, then walk the block at 9pm before signing' },
+  { id: 'lease', text: 'Read every page of the lease, not the summary the agent gives you' },
+  { id: 'money', text: 'Never send money before an in-person viewing. No exceptions' },
+];
+
+const KEY = 'bp-housing';
+
+class Component extends DCLogic {
+  state = { day: 'sf', house: 'solo', ceil: 3200, rent: 4000, tier: 'statewide', door: 'small', term: null, align: 'left', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  save(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { day, house, ceil, rent, tier: tierKey, door: doorKey, term } = this.state;
+
+    const score = { sf: 0, west: 0, south: 0, peninsula: 0, east: 0 };
+    if (day === 'sf') { score.sf += 6; score.west += 3; score.east += 3; score.peninsula += 1; }
+    if (day === 'southbay') { score.south += 6; score.peninsula += 2; score.east += 1; }
+    if (day === 'split') { score.peninsula += 6; score.sf += 2; score.south += 1; }
+    if (day === 'remote') { score.east += 4; score.south += 3; score.west += 2; score.sf += 1; }
+    if (house === 'solo') { score.sf += 2; score.west += 1; score.east += 1; }
+    if (house === 'couple') { score.east += 1; score.peninsula += 1; score.west += 1; }
+    if (house === 'family') { score.south += 4; score.peninsula += 2; score.east += 1; score.sf -= 2; score.west += 1; }
+    Object.keys(score).forEach(k => {
+      const r = REGIONS[k];
+      if (ceil < r.low) score[k] -= 6;
+      else if (ceil < r.low + 300) score[k] -= 1;
+      else if (ceil > r.low + 900) score[k] += 1;
+    });
+    const ranked = Object.keys(score).sort((a, b) => score[b] - score[a]);
+    const win = REGIONS[ranked[0]];
+    const affordable = ceil >= win.low;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try { if (e.currentTarget.getBoundingClientRect().left + 306 > window.innerWidth) align = 'right'; } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    const SCALE_LO = 1800, SCALE_HI = 4700, SPAN = SCALE_HI - SCALE_LO;
+    const pos = v => Math.max(0, Math.min(100, ((v - SCALE_LO) / SPAN) * 100)) + '%';
+    const tier = TIERS[tierKey];
+    const delta = Math.round(rent * tier.pct / 100);
+    const money = n => '$' + n.toLocaleString('en-US');
+
+    const today = new Date();
+    const augDays = Math.ceil((new Date(today.getFullYear(), 7, 1) - today) / 86400000);
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      dayChips: [['sf', 'SF investors & events'], ['southbay', 'South Bay customers'], ['split', 'Sand Hill + SF'], ['remote', 'Mostly remote']].map(([v, label]) => ({
+        label, pick: () => this.setState({ day: v }),
+        border: day === v ? '#1A1712' : '#C9C0AD', bg: day === v ? '#1A1712' : '#FFFDF8', color: day === v ? '#FAF7F1' : '#3D3629',
+      })),
+      houseChips: [['solo', 'Just me'], ['couple', 'Me and a partner'], ['family', 'Family with kids']].map(([v, label]) => ({
+        label, pick: () => this.setState({ house: v }),
+        border: house === v ? '#1A1712' : '#C9C0AD', bg: house === v ? '#1A1712' : '#FFFDF8', color: house === v ? '#FAF7F1' : '#3D3629',
+      })),
+      ceil: ceil,
+      ceilLabel: money(ceil) + '/mo',
+      setCeil: e => this.setState({ ceil: Number(e.target.value) }),
+      ceilPos: pos(ceil),
+
+      verdict: {
+        region: win.name, range: win.range, color: win.color, why: win.why, tradeoff: win.tradeoff, runnerUp: win.runnerUp,
+        fit: affordable ? 'inside your ceiling' : 'above your ceiling by ' + money(win.low - ceil),
+        fitColor: affordable ? '#7FD1A6' : accent,
+      },
+      verdictPicks: win.picks,
+
+      rentRows: RENTS.map(r => ({
+        name: r.name,
+        weight: r.mark ? 800 : 600,
+        left: pos(r.low),
+        width: Math.max(1.5, ((r.high - r.low) / SPAN) * 100) + '%',
+        fill: r.mark ? accent : '#1A1712',
+        label: r.low === r.high ? '~' + money(r.low) : money(r.low) + '–' + r.high.toLocaleString('en-US'),
+      })),
+      ticks: [2000, 2500, 3000, 3500, 4000, 4500].map(v => ({
+        left: pos(v),
+        label: '$' + (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'K',
+      })),
+
+      rent,
+      rentLabel: money(rent) + '/mo',
+      setRent: e => this.setState({ rent: Number(e.target.value) }),
+      tierChips: Object.keys(TIERS).map(k => ({
+        label: TIERS[k].label, pick: () => this.setState({ tier: k }),
+        border: tierKey === k ? '#1A1712' : '#C9C0AD', bg: tierKey === k ? '#1A1712' : '#FFFDF8', color: tierKey === k ? '#FAF7F1' : '#3D3629',
+      })),
+      tier,
+      moveIn: [
+        { what: 'First month', amt: money(rent) },
+        { what: 'Deposit, capped at one month', amt: money(rent) },
+        { what: 'Application fee', amt: '$65.86' },
+        { what: 'Renters insurance, first month', amt: '$13–25' },
+      ],
+      moveInTotal: money(rent * 2 + 66 + 19),
+      yearTwoDelta: '+' + money(delta),
+      yearTwoRent: money(rent + delta),
+
+      augLabel: augDays > 0 ? '1 AUGUST IS ' + augDays + ' DAYS AWAY' : 'THE 1 AUGUST RESET HAS LANDED',
+
+      doorChips: [['small', 'A two-to-four-unit building'], ['tower', 'A corporate tower'], ['cash', 'I have cash and want one specific unit']].map(([v, label]) => ({
+        label, pick: () => this.setState({ door: v }),
+        border: doorKey === v ? '#1A1712' : '#C9C0AD', bg: doorKey === v ? '#1A1712' : '#FFFDF8', color: doorKey === v ? '#FAF7F1' : '#3D3629',
+      })),
+      door: DOORS[doorKey],
+
+      redFlags: [
+        'Money for a unit you haven\u2019t physically walked through',
+        'Payment by wire, gift card, crypto, or an app like Zelle to someone you haven\u2019t met',
+        '"The landlord is out of town." That is the end of the conversation',
+        'A link to buy your own credit report instead of the landlord running it',
+        'A self-guided lockbox tour as the only proof the lister controls the home',
+        'Rent meaningfully below the chart above',
+      ].map(v => ({ v })),
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.save({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.save({}),
+
+      nobody: [
+        { t: 'The $4,060 median hides a barbell', d: 'Rent-controlled older units turn over rarely and go fast, while listed inventory skews to expensive new towers. Speed wins. Show up to open houses with the rental resume, the guarantor pre-approval and the deposit ready, and apply the same day.' },
+        { t: 'Fremont and Sunnyvale aren\u2019t a compromise', d: 'For a founder selling into big tech, or raising a family, being in the desi hub with $1,500 a month lower rent is a strategic position rather than exile. The census backs the vibe: nearly one in five Fremont residents is Indian-American.' },
+        { t: 'Match the workaround to the landlord', d: 'Small buildings bend on judgment and a conversation. Corporate towers don\u2019t bend at all but accept TheGuarantors instantly. Bringing the wrong tool to the wrong door is how people collect two rejections and conclude the market hates them.' },
+        { t: '1 August is a silent rent-shock date', d: 'The statewide cap resets from 6.3% to 8.8%. Your year-two increase is being decided right now, by which building you pick, not by anything you\u2019ll negotiate later.' },
+      ],
+
+      sources: [
+        { label: 'Zumper national rent report', url: 'https://www.zumper.com/rent-research' },
+        { label: 'SF Standard · why rents are soaring', url: 'https://sfstandard.com/' },
+        { label: 'AB 12 · full bill text', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB12' },
+        { label: 'CAA on AB 12', url: 'https://caanet.org/' },
+        { label: 'SF Rent Board · allowable increase', url: 'https://www.sf.gov/information--allowable-rent-increases' },
+        { label: 'Marin County · AB 1482 limits', url: 'https://www.marincounty.gov/' },
+        { label: 'TheGuarantors · renter FAQ', url: 'https://www.theguarantors.com/renters' },
+        { label: 'FTC · rental listing scams', url: 'https://consumer.ftc.gov/articles/rental-listing-scams' },
+        { label: 'NerdWallet · CA renters insurance', url: 'https://www.nerdwallet.com/article/insurance/renters-insurance-california' },
+        { label: 'Starter to SF', url: 'https://www.startertosf.guide/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__housing';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>
