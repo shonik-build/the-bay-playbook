@@ -1,8 +1,10 @@
 # The Bay Playbook — build handoff
 
-You have 17 files and this document. Your job: merge them into **one self-contained HTML file** that works offline, with hash-based routing between all 20 guides, preserving the existing design exactly.
+You have 21 files and this document. Your job: merge them into **one self-contained HTML file** that works offline, with hash-based routing between all 24 guides, preserving the existing design exactly.
 
 Do not redesign anything. Every page in the zip is finished and reviewed. This is an assembly job.
+
+**If you are deploying rather than bundling**, see §11 — the folder already works as a static site and can go straight to Netlify with no build step.
 
 ---
 
@@ -27,6 +29,10 @@ Do not redesign anything. Every page in the zip is finished and reviewed. This i
 | `Bay Playbook Groceries.dc.html` | `#groceries` | |
 | `Bay Playbook Weekends.dc.html` | `#weekends` | |
 | `Bay Playbook Accelerators.dc.html` | `#accel` | |
+| `Bay Playbook Money.dc.html` | `#money` | |
+| `Bay Playbook NRI Banking.dc.html` | `#nri` | |
+| `Bay Playbook Healthcare.dc.html` | `#health` | |
+| `Bay Playbook Business Banking.dc.html` | `#bizbank` | |
 | `support.js` | — | **Required runtime.** Do not modify or replace. |
 
 ---
@@ -202,14 +208,14 @@ Each page's `<main>` opens with a stage/type badge row, then `h1`, then a lead p
   { label: 'S0 · DECIDING',          pages: [['Reality check','__reality'], ['Decision index','__decisions']] },
   { label: 'S1 · BEFORE YOU FLY',    pages: [['Visa guide','visa'], ['Remote setup','__remote'], ['Short-term housing','short-term-housing'], ['Packing + medications','__packing']] },
   { label: 'S2 · LANDING, WEEK 1',   pages: [['Day 0–7 checklist','day07'], ['SIM + phone','sim'], ['Apps to download','__apps'], ['Bank, cash & Clipper','bank'], ['Getting around','__around'], ['Emergency contacts','__emergency']] },
-  { label: 'S3 · FIRST MONTH',       pages: [['Housing & neighbourhoods','__housing'], ['SSN, ITIN & licence','__ssn'], ['Money, credit & ITIN','money'], ['Healthcare & insurance','healthcare']] },
+  { label: 'S3 · FIRST MONTH',       pages: [['Housing & neighbourhoods','__housing'], ['SSN, ITIN & licence','__ssn'], ['Money, credit & ITIN','__money'], ['Money home & NRI banking','__nri'], ['Healthcare & insurance','__health']] },
   { label: 'S4 · LIVING HERE',       pages: [['Culture & etiquette','__culture'], ['Networking in SF','__networking'], ['Indian groceries & food','__groceries'], ['What to do on weekends','__weekends']] },
-  { label: 'S5 · COMPANY',           pages: [['US entity','entity'], ['Accelerators & programs','__accel']] },
+  { label: 'S5 · COMPANY',           pages: [['US entity','entity'], ['Business banking','__bizbank'], ['Accelerators & programs','__accel']] },
 ]
 ```
 
 - `__token` → a standalone page → becomes `#route` in the merged file.
-- bare slug (`visa`, `sim`, `bank`, `day07`, `money`, `healthcare`, `entity`, `short-term-housing`) → lives **inside** the Guides router → becomes `#guides/visa` or `#guides` + inner state.
+- bare slug (`visa`, `sim`, `bank`, `day07`, `entity`, `short-term-housing`) → lives **inside** the Guides router → becomes `#guides/visa` or `#guides` + inner state.
 - `__reality` → stays an external URL: `https://thefounderfolks.com/bay-playbook/reality-check`
 
 Nav item markup:
@@ -222,15 +228,16 @@ Active page: `color:#FAF7F1; background:#1A1712`. Everything else: `color:#1A171
 
 ## 6. The Guides sub-router
 
-`Bay Playbook Guides.dc.html` holds 8 pages in a `PAGES` object keyed by slug: `visa`, `short-term-housing`, `day07`, `sim`, `bank`, `healthcare`, `money`, `entity`. It renders whichever the hash points at, and each page is built from block helpers (`h()`, `p()`, `list()`, `steps()`, `table()`, `nobody()`, `friend()`, `note()`, `links()`).
+`Bay Playbook Guides.dc.html` holds 6 pages in a `PAGES` object keyed by slug: `visa`, `short-term-housing`, `day07`, `sim`, `bank`, `entity`. It renders whichever the hash points at, and each page is built from block helpers (`h()`, `p()`, `list()`, `steps()`, `table()`, `nobody()`, `friend()`, `note()`, `links()`).
 
-Seven slugs were **deleted** from it because they were superseded by richer standalone pages. It has a `RETIRED` map that redirects them. In the merged file, translate that to route redirects:
+Nine slugs were **deleted** from it because they were superseded by richer standalone pages. It has a `RETIRED` map that redirects them. In the merged file, translate that to route redirects:
 
 ```js
 const RETIRED = {
   'remote-setup': 'remote', 'packing': 'packing', 'apps': 'apps',
   'getting-around': 'around', 'emergency': 'emergency',
   'housing': 'housing', 'culture': 'culture',
+  'money': 'money', 'healthcare': 'health',
 };
 ```
 
@@ -282,6 +289,7 @@ Template: shell + sidebar + one placeholder `<main>`. **Confirm it loads and the
 - Batch B: `around`, `remote`, `emergency`, `packing`
 - Batch C: `housing`, `ssn`, `apps`, `groceries`
 - Batch D: `culture`, `networking`, `weekends`, `accel`, `guides`
+- Batch E: `money`, `nri`, `health`, `bizbank`
 
 For each page:
 1. Copy its `<main>` contents **verbatim** into the router template, wrapped in `<sc-if value="{{ isRoute }}" hint-placeholder-val="{{ false }}">`.
@@ -317,6 +325,10 @@ bp-networking                Networking (also the 70-word DM draft)
 bp-groceries                 Groceries
 bp-weekend-checks            Weekends
 bp-accelerators              Accelerators
+bp-money                     Money, credit & ITIN (card lane + ITIN case)
+bp-nri                       Sending money home & NRI banking
+bp-health                    Healthcare (also move date + planned salary)
+bp-bizbank                   Business banking
 ```
 
 ### Pass 6 — bundle
@@ -371,6 +383,10 @@ Preserve all of these. They are the point of each page.
 | `groceries` | **Trip planner** — tick 13 items + SF/South Bay + car + Costco membership → routes each item and tells you how many trips you actually need. |
 | `weekends` | **Saturday shuffler** — car + who's coming filters 32 things, then builds a morning/afternoon/evening itinerary you can re-roll. Booking clock (live dates from today). Drive-time chart with traffic overlay. |
 | `accel` | **Program filter** — stage + sector + constraint over 45 programs, sector-specific floated above generalists. Deadline countdowns. "What one point of your company buys" chart (cash ÷ equity, 18 programs). Favicon logo wall. |
+| `money` | **Card-lane matcher** — SSN status + CIBIL band + "lease or loan coming" resolve 5 newcomer cards into a start-here / then / fallback order; the freeze case overrides everything. **ITIN qualifier** — 4 household cases (with an H-4 EAD sub-question) return the verdict plus W-7 box and whether a return attaches. |
+| `nri` | **Account router** — money source (US salary / Indian rent / old resident balance / parents' gift) answers NRE vs NRO with India tax, US tax and repatriation facts. **Transfer calculator** — Remitly vs Wise vs bank wire, rupees landed, to scale. **Forms checker** — 3 sliders + filing status resolve Form 3520 / 709 / FBAR / 8938, naming the 3520 penalty in dollars. |
+| `health` | **60-day clock** — enter your move date, get the enrollment deadline with days left, coverage start, and how many days the bridge plan must cover; goes coral under 14 days and switches to the open-enrollment fallback once expired. **Subsidy-cliff slider** — salary $0–150k across three bands, sharpening within $5k of the $62,600 cliff. Triage bars to scale against $3,000. |
+| `bizbank` | **Treasury-yield slider** — idle cash 0–$5M, with Rho ($100k) and Mercury ($250k) lighting up as you cross their minimums. **Rail-cost calculator** — transfer amount vs sticker fee vs real cost including FX markup. |
 | `decisions` | 10-question decision index. |
 | `directory` | Filterable database, `#events` and `#vcs` anchors. |
 | `guides` | Inner router over 8 remaining slugs. |
@@ -381,13 +397,75 @@ Preserve all of these. They are the point of each page.
 
 - Console clean on load — no `ReferenceError`, no failed resource loads, no unresolved `{{ }}` in the DOM.
 - Every sidebar entry in all 6 groups navigates and highlights the active page.
-- Old hashes redirect: `#packing`, `#apps`, `#housing`, `#culture`, `#emergency`, `#remote-setup`, `#getting-around`.
+- Old hashes redirect: `#packing`, `#apps`, `#housing`, `#culture`, `#emergency`, `#remote-setup`, `#getting-around`, `#money`, `#healthcare`.
 - Browser back/forward moves between routes.
 - No horizontal scroll at any route, tooltips open included: `document.documentElement.scrollWidth === clientWidth`.
 - Card grids render 2-up, not 1-up.
-- Checklists persist across a reload, and the 13 localStorage keys are unchanged.
+- Checklists persist across a reload, and the 17 localStorage keys are unchanged.
 - `--accent` resolves to `#E8500A` everywhere; it should be the only custom property referenced.
 - Works from `file://` with no network — fonts may fall back, favicons will show monograms, everything else must function.
+
+---
+
+## 11. Deploying to Netlify + GitHub
+
+**The folder is already a static site.** No build step, no bundler, no framework. Every `.dc.html` is plain HTML that loads `./support.js` with a relative path, and the pages link to each other with relative `<a href>`. Push it and it serves.
+
+### Setup
+
+1. Commit the folder contents to the repo root (or a `site/` subdirectory).
+2. Netlify settings: **build command empty**, **publish directory** = the folder holding the `.dc.html` files.
+3. `index.dc.html` is the landing page, but Netlify serves `index.html` by default. Do one of:
+   - rename `index.dc.html` → `index.html` (it is ordinary HTML; the `.dc.html` suffix is only a convention), **or**
+   - add a redirect in `netlify.toml`:
+
+```toml
+[[redirects]]
+  from = "/"
+  to = "/index.dc.html"
+  status = 200
+```
+
+### The one gotcha: spaces in filenames
+
+Every page is named like `Bay Playbook Getting Around.dc.html`. That works locally and on Netlify, but the URLs come out as `/Bay%20Playbook%20Getting%20Around.dc.html`, which is ugly to share and easy to break when copy-pasted.
+
+**Recommended:** rename all files to lowercase hyphenated slugs and update the link maps. Each page's `renderVals()` has a single `H` object holding every href — that is the only place filenames appear, plus `Bay Playbook Landing v2.dc.html`'s `P` map and its `HREF` map. Rename the files, then find-and-replace across all 21 files:
+
+| From | To |
+|---|---|
+| `Bay Playbook Landing v2.dc.html` | `index.html` |
+| `Bay Playbook Getting Around.dc.html` | `getting-around.html` |
+| `Bay Playbook Remote Setup.dc.html` | `remote-setup.html` |
+| `Bay Playbook Packing.dc.html` | `packing.html` |
+| `Bay Playbook Apps.dc.html` | `apps.html` |
+| `Bay Playbook Emergency.dc.html` | `emergency.html` |
+| `Bay Playbook Housing.dc.html` | `housing.html` |
+| `Bay Playbook SSN ITIN License.dc.html` | `ssn-itin-licence.html` |
+| `Bay Playbook Money.dc.html` | `money.html` |
+| `Bay Playbook NRI Banking.dc.html` | `nri-banking.html` |
+| `Bay Playbook Healthcare.dc.html` | `healthcare.html` |
+| `Bay Playbook Culture.dc.html` | `culture.html` |
+| `Bay Playbook Networking.dc.html` | `networking.html` |
+| `Bay Playbook Groceries.dc.html` | `groceries.html` |
+| `Bay Playbook Weekends.dc.html` | `weekends.html` |
+| `Bay Playbook Business Banking.dc.html` | `business-banking.html` |
+| `Bay Playbook Accelerators.dc.html` | `accelerators.html` |
+| `Bay Playbook Guides.dc.html` | `guides.html` |
+| `Bay Playbook Decisions.dc.html` | `decisions.html` |
+| `Bay Playbook Directory.dc.html` | `directory.html` |
+
+A single find-and-replace pass over all files handles it, because the filename strings are literal and appear nowhere else. Verify by clicking every sidebar entry on two or three pages after deploy.
+
+### What will and won't work on the deployed site
+
+- **Works:** every interactive, every checklist (localStorage is per-origin, so progress persists per visitor), all fonts, all external links.
+- **Favicon logo tiles** on Apps, Accelerators and Groceries fetch from `google.com/s2/favicons` at runtime. Fine on a live site. They fall back to monograms if blocked.
+- **Nothing needs a server.** No API calls, no environment variables, no secrets.
+
+### Updating a page later
+
+Each page is standalone. Edit the one file, commit, and Netlify redeploys. The only cross-file concern is the nav: if you add or remove a page, update the `H` map and the taxonomy array in **every** page's `renderVals()`, since each carries its own copy of the sidebar. §5 has the canonical taxonomy.
 
 ---
 

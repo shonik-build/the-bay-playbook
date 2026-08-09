@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-The Bay Playbook — a 17-page content site for Indian founders relocating to San Francisco. Sequenced across five stages (S0 deciding → S5 company). Each page is a self-contained HTML file rendered by a custom template DSL runtime (`support.js`) that loads React from unpkg.
+The Bay Playbook — a 21-page content site for Indian founders relocating to San Francisco. Sequenced across five stages (S0 deciding → S5 company). Each page is a self-contained HTML file rendered by a custom template DSL runtime (`support.js`) that loads React from unpkg.
 
 **No build step.** Every `.dc.html` file is authored, shipped, and served as-is.
 
@@ -50,7 +50,7 @@ Read `HANDOFF.md` §3 for the canonical tokens. Do not change any value there wi
 
 ## Persisted state
 
-Twelve `localStorage` keys hold user progress. Renaming any of these wipes user data:
+Seventeen `localStorage` keys hold user progress. Renaming any of these wipes user data:
 
 ```
 bp-checklist                 landing master checklist
@@ -61,10 +61,14 @@ bp-apps                      Apps (also gate toggles)
 bp-emergency-card            Emergency (also blood group + contact)
 bp-housing                   Housing
 bp-ssn-dmv                   SSN / DMV (also visa selection)
+bp-money                     Money, credit & ITIN (card lane + ITIN case)
+bp-nri                       Sending money home & NRI banking
+bp-health                    Healthcare (also move date + planned salary)
 bp-culture-checks            Culture
 bp-networking                Networking (also 70-word DM draft)
 bp-groceries                 Groceries
 bp-weekend-checks            Weekends
+bp-bizbank                   Business banking
 bp-accelerators              Accelerators
 ```
 
@@ -84,8 +88,8 @@ Every page has a route slug (matches the hash in the merged version described in
 - `home` → `index.html` / `Bay Playbook Landing v2.dc.html`
 - `decisions` → 10-question index
 - `directory` → filterable database
-- `around`, `remote`, `packing`, `apps`, `emergency`, `housing`, `ssn`, `culture`, `networking`, `groceries`, `weekends`, `accel` → standalone pages
-- `guides/<slug>` → inner router in `Bay Playbook Guides.dc.html` for 8 sub-slugs (visa, day07, sim, bank, money, healthcare, entity, short-term-housing)
+- `around`, `remote`, `packing`, `apps`, `emergency`, `housing`, `ssn`, `money`, `nri`, `health`, `culture`, `networking`, `groceries`, `weekends`, `bizbank`, `accel` → standalone pages
+- `guides/<slug>` → inner router in `Bay Playbook Guides.dc.html` for 6 sub-slugs (visa, day07, sim, bank, entity, short-term-housing). `money` and `healthcare` are retired sub-slugs that redirect to the new `/money` and `/health` standalone pages.
 
 Retired route redirects (still in `HANDOFF.md` §6):
 

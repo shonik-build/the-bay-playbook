@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S3 · FIRST MONTH</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED AUG 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Money, credit &amp; ITIN</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">The fix is mechanical and takes about 12 months. Bank account, first cards, an ITIN if your household needs one, and the money setup that keeps a thin file clean.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:26px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">A LANDLORD RUNS A CREDIT CHECK ON DAY ONE</div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center">
+        <div style="text-align:right">
+          <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">790</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;margin-top:3px">CIBIL, 9 YEARS OF IT</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C9C0AD">=</div>
+        <div>
+          <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:#C9C0AD">—</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172;margin-top:3px">NO US FILE AT ALL</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Your CIBIL score is worth nothing here on day one. Both of these read the same way to a US landlord, and the only thing that changes it is US tradelines reporting on time, month after month.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The 30-day fast path</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Everything here happens before your first card statement closes.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ fastPath }}" as="f" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:minmax(110px,150px) minmax(180px,1fr);gap:5px 16px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:{{ f.color }}">{{ f.when }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ f.what }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">WHAT OLDER GUIDES GET WRONG</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Amex has required an SSN or ITIN from every US applicant since August 2023. Nova Credit gets your Indian history considered; it no longer gets you around the SSN. So Zolve is the genuine no-SSN move and Amex comes second, after the number arrives. Whether the Nova flow still covers India is harder to confirm than it should be, so check at application time. If you already hold an Indian Amex, ask about Global Transfer instead.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which lane is yours</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Every newcomer card is one of three things: one that reads your foreign history, one issued against your passport and visa, or a <span style="position:relative;display:inline-block"><button onClick="{{ g.secured.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.secured.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">secured card</button><sc-if value="{{ g.secured.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.secured.tag }}</span>{{ g.secured.def }}</span></sc-if></span>. Work them in that order.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:18px;margin-bottom:16px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">YOUR SSN</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ ssnChips }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">YOUR CIBIL FILE</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ cibilChips }}" as="c" hint-placeholder-count="3">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">NEXT 3 MONTHS</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button onClick="{{ freezeChip.toggle }}" style="display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ freezeChip.border }};background:{{ freezeChip.bg }};color:{{ freezeChip.color }}" style-hover="border-color:#1A1712">
+            <span style="width:9px;height:9px;border-radius:50%;background:{{ freezeChip.dot }};flex-shrink:0"></span>{{ freezeChip.label }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">YOUR ORDER OF OPERATIONS</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ lanes.headColor }}">{{ lanes.head }}</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
+        <sc-for list="{{ lanes.rows }}" as="r" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #332D24">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:0.08em;color:{{ r.rankColor }};padding-top:4px">{{ r.rank }}</span>
+            <span>
+              <span style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                <span style="font-size:18px;font-weight:800;letter-spacing:-0.015em;line-height:1.2">{{ r.name }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#F5B896">{{ r.cost }}</span>
+              </span>
+              <span style="display:block;font-size:14px;line-height:1.55;color:#C9C0AD;margin-top:3px">{{ r.why }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:14px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ lanes.note }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:20px">One legitimate shortcut sits outside all three lanes: authorized-user status on a US friend's or spouse's old card, meaning a real relationship and not a rented tradeline, lets you inherit that account's age.</div>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(110px,158px) 108px 88px minmax(140px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>CARD</div><div>DEPOSIT / FEE</div><div>SSN?</div><div>NOTES</div>
+      </div>
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(110px,158px) 108px 88px minmax(140px,1fr);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;background:{{ c.bg }}">
+          <div style="font-size:14px;font-weight:700;line-height:1.3"><a href="{{ c.url }}" target="_blank" style="color:#1A1712" style-hover="color:var(--accent)">{{ c.name }} ↗</a></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3D3629">{{ c.deposit }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ c.ssnColor }}">{{ c.ssn }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ c.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">CARDS TO SKIP, AND WHY</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Current's Build card requires an SSN despite being marketed at newcomers, which defeats the point. Self's card needs a savings account ramp-up first, too slow when Zolve exists. And if any page recommends the Deserve EDU card, it is stale: Deserve shut all cardholder accounts in 2025.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">After the first cards</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ sequencing }}" as="s" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ s.when }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ s.what }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Spread the balance</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Bureaus score both per-card and total <span style="position:relative;display:inline-block"><button onClick="{{ g.util.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.util.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">utilization</button><sc-if value="{{ g.util.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.util.tag }}</span>{{ g.util.def }}</span></sc-if></span>, so one maxed card among three still hurts. Spread spend, or pay mid-cycle.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Tradelines, not rewards</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">In year one, optimise for on-time payments. A 1% card that reports cleanly for 12 months beats a 5% card you churn.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Who in your household needs an ITIN</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Probably not you. The IRS will not issue an <span style="position:relative;display:inline-block"><button onClick="{{ g.itin.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.itin.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">ITIN</button><sc-if value="{{ g.itin.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.itin.tag }}</span>{{ g.itin.def }}</span></sc-if></span> to anyone who can get an SSN. Pick the case that matches.</p>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+      <sc-for list="{{ caseChips }}" as="c" hint-placeholder-count="4">
+        <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ showEad }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">DOES THAT SPOUSE HOLD AN APPROVED EAD?</span>
+        <button onClick="{{ eadChip.toggle }}" style="display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ eadChip.border }};background:{{ eadChip.bg }};color:{{ eadChip.color }}" style-hover="border-color:#1A1712">
+          <span style="width:9px;height:9px;border-radius:50%;background:{{ eadChip.dot }};flex-shrink:0"></span>{{ eadChip.label }}
+        </button>
+      </div>
+    </sc-if>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">{{ itin.tag }}</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ itin.color }}">{{ itin.head }}</div>
+      <sc-if value="{{ itin.needsForm }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px">
+          <div style="border:1px solid #332D24;border-radius:10px;padding:14px 15px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#F5B896;margin-bottom:6px">W-7 BOX</div>
+            <div style="font-size:19px;font-weight:800;line-height:1.2">{{ itin.box }}</div>
+            <div style="font-size:13px;line-height:1.5;color:#C9C0AD;margin-top:5px">{{ itin.boxNote }}</div>
+          </div>
+          <div style="border:1px solid #332D24;border-radius:10px;padding:14px 15px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#F5B896;margin-bottom:6px">RETURN ATTACHED</div>
+            <div style="font-size:19px;font-weight:800;line-height:1.2">{{ itin.ret }}</div>
+            <div style="font-size:13px;line-height:1.5;color:#C9C0AD;margin-top:5px">{{ itin.retNote }}</div>
+          </div>
+        </div>
+      </sc-if>
+      <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ itin.note }}</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE CLOCK · NOTHING SHORTENS IT</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">About 7 weeks, stretching to 9 or 11 between mid-January and April, or when applying from abroad.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT A CAA ACTUALLY BUYS YOU</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">A <span style="position:relative;display:inline-block"><button onClick="{{ g.caa.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.caa.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">Certifying Acceptance Agent</button><sc-if value="{{ g.caa.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.caa.tag }}</span>{{ g.caa.def }}</span></sc-if></span> verifies the original passport in person and hands it straight back, instead of you mailing your only passport to the IRS for two months. Not speed. Fees vary more than the service does, so quote two or three corridor CPA firms.</div>
+      </div>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px">THE IRS REJECTS PACKETS RATHER THAN ASKING FOR CORRECTIONS</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:7px 18px">
+        <sc-for list="{{ rejections }}" as="r" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ r.v }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ itinFacts }}" as="f" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+          <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">{{ f.t }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ f.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Day-to-day money</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">Don't convert your Bangalore budget at the exchange rate and call it planning. Rent, healthcare and childcare break naively-converted budgets. Plan for fixed costs eating 50% of income in year one, and re-baseline at month 3 once the one-time setup spend washes out.</p>
+    <div style="border-left:3px solid var(--accent);padding:2px 0 2px 20px;margin:0 0 16px;max-width:640px">
+      <div style="font-size:15.5px;line-height:1.6;color:#1A1712">Size your emergency fund for visa risk, not just job-loss risk. An RFE or denial can compress your timeline to leave the country, so cover a flight home plus 60 days of US obligations, meaning lease break, final payroll and storage, on top of ordinary living costs.</div>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(110px,150px) minmax(96px,132px) minmax(150px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>MONEY</div><div>WHERE IT SITS</div><div>WATCH FOR</div>
+      </div>
+      <sc-for list="{{ buckets }}" as="b" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:minmax(110px,150px) minmax(96px,132px) minmax(150px,1fr);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:700;line-height:1.3">{{ b.what }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3D3629">{{ b.where }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ b.watch }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">SENDING MONEY HOME</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The margin is in the exchange rate, so compare the rupees landed and never the advertised fee. Wise usually wins that comparison and "zero fee" promos usually don't. The new 1% US remittance tax, from January 2026, only hits cash-funded transfers; anything funded from your bank account is exempt.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">APPS, BRIEFLY</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">YNAB at $109 a year if you want zero-based budgeting while you relearn your cost structure, Quicken Simplifi at about $4 a month if you want lighter-weight. Credit score tracking is free in the Experian app and inside most card apps, so don't pay for monitoring.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="7">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="9">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Aug 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  secured: { tag: 'SECURED CARD', def: 'A card where you put down a cash deposit and that deposit becomes your credit limit. It reports like any other card, which is the point. The deposit comes back when you close or graduate.' },
+  util: { tag: 'UTILIZATION', def: 'How much of your available limit you are using. Measured per card and across all cards at once, which is why one maxed card still hurts even when your total looks fine.' },
+  itin: { tag: 'ITIN', def: 'Individual Taxpayer Identification Number. A tax number for people who must file but cannot get an SSN. No work authorisation, no Social Security credit.' },
+  caa: { tag: 'CAA · CERTIFYING ACCEPTANCE AGENT', def: 'An IRS-authorised firm that can verify original documents in person. The IRS lists them by state and by country, India included.' },
+};
+
+const CARDS = {
+  amex: { name: 'Amex newcomer flow', url: 'https://www.americanexpress.com/us/credit-cards/features-benefits/us-newcomers/', deposit: 'Fee varies', ssn: 'SSN OR ITIN', ssnNeeded: true,
+    note: 'Reads your Indian history through Nova Credit. Best oldest-account anchor if your CIBIL file is 650+.',
+    cost: 'FEE VARIES BY CARD', why: 'It reads your Indian file, so it is the one card that treats nine years of CIBIL as worth something. Pick one you will keep: this becomes your oldest US account.' },
+  zolve: { name: 'Zolve Classic', url: 'https://zolve.com/us/credit-card', deposit: '$0 annual fee', ssn: 'NO', ssnNeeded: false,
+    note: '1% cashback, reports to all 3 bureaus, apply from India. 3% FX fee, so don\u2019t use it for India spend.',
+    cost: '$0 ANNUAL FEE', why: 'Issued against your passport and visa, and you can apply from India before you fly. Reports to all three bureaus, which is the whole job in year one.' },
+  c1: { name: 'Capital One Quicksilver Secured', url: 'https://www.capitalone.com/credit-cards/quicksilver-secured/', deposit: '$200 refundable', ssn: 'SSN OR ITIN', ssnNeeded: true,
+    note: '1.5% back, no FX fee, clear graduation path to unsecured. My pick of the secured lane.',
+    cost: '$200 REFUNDABLE DEPOSIT', why: 'The pick of the secured lane: a clear graduation path and the one newcomer card with no FX fee, which matters for India-linked spend.' },
+  opensky: { name: 'OpenSky Plus', url: 'https://www.openskycc.com/', deposit: '$300–3,000', ssn: 'ITIN, CONFIRM', ssnNeeded: false,
+    note: 'No credit check at all, so zero score impact while you shop. ITIN reportedly accepted, confirm before applying.',
+    cost: '$300 DEPOSIT MINIMUM', why: 'No credit check at all, so it costs you nothing on the score while you shop around. ITIN is reportedly accepted, so confirm before you apply.' },
+  bofa: { name: 'BofA secured', url: 'https://www.bankofamerica.com/credit-cards/products/secured-credit-card/', deposit: '$200–5,000', ssn: 'ASK BRANCH', ssnNeeded: true,
+    note: 'The only big bank still offering secured cards. Chase and Wells Fargo don\u2019t, whatever older guides say.',
+    cost: '$200 DEPOSIT MINIMUM', why: 'The only big bank still doing this. Worth it only if you want the card and the checking account under one roof.' },
+};
+
+const CASES = {
+  spouse: { label: 'My H-4 or O-3 spouse' },
+  me: { label: 'Me, on a work visa' },
+  abroad: { label: 'Me, abroad with a US LLC' },
+  treaty: { label: 'Treaty withholding claim' },
+};
+
+const CHECKS = [
+  { id: 'zolve', text: 'Apply for Zolve from India before you fly, and open Mercury for the company' },
+  { id: 'checking', text: 'Open personal checking in-branch with passport, visa and proof of a US address' },
+  { id: 'autopay', text: 'Put every recurring bill on autopay from the checking account in week 1' },
+  { id: 'threshold', text: 'Ask your banker the exact fee-waiver threshold and set a balance alert' },
+  { id: 'amex', text: 'When the SSN arrives, apply through the Amex newcomer flow and pick a card you will keep' },
+  { id: 'caa', text: 'Spouse needs an ITIN? Quote two or three corridor CPA firms for a CAA before mailing anything' },
+  { id: 'month6', text: 'Month 6 to 9: call your oldest issuer about graduation or a limit increase. Soft pull' },
+];
+
+const KEY = 'bp-money';
+
+class Component extends DCLogic {
+  state = { ssn: 'no', cibil: 'strong', freeze: false, kase: 'spouse', ead: false, term: null, align: 'left', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  saveChecks(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  chip(on) {
+    return { border: on ? '#1A1712' : '#C9C0AD', bg: on ? '#1A1712' : '#FFFDF8', color: on ? '#FAF7F1' : '#3D3629' };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { ssn, cibil, freeze, kase, ead, term } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 278 > window.innerWidth && r.right - 278 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // The three lanes, ordered by what is actually open to you today.
+    let order;
+    if (ssn === 'no') order = ['zolve', 'opensky'];
+    else if (ssn === 'itin') order = cibil === 'strong' ? ['zolve', 'c1', 'opensky'] : ['zolve', 'c1'];
+    else order = cibil === 'strong' ? ['amex', 'zolve', 'c1'] : ['zolve', 'c1'];
+
+    const rows = order.map((k, i) => ({
+      name: CARDS[k].name, cost: CARDS[k].cost, why: CARDS[k].why,
+      rank: i === 0 ? 'START HERE' : i === order.length - 1 ? 'FALLBACK' : 'THEN',
+      rankColor: i === 0 ? accent : '#8A8172',
+    }));
+
+    let head, headColor = '#FAF7F1', note;
+    if (freeze) {
+      head = 'Freeze everything first';
+      headColor = accent;
+      note = 'A lease or car loan in the next three months outranks all of this. Each hard inquiry costs a few points exactly when you need them. Get the lease signed, then work the lane below.';
+    } else if (ssn === 'no') {
+      head = 'Zolve, and nothing that needs an SSN';
+      note = 'Amex is closed to you until the number arrives, whatever older guides say. Apply for Zolve from India, get the SSN application in during week 1, and revisit this once it lands.';
+    } else if (ssn === 'itin') {
+      head = 'Zolve now, secured as backup';
+      note = 'An ITIN opens the secured lane and Capital One is the pick of it. Amex accepts an ITIN too, though the Nova flow is built around the SSN case, so treat it as worth a try rather than the plan.';
+    } else if (cibil === 'strong') {
+      head = 'Amex first, and keep it';
+      note = 'A 650+ CIBIL file is the one thing that makes the Amex newcomer flow worth leading with. Confirm the Nova flow still covers India at application time. If you already hold an Indian Amex, ask about Global Transfer instead: it is the more reliable path.';
+    } else {
+      head = 'Zolve, then one secured card';
+      note = 'Without a strong CIBIL file the Amex flow has nothing to read, so skip it for now. Two clean tradelines reporting for twelve months does the same job more slowly and never gets declined.';
+    }
+
+    // ITIN branch. The 2018 rule sits under every "yes".
+    const K = {
+      me: { tag: 'THE ANSWER', head: 'You do not need one', needsForm: false,
+        note: 'On a work visa you are SSN-eligible, and the IRS will not issue an ITIN to anyone who can get an SSN. Apply for the SSN in week 1 and skip this section entirely.' },
+      spouseEad: { tag: 'THE ANSWER', head: 'An SSN, not an ITIN', needsForm: false,
+        note: 'An H-4 spouse with an approved EAD is SSN-eligible, so the ITIN route is closed and unnecessary. Get the SSN.' },
+      spouse: { tag: 'THE STANDARD CORRIDOR CASE', head: 'Yes, to file jointly', needsForm: true,
+        box: '(e)', boxNote: 'Needs your name and SSN on the form.',
+        ret: 'Yes', retNote: 'The W-7 goes in with the joint 1040.',
+        note: 'A spouse without work authorisation needs an ITIN to file jointly with you. Since 2018 they can only get one if they are claimed for an actual tax benefit or filing a return, so "for the records" applications get rejected.' },
+      abroad: { tag: 'THE ANSWER', head: 'Yes, for the return', needsForm: true,
+        box: '(b)', boxNote: 'Non-resident alien filing a US return.',
+        ret: 'Yes', retNote: 'A 1040-NR, unless an exception applies.',
+        note: 'US-source income from a US LLC while you are abroad means a return, and the return needs a number. File the W-7 with it.' },
+      treaty: { tag: 'THE ANSWER', head: 'Yes, without a return', needsForm: true,
+        box: '(a) and (h)', boxNote: 'Treaty country and article number below box h.',
+        ret: 'No', retNote: 'Withholding documentation instead.',
+        note: 'Claiming reduced US\u2013India treaty withholding on royalties or dividends is the one case that does not attach a return. Missing the article number is a standard rejection.' },
+    };
+    const itinKey = kase === 'spouse' ? (ead ? 'spouseEad' : 'spouse') : kase;
+    const itin = { ...K[itinKey], color: K[itinKey].needsForm ? '#FAF7F1' : '#7FD1A6' };
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      fastPath: [
+        { when: 'BEFORE YOU FLY', color: accent, what: 'Apply for a Zolve account and Classic card from India, on passport and visa, no SSN. Open a Mercury account for the company.' },
+        { when: 'DAY 1\u20133', color: accent, what: 'Walk into a branch with passport, visa and proof of a US address, meaning a lease or a friend\u2019s address with a utility letter, and open personal checking. Chase confirms you do not need an SSN yet, but the address proof is not optional and it has to be in-branch.' },
+        { when: 'WEEK 1', color: '#8A8172', what: 'Apply for your SSN if you are on a work visa. It usually arrives in 2 to 4 weeks.' },
+        { when: 'WEEK 1', color: '#8A8172', what: 'Put every recurring bill on autopay from the checking account. A missed $40 utility bill does more damage to a thin file than almost anything else you will do this year.' },
+        { when: 'SSN ARRIVES', color: '#8A8172', what: 'Apply for an Amex through their newcomer flow, which can read your Indian credit history via Nova Credit. This becomes your oldest US account, so pick a card you will keep.' },
+        { when: 'MONTH 2\u20133', color: '#8A8172', what: 'Only if declined above: add one secured card.' },
+      ],
+
+      ssnChips: [['no', 'Not yet'], ['yes', 'Arrived'], ['itin', 'ITIN only']].map(([v, label]) => ({
+        label, pick: () => this.setState({ ssn: v }), ...this.chip(ssn === v),
+      })),
+      cibilChips: [['strong', '650 or above'], ['weak', 'Below 650'], ['unknown', "Don't know"]].map(([v, label]) => ({
+        label, pick: () => this.setState({ cibil: v }), ...this.chip(cibil === v),
+      })),
+      freezeChip: { label: 'Lease or car loan coming', toggle: () => this.setState({ freeze: !freeze }),
+        ...this.chip(freeze), dot: freeze ? accent : '#C9C0AD' },
+
+      lanes: { head, headColor, note, rows },
+
+      cards: Object.keys(CARDS).map(k => ({
+        name: CARDS[k].name, url: CARDS[k].url, deposit: CARDS[k].deposit,
+        ssn: CARDS[k].ssn, note: CARDS[k].note,
+        ssnColor: CARDS[k].ssnNeeded ? accent : '#8A8172',
+        bg: order.includes(k) ? '#F5F1E7' : 'transparent',
+      })),
+
+      sequencing: [
+        { when: 'MONTH 6\u20139', what: 'Call your oldest card\u2019s issuer and ask about graduation to unsecured, or a limit increase. It is a soft pull. Don\u2019t apply anywhere new yet.' },
+        { when: 'MONTH 12+', what: 'At a 670 to 700 score, add one everyday card. Chase Freedom Rise is the current starter, since the old Freedom closed to new applicants years ago. If you rent, Bilt still earns on rent with no transaction fee, but under the February 2026 rules you now need 25%+ of your rent amount in regular card spend each month to earn meaningfully, so it only works as your daily card.' },
+        { when: 'ON THE WAY OUT', what: 'Secured deposits come back 2 to 8 weeks after you close or graduate, depending on issuer. Budget for the float.' },
+      ],
+
+      caseChips: Object.keys(CASES).map(k => ({
+        label: CASES[k].label, pick: () => this.setState({ kase: k }), ...this.chip(kase === k),
+      })),
+      showEad: kase === 'spouse',
+      eadChip: { label: ead ? 'Yes, approved EAD' : 'No EAD', toggle: () => this.setState({ ead: !ead }),
+        ...this.chip(ead), dot: ead ? '#7FD1A6' : '#C9C0AD' },
+      itin,
+
+      rejections: [
+        { v: 'Wrong box for the actual situation' },
+        { v: 'An expired passport' },
+        { v: 'Non-English documents without certified translation' },
+        { v: 'Treaty claims without the article number' },
+        { v: 'No tax benefit claimed, per the 2018 rule' },
+      ],
+
+      itinFacts: [
+        { t: 'A tax number only', d: 'No work authorisation, no Social Security credit, no EITC.' },
+        { t: 'It expires', d: 'Unused on a return for 3 consecutive years and it lapses.' },
+        { t: 'The credits changed in 2025', d: 'The Child Tax Credit now requires SSNs, and education credits will from 2026, so an ITIN-only household member no longer unlocks those. If credits are part of your filing math, run it past your CPA.' },
+      ],
+
+      buckets: [
+        { what: 'Bill-pay and daily spend', where: 'One primary checking account', watch: 'Chase is $15 a month unless you hold $1,500 or bring $500 a month in deposits. BofA SafeBalance is $4.95, waived at $500. Ask your banker for the exact threshold and set a balance alert.' },
+        { what: 'Emergency fund', where: 'High-yield savings', watch: 'Marcus, SoFi, Ally. Top rates were around 4% in August 2026 but move constantly. Transfers take 1 to 3 business days, so don\u2019t park same-day money here.' },
+        { what: 'Company cash', where: 'Mercury', watch: 'A fintech, not a bank: funds sit at partner banks with pass-through FDIC coverage. Keep it strictly separate from personal from day one.' },
+        { what: 'Money in transit to India', where: 'Wise', watch: 'A transfer rail, not savings. Hold balances only as long as the transfer takes.' },
+      ],
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.saveChecks({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.saveChecks({}),
+
+      sources: [
+        { label: 'zolve · us credit card', url: 'https://zolve.com/us/credit-card' },
+        { label: 'chase · accounts for non-residents', url: 'https://www.chase.com/personal/banking/education/basics/us-bank-account-for-non-residents' },
+        { label: 'amex · us newcomers', url: 'https://www.americanexpress.com/us/credit-cards/features-benefits/us-newcomers/' },
+        { label: 'capital one · quicksilver secured', url: 'https://www.capitalone.com/credit-cards/quicksilver-secured/' },
+        { label: 'irs · w-7 instructions', url: 'https://www.irs.gov/instructions/iw7' },
+        { label: 'irs · itin', url: 'https://www.irs.gov/individuals/individual-taxpayer-identification-number' },
+        { label: 'irs · acceptance agents', url: 'https://www.irs.gov/individuals/international-taxpayers/acceptance-agent-program' },
+        { label: 'irs · itin expiry', url: 'https://www.irs.gov/taxtopics/tc857' },
+        { label: 'irs · remittance transfer tax', url: 'https://www.irs.gov/newsroom/treasury-irs-issue-proposed-regulations-on-the-new-remittance-transfer-tax-established-under-the-one-big-beautiful-bill' },
+        { label: 'mercury', url: 'https://mercury.com/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__money';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

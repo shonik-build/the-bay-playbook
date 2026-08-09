@@ -85,6 +85,26 @@
   status = 200
 
 [[redirects]]
+  from = "/money"
+  to = "/Bay Playbook Money.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/nri"
+  to = "/Bay Playbook NRI Banking.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/health"
+  to = "/Bay Playbook Healthcare.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/bizbank"
+  to = "/Bay Playbook Business Banking.dc.html"
+  status = 200
+
+[[redirects]]
   from = "/guides"
   to = "/Bay Playbook Guides.dc.html"
   status = 200

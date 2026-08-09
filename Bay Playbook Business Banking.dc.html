@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S5 · COMPANY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED AUG 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Business banking &amp; moving company money</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Which platform to bank on, how to structure accounts once payroll is real, what idle cash should earn, and how money actually moves between your Indian and US entities.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">WHAT A FRESH DELAWARE C-CORP CAN OPEN, TODAY, FROM INDIA</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:12px">
+        <sc-for list="{{ without }}" as="w" hint-placeholder-count="4">
+          <div style="border:1px solid #E2DACA;border-radius:9px;padding:12px 13px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:{{ w.color }};margin-bottom:4px">{{ w.tag }}</div>
+            <div style="font-size:14px;font-weight:700;line-height:1.3">{{ w.what }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Formation documents, the EIN letter and a passport are enough. The application runs online in about ten minutes, and the account is almost always <a href="https://mercury.com/" target="_blank">Mercury</a>. Open it before you fly.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Your personal account and credit file are a separate problem with a separate sequence. That is the <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a> guide. Keep the two strictly separate from day one: commingling is the cheapest mistake to avoid and the most expensive one to unwind.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The four platforms</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">None of these are banks. All four are fintechs holding your deposits at partner banks, which matters twice: <span style="position:relative;display:inline-block"><button onClick="{{ g.fdic.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.fdic.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">FDIC coverage</button><sc-if value="{{ g.fdic.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.fdic.tag }}</span>{{ g.fdic.def }}</span></sc-if></span> runs through sweep networks rather than a single institution, and an account freeze gets resolved by the platform's support team rather than a branch manager.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ platforms }}" as="p" hint-placeholder-count="4">
+        <div style="padding:14px 16px;border-bottom:1px solid #EFE9DC;background:{{ p.bg }}">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+            <a href="{{ p.url }}" target="_blank" style="font-size:15.5px;font-weight:800;letter-spacing:-0.01em;color:#1A1712" style-hover="color:var(--accent)">{{ p.name }} ↗</a>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ p.rankColor }}">{{ p.rank }}</span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629;margin-bottom:9px">{{ p.who }}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px 16px">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">COST</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.cost }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">FDIC COVERAGE</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.fdic }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:var(--accent);margin-bottom:2px">WATCH FOR</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.watch }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">BREX IS THE ONE TO CIRCLE BACK TO, NOT START WITH</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Before a raise it will likely decline you. After a $50k balance or a lead investor it becomes genuinely competitive. What the Capital One integration does to its startup-friendliness over the next year is an open question nobody can answer yet, including Brex.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Structure the accounts before you need to</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">A single checking account is fine for the first six months. The trigger to split is payroll becoming a real line item, not a date.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ accounts }}" as="a" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ a.tag }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ a.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Relay's named sub-accounts, up to twenty and each with real routing numbers, are the cleanest way to run this. Mercury and Rho both support multiple accounts under one login, which does the same job with slightly less structure.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Idle cash should be earning</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Runway sitting in 0% checking is a real cost. Drag your balance and see it.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">IDLE CASH, NOT NEEDED FOR 90 DAYS</div>
+        <div style="font-size:24px;font-weight:900;letter-spacing:-0.02em;line-height:1">{{ idleLabel }}</div>
+      </div>
+      <input type="range" min="0" max="60" step="1" value="{{ idleStep }}" onChange="{{ setIdle }}" onInput="{{ setIdle }}" style="width:100%;cursor:pointer;margin:0 0 16px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">
+        <sc-for list="{{ yields }}" as="y" hint-placeholder-count="3">
+          <div style="border:1px solid {{ y.border }};border-radius:10px;padding:13px 15px;background:{{ y.bg }}">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:{{ y.tagColor }};margin-bottom:5px">{{ y.tag }}</div>
+            <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;line-height:1.2;margin-bottom:4px">{{ y.name }}</div>
+            <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:{{ y.amtColor }}">{{ y.amt }}</div>
+            <div style="font-size:12.5px;line-height:1.45;color:#5A5243;margin-top:5px">{{ y.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ yieldNote }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.sweep.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.sweep.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">sweep</button><sc-if value="{{ g.sweep.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;letter-spacing:0;text-align:left;text-transform:none;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.sweep.tag }}</span>{{ g.sweep.def }}</span></sc-if></span> moves any balance above a threshold you set out of checking into a yield product, and back when checking dips below it. Rates are as of July and August 2026 and move constantly.</div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">TREASURY LEAVES THE INSURED-DEPOSIT WORLD</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Both are brokerage products covered by SIPC, not FDIC. One corridor-relevant detail from Mercury's own eligibility list: a US entity physically operating from India qualifies.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Moving money: what it actually costs</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Mercury and Rho charge nothing for ACH or wires, including international USD wires. This is what a traditional bank charges, and what you pay whenever a counterparty insists on a specific rail.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">SENDING, INDIA ↔ US</div>
+        <div style="font-size:24px;font-weight:900;letter-spacing:-0.02em;line-height:1">{{ sendLabel }}</div>
+      </div>
+      <input type="range" min="0" max="40" step="1" value="{{ sendStep }}" onChange="{{ setSend }}" onInput="{{ setSend }}" style="width:100%;cursor:pointer;margin:0 0 18px">
+      <div style="display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ rails }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:minmax(118px,168px) 92px 1fr;gap:6px 14px;align-items:baseline;padding:11px 0;border-top:1px solid #EFE9DC">
+            <div>
+              <div style="font-size:14px;font-weight:700;line-height:1.3">{{ r.name }}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:#8A8172;margin-top:2px">{{ r.speed }}</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">{{ r.sticker }}</div>
+            <div>
+              <div style="font-size:16px;font-weight:800;letter-spacing:-0.01em;line-height:1.2;color:{{ r.color }}">{{ r.real }}</div>
+              <div style="font-size:12.5px;line-height:1.45;color:#5A5243;margin-top:2px">{{ r.note }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1.5px solid #1A1712;font-size:15px;line-height:1.6;color:#1A1712">{{ railNote }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Sticker fees are the advertised number. The real cost adds the FX markup, which is where the money goes: big banks run 2 to 4% over mid-market, specialists roughly 0.5% on major routes.</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ hidden }}" as="h" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ h.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ h.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">When both entities exist</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The structure itself, the <span style="position:relative;display:inline-block"><button onClick="{{ g.odi.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.odi.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">ODI</button><sc-if value="{{ g.odi.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.odi.tag }}</span>{{ g.odi.def }}</span></sc-if></span> framework, round-tripping rules and transfer pricing all live in the US entity guide. Read that first. What belongs here is the banking layer it doesn't cover.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+      <sc-for list="{{ odi }}" as="o" hint-placeholder-count="5">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:{{ o.tagColor }};margin-bottom:6px">{{ o.tag }}</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ o.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Personal remittances are a different page: sending your own money home, NRE and NRO mechanics, and the 1% US remittance tax sit in <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a>.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Aug 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  fdic: { tag: 'FDIC · SWEEP COVERAGE', def: 'Deposit insurance. Because these platforms spread your balance across many partner banks, coverage multiplies past the usual $250k per bank. It is real, and it is not the same as banking with one institution.' },
+  sweep: { tag: 'SWEEP', def: 'An automated rule that moves any balance above a threshold you set out of checking into a yield product, and back when checking dips below it.' },
+  odi: { tag: 'ODI · OVERSEAS DIRECT INVESTMENT', def: 'India\u2019s framework for an Indian entity investing in a foreign one. Money has to route through an Authorized Dealer bank and be reported. You cannot simply wire it.' },
+};
+
+// Idle-cash slider: 0 to $5M, finer resolution at the low end where the thresholds are.
+const idleAt = s => (s <= 25 ? s * 10000 : 250000 + (s - 25) * 135714);
+// Transfer slider: $1k to $100k
+const sendAt = s => Math.round((1000 + (s / 40) ** 2 * 99000) / 500) * 500;
+
+const money = n => n >= 1000000 ? '$' + (n / 1000000).toFixed(n % 1000000 === 0 ? 0 : 2) + 'M'
+  : n >= 1000 ? '$' + Math.round(n / 1000) + 'k' : '$' + n;
+const dollars = n => '$' + Math.round(n).toLocaleString('en-US');
+const range = (a, b) => dollars(a) + '\u2013' + dollars(b);
+
+const CHECKS = [
+  { id: 'mercury', text: 'Open Mercury from India, before you fly. Formation docs, EIN letter, passport' },
+  { id: 'split', text: 'Once payroll exists, split cash into operating, payroll reserve and tax reserve' },
+  { id: 'treasury', text: 'At $250k idle, set up a treasury sweep, and compare Mercury and Rho current rates before defaulting' },
+  { id: 'adbank', text: 'Indian entity funding the US one? Confirm your bank\u2019s AD-I status and founder-flip ODI experience before relying on them' },
+  { id: 'ref', text: 'Attach the ODI filing reference to every related US-side bank record, from the first transfer' },
+];
+
+const KEY = 'bp-bizbank';
+
+class Component extends DCLogic {
+  state = { idleStep: 25, sendStep: 14, term: null, align: 'left', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  saveChecks(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { term } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 288 > window.innerWidth && r.right - 288 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // ---- idle cash ----
+    const idle = idleAt(this.state.idleStep);
+    const mercOk = idle >= 250000, rhoOk = idle >= 100000;
+    const yields = [
+      { name: '0% checking', tag: 'WHERE IT SITS BY DEFAULT', tagColor: '#8A8172',
+        amt: '$0', amtColor: '#8A8172', border: '#E2DACA', bg: 'transparent',
+        note: 'Runway earning nothing. This is the number every other column is measured against.' },
+      { name: 'Mercury Treasury', tag: mercOk ? 'YOU QUALIFY' : 'NEEDS $250K', tagColor: mercOk ? '#1A1712' : accent,
+        amt: mercOk ? range(idle * 0.0305, idle * 0.0338) : '\u2014',
+        amtColor: mercOk ? '#1A1712' : '#C9C0AD',
+        border: mercOk ? '#1A1712' : '#E2DACA', bg: mercOk ? '#F5F1E7' : 'transparent',
+        note: mercOk ? 'Entry tier, 3.05 to 3.38% net of fees. The advertised 3.83% only applies above $20M.' : 'Needs $250k across your Mercury accounts to qualify.' },
+      { name: 'Rho Treasury', tag: rhoOk ? 'YOU QUALIFY' : 'NEEDS $100K', tagColor: rhoOk ? '#1A1712' : accent,
+        amt: rhoOk ? dollars(idle * 0.045) : '\u2014',
+        amtColor: rhoOk ? '#1A1712' : '#C9C0AD',
+        border: rhoOk ? '#1A1712' : '#E2DACA', bg: rhoOk ? '#F5F1E7' : 'transparent',
+        note: rhoOk ? 'Opens lower and advertises up to about 4.5% as of August 2026.' : 'Opens at a $100k minimum, lower than Mercury.' },
+    ];
+    let yieldNote;
+    if (!rhoOk) yieldNote = 'Below $100k neither treasury product is open to you, and that is fine. Leave it in checking and revisit the moment a raise lands.';
+    else if (!mercOk) yieldNote = 'Rho opens at $100k, so this is the band where it is the only option on the table. Worth an honest comparison rather than defaulting to whoever you already bank with.';
+    else yieldNote = 'Both are open to you, and the gap between them is real money at this balance. Compare current rates before defaulting to your existing platform, because these move constantly.';
+
+    // ---- transfer rails ----
+    const amt = sendAt(this.state.sendStep);
+    const swiftLo = amt * 0.02 + 35 + 15, swiftHi = amt * 0.04 + 50 + 50;
+    const specLo = amt * 0.005 + 4, specHi = amt * 0.005 + 12;
+    const rails = [
+      { name: 'Domestic ACH', speed: '1\u20133 BUSINESS DAYS', sticker: '$0\u20133', color: '#1A1712',
+        real: '$0\u20133', note: 'The default for payroll and routine bill pay. Cheapest rail for anything not urgent.' },
+      { name: 'Domestic wire', speed: 'SAME DAY', sticker: '$25\u201335', color: '#1A1712',
+        real: '$25\u201335', note: 'Worth it only for time-sensitive one-offs: a lease closing, an urgent vendor payment.' },
+      { name: 'International wire', speed: '1\u20135 BUSINESS DAYS', sticker: '$35\u201350', color: accent,
+        real: range(swiftLo, swiftHi), note: 'SWIFT. Flat fees plus 2 to 4% FX markup, plus $15\u201350 per intermediary bank en route.' },
+      { name: 'Specialist rail', speed: '1\u20135 BUSINESS DAYS', sticker: 'Low flat', color: '#1A1712',
+        real: range(specLo, specHi), note: 'Wise or Airwallex. A small flat fee plus roughly 0.5% FX on major routes.' },
+    ];
+    const gapLo = swiftLo - specHi, gapHi = swiftHi - specLo;
+    const railNote = 'On ' + dollars(amt) + ', the bank wire costs you ' + range(gapLo, gapHi)
+      + ' more than the specialist rail. That gap is almost entirely FX markup, not the fee you were quoted \u2014 which is why you compare the landed amount and never the sticker.';
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      without: [
+        { tag: 'WITHOUT', what: 'A US address', color: accent },
+        { tag: 'WITHOUT', what: 'An SSN', color: accent },
+        { tag: 'WITHOUT', what: 'A visa stamp', color: accent },
+        { tag: 'IN ABOUT', what: '10 minutes, online', color: '#8A8172' },
+      ],
+
+      platforms: [
+        { name: 'Mercury', url: 'https://mercury.com/', rank: 'START HERE', rankColor: accent, bg: '#F5F1E7',
+          who: 'Fresh Delaware C-corp, international founder, first account. The widest acceptance of non-resident founders and the deepest startup track record.',
+          cost: '$0. Paid tiers at $35 and $350 a month only gate NetSuite automations, reimbursements beyond 5 users, and advanced invoicing.',
+          fdic: 'Up to $5M via partner-bank sweep networks.',
+          watch: 'The IO credit card auto-repays daily until you hold $15k, then unlocks 30-day terms. Limits track your cash balance and get reassessed after large withdrawals.' },
+        { name: 'Rho', url: 'https://www.rho.co/', rank: 'THE REAL ALTERNATIVE', rankColor: '#8A8172', bg: 'transparent',
+          who: 'Banking, bill pay, cards and treasury in one platform. Treasury opens lower than Mercury\u2019s, which matters if yield is the deciding factor.',
+          cost: '$0 minimums, $0 per user.',
+          fdic: 'Checking sits at Webster Bank at $250k standard; savings reach up to $75M via a 400+ bank sweep.',
+          watch: 'Less name recognition with some vendors and investors. Checking and savings coverage differ, so read which product your balance actually sits in.' },
+        { name: 'Relay', url: 'https://relayfi.com/', rank: 'PAIR IT, DON\u2019T RELY ON IT', rankColor: '#8A8172', bg: 'transparent',
+          who: 'Multiple named sub-accounts once more than one person spends. Up to twenty, each with real routing numbers.',
+          cost: '$0 starter. Automated bill pay needs the $30 a month plan.',
+          fdic: 'Up to $3M via Thread Bank\u2019s sweep.',
+          watch: 'Thread Bank took an FDIC enforcement action in 2024, and account-freeze complaints recur in reviews. Pair it with Mercury or Rho rather than making it your only account.' },
+        { name: 'Brex', url: 'https://www.brex.com/', rank: 'COME BACK AFTER A RAISE', rankColor: '#8A8172', bg: 'transparent',
+          who: 'Funded startups: a $50k cash balance, or VC or accelerator backing.',
+          cost: '$0.',
+          fdic: 'Up to $6M via sweep.',
+          watch: 'Requires a US physical address plus US operations, so it is rarely a pre-arrival option. Capital One closed its $5.15B acquisition in April 2026, and underwriting and product terms are actively shifting.' },
+      ],
+
+      accounts: [
+        { tag: 'OPERATING', d: 'Day-to-day spend, and the account your cards and bill pay draw from.' },
+        { tag: 'PAYROLL RESERVE', d: 'Funded one pay cycle ahead, so a platform hiccup never delays a paycheck.' },
+        { tag: 'TAX RESERVE', d: 'A running set-aside for payroll tax deposits and the eventual corporate bill, sized as a percentage of payroll.' },
+      ],
+
+      idleStep: this.state.idleStep,
+      idleLabel: money(idle),
+      setIdle: e => this.setState({ idleStep: +e.target.value }),
+      yields, yieldNote,
+
+      sendStep: this.state.sendStep,
+      sendLabel: dollars(amt),
+      setSend: e => this.setState({ sendStep: +e.target.value }),
+      rails, railNote,
+
+      hidden: [
+        { t: 'Intermediary deductions are invisible until it lands', d: 'The recipient sees $30 to $90 less than you sent, skimmed along the correspondent chain. When an exact amount must arrive, ask about sending "OUR", meaning sender pays all charges, or use a rail that quotes the landed amount.' },
+        { t: 'Moving the money is not the same as withholding', d: 'Paying Indian contractors through a platform that does not handle India-side compliance leaves your company exposed if TDS was not withheld correctly. The platform and the responsible entity are different things.' },
+        { t: 'There is no UPI here', d: 'The everyday rails settle in days, not seconds, and even same-day wires respect banking hours and cutoffs. Autopay and payment scheduling exist precisely because the rails are slow.' },
+      ],
+
+      odi: [
+        { tag: 'ASK YOUR BANK THIS DIRECTLY', tagColor: accent,
+          d: 'Funds from the Indian entity to the US one must route through an Authorized Dealer bank and be reported as ODI. Confirm your bank holds an AD Category-I licence, and ask whether their ODI desk has processed a founder-flip structure before, not just traditional outbound acquisitions. Filing delays almost always trace to an unfamiliar ODI team.' },
+        { tag: 'THE AUDIT LAG BITES', tagColor: '#8A8172',
+          d: 'The automatic route caps total financial commitment, meaning equity plus loans plus guarantees, at 400% of the Indian entity\u2019s net worth per its last audited balance sheet. For an early-stage company that just raised, fresh capital does not count until the audited accounts exist, which can make the cap surprisingly small and push funding toward personal LRS remittances or US-side fundraising instead.' },
+        { tag: 'THE THREAD BETWEEN TWO SETS OF BOOKS', tagColor: '#8A8172',
+          d: 'Keep the ODI filing reference number attached to every related US-side bank record. Nothing on the Mercury or Rho side changes because money arrived as an ODI transfer, but at reconciliation or audit time that reference is what connects them.' },
+        { tag: 'TWO COMPLIANCE CLOCKS, DIFFERENT DEADLINES', tagColor: '#8A8172',
+          d: 'Your Indian CA handling ODI filings and your US accountant booking the receipt should reconcile the same transaction on a shared calendar. India\u2019s FEMA reporting and the US entity\u2019s tax and KYC obligations run on different deadlines, and the common failure is one side quietly falling behind.' },
+        { tag: 'ONE 2026 CHANGE WORTH A SPECIFIC CHECK', tagColor: accent,
+          d: 'FEMA amendment rules effective May 2026 added a beneficial-ownership test for round-trip structures, with government approval required where a land-border-country entity holds 10% or more anywhere in the chain. If your structure touches one, get counsel on it explicitly.' },
+      ],
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.saveChecks({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.saveChecks({}),
+
+      sources: [
+        { label: 'mercury', url: 'https://mercury.com/' },
+        { label: 'mercury · treasury', url: 'https://mercury.com/treasury' },
+        { label: 'rho', url: 'https://www.rho.co/' },
+        { label: 'relay', url: 'https://relayfi.com/' },
+        { label: 'brex', url: 'https://www.brex.com/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__bizbank';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

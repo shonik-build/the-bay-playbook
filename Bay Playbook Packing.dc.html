@@ -65,7 +65,7 @@ a:hover{color:#1A1712}
       <div style="font-size:15.5px;line-height:1.6;color:#1A1712">The real cost gap isn't paracetamol. It's the system. Any antibiotic here means a doctor's appointment, $100 to $200 of it without insurance, plus a pharmacy trip, against ₹80 at your chemist at home. That's why a documented 90-day supply of whatever you take daily matters far more than any over-the-counter item you're thinking of packing.</div>
     </div>
 
-    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Customs, in five rules</h2>
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Customs, in six rules</h2>
     <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Declared and documented is almost never a problem. Undeclared is. That asymmetry is the whole game.</p>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
       <sc-for list="{{ rules }}" as="r" hint-placeholder-count="5">
@@ -120,7 +120,12 @@ a:hover{color:#1A1712}
       </sc-if>
       <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ bag.note }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Print this page and take the table to your doctor. The letter needs to be in English and name the condition, the drug and the dosage for each item.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Print this page and take the table to your doctor. The letter needs to be in English and name the condition, the drug and the dosage for each item.</div>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">NO US PHARMACY CAN FILL AN INDIAN PRESCRIPTION</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">A US-licensed prescriber has to rewrite it, which is why the 90 days you carry is the plan and not the buffer. New-patient waits with a primary care doctor run around a month in big metros, so book that appointment in your first week rather than when the strip runs low. A telehealth visit, Sesame from $34, can rewrite common chronic meds the same day after reviewing your Indian prescription, and that is the backup rather than the plan. Do not count on it for controlled substances: most consumer platforms will not prescribe them to new patients. Generics are cheap even uninsured, with metformin around $7 and atorvastatin around $7.50 for a 30-day fill on a free GoodRx coupon.</div>
+    </div>
 
     <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">DO THESE IN INDIA, IN YOUR LAST MONTH</div>
@@ -186,7 +191,7 @@ a:hover{color:#1A1712}
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">What not to bring</h2>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:16px 18px;margin-bottom:12px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">CONTROLLED SUBSTANCES · REAL SEIZURE RISK</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">Codeine cough syrups of the Corex type, tramadol, and sleeping pills, unless you have complete paperwork. These carry a hard cap of 50 dosage units and are the one category where getting it wrong costs you more than the medicine. If you genuinely need one of them, that is a conversation with your doctor about documentation, not a packing decision.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Codeine-containing cough syrups, tramadol, and sleeping pills, unless you have complete paperwork. These carry a hard cap of 50 dosage units and are the one category where getting it wrong costs you more than the medicine. Worth knowing both halves: the Corex DX sold in India today is dextromethorphan-based rather than codeine, and no over-the-counter codeine syrup exists in the US in any form. If you genuinely need one of these, that is a conversation with your doctor about documentation, not a packing decision.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:34px">
       <sc-for list="{{ dont }}" as="d" hint-placeholder-count="3">
@@ -237,19 +242,19 @@ const GLOSS = {
 // v: 'buy' | 'carry' | 'either' · paper: what documentation the carry case needs
 const MEDS = [
   { id: 'dolo', indian: 'Dolo 650 / Crocin', what: 'Paracetamol', v: 'buy', def: true,
-    note: 'Tylenol is the same molecule, sold as acetaminophen, and it is cheap. Carry one strip for the flight itself and buy the rest there.' },
-  { id: 'combiflam', indian: 'Combiflam', what: 'Ibuprofen + paracetamol', v: 'carry', def: true,
-    note: 'Advil and Tylenol are sold separately here and combination pills are rare. Carry a couple of strips if you swear by it.' },
+    note: 'Tylenol is the same molecule, sold as acetaminophen, and it is cheap. Extra Strength is 500mg; Tylenol 8HR is the 650mg extended-release if you want the Dolo dose. Carry one strip for the flight and buy the rest there.' },
+  { id: 'combiflam', indian: 'Combiflam', what: 'Ibuprofen + paracetamol', v: 'either', def: true,
+    note: 'Advil Dual Action is the same combination and has been over the counter nationwide since 2020, store-brand generics included. Doses differ slightly, at 250/500 per dose against Combiflam\u2019s 400/325, so carry a strip if you want the exact ratio.' },
   { id: 'anti', indian: 'Cetzine / Allegra', what: 'Antihistamines', v: 'buy', def: true,
     note: 'Zyrtec and Allegra are over the counter, and the Costco generics are very cheap. No reason to use suitcase space.' },
   { id: 'antacid', indian: 'Digene / Gelusil', what: 'Antacid', v: 'buy',
     note: 'Tums and Mylanta do the same job, on any shelf.' },
   { id: 'pan', indian: 'Pan 40', what: 'Pantoprazole · acid reflux', v: 'carry', paper: 'RX COPY', ninety: true,
     note: 'Prescription-only here. Omeprazole, sold as Prilosec, is the over-the-counter cousin if you are not strict about which one.' },
-  { id: 'abx', indian: 'Azithral and other antibiotics', what: 'Antibiotics', v: 'carry', paper: 'DOCTOR\u2019S LETTER', small: true,
-    note: 'Prescription-only, so every course means an appointment and a pharmacy trip. Carry one small documented personal course, and no more than that.' },
-  { id: 'chronic', indian: 'Thyronorm, metformin, BP meds, statins', what: 'Chronic-condition Rx', v: 'carry', paper: 'LETTER + RX', ninety: true, def: true,
-    note: 'Prescription here, and renewing them needs a US doctor. Carry 90 days and book a primary-care visit in month one.' },
+  { id: 'abx', indian: 'Azithral / Azee', what: 'Azithromycin', v: 'carry', paper: 'DOCTOR\u2019S LETTER', small: true,
+    note: 'Sold here as Zithromax, the Z-Pak, and strictly prescription-only. The single most common surprise for anyone used to walk-in antibiotics. Carry one small documented personal course, and no more than that.' },
+  { id: 'chronic', indian: 'Glycomet, Thyronorm, BP meds, statins', what: 'Chronic-condition Rx', v: 'carry', paper: 'LETTER + RX', ninety: true, def: true,
+    note: 'Glycomet and Glyciphage are metformin, sold here as generic metformin or under Glucophage and Fortamet. All prescription, and renewing them needs a US doctor. Carry 90 days and book a primary-care visit in month one.' },
   { id: 'ors', indian: 'Electral / ORS', what: 'Rehydration salts', v: 'carry', def: true,
     note: 'Pedialyte and DripDrop do the same job at a higher price. A handful of sachets weighs nothing.' },
   { id: 'volini', indian: 'Volini / Moov', what: 'Pain-relief gel', v: 'either',
@@ -258,6 +263,8 @@ const MEDS = [
     note: 'Meclizine, sold as Dramamine, is over the counter.' },
   { id: 'saridon', indian: 'Saridon, Vicks Action 500', what: 'Combo painkillers and cold tabs', v: 'carry',
     note: 'These formulations are not sold here at all. A strip or two if you are attached; DayQuil covers the cold case otherwise.' },
+  { id: 'sudafed', indian: 'Decongestants', what: 'Pseudoephedrine', v: 'buy',
+    note: 'Sold as Sudafed with no prescription, but kept behind the pharmacy counter: you ask for it, show ID, and the purchase is logged. Nothing to carry, just don\u2019t hunt for it on the shelf.' },
 ];
 
 const VERDICT = { buy: 'BUY THERE', carry: 'CARRY', either: 'EITHER WAY' };
@@ -346,8 +353,9 @@ class Component extends DCLogic {
         { t: 'Declare everything', d: 'All medication, to CBP, on arrival. Declared and documented is almost never a problem. Undeclared is where the trouble starts.' },
         { t: 'Original packaging only', d: 'No loose strips in a ziplock, no unlabelled pill boxes. The box with the printed name on it is the point.' },
         { t: 'Paper, in English', d: 'Prescription copies and a doctor\u2019s letter for anything past basic over-the-counter, naming the condition, the drug and the dosage.' },
-        { t: '90 days, and 50 units', d: 'About 90 days is the practical ceiling for personal-use medication. Controlled substances have a hard cap of 50 dosage units.' },
-        { t: 'Legal at home isn\u2019t importable', d: 'Your chemist selling it over the counter has no bearing here. What protects you at the border is the paperwork, not the purchase having been legal in India.' },
+        { t: '90 days, and 50 units', d: 'Ninety days is the FDA\u2019s personal-import allowance for arriving foreign nationals. It is published enforcement policy rather than a hard statute, which is exactly why you keep the packet clean. Controlled substances are separate: a hard cap of 50 dosage units combined, in original dispensed containers, under 21 CFR 1301.26.' },
+        { t: 'Posting it later doesn\u2019t work', d: 'The personal-use allowance applies at the border with you present. Packages of prescription drugs mailed from India afterwards are routinely detained at international mail facilities, so carry what you need rather than planning a top-up.' },
+        { t: 'Legal at home isn\u2019t importable', d: 'Your chemist selling it over the counter has no bearing here. What protects you at the border is the paperwork, not the purchase having been legal in India. India\u2019s loose real-world enforcement does not travel: anything prescription-only here is strictly so.' },
       ],
 
       meds: MEDS.map(m => {
@@ -408,9 +416,11 @@ class Component extends DCLogic {
       resetChecks: () => this.saveChecks({}),
 
       sources: [
-        { label: 'fda · human drug imports', url: 'https://www.fda.gov/industry/import-basics/human-drug-imports' },
+        { label: 'fda · personal importation', url: 'https://www.fda.gov/industry/import-basics/personal-importation' },
+        { label: '21 cfr 1301.26 · the 50-unit cap', url: 'https://www.ecfr.gov/current/title-21/chapter-II/part-1301/section-1301.26' },
         { label: 'cbp · travelling with medication', url: 'https://www.cbp.gov/travel' },
-        { label: 'personal-use import limits', url: 'https://legalclarity.org' },
+        { label: 'sesame care', url: 'https://sesamecare.com/' },
+        { label: 'goodrx', url: 'https://www.goodrx.com/metformin' },
         { label: 'bringing Rx from india', url: 'https://onshorekare.com' },
         { label: 'OTC antibiotics in india', url: 'https://journals.sagepub.com' },
         { label: 'packing for SF · seasonal', url: 'https://knack.com' },
@@ -429,19 +439,23 @@ class Component extends DCLogic {
           '__emergency': 'Bay Playbook Emergency.dc.html',
           '__housing': 'Bay Playbook Housing.dc.html',
           '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
           '__culture': 'Bay Playbook Culture.dc.html',
           '__networking': 'Bay Playbook Networking.dc.html',
           '__groceries': 'Bay Playbook Groceries.dc.html',
           '__weekends': 'Bay Playbook Weekends.dc.html',
           '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
         };
         return [
           { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
           { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
           { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
-          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', 'money'], ['Healthcare & insurance', 'healthcare']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
           { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
-          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Accelerators & programs', '__accel']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
         ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
           title: p[0],
           href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),

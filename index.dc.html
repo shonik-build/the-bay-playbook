@@ -245,12 +245,12 @@ class Component extends DCLogic {
     const P = {
       remote: 'Bay Playbook Remote Setup.dc.html', packing: 'Bay Playbook Packing.dc.html',
       apps: 'Bay Playbook Apps.dc.html', around: 'Bay Playbook Getting Around.dc.html',
-      emergency: 'Bay Playbook Emergency.dc.html', housing: 'Bay Playbook Housing.dc.html',
+      emergency: 'Bay Playbook Emergency.dc.html', housing: 'Bay Playbook Housing.dc.html', money: 'Bay Playbook Money.dc.html', nri: 'Bay Playbook NRI Banking.dc.html', health: 'Bay Playbook Healthcare.dc.html',
       ssn: 'Bay Playbook SSN ITIN License.dc.html', culture: 'Bay Playbook Culture.dc.html',
       networking: 'Bay Playbook Networking.dc.html', groceries: 'Bay Playbook Groceries.dc.html',
-      weekends: 'Bay Playbook Weekends.dc.html', accel: 'Bay Playbook Accelerators.dc.html',
+      weekends: 'Bay Playbook Weekends.dc.html', accel: 'Bay Playbook Accelerators.dc.html', bizbank: 'Bay Playbook Business Banking.dc.html',
     };
-    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': G+'visa', 'Entity guide': G+'entity', 'Money guide': G+'money', 'Money & ITIN': G+'money', 'SIM guide': G+'sim', 'Bank basics': G+'bank', 'Short-term housing': G+'short-term-housing', 'Healthcare': G+'healthcare', 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking };
+    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': G+'visa', 'Entity guide': G+'entity', 'Money guide': P.money, 'Money & ITIN': P.money, 'NRI banking': P.nri, 'SIM guide': G+'sim', 'Bank basics': G+'bank', 'Short-term housing': G+'short-term-housing', 'Healthcare': P.health, 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Business banking': P.bizbank, 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking };
     const decorate = (item) => {
       const c = !!checked[item.id];
       const nobody = item.tag === 'nobody';
@@ -289,9 +289,9 @@ class Component extends DCLogic {
     const pageIndex = [
       { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', G+'visa'], ['Remote setup', P.remote], ['Short-term housing', G+'short-term-housing'], ['Packing + medications', P.packing]] },
       { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', G+'day07'], ['SIM + phone', G+'sim'], ['Apps to download', P.apps], ['Bank, cash & Clipper', G+'bank'], ['Getting around', P.around], ['Emergency contacts', P.emergency]] },
-      { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', G+'money'], ['Healthcare & insurance', G+'healthcare']] },
+      { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', P.money], ['Money home & NRI banking', P.nri], ['Healthcare & insurance', P.health]] },
       { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', P.culture], ['Networking in SF', P.networking], ['Indian groceries & food', P.groceries], ['What to do on weekends', P.weekends]] },
-      { label: 'S5 \u00B7 COMPANY', pages: [['US entity', G+'entity'], ['Accelerators & programs', P.accel]] },
+      { label: 'S5 \u00B7 COMPANY', pages: [['US entity', G+'entity'], ['Business banking', P.bizbank], ['Accelerators & programs', P.accel]] },
     ].map(g => ({ label: g.label, pages: g.pages.map(p => ({ title: p[0], href: p[1] })) }));
     return { stages, navStages, filters, realityOpen, pageIndex,
       realityChevron: realityOpen ? '−' : '+',

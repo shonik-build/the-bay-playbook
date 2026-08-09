@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S3 · FIRST MONTH</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED AUG 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Sending money home &amp; NRI banking</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">The day you become a non-resident, your money starts living under two tax systems at once. Which accounts to hold, how to move money in each direction without overpaying, and the two US forms that catch people out.</p>
+
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:12px">THE EXPENSIVE MISTAKES HERE ARE ALL BORING ONES</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <sc-for list="{{ opener }}" as="o" hint-placeholder-count="3">
+          <div style="border:1px solid #E2DACA;border-radius:9px;padding:12px 13px">
+            <div style="font-size:14px;font-weight:700;line-height:1.35">{{ o.what }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--accent);margin-top:5px">{{ o.cost }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">None of these are exotic. A resident savings account you forgot to convert, an SIP that quietly became a US tax problem, and a gift from your parents that owed no tax but needed a form.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which account does this money belong in?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The two accounts are not interchangeable, and the source of the money decides for you.</p>
+
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+      <sc-for list="{{ srcChips }}" as="c" hint-placeholder-count="4">
+        <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">{{ acct.tag }}</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ acct.color }}">{{ acct.head }}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px">
+        <sc-for list="{{ acct.facts }}" as="f" hint-placeholder-count="3">
+          <div style="border:1px solid #332D24;border-radius:10px;padding:13px 15px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#F5B896;margin-bottom:5px">{{ f.k }}</div>
+            <div style="font-size:13.5px;line-height:1.5;color:#C9C0AD">{{ f.v }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ acct.note }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The line most guides skip: NRE interest is only tax-free <em>in India</em>. Once you are a US tax resident, interest on NRE, NRO and FCNR accounts all lands in your US return. Plan your US taxes on that basis from year one.</div>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE NRO RATE IS 31.2%, NOT THE 30.9% OLDER GUIDES QUOTE</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">And the India–US treaty rate of 15% does not apply automatically. Your bank needs a Tax Residency Certificate from the IRS, meaning Form 6166, plus an e-filed Form 10F, and it applies the lower rate prospectively. Set this up before the interest is credited, not at filing time.</div>
+    </div>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>#</div><div>THE CONVERSION, IN ORDER</div>
+      </div>
+      <sc-for list="{{ conversion }}" as="c" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;color:var(--accent)">{{ c.n }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ c.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What the transfer actually costs</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Compare rupees landed, never the stated fee. Rates are a snapshot at a mid-market rate near ₹95, and corridor pricing changes without an announcement.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">SENDING US → INDIA</div>
+        <div style="font-size:24px;font-weight:900;letter-spacing:-0.02em;line-height:1">{{ sendLabel }}</div>
+      </div>
+      <input type="range" min="0" max="40" step="1" value="{{ sendStep }}" onChange="{{ setSend }}" onInput="{{ setSend }}" style="width:100%;cursor:pointer;margin:0 0 18px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ rails }}" as="r" hint-placeholder-count="3">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px">
+              <span style="display:flex;align-items:baseline;gap:9px;flex-wrap:wrap">
+                <span style="font-size:15px;font-weight:800;letter-spacing:-0.01em">{{ r.name }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.06em;color:{{ r.tagColor }}">{{ r.tag }}</span>
+              </span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:{{ r.color }}">{{ r.landed }}</span>
+            </div>
+            <div style="height:11px;background:#EFE9DC;border-radius:999px;overflow:hidden;margin-bottom:5px">
+              <div style="height:100%;width:{{ r.width }};background:{{ r.color }};border-radius:999px"></div>
+            </div>
+            <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ r.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ railNote }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The conventional wisdom says Remitly wins small transfers and Wise wins above $3,000. On this corridor in August 2026 that crossover did not show up, and Remitly landed more rupees at both $1,000 and $5,000. So the advice is the boring one: run both calculators for anything over $2,000 and take that day's winner.</div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE 1% REMITTANCE TAX ONLY HITS CASH</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Started January 2026, and it applies only to transfers funded with physical cash, money orders or cashier's cheques. Anything funded from a bank account or a US-issued card, meaning Wise, Remitly or a wire, is exempt. If you were going to walk cash into a transfer agent, don't.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Going the other way</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two different routes, and which one you use depends on whose money it is. Once you are an NRI, your channel out of India is the NRO one, not <span style="position:relative;display:inline-block"><button onClick="{{ g.lrs.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.lrs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">LRS</button><sc-if value="{{ g.lrs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.lrs.tag }}</span>{{ g.lrs.def }}</span></sc-if></span>.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">YOUR MONEY · THE NRO CHANNEL</div>
+        <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:7px">$1M per year</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">After tax, out of the NRO account. Not a simple wire: under ₹5 lakh aggregate in the financial year you file Form 15CA Part A yourself, and above it you need Form 15CB from a Chartered Accountant certifying taxes are settled, then 15CA Part C.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">PARENTS' MONEY · LRS</div>
+        <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:7px">$250k per year</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Per resident individual, for permitted purposes. <span style="position:relative;display:inline-block"><button onClick="{{ g.tcs.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.tcs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">TCS</button><sc-if value="{{ g.tcs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tcs.tag }}</span>{{ g.tcs.def }}</span></sc-if></span> above ₹10 lakh a year runs 20% for funding your living costs or a startup, and 2% for education and medical. It is claimable back on their Indian return, so it is a cash-flow hit rather than a cost, and the credit only arrives when the return is processed.</div>
+      </div>
+    </div>
+    <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">THE FORMS ARE RENAMED FROM 1 APRIL 2026</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">15CA becomes Form 145 and 15CB becomes Form 146 under the Income-tax Act, 2025. Thresholds and the CA requirement carry over, and remittances completed before 31 March 2026 stay on the old names. Some purposes are exempt from the forms entirely, so a CA who does NRI work will steer you in a ten-minute call.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which forms do you owe?</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">None of these create tax. All of them carry penalties for silence, and your Indian bank is already reporting your accounts to the IRS. Set three numbers.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:18px">
+        <sc-for list="{{ sliders }}" as="s" hint-placeholder-count="3">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">{{ s.label }}</span>
+              <span style="font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1">{{ s.value }}</span>
+            </div>
+            <input type="range" min="{{ s.min }}" max="{{ s.max }}" step="{{ s.step }}" value="{{ s.raw }}" onChange="{{ s.set }}" onInput="{{ s.set }}" style="width:100%;cursor:pointer;display:block">
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:1px solid #EFE9DC">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">FILING</span>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{ filingChips }}" as="c" hint-placeholder-count="2">
+            <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">YOUR FILING SET</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ formsColor }}">{{ formsHead }}</div>
+      <sc-if value="{{ hasForms }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
+          <sc-for list="{{ forms }}" as="f" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid #332D24">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.04em;color:{{ f.nameColor }};padding-top:3px">{{ f.name }}</span>
+              <span>
+                <span style="display:block;font-size:15px;font-weight:700;line-height:1.35">{{ f.why }}</span>
+                <span style="display:block;font-size:13.5px;line-height:1.5;color:#C9C0AD;margin-top:3px">{{ f.how }}</span>
+              </span>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="border-top:1px solid #332D24;margin-top:14px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ formsNote }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Rough guidance, not tax advice. Thresholds shown are the 2026 figures for someone living in the US; the year-end and any-time tests for Form 8938 differ, and a CPA who does corridor work will confirm your set in one call.</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ formNotes }}" as="n" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The loose ends</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Four things sitting in India that change status the moment you do.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+      <sc-for list="{{ ends }}" as="e" hint-placeholder-count="4">
+        <div style="border:1px solid {{ e.border }};background:#FFFDF8;border-radius:10px;padding:16px 18px">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+            <span style="font-size:15.5px;font-weight:800;letter-spacing:-0.01em">{{ e.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ e.tagColor }}">{{ e.tag }}</span>
+          </div>
+          <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ e.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE FCNR WINDOW, WHILE IT IS OPEN</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">The RBI temporarily lifted the rate ceiling on 3 to 5 year deposits until 30 September 2026, and banks are advertising 6.25 to 6.75% on those tenures. That is well above US savings rates with no rupee risk, though the interest is still US taxable. Rates move, so compare two or three banks the week you invest.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="8">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Aug 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  lrs: { tag: 'LRS · LIBERALISED REMITTANCE SCHEME', def: 'RBI\u2019s rule letting each Indian resident individual send up to $250,000 per financial year abroad for permitted purposes. Note the word resident: once you are an NRI it is not your route.' },
+  tcs: { tag: 'TCS · TAX COLLECTED AT SOURCE', def: 'Tax the bank collects from the sender at the moment of transfer. Not a net cost, because it is claimable back through their Indian tax return, but the credit arrives only when the return is processed.' },
+};
+
+const SRC = {
+  salary: { label: 'My US salary or draw' },
+  rent: { label: 'Indian rent or dividends' },
+  old: { label: 'My old resident balance' },
+  parents: { label: 'Money from my parents' },
+};
+
+const ACCT = {
+  salary: { tag: 'FOREIGN INCOME, REMITTED IN', head: 'NRE', color: '#7FD1A6',
+    facts: [
+      { k: 'INTEREST · INDIA', v: 'Exempt while you are a non-resident under FEMA.' },
+      { k: 'INTEREST · US', v: 'Taxable once you are a US tax resident.' },
+      { k: 'REPATRIATION', v: 'Principal and interest, no limit, ordinary bank transfer.' },
+    ],
+    note: 'Open a fresh NRE account before your first US-income remittance. This is the only account that is both exempt in India and freely repatriable, and you cannot convert a resident account into one.' },
+  rent: { tag: 'INDIAN-SOURCE INCOME', head: 'NRO', color: '#FAF7F1',
+    facts: [
+      { k: 'INTEREST · INDIA', v: '31.2% TDS. The treaty caps it at 15% if you file the paperwork.' },
+      { k: 'INTEREST · US', v: 'Taxable.' },
+      { k: 'REPATRIATION', v: 'Up to $1M per financial year, after tax, with forms.' },
+    ],
+    note: 'Redirect the standing instruction the moment the NRO account is active. This is the step people forget, and it leaves Indian-source income landing in a technically-closed resident account.' },
+  old: { tag: 'YOUR EXISTING RESIDENT ACCOUNT', head: 'NRO, and only NRO', color: '#FAF7F1',
+    facts: [
+      { k: 'THE CONSTRAINT', v: 'A resident account can only convert to NRO. Never to NRE.' },
+      { k: 'THE URGENCY', v: 'Holding a resident account as an NRI is a FEMA violation.' },
+      { k: 'WHAT YOU NEED', v: 'Visa copy, passport, overseas address proof. Some banks do it online.' },
+    ],
+    note: 'Do this immediately rather than at leisure. ICICI, HDFC, SBI and Axis all accept the conversion request, and the account keeps working throughout.' },
+  parents: { tag: 'A GIFT FROM A RELATIVE', head: 'NRO, and a US form', color: '#FAF7F1',
+    facts: [
+      { k: 'INDIA SIDE', v: 'Tax-free for them in any amount, no Indian reporting.' },
+      { k: 'THEIR ROUTE OUT', v: 'LRS, with 20% TCS above \u20B910 lakh a year.' },
+      { k: 'YOUR US SIDE', v: 'Not income. Form 3520 above $100,000 aggregate.' },
+    ],
+    note: 'A genuine gift from a foreign parent is not part of your US gross income. It is the disclosure that bites, and the form checker below sizes it.' },
+};
+
+const RATE = 95;      // mid-market INR per USD, snapshot
+const WISE = 0.0055;  // ~0.4-0.7% all-in
+const REMITLY = 0;    // markup sits inside the rate, effectively nil on this corridor right now
+const sendAt = s => Math.round((250 + (s / 40) ** 2 * 19750) / 250) * 250;
+
+const CHECKS = [
+  { id: 'convert', text: 'Convert your resident savings account to NRO immediately. Holding one as an NRI is a FEMA violation' },
+  { id: 'nre', text: 'Open an NRE account before your first US-income remittance to India' },
+  { id: 'si', text: 'Redirect every standing instruction, meaning rent, SIPs and dividends, to the NRO account' },
+  { id: 'ca', text: 'Line up a CA before you need Form 15CB, or Form 146 from April 2026' },
+  { id: 'quotes', text: 'Run both a Wise and a Remitly quote for anything over $2,000 and compare rupees landed' },
+  { id: 'kyc', text: 'Update KYC to NRI on your mutual fund and demat accounts' },
+  { id: 'pfic', text: 'Talk to a PFIC-aware CA before adding money to any Indian mutual fund' },
+  { id: 'fbar', text: 'Indian accounts over $10,000 combined? Put FBAR on your US filing calendar' },
+];
+
+const KEY = 'bp-nri';
+const usd = n => '$' + Math.round(n).toLocaleString('en-US');
+const inr = n => '\u20B9' + Math.round(n).toLocaleString('en-IN');
+
+class Component extends DCLogic {
+  state = { src: 'salary', sendStep: 20, gift: 0, given: 0, peak: 25000, joint: false, term: null, align: 'left', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) this.setState({ done: JSON.parse(raw).done || {} });
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  saveChecks(done) {
+    this.setState({ done });
+    try { localStorage.setItem(KEY, JSON.stringify({ done })); } catch (e) {}
+  }
+
+  chip(on) {
+    return { border: on ? '#1A1712' : '#C9C0AD', bg: on ? '#1A1712' : '#FFFDF8', color: on ? '#FAF7F1' : '#3D3629' };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { src, gift, given, peak, joint, term } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 288 > window.innerWidth && r.right - 288 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // ---- transfer rails ----
+    const amt = sendAt(this.state.sendStep);
+    const mid = amt * RATE;
+    const wise = mid * (1 - WISE);
+    const remitly = mid * (1 - REMITLY);
+    const wire = (amt - 50) * RATE * 0.97;
+    const best = Math.max(wise, remitly);
+    const rails = [
+      { name: 'Remitly', tag: 'CHEAPEST TODAY', tagColor: accent, color: '#1A1712',
+        landed: inr(remitly), width: (remitly / best) * 100 + '%',
+        note: 'Small markup inside the rate, $0 stated fee above $1,000. Pricing India aggressively right now, and that can change without an announcement.' },
+      { name: 'Wise', tag: 'THE BENCHMARK', tagColor: '#8A8172', color: '#1A1712',
+        landed: inr(wise), width: (wise / best) * 100 + '%',
+        note: 'Mid-market rate with the fee shown upfront, roughly 0.4 to 0.7%. The rate you see is the real rate, which makes it the honest yardstick even when it is not the winner.' },
+      { name: 'Bank wire', tag: 'RARELY CHEAPEST', tagColor: accent, color: accent,
+        landed: inr(wire), width: (wire / best) * 100 + '%',
+        note: '$0 to $50 sending fee, $10 to $30 of intermediary fees, and a 2 to 4% FX margin. The "$0 fee" online foreign-currency wire is the trap: the margin is in the rate.' },
+    ];
+    const railNote = 'On ' + usd(amt) + ', the bank wire costs you about ' + inr(best - wire)
+      + ' more than the best transfer app. The gap between Remitly and Wise is ' + inr(Math.abs(remitly - wise))
+      + ', which is why you check both rather than picking a favourite once.';
+
+    // ---- disclosure forms ----
+    const forms = [];
+    const exclusion = joint ? 38000 : 19000;
+    if (gift > 100000) {
+      const pen = Math.min(gift * 0.25, gift * 0.25);
+      forms.push({ name: 'FORM 3520', nameColor: accent,
+        why: 'Required. Gifts from a nonresident alien crossed $100,000.',
+        how: 'Paper-only, mailed separately to Ogden, Utah, due 15 April with your 1040 extension. Every individual gift above $5,000 gets itemised. Skipping it costs 5% of the gift per month up to 25%, meaning up to ' + usd(pen) + ' here, on money that owed no tax.' });
+    }
+    if (given > exclusion) {
+      forms.push({ name: 'FORM 709', nameColor: '#F5B896',
+        why: 'Required. You gave more than ' + usd(exclusion) + ' to one person.',
+        how: joint
+          ? 'You and your spouse can jointly give $38,000 per recipient by electing to gift-split, which the form itself is how you elect. No tax is due until lifetime giving crosses $15 million.'
+          : 'Disclosure, not a bill. No tax is due until your lifetime giving crosses $15 million. Married? Gift-splitting doubles the exclusion to $38,000 per recipient.' });
+    }
+    if (peak > 10000) {
+      forms.push({ name: 'FBAR', nameColor: '#F5B896',
+        why: 'Required. Indian accounts topped $10,000 at some point.',
+        how: 'FinCEN Form 114, filed online and separately from your tax return, due 15 April with an automatic extension to 15 October. NRE, NRO, FCNR, mutual funds and demat all count toward the total.' });
+    }
+    const t8938 = joint ? 100000 : 50000;
+    if (peak > t8938) {
+      forms.push({ name: 'FORM 8938', nameColor: '#F5B896',
+        why: 'Likely. Above the ' + usd(t8938) + ' year-end threshold.',
+        how: 'Rides with your 1040 rather than being filed separately. The any-time threshold is higher, at ' + usd(joint ? 150000 : 75000) + ', so check which test your year actually meets.' });
+    }
+
+    const hasForms = forms.length > 0;
+    let formsHead, formsColor = '#FAF7F1', formsNote;
+    if (!hasForms) {
+      formsHead = 'Nothing to file, at these numbers';
+      formsColor = '#7FD1A6';
+      formsNote = 'Every threshold here is an aggregate across the year, so a single balance peak or a second parent\u2019s gift can cross one without anything feeling different. Re-check in December rather than in April.';
+    } else {
+      formsHead = forms.length === 1 ? '1 form' : forms.length + ' forms';
+      formsNote = gift > 100000
+        ? 'Form 3520 is the single easiest expensive mistake on this page: a paper form, mailed separately, on money that was never taxable. The penalty is for the silence, not the gift.'
+        : 'None of these create tax. Your Indian bank is already reporting these accounts to the IRS under FATCA, so the filings match records the IRS holds either way.';
+    }
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      opener: [
+        { what: 'A resident savings account you forgot to convert', cost: 'A FEMA VIOLATION' },
+        { what: 'An SIP that quietly became a US tax problem', cost: 'TOP RATES PLUS INTEREST' },
+        { what: 'A $150,000 gift from your parents', cost: 'UP TO $37,500 FOR A MISSING FORM' },
+      ],
+
+      srcChips: Object.keys(SRC).map(k => ({
+        label: SRC[k].label, pick: () => this.setState({ src: k }), ...this.chip(src === k),
+      })),
+      acct: ACCT[src],
+
+      conversion: [
+        { n: '01', v: 'Your existing resident savings account can only convert to NRO. You cannot convert a resident account into NRE, whatever a relationship manager tells you.' },
+        { n: '02', v: 'Open a fresh NRE account separately, if you plan to remit US income into India and want it exempt there and freely repatriable.' },
+        { n: '03', v: 'ICICI, HDFC, SBI and Axis all accept the conversion request with a visa copy, passport and overseas address proof. Some offer it fully online.' },
+        { n: '04', v: 'Redirect standing instructions, meaning rent collection, dividend payouts and any SIP, to the NRO account once it is active.' },
+      ],
+
+      sendStep: this.state.sendStep,
+      sendLabel: usd(amt),
+      setSend: e => this.setState({ sendStep: +e.target.value }),
+      rails, railNote,
+
+      sliders: [
+        { label: 'GIFTS RECEIVED FROM PARENTS OR RELATIVES ABROAD, THIS YEAR', value: usd(gift),
+          raw: gift, min: 0, max: 300000, step: 5000, set: e => this.setState({ gift: +e.target.value }) },
+        { label: 'MOST YOU GAVE ONE PERSON, THIS YEAR', value: usd(given),
+          raw: given, min: 0, max: 80000, step: 1000, set: e => this.setState({ given: +e.target.value }) },
+        { label: 'PEAK COMBINED BALANCE IN INDIAN ACCOUNTS', value: usd(peak),
+          raw: peak, min: 0, max: 300000, step: 5000, set: e => this.setState({ peak: +e.target.value }) },
+      ],
+      filingChips: [[false, 'Single'], [true, 'Married, jointly']].map(([v, label]) => ({
+        label, pick: () => this.setState({ joint: v }), ...this.chip(joint === v),
+      })),
+      forms, hasForms, formsHead, formsColor, formsNote,
+
+      formNotes: [
+        { t: 'Both parents count as one', d: 'The $100,000 Form 3520 threshold aggregates gifts from a nonresident alien and everyone related to them. Two parents sending $60,000 each crosses it.' },
+        { t: 'The deadline matches, the envelope does not', d: 'Form 3520 cannot be e-filed with your return even though its deadline is the same. It goes in its own envelope to Ogden, Utah.' },
+        { t: 'Gift-splitting doubles the room', d: 'Married founders can jointly give $38,000 per recipient per year by electing to gift-split on Form 709, which is useful when supporting both parents.' },
+      ],
+
+      ends: [
+        { name: 'Indian mutual funds', tag: 'THE EXPENSIVE ONE', tagColor: accent, border: '#1A1712',
+          d: 'Taxed punitively under US PFIC rules once you are a US tax resident, often at top rates plus interest charges on deemed gains, with a separate form per fund per year. Most NRIs exit before their first full US tax year, and I would do the same. Talk to a PFIC-aware CA before adding new money.' },
+        { name: 'KYC and demat', tag: 'FEMA COMPLIANCE, NOT OPTIONAL', tagColor: '#8A8172', border: '#E2DACA',
+          d: 'One modification through the KYC registration agency plus notifying the fund registrars covers your folios. Your resident demat and trading accounts close and reopen as NRO versions.' },
+        { name: 'PPF', tag: 'CONTINUE, DON\u2019T IGNORE', tagColor: '#8A8172', border: '#E2DACA',
+          d: 'Tell your bank or post office of your NRI status promptly, because since October 2024 accounts with undisclosed NRI status can have interest cut to the savings rate or to zero. You can keep contributing to the 15-year maturity on a non-repatriable basis, but it cannot be extended past it and you cannot open a new one. Calendar the maturity date.' },
+        { name: 'FCNR deposits', tag: 'DOLLARS, PARKED IN INDIA', tagColor: '#8A8172', border: '#E2DACA',
+          d: 'A fixed deposit held in foreign currency, so principal and interest stay in USD and carry zero rupee risk. Roughly 3.5 to 5% on one to two year tenures. Exempt in India, still taxable in the US. For dollars you do not need in the US near-term but want accessible for India-side plans.' },
+      ],
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.saveChecks({ ...this.state.done, [c.id]: !done }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.saveChecks({}),
+
+      sources: [
+        { label: 'rbi · nro repatriation faq', url: 'https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=17' },
+        { label: 'rbi · lrs faq', url: 'https://www.rbi.org.in/scripts/FAQView.aspx?Id=115' },
+        { label: 'irs · gifts from foreign persons', url: 'https://www.irs.gov/businesses/gifts-from-foreign-person' },
+        { label: 'irs · form 3520 instructions', url: 'https://www.irs.gov/instructions/i3520' },
+        { label: 'irs · form 709 instructions', url: 'https://www.irs.gov/instructions/i709' },
+        { label: 'irs · fbar', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
+        { label: 'irs · fatca / form 8938', url: 'https://www.irs.gov/businesses/corporations/summary-of-fatca-reporting-for-us-taxpayers' },
+        { label: 'irs · pfic form 8621', url: 'https://www.irs.gov/instructions/i8621' },
+        { label: 'irs · 2026 inflation adjustments', url: 'https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill' },
+        { label: 'wise · send to india', url: 'https://wise.com/us/send-money/send-money-to-india' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__nri';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>
