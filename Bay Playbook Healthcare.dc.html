@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+input[type=date]{font-family:'IBM Plex Mono',monospace}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S3 · FIRST MONTH</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED AUG 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Healthcare &amp; insurance</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">You are uninsured the moment you land. Nothing carries over from India and there is no grace period. Buy a visitor plan before you fly, start your Covered California application in week one, and learn the triage rule before something hurts.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 20px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:34px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">UNINSURED ER VISIT</div>
+        <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;color:var(--accent)">$1,500+</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:#8A8172;margin-top:4px">BEFORE IMAGING</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">GRACE PERIOD</div>
+        <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">None</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:#8A8172;margin-top:4px">NOTHING CARRIES OVER</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">YOUR WINDOW</div>
+        <div style="font-size:32px;font-weight:900;letter-spacing:-0.02em;line-height:1.1">60 days</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.06em;color:#8A8172;margin-top:4px">FROM YOUR MOVE DATE</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The 60-day clock</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Moving to California is a <span style="position:relative;display:inline-block"><button onClick="{{ g.qle.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.qle.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">qualifying life event</button><sc-if value="{{ g.qle.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.qle.tag }}</span>{{ g.qle.def }}</span></sc-if></span>. Coverage starts on the 1st of the month after you pick a plan, so enrolling in your arrival month is the whole game.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">YOUR MOVE DATE</span>
+        <input type="date" value="{{ moveDate }}" onChange="{{ setMove }}" style="font-size:14px;font-weight:600;color:#1A1712;background:#FAF7F1;border:1px solid #C9C0AD;border-radius:8px;padding:8px 12px">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+        <sc-for list="{{ clock }}" as="c" hint-placeholder-count="3">
+          <div style="border:1px solid {{ c.border }};border-radius:10px;padding:14px 15px;background:{{ c.bg }}">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:{{ c.tagColor }};margin-bottom:5px">{{ c.tag }}</div>
+            <div style="font-size:20px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;color:{{ c.valColor }}">{{ c.val }}</div>
+            <div style="font-size:12.5px;line-height:1.45;color:#5A5243;margin-top:5px">{{ c.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ clockNote }}</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Enter the move date exactly on the application. The system counts your 60 days from what you type, and the plan is not active until the first premium payment clears at checkout.</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT OTHER GUIDES GET WRONG · 1</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">You do not need proof of prior insurance. The federal rule does ask movers to show recent coverage, but the regulation says living in a foreign country during the 60 days before the move satisfies it on its own. Your Indian policy, or the lack of one, is irrelevant.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT OTHER GUIDES GET WRONG · 2</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">The document they actually ask for is proof of your <em>new</em> address: a lease, a bank statement, a paycheck stub, even a signed attestation. Not your old address, and not Indian paperwork.</div>
+      </div>
+    </div>
+    <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">ELIGIBILITY, QUICKLY</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Lawfully present visa holders, meaning H-1B, O-1, E-2 and dependents, can buy these plans from day one with no waiting period, and you can apply while your SSN is still in process. Subsidies just require agreeing to file a US tax return for the year.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The bridge plan</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Buyable from India before you fly, no enrollment window, renewable in increments if things slip.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(110px,158px) minmax(96px,124px) minmax(150px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>PLAN</div><div>ROUGH COST, 30</div><div>NOTES</div>
+      </div>
+      <sc-for list="{{ bridge }}" as="b" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(110px,158px) minmax(96px,124px) minmax(150px,1fr);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;background:{{ b.bg }}">
+          <div>
+            <div style="font-size:14px;font-weight:700;line-height:1.3"><a href="{{ b.url }}" target="_blank" style="color:#1A1712" style-hover="color:var(--accent)">{{ b.name }} ↗</a></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.06em;color:{{ b.rankColor }};margin-top:3px">{{ b.rank }}</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3D3629">{{ b.cost }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ b.note }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">KNOW WHAT YOU ARE BUYING</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Catastrophe cover, not health insurance. No preventive care, no routine visits, and these sit outside US billing protections, so an out-of-network hospital can balance-bill you and you will often pay upfront and claim back with records. Buy 90 days even if you expect to need 30: the extra weeks are cheap and enrollment hiccups happen.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE TEMPTATION WORTH NAMING</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Healthy and above the subsidy line, staying on a $90 visitor plan instead of a $550 marketplace plan all year looks like free money. The maths is real and I would still not do it: the state penalty stacks on top, and the first real illness lands on a plan built to reimburse, dispute and exclude rather than to treat.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your salary is a healthcare decision</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The enhanced federal subsidies expired on 31 December 2025, and the <span style="position:relative;display:inline-block"><button onClick="{{ g.cliff.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.cliff.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">subsidy cliff</button><sc-if value="{{ g.cliff.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.cliff.tag }}</span>{{ g.cliff.def }}</span></sc-if></span> is back. Drag your planned salary before you run payroll.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">PLANNED ANNUAL SALARY · SINGLE FILER</div>
+        <div style="font-size:24px;font-weight:900;letter-spacing:-0.02em;line-height:1">{{ salaryLabel }}</div>
+      </div>
+      <div style="position:relative;margin-bottom:6px">
+        <input type="range" min="0" max="150000" step="1000" value="{{ salary }}" onChange="{{ setSalary }}" onInput="{{ setSalary }}" style="width:100%;cursor:pointer;display:block">
+      </div>
+      <div style="position:relative;height:34px;margin-bottom:14px">
+        <div style="position:absolute;left:0;right:0;top:0;height:7px;border-radius:999px;background:#EFE9DC"></div>
+        <sc-for list="{{ bands }}" as="b" hint-placeholder-count="3">
+          <div style="position:absolute;top:0;left:{{ b.left }};width:{{ b.width }};height:7px;background:{{ b.color }};border-radius:999px"></div>
+        </sc-for>
+        <div style="position:absolute;top:-3px;left:{{ cliffLeft }};width:2.5px;height:13px;background:#1A1712"></div>
+        <div style="position:absolute;top:14px;left:{{ cliffLeft }};transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.06em;color:#1A1712;white-space:nowrap">THE CLIFF · $62,600</div>
+      </div>
+      <div style="border:1px solid {{ verdict.border }};background:{{ verdict.bg }};border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ verdict.tagColor }};margin-bottom:5px">{{ verdict.tag }}</div>
+        <div style="font-size:20px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-bottom:7px">{{ verdict.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ verdict.body }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Covered California projected subsidised members' payments would roughly double for 2026. One worked example: a 60-year-old earning $80,000 paid $554 a month in 2025 under the old credits, and pays $1,000+ in 2026 without them. Get your own quote at coveredca.com, because pricing is set per region and re-set every January.</div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE CHANGE NOBODY IS WRITING ABOUT YET</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Under the 2025 federal tax law, work- and student-visa holders lose subsidy eligibility entirely on 1 January 2027. Covered California's implementation guide limits credits to green-card holders and a few narrow categories. You can still buy the plan, at sticker price. Whatever subsidy you get for 2026, budget 2027 at the full number.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">IF YOU ARE ABOVE THE CLIFF</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The same Silver plan bought off-exchange, directly from the carrier, skips the Silver surcharge and has historically run cheaper. The trade is no route back to subsidies if your income drops mid-year.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT BEATS ALL OF THIS</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Once the startup can offer a group plan: no windows, no cliff, and the 2027 change does not touch employer coverage. Whether a founders-only company qualifies for small-group coverage in California is broker territory, so ask one before counting on it.</div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <div style="display:grid;grid-template-columns:minmax(80px,110px) minmax(92px,120px) minmax(150px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>TIER</div><div>PLAN / YOU PAY</div><div>PICK IT IF</div>
+      </div>
+      <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:minmax(80px,110px) minmax(92px,120px) minmax(150px,1fr);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;background:{{ t.bg }}">
+          <div style="font-size:14px;font-weight:700;line-height:1.3">{{ t.name }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3D3629">{{ t.split }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ t.when }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Where to go when something hurts</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The same non-emergency complaint costs roughly ten times more at the ER than at urgent care. The bars are to scale.</p>
+    <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ doors }}" as="d" hint-placeholder-count="3">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+              <span style="font-size:15px;font-weight:800;letter-spacing:-0.01em">{{ d.name }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:{{ d.color }}">{{ d.cost }}</span>
+            </div>
+            <div style="height:12px;background:#EFE9DC;border-radius:999px;overflow:hidden;margin-bottom:6px">
+              <div style="height:100%;width:{{ d.width }};background:{{ d.color }};border-radius:999px"></div>
+            </div>
+            <div style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ d.use }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Save a telehealth app on your phone now. It is also the fastest prescriber you will have in your first months. For a mental-health crisis, 988 is the line, not 911.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">The ER protections are real</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The federal No Surprises Act caps emergency care at in-network cost-sharing even at an out-of-network hospital, with no pre-authorisation needed. California goes further: since 2024, state-regulated plans, meaning every Covered California plan, cannot be balance-billed for ground ambulances either. Neither protection applies to visitor plans, and big-employer self-funded plans follow only the federal rules.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Bills arrive in waves</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Facility, physician, lab, sometimes weeks apart, and a scary number is often just an early draft. Pay nothing until the matching explanation of benefits arrives and the two agree. Since 2025 California bars medical debt from credit reports entirely, so a disputed bill cannot dent the file you are building. Billed wrongly anyway: CMS No Surprises Help Desk on <a href="tel:18009853059">1-800-985-3059</a>, or California's DMHC on <a href="tel:18884662219">1-888-466-2219</a>.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your Indian meds, briefly</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The full brand mapping lives on the <a href="Bay Playbook Packing.dc.html">packing page</a>. These four bite people in month one.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ meds }}" as="m" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ m.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ m.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Aug 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  qle: { tag: 'QUALIFYING LIFE EVENT', def: 'A change that opens a special enrollment window outside the normal season. Moving to California is one, and it gives you 60 days counted from your move date.' },
+  cliff: { tag: 'THE SUBSIDY CLIFF', def: 'Credits now stop dead at 400% of the federal poverty level, $62,600 for a single person for 2026 coverage. A dollar over the line and the whole credit vanishes. Not a taper, a cliff.' },
+};
+
+const CLIFF = 62600;      // 400% FPL, single, 2026 coverage
+const STATE_TOP = 25800;  // ceiling of California's own subsidy programme
+const MAX = 150000;
+
+const CHECKS = [
+  { id: 'visitor', text: 'Buy a 90-day visitor plan before you fly, even if you expect to need 30' },
+  { id: 'account', text: 'Week 1: create your Covered California account and enter your move date exactly' },
+  { id: 'address', text: 'Get proof of your new address ready: lease, bank statement, paycheck stub or attestation' },
+  { id: 'model', text: 'Model your premium at your planned salary before you run payroll, especially near $62,600' },
+  { id: 'enroll', text: 'Week 2 to 3: pick a tier, add every family member to the same application, pay the first premium at checkout' },
+  { id: 'telehealth', text: 'Save a telehealth app on your phone, and book a new-patient PCP appointment in week one' },
+];
+
+const KEY = 'bp-health';
+
+const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const pretty = d => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+const parse = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const dollars = n => '$' + Math.round(n).toLocaleString('en-US');
+const days = n => n + (n === 1 ? ' day' : ' days');
+
+class Component extends DCLogic {
+  state = { moveDate: iso(new Date()), salary: 85000, term: null, align: 'left', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ done: s.done || {}, moveDate: s.moveDate || iso(new Date()), salary: s.salary ?? 85000 });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { done: this.state.done, moveDate: this.state.moveDate, salary: this.state.salary, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { term, salary } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 288 > window.innerWidth && r.right - 288 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // ---- the 60-day clock ----
+    const move = parse(this.state.moveDate);
+    const deadline = new Date(move.getFullYear(), move.getMonth(), move.getDate() + 60);
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const daysLeft = Math.round((deadline - today) / 86400000);
+    // enrolling in the arrival month is the best case: coverage starts the 1st of the next month
+    const start = new Date(move.getFullYear(), move.getMonth() + 1, 1);
+    const bridgeDays = Math.round((start - move) / 86400000);
+    const expired = daysLeft < 0;
+    const tight = daysLeft >= 0 && daysLeft <= 14;
+
+    const clock = [
+      { tag: 'ENROLL BY', val: pretty(deadline),
+        note: expired ? 'This date has passed.' : days(daysLeft) + ' left.',
+        border: expired || tight ? accent : '#1A1712', bg: expired || tight ? '#F5E4D8' : '#F5F1E7',
+        tagColor: expired || tight ? accent : '#8A8172', valColor: '#1A1712' },
+      { tag: 'COVERAGE STARTS', val: pretty(start),
+        note: 'The 1st of the month after you pick a plan, if you enroll in your arrival month.',
+        border: '#E2DACA', bg: 'transparent', tagColor: '#8A8172', valColor: '#1A1712' },
+      { tag: 'BRIDGE PLAN COVERS', val: days(bridgeDays),
+        note: 'Wheels-down to coverage start. Every month you wait adds a month here.',
+        border: '#E2DACA', bg: 'transparent', tagColor: '#8A8172', valColor: '#1A1712' },
+    ];
+
+    const clockNote = expired
+      ? 'Your window has closed. The next entry is open enrollment, 1 November to 31 January in California, for a 1 January start. Until then you are on visitor insurance, and the state fines you for it: the uninsured penalty was $950 per adult for 2025 and visitor plans do not count as coverage. A gap of three months or less is exempt, which forgives a normal landing. It does not forgive missing this deadline and coasting to November.'
+      : tight
+        ? 'Under two weeks left. Enroll this week rather than this month, because the plan is not active until the first premium clears and a payment hiccup at the wrong moment costs you the whole window.'
+        : 'After the deadline there is no marketplace plan until open enrollment on 1 November, and California fines you $950 per adult for the gap. Enrolling in your arrival month is what keeps the bridge plan to ' + days(bridgeDays) + ' rather than a full extra month.';
+
+    // ---- the salary cliff ----
+    const pct = v => Math.min(100, (v / MAX) * 100) + '%';
+    const bands = [
+      { left: '0%', width: pct(STATE_TOP), color: '#C9C0AD' },
+      { left: pct(STATE_TOP), width: (((CLIFF - STATE_TOP) / MAX) * 100) + '%', color: '#7FD1A6' },
+      { left: pct(CLIFF), width: (((MAX - CLIFF) / MAX) * 100) + '%', color: accent },
+    ];
+
+    const gap = CLIFF - salary;
+    let verdict;
+    if (salary === 0) {
+      verdict = { tag: 'THE REVERSE TRAP', head: 'Zero salary routes you to Medi-Cal',
+        body: 'Pay yourself nothing and the application sends you to the low-income programme, and whether a just-arrived visa holder even qualifies there is murky. Pay a real salary and skip the ambiguity.',
+        border: accent, bg: '#F5E4D8', tagColor: accent };
+    } else if (salary < STATE_TOP) {
+      verdict = { tag: 'BELOW THE STATE PROGRAMME CEILING', head: 'You are in subsidy territory',
+        body: "California's own subsidy programme reaches households under about $25,800 for a single person, so it applies here. Federal credits apply too, though 2026 payments are roughly double 2025 under the expired enhanced subsidies.",
+        border: '#1A1712', bg: '#F5F1E7', tagColor: '#8A8172' };
+    } else if (salary < CLIFF) {
+      verdict = { tag: dollars(gap) + ' UNDER THE CLIFF', head: gap <= 5000 ? 'A rounding error from losing everything' : 'Subsidised, for 2026',
+        body: gap <= 5000
+          ? 'You are ' + dollars(gap) + ' from the line, which a bonus, a raise or a payroll correction closes without anyone thinking about it. Model the premium at both numbers before you set salary, because crossing it costs the whole credit, not a slice of it.'
+          : 'Federal credits apply at this income. They are worth meaningfully less than in 2025, since the enhanced subsidies expired, but the cliff is still ' + dollars(gap) + ' away. California\u2019s own programme stops around $25,800, so it does nothing here.',
+        border: gap <= 5000 ? accent : '#1A1712', bg: gap <= 5000 ? '#F5E4D8' : '#F5F1E7',
+        tagColor: gap <= 5000 ? accent : '#8A8172' };
+    } else {
+      verdict = { tag: dollars(salary - CLIFF) + ' OVER THE CLIFF', head: 'No credit at all',
+        body: 'Above $62,600 the entire credit vanishes, so you pay sticker: roughly $500 to $700 a month for unsubsidised Silver in SF at age 30, depending on carrier. If your planned income sits anywhere near the line, model the premium at both numbers before you run payroll.',
+        border: accent, bg: '#F5E4D8', tagColor: accent };
+    }
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      moveDate: this.state.moveDate,
+      setMove: e => { if (e.target.value) this.persist({ moveDate: e.target.value }); },
+      clock, clockNote,
+
+      bridge: [
+        { name: 'Atlas America', url: 'https://www.worldtrips.com/travel-medical-insurance/atlas-america',
+          rank: 'THE DEFAULT PICK', rankColor: accent, bg: '#F5F1E7', cost: '~$80\u201395/mo',
+          note: 'At a $100k to $250k cap. Covers sudden flare-ups of pre-existing conditions, acute onset only, on the UnitedHealthcare PPO network.' },
+        { name: 'Insubuy', url: 'https://www.insubuy.com/visitor-insurance/',
+          rank: 'A MARKETPLACE, NOT A PLAN', rankColor: '#8A8172', bg: 'transparent', cost: '~$50\u201395/mo',
+          note: 'A comparison storefront across multiple insurers, so judge the underlying plan rather than the site. Cheap fixed-benefit tiers cap each service and fall apart in a real ER visit.' },
+        { name: 'INF Elite X', url: 'https://www.visitorscoverage.com/visitor-health-insurance/plans/pre-existing-conditions/',
+          rank: 'FOR A CHRONIC CONDITION', rankColor: '#8A8172', bg: 'transparent', cost: 'Pricier',
+          note: 'The rare plan with full pre-existing-condition coverage rather than acute-onset only. Worth the premium if you are managing something ongoing.' },
+      ],
+
+      salary,
+      salaryLabel: dollars(salary),
+      setSalary: e => this.persist({ salary: +e.target.value }),
+      bands, cliffLeft: pct(CLIFF), verdict,
+
+      tiers: [
+        { name: 'Bronze', split: '~60% / ~40%', bg: 'transparent', when: 'You are healthy and want catastrophe cover at the lowest premium. The HDHP version is the only HSA-eligible one, at $4,400 pre-tax in 2026.' },
+        { name: 'Silver', split: '~70% / ~30%', bg: '#F5F1E7', when: 'The default. Unsubsidised in SF at age 30 runs roughly $500 to $700 a month depending on carrier.' },
+        { name: 'Gold', split: '~80% / ~20%', bg: 'transparent', when: 'You expect regular care. A pricing quirk loads a surcharge onto Silver, so Gold sometimes costs the same or less. Always compare.' },
+        { name: 'Platinum', split: '~90% / ~10%', bg: 'transparent', when: 'Heavy usage. Not offered by every carrier in every region.' },
+      ],
+
+      doors: [
+        { name: 'Telehealth', cost: '$34\u201349', width: '1.6%', color: '#1A1712',
+          use: 'Infections, rashes, refills, and "is this serious?" Sesame from $34, Amazon One Medical at $49.' },
+        { name: 'Urgent care', cost: '$120\u2013250', width: '8.3%', color: '#1A1712',
+          use: 'Stitches, sprains, fevers, anything needing hands on you. Up to about $530 with X-rays or labs.' },
+        { name: 'Emergency room', cost: '$1,500\u20133,000+', width: '100%', color: accent,
+          use: 'Chest pain, breathing trouble, stroke signs, severe allergic reaction, major trauma. About $1,800 more than urgent care for the same non-emergency complaint.' },
+      ],
+
+      meds: [
+        { t: 'No US pharmacy can fill an Indian prescription', d: 'Most Indian antibiotics and chronic-condition meds are prescription-only here. Azithral over the counter is not a thing that exists in this country.' },
+        { t: 'Fly in with up to 90 days', d: 'Original packaging, an English prescription or doctor\u2019s letter, declared at customs. Mailing more from India later does not work: the personal-use allowance applies at the border with you present, and mailed packages are routinely detained.' },
+        { t: 'Book the PCP in week one', d: 'New-patient waits run several weeks in big metros, so book before the strip runs low. A telehealth visit can bridge a refill gap for metformin, BP and thyroid meds same-day, after reviewing your Indian records.' },
+        { t: 'Generics are cheap even uninsured', d: 'Metformin, amlodipine and atorvastatin each run under $8 a month with a free GoodRx coupon.' },
+      ],
+
+      checks: CHECKS.map(c => {
+        const done = !!this.state.done[c.id];
+        return { ...c, done,
+          bg: done ? '#F5F1E7' : 'transparent',
+          color: done ? '#8A8172' : '#1A1712',
+          strike: done ? 'line-through' : 'none',
+          toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+        };
+      }),
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+
+      sources: [
+        { label: 'covered ca · qualifying life events', url: 'https://www.coveredca.com/support/before-you-buy/qualifying-life-events/' },
+        { label: '45 cfr 155.420 · the rule', url: 'https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-D/section-155.420' },
+        { label: 'ftb · uninsured penalty', url: 'https://www.ftb.ca.gov/file/personal/filing-situations/health-care-mandate/' },
+        { label: 'covered ca · 2026 open enrollment', url: 'https://www.coveredca.com/newsroom/news-releases/2025/10/30/covered-californias-open-enrollment-2026-here-to-help-connect-californians-to-care-despite-uncertainty-around-federal-tax-credits/' },
+        { label: 'chcf · 2026 premium examples', url: 'https://www.chcf.org/resource/how-much-will-covered-california-premiums-cost-2026/' },
+        { label: 'covered ca · federal changes guide', url: 'https://hbex.coveredca.com/toolkit/downloads/Federal_Changes_Guide.pdf' },
+        { label: 'cms · no surprises act', url: 'https://www.cms.gov/newsroom/fact-sheets/no-surprises-understand-your-rights-against-surprise-medical-bills' },
+        { label: 'atlas america', url: 'https://www.worldtrips.com/travel-medical-insurance/atlas-america' },
+        { label: 'sesame care', url: 'https://sesamecare.com/' },
+        { label: 'goodrx', url: 'https://www.goodrx.com/metformin' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__health';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Bank, cash & Clipper', 'bank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 \u00B7 COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>
