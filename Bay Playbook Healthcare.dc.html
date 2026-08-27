@@ -60,7 +60,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
     </div>
 
     <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Healthcare &amp; insurance</h1>
-    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">You are uninsured the moment you land. Nothing carries over from India and there is no grace period. Buy a visitor plan before you fly, start your Covered California application in week one, and learn the triage rule before something hurts.</p>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">You are uninsured the second you land. Nothing carries over from India, and there is no grace period. Buy a visitor plan before you fly, open a Covered California application in week one, and know the triage rule before something hurts.</p>
 
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 20px;border-top:1.5px solid #E2DACA;border-bottom:1.5px solid #E2DACA;padding:16px 0;margin-bottom:34px">
       <div>
@@ -81,7 +81,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The 60-day clock</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Moving to California is a <span style="position:relative;display:inline-block"><button onClick="{{ g.qle.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.qle.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">qualifying life event</button><sc-if value="{{ g.qle.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.qle.tag }}</span>{{ g.qle.def }}</span></sc-if></span>. Coverage starts on the 1st of the month after you pick a plan, so enrolling in your arrival month is the whole game.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Moving to California is a <span style="position:relative;display:inline-block"><button onClick="{{ g.qle.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.qle.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">qualifying life event</button><sc-if value="{{ g.qle.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.qle.tag }}</span>{{ g.qle.def }}</span></sc-if></span>. Coverage starts on the 1st of the month after you pick a plan. Enrolling in your arrival month is the whole game.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px">
@@ -99,25 +99,25 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
       </div>
       <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ clockNote }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Enter the move date exactly on the application. The system counts your 60 days from what you type, and the plan is not active until the first premium payment clears at checkout.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Enter the move date exactly as it appears on the application. The system counts your 60 days from what you type. The plan is not active until the first premium clears at checkout.</div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT OTHER GUIDES GET WRONG · 1</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">You do not need proof of prior insurance. The federal rule does ask movers to show recent coverage, but the regulation says living in a foreign country during the 60 days before the move satisfies it on its own. Your Indian policy, or the lack of one, is irrelevant.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">You do not need proof of prior insurance. The federal rule asks movers to show recent coverage, but the regulation says living in a foreign country in the 60 days before the move satisfies it on its own. Your Indian policy, or the lack of one, does not matter.</div>
       </div>
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT OTHER GUIDES GET WRONG · 2</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">The document they actually ask for is proof of your <em>new</em> address: a lease, a bank statement, a paycheck stub, even a signed attestation. Not your old address, and not Indian paperwork.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">What they actually ask for is proof of your <em>new</em> address. A lease, a bank statement, a paycheck stub, even a signed attestation works. Not your old address, and not Indian paperwork.</div>
       </div>
     </div>
     <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">ELIGIBILITY, QUICKLY</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Lawfully present visa holders, meaning H-1B, O-1, E-2 and dependents, can buy these plans from day one with no waiting period, and you can apply while your SSN is still in process. Subsidies just require agreeing to file a US tax return for the year.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Lawfully present visa holders, meaning H-1B, O-1, E-2 and dependents, can buy these plans from day one. No waiting period, and you can apply while your SSN is still in process. Subsidies only require agreeing to file a US tax return for the year.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">The bridge plan</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Buyable from India before you fly, no enrollment window, renewable in increments if things slip.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Buy from India before you fly. No enrollment window, renewable in increments if things slip.</p>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
       <div style="display:grid;grid-template-columns:minmax(110px,158px) minmax(96px,124px) minmax(150px,1fr);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
         <div>PLAN</div><div>ROUGH COST, 30</div><div>NOTES</div>
@@ -136,16 +136,16 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
       <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">KNOW WHAT YOU ARE BUYING</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Catastrophe cover, not health insurance. No preventive care, no routine visits, and these sit outside US billing protections, so an out-of-network hospital can balance-bill you and you will often pay upfront and claim back with records. Buy 90 days even if you expect to need 30: the extra weeks are cheap and enrollment hiccups happen.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">This is catastrophe cover, not health insurance. No preventive care, no routine visits. These sit outside US billing protections, so an out-of-network hospital can balance-bill you, and you will often pay upfront and claim back with records. Buy 90 days even if you expect to need 30. The extra weeks are cheap and enrollment hiccups happen.</div>
       </div>
       <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE TEMPTATION WORTH NAMING</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Healthy and above the subsidy line, staying on a $90 visitor plan instead of a $550 marketplace plan all year looks like free money. The maths is real and I would still not do it: the state penalty stacks on top, and the first real illness lands on a plan built to reimburse, dispute and exclude rather than to treat.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">If you are healthy and above the subsidy line, staying on a $90 visitor plan instead of a $550 marketplace plan all year looks like free money. The maths is real. I would still not do it. The state penalty stacks on top, and the first real illness lands on a plan built to reimburse and dispute, not to treat.</div>
       </div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your salary is a healthcare decision</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The enhanced federal subsidies expired on 31 December 2025, and the <span style="position:relative;display:inline-block"><button onClick="{{ g.cliff.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.cliff.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">subsidy cliff</button><sc-if value="{{ g.cliff.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.cliff.tag }}</span>{{ g.cliff.def }}</span></sc-if></span> is back. Drag your planned salary before you run payroll.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The enhanced federal subsidies expired on 31 December 2025, and the <span style="position:relative;display:inline-block"><button onClick="{{ g.cliff.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.cliff.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">subsidy cliff</button><sc-if value="{{ g.cliff.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.cliff.tag }}</span>{{ g.cliff.def }}</span></sc-if></span> is back. Drag the slider to your planned salary before you set payroll.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
@@ -169,19 +169,19 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
         <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ verdict.body }}</div>
       </div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Covered California projected subsidised members' payments would roughly double for 2026. One worked example: a 60-year-old earning $80,000 paid $554 a month in 2025 under the old credits, and pays $1,000+ in 2026 without them. Get your own quote at coveredca.com, because pricing is set per region and re-set every January.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Covered California projected subsidised members' payments would roughly double for 2026. Worked example: a 60-year-old earning $80,000 paid $554 a month in 2025 under the old credits, and pays $1,000+ in 2026 without them. Pull your own quote at coveredca.com. Pricing is set per region and re-set every January.</div>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE CHANGE NOBODY IS WRITING ABOUT YET</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">Under the 2025 federal tax law, work- and student-visa holders lose subsidy eligibility entirely on 1 January 2027. Covered California's implementation guide limits credits to green-card holders and a few narrow categories. You can still buy the plan, at sticker price. Whatever subsidy you get for 2026, budget 2027 at the full number.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Under the 2025 federal tax law, work- and student-visa holders lose subsidy eligibility entirely on 1 January 2027. Covered California's implementation guide limits credits to green-card holders and a few narrow categories. You can still buy the plan, at sticker price. Whatever subsidy you get for 2026, budget 2027 at the full sticker.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
       <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">IF YOU ARE ABOVE THE CLIFF</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">The same Silver plan bought off-exchange, directly from the carrier, skips the Silver surcharge and has historically run cheaper. The trade is no route back to subsidies if your income drops mid-year.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The same Silver plan bought off-exchange, direct from the carrier, skips the Silver surcharge and has run cheaper. The tradeoff: no route back to subsidies if your income drops mid-year.</div>
       </div>
       <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT BEATS ALL OF THIS</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">Once the startup can offer a group plan: no windows, no cliff, and the 2027 change does not touch employer coverage. Whether a founders-only company qualifies for small-group coverage in California is broker territory, so ask one before counting on it.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">A group plan from the startup. No windows, no cliff, and the 2027 change does not touch employer coverage. Whether a founders-only company qualifies for small-group coverage in California is broker territory. Ask one before counting on it.</div>
       </div>
     </div>
 
@@ -199,7 +199,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Where to go when something hurts</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The same non-emergency complaint costs roughly ten times more at the ER than at urgent care. The bars are to scale.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The same non-emergency complaint costs roughly ten times more at the ER than at urgent care. Bars are to scale.</p>
     <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
       <div style="display:flex;flex-direction:column;gap:16px">
         <sc-for list="{{ doors }}" as="d" hint-placeholder-count="3">
@@ -215,21 +215,21 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
           </div>
         </sc-for>
       </div>
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Save a telehealth app on your phone now. It is also the fastest prescriber you will have in your first months. For a mental-health crisis, 988 is the line, not 911.</div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Put a telehealth app on your phone now. It is also the fastest prescriber you will have in month one. For a mental-health crisis, 988 is the line, not 911.</div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">The ER protections are real</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">The federal No Surprises Act caps emergency care at in-network cost-sharing even at an out-of-network hospital, with no pre-authorisation needed. California goes further: since 2024, state-regulated plans, meaning every Covered California plan, cannot be balance-billed for ground ambulances either. Neither protection applies to visitor plans, and big-employer self-funded plans follow only the federal rules.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">The federal No Surprises Act caps emergency care at in-network cost-sharing even at an out-of-network hospital, with no pre-authorisation needed. California goes further. Since 2024, state-regulated plans, meaning every Covered California plan, cannot be balance-billed for ground ambulances either. Neither protection applies to visitor plans, and big-employer self-funded plans follow only the federal rules.</div>
       </div>
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;margin-bottom:6px">Bills arrive in waves</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">Facility, physician, lab, sometimes weeks apart, and a scary number is often just an early draft. Pay nothing until the matching explanation of benefits arrives and the two agree. Since 2025 California bars medical debt from credit reports entirely, so a disputed bill cannot dent the file you are building. Billed wrongly anyway: CMS No Surprises Help Desk on <a href="tel:18009853059">1-800-985-3059</a>, or California's DMHC on <a href="tel:18884662219">1-888-466-2219</a>.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Facility, physician, lab, sometimes weeks apart. A scary number is often just an early draft. Pay nothing until the matching explanation of benefits arrives and the two agree. Since 2025 California bars medical debt from credit reports entirely, so a disputed bill cannot dent the file you are building. Billed wrongly anyway. Call CMS No Surprises Help Desk on <a href="tel:18009853059">1-800-985-3059</a>, or California's DMHC on <a href="tel:18884662219">1-888-466-2219</a>.</div>
       </div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Your Indian meds, briefly</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The full brand mapping lives on the <a href="Bay Playbook Packing.dc.html">packing page</a>. These four bite people in month one.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The full brand mapping is on the <a href="Bay Playbook Packing.dc.html">packing page</a>. These four bite people in month one.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
       <sc-for list="{{ meds }}" as="m" hint-placeholder-count="4">
         <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
@@ -241,7 +241,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
-      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. Saves in your browser.</p>
       <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
     </div>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
@@ -272,7 +272,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
 const GLOSS = {
-  qle: { tag: 'QUALIFYING LIFE EVENT', def: 'A change that opens a special enrollment window outside the normal season. Moving to California is one, and it gives you 60 days counted from your move date.' },
+  qle: { tag: 'QUALIFYING LIFE EVENT', def: 'A change that opens a special enrollment window outside the normal season. Moving to California is one. It gives you 60 days from your move date.' },
   cliff: { tag: 'THE SUBSIDY CLIFF', def: 'Credits now stop dead at 400% of the federal poverty level, $62,600 for a single person for 2026 coverage. A dollar over the line and the whole credit vanishes. Not a taper, a cliff.' },
 };
 
@@ -282,11 +282,11 @@ const MAX = 150000;
 
 const CHECKS = [
   { id: 'visitor', text: 'Buy a 90-day visitor plan before you fly, even if you expect to need 30' },
-  { id: 'account', text: 'Week 1: create your Covered California account and enter your move date exactly' },
-  { id: 'address', text: 'Get proof of your new address ready: lease, bank statement, paycheck stub or attestation' },
-  { id: 'model', text: 'Model your premium at your planned salary before you run payroll, especially near $62,600' },
-  { id: 'enroll', text: 'Week 2 to 3: pick a tier, add every family member to the same application, pay the first premium at checkout' },
-  { id: 'telehealth', text: 'Save a telehealth app on your phone, and book a new-patient PCP appointment in week one' },
+  { id: 'account', text: 'Week 1. Open your Covered California account and enter your move date exactly' },
+  { id: 'address', text: 'Have proof of your new address ready. Lease, bank statement, paycheck stub or attestation' },
+  { id: 'model', text: 'Model your premium at your planned salary before you set payroll, especially near $62,600' },
+  { id: 'enroll', text: 'Week 2 to 3. Pick a tier, add every family member to the same application, pay the first premium at checkout' },
+  { id: 'telehealth', text: 'Put a telehealth app on your phone. Book a new-patient PCP appointment in week one' },
 ];
 
 const KEY = 'bp-health';
@@ -357,15 +357,15 @@ class Component extends DCLogic {
         note: 'The 1st of the month after you pick a plan, if you enroll in your arrival month.',
         border: '#E2DACA', bg: 'transparent', tagColor: '#8A8172', valColor: '#1A1712' },
       { tag: 'BRIDGE PLAN COVERS', val: days(bridgeDays),
-        note: 'Wheels-down to coverage start. Every month you wait adds a month here.',
+        note: 'Wheels-down to coverage start. Every month you delay enrolling adds a month here.',
         border: '#E2DACA', bg: 'transparent', tagColor: '#8A8172', valColor: '#1A1712' },
     ];
 
     const clockNote = expired
-      ? 'Your window has closed. The next entry is open enrollment, 1 November to 31 January in California, for a 1 January start. Until then you are on visitor insurance, and the state fines you for it: the uninsured penalty was $950 per adult for 2025 and visitor plans do not count as coverage. A gap of three months or less is exempt, which forgives a normal landing. It does not forgive missing this deadline and coasting to November.'
+      ? 'Your window has closed. The next entry is open enrollment, 1 November to 31 January in California, for a 1 January start. Until then you are on visitor insurance, and the state fines you for it. The uninsured penalty was $950 per adult for 2025 and visitor plans do not count as coverage. A gap of three months or less is exempt, which forgives a normal landing. It does not forgive missing this deadline and coasting to November.'
       : tight
-        ? 'Under two weeks left. Enroll this week rather than this month, because the plan is not active until the first premium clears and a payment hiccup at the wrong moment costs you the whole window.'
-        : 'After the deadline there is no marketplace plan until open enrollment on 1 November, and California fines you $950 per adult for the gap. Enrolling in your arrival month is what keeps the bridge plan to ' + days(bridgeDays) + ' rather than a full extra month.';
+        ? 'Under two weeks left. Enroll this week, not this month. The plan is not active until the first premium clears, and a payment hiccup at the wrong moment costs you the whole window.'
+        : 'Miss the deadline and there is no marketplace plan until open enrollment on 1 November, and California fines you $950 per adult for the gap. Enrolling in your arrival month is what keeps the bridge plan to ' + days(bridgeDays) + ' rather than a full extra month.';
 
     // ---- the salary cliff ----
     const pct = v => Math.min(100, (v / MAX) * 100) + '%';
@@ -379,22 +379,22 @@ class Component extends DCLogic {
     let verdict;
     if (salary === 0) {
       verdict = { tag: 'THE REVERSE TRAP', head: 'Zero salary routes you to Medi-Cal',
-        body: 'Pay yourself nothing and the application sends you to the low-income programme, and whether a just-arrived visa holder even qualifies there is murky. Pay a real salary and skip the ambiguity.',
+        body: 'Pay yourself nothing and the application sends you to the low-income programme. Whether a just-arrived visa holder even qualifies there is murky. Pay a real salary and skip the ambiguity.',
         border: accent, bg: '#F5E4D8', tagColor: accent };
     } else if (salary < STATE_TOP) {
       verdict = { tag: 'BELOW THE STATE PROGRAMME CEILING', head: 'You are in subsidy territory',
-        body: "California's own subsidy programme reaches households under about $25,800 for a single person, so it applies here. Federal credits apply too, though 2026 payments are roughly double 2025 under the expired enhanced subsidies.",
+        body: "California's own subsidy programme reaches households under about $25,800 for a single person, so it applies here. Federal credits apply too, though 2026 payments are roughly double 2025 now that the enhanced subsidies have expired.",
         border: '#1A1712', bg: '#F5F1E7', tagColor: '#8A8172' };
     } else if (salary < CLIFF) {
       verdict = { tag: dollars(gap) + ' UNDER THE CLIFF', head: gap <= 5000 ? 'A rounding error from losing everything' : 'Subsidised, for 2026',
         body: gap <= 5000
-          ? 'You are ' + dollars(gap) + ' from the line, which a bonus, a raise or a payroll correction closes without anyone thinking about it. Model the premium at both numbers before you set salary, because crossing it costs the whole credit, not a slice of it.'
-          : 'Federal credits apply at this income. They are worth meaningfully less than in 2025, since the enhanced subsidies expired, but the cliff is still ' + dollars(gap) + ' away. California\u2019s own programme stops around $25,800, so it does nothing here.',
+          ? 'You are ' + dollars(gap) + ' from the line. A bonus, a raise or a payroll correction closes that gap without anyone thinking about it. Model the premium at both numbers before you set salary. Crossing costs the whole credit, not a slice of it.'
+          : 'Federal credits apply at this income. They are worth meaningfully less than in 2025 now that the enhanced subsidies have expired, but the cliff is still ' + dollars(gap) + ' away. California\u2019s own programme stops around $25,800, so it does nothing here.',
         border: gap <= 5000 ? accent : '#1A1712', bg: gap <= 5000 ? '#F5E4D8' : '#F5F1E7',
         tagColor: gap <= 5000 ? accent : '#8A8172' };
     } else {
       verdict = { tag: dollars(salary - CLIFF) + ' OVER THE CLIFF', head: 'No credit at all',
-        body: 'Above $62,600 the entire credit vanishes, so you pay sticker: roughly $500 to $700 a month for unsubsidised Silver in SF at age 30, depending on carrier. If your planned income sits anywhere near the line, model the premium at both numbers before you run payroll.',
+        body: 'Above $62,600 the entire credit vanishes and you pay sticker. That is roughly $500 to $700 a month for unsubsidised Silver in SF at age 30, depending on carrier. If your planned income sits anywhere near the line, model the premium at both numbers before you set payroll.',
         border: accent, bg: '#F5E4D8', tagColor: accent };
     }
 
@@ -413,10 +413,10 @@ class Component extends DCLogic {
           note: 'At a $100k to $250k cap. Covers sudden flare-ups of pre-existing conditions, acute onset only, on the UnitedHealthcare PPO network.' },
         { name: 'Insubuy', url: 'https://www.insubuy.com/visitor-insurance/',
           rank: 'A MARKETPLACE, NOT A PLAN', rankColor: '#8A8172', bg: 'transparent', cost: '~$50\u201395/mo',
-          note: 'A comparison storefront across multiple insurers, so judge the underlying plan rather than the site. Cheap fixed-benefit tiers cap each service and fall apart in a real ER visit.' },
+          note: 'A comparison storefront across multiple insurers. Judge the underlying plan, not the site. Cheap fixed-benefit tiers cap each service and fall apart in a real ER visit.' },
         { name: 'INF Elite X', url: 'https://www.visitorscoverage.com/visitor-health-insurance/plans/pre-existing-conditions/',
           rank: 'FOR A CHRONIC CONDITION', rankColor: '#8A8172', bg: 'transparent', cost: 'Pricier',
-          note: 'The rare plan with full pre-existing-condition coverage rather than acute-onset only. Worth the premium if you are managing something ongoing.' },
+          note: 'The rare plan with full pre-existing-condition coverage instead of acute-onset only. Worth the premium if you are managing something ongoing.' },
       ],
 
       salary,
@@ -427,7 +427,7 @@ class Component extends DCLogic {
       tiers: [
         { name: 'Bronze', split: '~60% / ~40%', bg: 'transparent', when: 'You are healthy and want catastrophe cover at the lowest premium. The HDHP version is the only HSA-eligible one, at $4,400 pre-tax in 2026.' },
         { name: 'Silver', split: '~70% / ~30%', bg: '#F5F1E7', when: 'The default. Unsubsidised in SF at age 30 runs roughly $500 to $700 a month depending on carrier.' },
-        { name: 'Gold', split: '~80% / ~20%', bg: 'transparent', when: 'You expect regular care. A pricing quirk loads a surcharge onto Silver, so Gold sometimes costs the same or less. Always compare.' },
+        { name: 'Gold', split: '~80% / ~20%', bg: 'transparent', when: 'You expect regular care. A pricing quirk loads a surcharge onto Silver, so Gold sometimes costs the same or less. Compare both.' },
         { name: 'Platinum', split: '~90% / ~10%', bg: 'transparent', when: 'Heavy usage. Not offered by every carrier in every region.' },
       ],
 
@@ -435,14 +435,14 @@ class Component extends DCLogic {
         { name: 'Telehealth', cost: '$34\u201349', width: '1.6%', color: '#1A1712',
           use: 'Infections, rashes, refills, and "is this serious?" Sesame from $34, Amazon One Medical at $49.' },
         { name: 'Urgent care', cost: '$120\u2013250', width: '8.3%', color: '#1A1712',
-          use: 'Stitches, sprains, fevers, anything needing hands on you. Up to about $530 with X-rays or labs.' },
+          use: 'Stitches, sprains, fevers, anything that needs hands on you. Up to about $530 with X-rays or labs.' },
         { name: 'Emergency room', cost: '$1,500\u20133,000+', width: '100%', color: accent,
           use: 'Chest pain, breathing trouble, stroke signs, severe allergic reaction, major trauma. About $1,800 more than urgent care for the same non-emergency complaint.' },
       ],
 
       meds: [
-        { t: 'No US pharmacy can fill an Indian prescription', d: 'Most Indian antibiotics and chronic-condition meds are prescription-only here. Azithral over the counter is not a thing that exists in this country.' },
-        { t: 'Fly in with up to 90 days', d: 'Original packaging, an English prescription or doctor\u2019s letter, declared at customs. Mailing more from India later does not work: the personal-use allowance applies at the border with you present, and mailed packages are routinely detained.' },
+        { t: 'No US pharmacy can fill an Indian prescription', d: 'Most Indian antibiotics and chronic-condition meds are prescription-only here. Azithral over the counter does not exist in this country.' },
+        { t: 'Fly in with up to 90 days', d: 'Original packaging, an English prescription or doctor\u2019s letter, declared at customs. Mailing more from India later does not work. The personal-use allowance applies at the border with you present, and mailed packages are routinely detained.' },
         { t: 'Book the PCP in week one', d: 'New-patient waits run several weeks in big metros, so book before the strip runs low. A telehealth visit can bridge a refill gap for metformin, BP and thyroid meds same-day, after reviewing your Indian records.' },
         { t: 'Generics are cheap even uninsured', d: 'Metformin, amlodipine and atorvastatin each run under $8 a month with a free GoodRx coupon.' },
       ],

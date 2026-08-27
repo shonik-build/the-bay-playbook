@@ -59,7 +59,7 @@ input[type=range]{accent-color:#E8500A}
     </div>
 
     <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Business banking &amp; moving company money</h1>
-    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Which platform to bank on, how to structure accounts once payroll is real, what idle cash should earn, and how money actually moves between your Indian and US entities.</p>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Which platform to bank on, how to split accounts once payroll is real, what idle cash should earn, and how money actually moves between your Indian and US entities.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">WHAT A FRESH DELAWARE C-CORP CAN OPEN, TODAY, FROM INDIA</div>
@@ -71,12 +71,12 @@ input[type=range]{accent-color:#E8500A}
           </div>
         </sc-for>
       </div>
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Formation documents, the EIN letter and a passport are enough. The application runs online in about ten minutes, and the account is almost always <a href="https://mercury.com/" target="_blank">Mercury</a>. Open it before you fly.</div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">Formation documents, the EIN letter and a passport are enough. The application runs online in about ten minutes, and the account is almost always <a href="https://mercury.com/" target="_blank">Mercury</a>. Open it before you fly out.</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Your personal account and credit file are a separate problem with a separate sequence. That is the <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a> guide. Keep the two strictly separate from day one: commingling is the cheapest mistake to avoid and the most expensive one to unwind.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Your personal account and credit file are a separate problem with a separate sequence. That is the <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a> guide. Keep the two strictly separate from day one. Commingling is the cheapest mistake to avoid and the most expensive one to unwind.</div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The four platforms</h2>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">None of these are banks. All four are fintechs holding your deposits at partner banks, which matters twice: <span style="position:relative;display:inline-block"><button onClick="{{ g.fdic.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.fdic.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">FDIC coverage</button><sc-if value="{{ g.fdic.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.fdic.tag }}</span>{{ g.fdic.def }}</span></sc-if></span> runs through sweep networks rather than a single institution, and an account freeze gets resolved by the platform's support team rather than a branch manager.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">None of these are banks. All four are fintechs holding your deposits at partner banks. This matters in two ways. <span style="position:relative;display:inline-block"><button onClick="{{ g.fdic.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.fdic.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">FDIC coverage</button><sc-if value="{{ g.fdic.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.fdic.tag }}</span>{{ g.fdic.def }}</span></sc-if></span> runs through sweep networks rather than a single institution, and an account freeze gets resolved by the platform's support team, not a branch manager.</p>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
       <sc-for list="{{ platforms }}" as="p" hint-placeholder-count="4">
         <div style="padding:14px 16px;border-bottom:1px solid #EFE9DC;background:{{ p.bg }}">
@@ -104,7 +104,7 @@ input[type=range]{accent-color:#E8500A}
     </div>
     <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">BREX IS THE ONE TO CIRCLE BACK TO, NOT START WITH</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Before a raise it will likely decline you. After a $50k balance or a lead investor it becomes genuinely competitive. What the Capital One integration does to its startup-friendliness over the next year is an open question nobody can answer yet, including Brex.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Before a raise it will likely decline you. After a $50k balance or a lead investor it becomes genuinely competitive. What the Capital One integration does to its startup friendliness over the next year is an open question nobody can answer yet, Brex included.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Structure the accounts before you need to</h2>
@@ -117,10 +117,10 @@ input[type=range]{accent-color:#E8500A}
         </div>
       </sc-for>
     </div>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Relay's named sub-accounts, up to twenty and each with real routing numbers, are the cleanest way to run this. Mercury and Rho both support multiple accounts under one login, which does the same job with slightly less structure.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Relay's named sub-accounts, up to twenty and each with a real routing number, are the cleanest way to run this. Mercury and Rho both support multiple accounts under one login, which does the same job with slightly less structure.</p>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Idle cash should be earning</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Runway sitting in 0% checking is a real cost. Drag your balance and see it.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Runway sitting in 0% checking is a real cost. Drag your balance to see it.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
@@ -143,11 +143,11 @@ input[type=range]{accent-color:#E8500A}
     <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.sweep.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.sweep.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">sweep</button><sc-if value="{{ g.sweep.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;letter-spacing:0;text-align:left;text-transform:none;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.sweep.tag }}</span>{{ g.sweep.def }}</span></sc-if></span> moves any balance above a threshold you set out of checking into a yield product, and back when checking dips below it. Rates are as of July and August 2026 and move constantly.</div>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">TREASURY LEAVES THE INSURED-DEPOSIT WORLD</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">Both are brokerage products covered by SIPC, not FDIC. One corridor-relevant detail from Mercury's own eligibility list: a US entity physically operating from India qualifies.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Both are brokerage products covered by SIPC, not FDIC. One corridor-relevant detail from Mercury's own eligibility list. A US entity physically operating from India qualifies.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Moving money: what it actually costs</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Mercury and Rho charge nothing for ACH or wires, including international USD wires. This is what a traditional bank charges, and what you pay whenever a counterparty insists on a specific rail.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Mercury and Rho charge nothing for ACH or wires, including international USD wires. This is what a traditional bank charges, and what you pay any time a counterparty insists on a specific rail.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
@@ -172,7 +172,7 @@ input[type=range]{accent-color:#E8500A}
       </div>
       <div style="margin-top:16px;padding-top:14px;border-top:1.5px solid #1A1712;font-size:15px;line-height:1.6;color:#1A1712">{{ railNote }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Sticker fees are the advertised number. The real cost adds the FX markup, which is where the money goes: big banks run 2 to 4% over mid-market, specialists roughly 0.5% on major routes.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Sticker fees are the advertised number. The real cost adds the FX markup, which is where the money goes. Big banks run 2 to 4% over mid-market, specialists roughly 0.5% on major routes.</div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
       <sc-for list="{{ hidden }}" as="h" hint-placeholder-count="3">
@@ -184,7 +184,7 @@ input[type=range]{accent-color:#E8500A}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">When both entities exist</h2>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The structure itself, the <span style="position:relative;display:inline-block"><button onClick="{{ g.odi.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.odi.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">ODI</button><sc-if value="{{ g.odi.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.odi.tag }}</span>{{ g.odi.def }}</span></sc-if></span> framework, round-tripping rules and transfer pricing all live in the US entity guide. Read that first. What belongs here is the banking layer it doesn't cover.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The structure itself, the <span style="position:relative;display:inline-block"><button onClick="{{ g.odi.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.odi.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">ODI</button><sc-if value="{{ g.odi.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.odi.tag }}</span>{{ g.odi.def }}</span></sc-if></span> framework, round-tripping rules and transfer pricing all live in the US entity guide. Read that first. What belongs here is the banking layer that guide doesn't cover.</p>
     <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
       <sc-for list="{{ odi }}" as="o" hint-placeholder-count="5">
         <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
@@ -193,7 +193,7 @@ input[type=range]{accent-color:#E8500A}
         </div>
       </sc-for>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Personal remittances are a different page: sending your own money home, NRE and NRO mechanics, and the 1% US remittance tax sit in <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a>.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Personal remittances are a different page. Sending your own money home, NRE and NRO mechanics, and the 1% US remittance tax all sit in <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a>.</div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
@@ -228,9 +228,9 @@ input[type=range]{accent-color:#E8500A}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
 const GLOSS = {
-  fdic: { tag: 'FDIC · SWEEP COVERAGE', def: 'Deposit insurance. Because these platforms spread your balance across many partner banks, coverage multiplies past the usual $250k per bank. It is real, and it is not the same as banking with one institution.' },
+  fdic: { tag: 'FDIC · SWEEP COVERAGE', def: 'Deposit insurance. Because these platforms spread your balance across many partner banks, coverage stacks past the usual $250k per bank. It is real, but it is not the same as banking with one institution.' },
   sweep: { tag: 'SWEEP', def: 'An automated rule that moves any balance above a threshold you set out of checking into a yield product, and back when checking dips below it.' },
-  odi: { tag: 'ODI · OVERSEAS DIRECT INVESTMENT', def: 'India\u2019s framework for an Indian entity investing in a foreign one. Money has to route through an Authorized Dealer bank and be reported. You cannot simply wire it.' },
+  odi: { tag: 'ODI · OVERSEAS DIRECT INVESTMENT', def: 'India\u2019s framework for an Indian entity investing in a foreign one. Money has to route through an Authorized Dealer bank and be reported. You cannot just wire it.' },
 };
 
 // Idle-cash slider: 0 to $5M, finer resolution at the low end where the thresholds are.
@@ -246,9 +246,9 @@ const range = (a, b) => dollars(a) + '\u2013' + dollars(b);
 const CHECKS = [
   { id: 'mercury', text: 'Open Mercury from India, before you fly. Formation docs, EIN letter, passport' },
   { id: 'split', text: 'Once payroll exists, split cash into operating, payroll reserve and tax reserve' },
-  { id: 'treasury', text: 'At $250k idle, set up a treasury sweep, and compare Mercury and Rho current rates before defaulting' },
-  { id: 'adbank', text: 'Indian entity funding the US one? Confirm your bank\u2019s AD-I status and founder-flip ODI experience before relying on them' },
-  { id: 'ref', text: 'Attach the ODI filing reference to every related US-side bank record, from the first transfer' },
+  { id: 'treasury', text: 'At $250k idle, set up a treasury sweep and compare current Mercury and Rho rates before defaulting' },
+  { id: 'adbank', text: 'Indian entity funding the US one? Confirm your bank\u2019s AD-I status and their founder-flip ODI experience before relying on them' },
+  { id: 'ref', text: 'Attach the ODI filing reference to every related US-side bank record, starting with the first transfer' },
 ];
 
 const KEY = 'bp-bizbank';
@@ -300,17 +300,17 @@ class Component extends DCLogic {
         amt: mercOk ? range(idle * 0.0305, idle * 0.0338) : '\u2014',
         amtColor: mercOk ? '#1A1712' : '#C9C0AD',
         border: mercOk ? '#1A1712' : '#E2DACA', bg: mercOk ? '#F5F1E7' : 'transparent',
-        note: mercOk ? 'Entry tier, 3.05 to 3.38% net of fees. The advertised 3.83% only applies above $20M.' : 'Needs $250k across your Mercury accounts to qualify.' },
+        note: mercOk ? 'Entry tier, 3.05 to 3.38% net of fees. The advertised 3.83% only kicks in above $20M.' : 'Needs $250k across your Mercury accounts to qualify.' },
       { name: 'Rho Treasury', tag: rhoOk ? 'YOU QUALIFY' : 'NEEDS $100K', tagColor: rhoOk ? '#1A1712' : accent,
         amt: rhoOk ? dollars(idle * 0.045) : '\u2014',
         amtColor: rhoOk ? '#1A1712' : '#C9C0AD',
         border: rhoOk ? '#1A1712' : '#E2DACA', bg: rhoOk ? '#F5F1E7' : 'transparent',
-        note: rhoOk ? 'Opens lower and advertises up to about 4.5% as of August 2026.' : 'Opens at a $100k minimum, lower than Mercury.' },
+        note: rhoOk ? 'Opens lower, advertises up to about 4.5% as of August 2026.' : 'Opens at $100k, lower than Mercury.' },
     ];
     let yieldNote;
     if (!rhoOk) yieldNote = 'Below $100k neither treasury product is open to you, and that is fine. Leave it in checking and revisit the moment a raise lands.';
-    else if (!mercOk) yieldNote = 'Rho opens at $100k, so this is the band where it is the only option on the table. Worth an honest comparison rather than defaulting to whoever you already bank with.';
-    else yieldNote = 'Both are open to you, and the gap between them is real money at this balance. Compare current rates before defaulting to your existing platform, because these move constantly.';
+    else if (!mercOk) yieldNote = 'Rho opens at $100k. This is the band where it is the only option on the table. Worth checking the current rate rather than defaulting to whoever you already bank with.';
+    else yieldNote = 'Both are open to you, and the gap between them is real money at this balance. Compare current rates before defaulting to your existing platform. These move constantly.';
 
     // ---- transfer rails ----
     const amt = sendAt(this.state.sendStep);
@@ -318,17 +318,17 @@ class Component extends DCLogic {
     const specLo = amt * 0.005 + 4, specHi = amt * 0.005 + 12;
     const rails = [
       { name: 'Domestic ACH', speed: '1\u20133 BUSINESS DAYS', sticker: '$0\u20133', color: '#1A1712',
-        real: '$0\u20133', note: 'The default for payroll and routine bill pay. Cheapest rail for anything not urgent.' },
+        real: '$0\u20133', note: 'The default for payroll and routine bill pay. Cheapest rail for anything that is not urgent.' },
       { name: 'Domestic wire', speed: 'SAME DAY', sticker: '$25\u201335', color: '#1A1712',
-        real: '$25\u201335', note: 'Worth it only for time-sensitive one-offs: a lease closing, an urgent vendor payment.' },
+        real: '$25\u201335', note: 'Worth it only for time-sensitive one-offs. A lease closing, an urgent vendor payment.' },
       { name: 'International wire', speed: '1\u20135 BUSINESS DAYS', sticker: '$35\u201350', color: accent,
         real: range(swiftLo, swiftHi), note: 'SWIFT. Flat fees plus 2 to 4% FX markup, plus $15\u201350 per intermediary bank en route.' },
       { name: 'Specialist rail', speed: '1\u20135 BUSINESS DAYS', sticker: 'Low flat', color: '#1A1712',
-        real: range(specLo, specHi), note: 'Wise or Airwallex. A small flat fee plus roughly 0.5% FX on major routes.' },
+        real: range(specLo, specHi), note: 'Wise or Airwallex. Small flat fee plus roughly 0.5% FX on major routes.' },
     ];
     const gapLo = swiftLo - specHi, gapHi = swiftHi - specLo;
     const railNote = 'On ' + dollars(amt) + ', the bank wire costs you ' + range(gapLo, gapHi)
-      + ' more than the specialist rail. That gap is almost entirely FX markup, not the fee you were quoted \u2014 which is why you compare the landed amount and never the sticker.';
+      + ' more than the specialist rail. That gap is almost entirely FX markup, not the fee you were quoted. Which is why you compare the landed amount, never the sticker.';
 
     return {
       g,
@@ -344,30 +344,30 @@ class Component extends DCLogic {
 
       platforms: [
         { name: 'Mercury', url: 'https://mercury.com/', rank: 'START HERE', rankColor: accent, bg: '#F5F1E7',
-          who: 'Fresh Delaware C-corp, international founder, first account. The widest acceptance of non-resident founders and the deepest startup track record.',
+          who: 'Fresh Delaware C-corp, international founder, first account. Widest acceptance of non-resident founders and the deepest startup track record.',
           cost: '$0. Paid tiers at $35 and $350 a month only gate NetSuite automations, reimbursements beyond 5 users, and advanced invoicing.',
           fdic: 'Up to $5M via partner-bank sweep networks.',
-          watch: 'The IO credit card auto-repays daily until you hold $15k, then unlocks 30-day terms. Limits track your cash balance and get reassessed after large withdrawals.' },
+          watch: 'The IO credit card auto-repays daily until you hold $15k, then opens 30-day terms. Limits track your cash balance and get reassessed after large withdrawals.' },
         { name: 'Rho', url: 'https://www.rho.co/', rank: 'THE REAL ALTERNATIVE', rankColor: '#8A8172', bg: 'transparent',
           who: 'Banking, bill pay, cards and treasury in one platform. Treasury opens lower than Mercury\u2019s, which matters if yield is the deciding factor.',
           cost: '$0 minimums, $0 per user.',
-          fdic: 'Checking sits at Webster Bank at $250k standard; savings reach up to $75M via a 400+ bank sweep.',
-          watch: 'Less name recognition with some vendors and investors. Checking and savings coverage differ, so read which product your balance actually sits in.' },
+          fdic: 'Checking sits at Webster Bank at $250k standard. Savings reach up to $75M via a 400+ bank sweep.',
+          watch: 'Less name recognition with some vendors and investors. Checking and savings coverage differ, so check which product your balance actually sits in.' },
         { name: 'Relay', url: 'https://relayfi.com/', rank: 'PAIR IT, DON\u2019T RELY ON IT', rankColor: '#8A8172', bg: 'transparent',
-          who: 'Multiple named sub-accounts once more than one person spends. Up to twenty, each with real routing numbers.',
+          who: 'Multiple named sub-accounts once more than one person spends. Up to twenty, each with a real routing number.',
           cost: '$0 starter. Automated bill pay needs the $30 a month plan.',
           fdic: 'Up to $3M via Thread Bank\u2019s sweep.',
-          watch: 'Thread Bank took an FDIC enforcement action in 2024, and account-freeze complaints recur in reviews. Pair it with Mercury or Rho rather than making it your only account.' },
+          watch: 'Thread Bank took an FDIC enforcement action in 2024, and account-freeze complaints recur in reviews. Pair it with Mercury or Rho rather than running it as your only account.' },
         { name: 'Brex', url: 'https://www.brex.com/', rank: 'COME BACK AFTER A RAISE', rankColor: '#8A8172', bg: 'transparent',
-          who: 'Funded startups: a $50k cash balance, or VC or accelerator backing.',
+          who: 'Funded startups. A $50k cash balance, or VC or accelerator backing.',
           cost: '$0.',
           fdic: 'Up to $6M via sweep.',
-          watch: 'Requires a US physical address plus US operations, so it is rarely a pre-arrival option. Capital One closed its $5.15B acquisition in April 2026, and underwriting and product terms are actively shifting.' },
+          watch: 'Needs a US physical address plus US operations, so it is rarely a pre-arrival option. Capital One closed its $5.15B acquisition in April 2026, and underwriting and product terms are still shifting.' },
       ],
 
       accounts: [
         { tag: 'OPERATING', d: 'Day-to-day spend, and the account your cards and bill pay draw from.' },
-        { tag: 'PAYROLL RESERVE', d: 'Funded one pay cycle ahead, so a platform hiccup never delays a paycheck.' },
+        { tag: 'PAYROLL RESERVE', d: 'Funded one pay cycle ahead so a platform hiccup never delays a paycheck.' },
         { tag: 'TAX RESERVE', d: 'A running set-aside for payroll tax deposits and the eventual corporate bill, sized as a percentage of payroll.' },
       ],
 
@@ -382,22 +382,22 @@ class Component extends DCLogic {
       rails, railNote,
 
       hidden: [
-        { t: 'Intermediary deductions are invisible until it lands', d: 'The recipient sees $30 to $90 less than you sent, skimmed along the correspondent chain. When an exact amount must arrive, ask about sending "OUR", meaning sender pays all charges, or use a rail that quotes the landed amount.' },
-        { t: 'Moving the money is not the same as withholding', d: 'Paying Indian contractors through a platform that does not handle India-side compliance leaves your company exposed if TDS was not withheld correctly. The platform and the responsible entity are different things.' },
-        { t: 'There is no UPI here', d: 'The everyday rails settle in days, not seconds, and even same-day wires respect banking hours and cutoffs. Autopay and payment scheduling exist precisely because the rails are slow.' },
+        { t: 'Intermediary deductions are invisible until it lands', d: 'The recipient sees $30 to $90 less than you sent, skimmed along the correspondent chain. When an exact amount has to arrive, ask about sending "OUR" (sender pays all charges) or use a rail that quotes the landed amount.' },
+        { t: 'Moving the money is not the same as withholding', d: 'Paying Indian contractors through a platform that does not handle India-side compliance leaves your company exposed if TDS was not withheld correctly. The platform and the responsible entity are two different things.' },
+        { t: 'There is no UPI here', d: 'The everyday rails settle in days, not seconds, and even same-day wires respect banking hours and cutoffs. Autopay and payment scheduling exist because the rails are slow.' },
       ],
 
       odi: [
         { tag: 'ASK YOUR BANK THIS DIRECTLY', tagColor: accent,
-          d: 'Funds from the Indian entity to the US one must route through an Authorized Dealer bank and be reported as ODI. Confirm your bank holds an AD Category-I licence, and ask whether their ODI desk has processed a founder-flip structure before, not just traditional outbound acquisitions. Filing delays almost always trace to an unfamiliar ODI team.' },
+          d: 'Funds from the Indian entity to the US one have to route through an Authorized Dealer bank and be reported as ODI. Confirm your bank holds an AD Category-I licence, and ask whether their ODI desk has processed a founder-flip structure before, not just traditional outbound acquisitions. Filing delays almost always trace back to an unfamiliar ODI team.' },
         { tag: 'THE AUDIT LAG BITES', tagColor: '#8A8172',
-          d: 'The automatic route caps total financial commitment, meaning equity plus loans plus guarantees, at 400% of the Indian entity\u2019s net worth per its last audited balance sheet. For an early-stage company that just raised, fresh capital does not count until the audited accounts exist, which can make the cap surprisingly small and push funding toward personal LRS remittances or US-side fundraising instead.' },
+          d: 'The automatic route caps total financial commitment (equity plus loans plus guarantees) at 400% of the Indian entity\u2019s net worth per its last audited balance sheet. For an early-stage company that just raised, fresh capital does not count until the audited accounts exist. That can make the cap surprisingly small and push funding toward personal LRS remittances or US-side fundraising instead.' },
         { tag: 'THE THREAD BETWEEN TWO SETS OF BOOKS', tagColor: '#8A8172',
-          d: 'Keep the ODI filing reference number attached to every related US-side bank record. Nothing on the Mercury or Rho side changes because money arrived as an ODI transfer, but at reconciliation or audit time that reference is what connects them.' },
+          d: 'Keep the ODI filing reference number attached to every related US-side bank record. Nothing on the Mercury or Rho side changes because money arrived as an ODI transfer, but at reconciliation or audit time that reference is what connects the two.' },
         { tag: 'TWO COMPLIANCE CLOCKS, DIFFERENT DEADLINES', tagColor: '#8A8172',
-          d: 'Your Indian CA handling ODI filings and your US accountant booking the receipt should reconcile the same transaction on a shared calendar. India\u2019s FEMA reporting and the US entity\u2019s tax and KYC obligations run on different deadlines, and the common failure is one side quietly falling behind.' },
+          d: 'Your Indian CA handling ODI filings and your US accountant booking the receipt should reconcile the same transaction on a shared calendar. India\u2019s FEMA reporting and the US entity\u2019s tax and KYC obligations run on different deadlines. The common failure is one side quietly falling behind.' },
         { tag: 'ONE 2026 CHANGE WORTH A SPECIFIC CHECK', tagColor: accent,
-          d: 'FEMA amendment rules effective May 2026 added a beneficial-ownership test for round-trip structures, with government approval required where a land-border-country entity holds 10% or more anywhere in the chain. If your structure touches one, get counsel on it explicitly.' },
+          d: 'FEMA amendment rules effective May 2026 added a beneficial-ownership test for round-trip structures, with government approval required where a land-border-country entity holds 10% or more anywhere in the chain. If your structure touches one, get counsel on it before you file.' },
       ],
 
       checks: CHECKS.map(c => {

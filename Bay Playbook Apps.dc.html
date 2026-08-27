@@ -58,15 +58,15 @@ a:hover{color:#1A1712}
     </div>
 
     <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Apps to download</h1>
-    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">The stack for your first 90 days, mapped to the Indian apps you already know. Nothing here is a phone default: if it ships on the handset or you already have it, it's off the list.</p>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">The stack for your first 90 days, mapped to the Indian apps you already know. Nothing here is a phone default. If it ships on the handset or you already have it, it's off the list.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:18px 20px;margin-bottom:26px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:7px">ONE HONEST NOTE BEFORE THE LIST</div>
-      <div style="font-size:15.5px;line-height:1.6;color:#1A1712">Every guide tells you to download the stack on day two. That only half works. A third of these can't do anything until something else exists first: Zelle needs a US bank account, Venmo's real limits need an SSN, the parking apps need a car. So tell the page what you've already got, and narrow it to the category you're solving today.</div>
+      <div style="font-size:15.5px;line-height:1.6;color:#1A1712">Every guide tells you to download the stack on day two. That only half works. A third of these can't do anything until something else exists first. Zelle needs a US bank account, Venmo's real limits need an SSN, the parking apps need a car. Tell the page what you've already got, then narrow it to the category you're solving today.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What can you install right now?</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Three switches for what exists yet, then a category if you're here for one thing.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Three switches for what exists yet. Then a category if you're here for one thing.</p>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
       <sc-for list="{{ gates }}" as="g" hint-placeholder-count="3">
@@ -127,13 +127,13 @@ a:hover{color:#1A1712}
     </div>
 
     <sc-if value="{{ noMatches }}" hint-placeholder-val="{{ false }}">
-      <div style="border:1.5px dashed #C9C0AD;border-radius:10px;padding:18px;font-size:14.5px;line-height:1.55;color:#5A5243;margin-bottom:14px">Everything in this category is waiting on something you don't have yet. The panel below says what.</div>
+      <div style="border:1.5px dashed #C9C0AD;border-radius:10px;padding:18px;font-size:14.5px;line-height:1.55;color:#5A5243;margin-bottom:14px">Everything in this category is waiting on something you don't have yet. The panel below says what's missing.</div>
     </sc-if>
 
     <sc-if value="{{ anyBlocked }}" hint-placeholder-val="{{ false }}">
       <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:22px 24px;margin-bottom:14px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">NOT YET · DON'T WASTE DAY 2 ON THESE</div>
-        <div style="font-size:14.5px;line-height:1.55;color:#C9C0AD;max-width:560px;margin-bottom:16px">You can install them, but they won't do anything until the thing beside them exists. Come back as each thread lands.</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#C9C0AD;max-width:560px;margin-bottom:16px">You can install them, but they do nothing until the thing beside them exists. Come back as each thread lands.</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
           <sc-for list="{{ blocked }}" as="b" hint-placeholder-count="6">
             <div style="border:1px solid #332D24;border-radius:10px;padding:13px 15px">
@@ -153,10 +153,10 @@ a:hover{color:#1A1712}
         </div>
       </div>
     </sc-if>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Store links go to the App Store and Play Store listings for each name. The <a href="Bay Playbook Guides.dc.html#sim">SIM and phone guide</a> gets you the number, the <a href="Bay Playbook SSN ITIN License.dc.html">SSN and licence page</a> gets you the rest, and nothing here fixes the ten-day licence clock.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Store links go to the App Store and Play Store listings for each name. The <a href="Bay Playbook Guides.dc.html#sim">SIM and phone guide</a> gets you the number. The <a href="Bay Playbook SSN ITIN License.dc.html">SSN and licence page</a> gets you the rest. Nothing here fixes the ten-day licence clock.</div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Why enrolment fails</h2>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Almost always the phone number. US banks treat <span style="position:relative;display:inline-block"><button onClick="{{ voip.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ voip.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">VoIP numbers</button><sc-if value="{{ voip.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ voip.l }};right:{{ voip.r }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">VOIP</span>An internet-based phone number, like Google Voice or Skype. It looks like a normal US number to you and reads as unverifiable to a bank.</span></sc-if></span> as unverifiable, and several apps here reject them outright. If Zelle enrolment fails, that's the reason nine times out of ten. Use the real number from your US carrier, which is another argument for sorting the eSIM before anything else.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">Almost always the phone number. US banks treat <span style="position:relative;display:inline-block"><button onClick="{{ voip.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ voip.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">VoIP numbers</button><sc-if value="{{ voip.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ voip.l }};right:{{ voip.r }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">VOIP</span>An internet-based phone number, like Google Voice or Skype. Looks like a normal US number to you, reads as unverifiable to a bank.</span></sc-if></span> as unverifiable, and several apps here reject them outright. If Zelle enrolment fails, that's the reason nine times out of ten. Use the real number from your US carrier. One more reason to sort the eSIM before anything else.</p>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">Four things that will catch you out</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
@@ -170,7 +170,7 @@ a:hover{color:#1A1712}
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
-      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. Saves in your browser.</p>
       <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
     </div>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
@@ -205,51 +205,51 @@ a:hover{color:#1A1712}
 const APPS = [
   // ===== TRANSPORT =====
   { n: 'Uber', dom: 'uber.com', aka: 'Ola', cat: 'transport', l: 'd1', q: 'Uber',
-    note: 'Your Indian login carries over, so add a US payment method rather than making a fresh account. Have Lyft too: prices differ per ride.' },
+    note: 'Your Indian login carries over. Add a US payment method rather than making a fresh account. Keep Lyft installed too. Prices differ per ride.' },
   { n: 'Lyft', dom: 'lyft.com', aka: 'Ola', cat: 'transport', l: 'd1', q: 'Lyft',
-    note: 'The other half of the pair. Check both before every ride, because which one is cheaper genuinely swaps.' },
+    note: 'The other half of the pair. Check both before every ride. Which one is cheaper genuinely swaps.' },
   { n: 'Clipper', dom: 'clippercard.com', cat: 'transport', l: 'd1', q: null, site: 'https://www.clippercard.com/clipper-on-your-phone', siteLabel: 'add to wallet',
-    note: 'Skip the standalone app: add the card to your phone wallet and load $20. From 1 August 2026 single rides are gone from MuniMobile, so it\u2019s Clipper or tapping a contactless card straight on the faregate reader, adult fares only.' },
+    note: 'Skip the standalone app. Add the card to your phone wallet and load $20. From 1 August 2026 single rides are gone from MuniMobile, so it\u2019s Clipper or tapping a contactless card straight on the faregate reader, adult fares only.' },
   { n: 'Transit', dom: 'transitapp.com', aka: 'the good half of Google Maps', cat: 'transport', l: 'd1', q: 'Transit app',
-    note: 'Live Muni, BART and Caltrain arrivals. Maps works, but Transit\u2019s real-time data is better. Citymapper is the equivalent alternative.' },
+    note: 'Live Muni, BART and Caltrain arrivals. Maps works, but Transit\u2019s real-time data is better. Citymapper does the same job if you already use it.' },
   { n: 'Bay Wheels', dom: 'lyft.com', cat: 'transport', l: 'd1', q: null, site: 'https://www.lyft.com/bikes/bay-wheels', siteLabel: 'inside lyft',
-    note: 'Bike share, living inside the Lyft app rather than its own. The e-bikes flatten SF\u2019s hills, which is the entire point of paying for them.' },
+    note: 'Bike share. Lives inside the Lyft app rather than its own. The e-bikes flatten SF\u2019s hills, which is the entire point of paying for them.' },
   { n: 'Waymo One', dom: 'waymo.com', cat: 'transport', l: 'd1', q: 'Waymo', needs: ['number'],
-    note: 'Driverless robotaxi, no Indian equivalent. Covers 260-plus square miles and serves SFO from the Rental Car Center, an AirTrain hop from the terminals rather than curbside. Runs roughly 13% above Uber before tips, and you don\u2019t tip a robot.' },
+    note: 'Driverless robotaxi, no Indian equivalent. Covers 260-plus square miles and serves SFO from the Rental Car Center, an AirTrain hop from the terminals rather than curbside. Runs roughly 13% above Uber before tips. You don\u2019t tip a robot.' },
 
   // ===== MONEY =====
   { n: 'Wise', dom: 'wise.com', cat: 'money', l: 'pre', q: 'Wise',
-    note: 'INR to USD at near-mid-market rates. Set it up with your Indian bank before you fly. It\u2019s the app, not the strategy: LRS limits, TCS and the 1 April reset live in Remote Setup.' },
+    note: 'INR to USD at near-mid-market rates. Set it up with your Indian bank before you fly. This is the app, not the strategy. LRS limits, TCS and the 1 April reset live in Remote Setup.' },
   { n: 'Zolve', dom: 'zolve.com', cat: 'money', l: 'pre', q: 'Zolve',
-    note: 'A US credit card you can apply for from India with no SSN. One of the two fastest routes to a US credit file. The other, Nova Credit\u2019s CIBIL translation, has a partner list that keeps shifting, so check it live the week you apply.' },
+    note: 'A US credit card you can apply for from India with no SSN. One of the two fastest routes to a US credit file. The other, Nova Credit\u2019s CIBIL translation, has a partner list that keeps shifting. Check it live the week you apply.' },
   { n: 'Splitwise', dom: 'splitwise.com', aka: 'Splitwise', cat: 'money', l: 'w12', q: 'Splitwise',
-    note: 'You already know this one. Expense splitting with housemates, and it pairs with Venmo for the settling-up half.' },
+    note: 'You already know this one. Split expenses with housemates. Pairs with Venmo for the settling-up half.' },
   { n: 'Your bank\u2019s app', dom: null, init: 'B', cat: 'money', l: 'w26', q: null, needs: ['bank'], site: 'Bay Playbook Guides.dc.html#bank', siteLabel: 'banking guide',
-    note: 'Chase, BofA, whichever you open. This is where Zelle actually lives, so most people never install the standalone app. Open the account in-branch with passport and visa.' },
+    note: 'Chase, BofA, whichever you open. This is where Zelle actually lives, so most people never install the standalone app. Open the account in branch with passport and visa.' },
   { n: 'Zelle', dom: 'zellepay.com', aka: 'UPI, but bank-to-bank', cat: 'money', l: 'w26', q: 'Zelle', needs: ['number', 'bank'],
-    note: 'Instant, free, and how rent and deposits actually move. No wallet in the middle. It rejects VoIP numbers, so Google Voice will not work.' },
+    note: 'Instant, free, and how rent and deposits actually move. No wallet in the middle. Rejects VoIP numbers, so Google Voice will not work.' },
   { n: 'Venmo', dom: 'venmo.com', cat: 'money', l: 'w26', q: 'Venmo', needs: ['number'],
-    note: 'Social payments for splitting dinner. Usable unverified with a $299.99 weekly cap; identity verification lifts it to $60,000. Run it unverified through month one and verify the week your SSN card arrives.' },
+    note: 'Social payments for splitting dinner. Usable unverified with a $299.99 weekly cap. Identity verification lifts it to $60,000. Run it unverified through month one and verify the week your SSN card arrives.' },
 
   // ===== FOOD =====
   { n: 'DoorDash', dom: 'doordash.com', aka: 'Swiggy', cat: 'food', l: 'd1', q: 'DoorDash',
-    note: 'The wider coverage of the two. Delivery here runs roughly two to three times India once fees stack, so treat it as a treat rather than a default.' },
+    note: 'The wider coverage of the two. Delivery here runs roughly two to three times India once fees stack. Treat it as a treat, not a default.' },
   { n: 'Uber Eats', dom: 'ubereats.com', aka: 'Zomato', cat: 'food', l: 'd1', q: 'Uber Eats',
     note: 'Worth having alongside DoorDash for the restaurants the other one doesn\u2019t carry.' },
   { n: 'Instacart', dom: 'instacart.com', aka: 'BigBasket, not Blinkit', cat: 'food', l: 'd1', q: 'Instacart',
-    note: 'Same-day, not ten-minute. Groceries from Safeway or Costco, delivered. Adjust your expectations from Blinkit accordingly.' },
+    note: 'Same-day, not ten-minute. Groceries from Safeway or Costco, delivered. Reset your Blinkit expectations.' },
   { n: 'Weee!', dom: 'sayweee.com', cat: 'food', l: 'w12', q: 'Weee',
-    note: 'Asian-grocery delivery with a strong Indian selection in the Bay. Bridges you until you\u2019ve found your local Indian store.' },
+    note: 'Asian-grocery delivery with a strong Indian selection in the Bay. Holds you over until you\u2019ve found your local Indian store.' },
   { n: 'Yelp', dom: 'yelp.com', aka: 'the discovery half of Zomato', cat: 'food', l: 'd1', q: 'Yelp',
-    note: 'Americans live by reviews. Also how you find urgent care, barbers and mechanics, which is the part nobody mentions.' },
+    note: 'Americans live by reviews. Also how you find urgent care, barbers and mechanics. Nobody tells you that part.' },
 
   // ===== COMMUNITY =====
   { n: 'Luma', dom: 'lu.ma', cat: 'community', l: 'w12', q: 'Luma events',
-    note: 'Where SF founder and AI events live. Subscribe to luma.com/sf and luma.com/ai-sf and that is your social calendar for month one.' },
+    note: 'Where SF founder and AI events live. Subscribe to luma.com/sf and luma.com/ai-sf. That is your social calendar for month one.' },
   { n: 'X', dom: 'x.com', cat: 'community', l: 'w12', q: 'X Twitter',
-    note: 'SF tech\u2019s town square. DMs here open more doors than LinkedIn does, and the etiquette is on the networking page.' },
+    note: 'SF tech\u2019s town square. DMs here open more doors than LinkedIn does. Etiquette is on the networking page.' },
   { n: 'Partiful', dom: 'partiful.com', cat: 'community', l: 'w12', q: 'Partiful', needs: ['number'],
-    note: 'How people under 35 host parties. It\u2019s SMS-first, with login and invites running on texts from a US short code, so it genuinely does not work until your number is live.' },
+    note: 'How people under 35 host parties. SMS-first. Login and invites run on texts from a US short code, so it genuinely does not work until your number is live.' },
   { n: 'Meetup', dom: 'meetup.com', cat: 'community', l: 'w12', q: 'Meetup',
     note: 'Older-school, still the best route into niche tech and hiking groups.' },
 
@@ -259,57 +259,57 @@ const APPS = [
   { n: 'Zumper', dom: 'zumper.com', cat: 'housing', l: 'w26', q: 'Zumper',
     note: 'The other browse layer, and where this guide\u2019s SF rent figures come from.' },
   { n: 'Craigslist', dom: 'craigslist.org', cat: 'housing', l: 'w26', q: 'Craigslist',
-    note: 'Real sublet inventory and real scams in the same feed. In-person viewings only, and never send a deposit before you have held keys.' },
+    note: 'Real sublet inventory and real scams in the same feed. In-person viewings only. Never send a deposit before you have held keys.' },
   { n: 'DirectorySF', dom: 'directorysf.com', cat: 'housing', l: 'w26', q: null, site: 'https://directorysf.com', siteLabel: 'directorysf.com',
-    note: 'This plus the Facebook housing groups is the tech-sublet arbitrage: departing-tech-worker handoffs at below-market rents.' },
+    note: 'This plus the Facebook housing groups is the tech-sublet arbitrage. Departing-tech-worker handoffs at below-market rents.' },
   { n: 'Airbnb', dom: 'airbnb.com', cat: 'housing', l: 'w26', q: 'Airbnb',
-    note: 'Search 28-plus nights so the monthly discount actually shows. Under that you\u2019re paying nightly rates for a month.' },
+    note: 'Search 28-plus nights so the monthly discount actually shows. Under that, you\u2019re paying nightly rates for a month.' },
 
   // ===== HEALTH =====
   { n: 'GoodRx', dom: 'goodrx.com', cat: 'health', l: 'w12', q: 'GoodRx',
-    note: 'Discount coupons at any pharmacy, no insurance needed. This is the app for the uninsured gap between landing and your Covered California plan starting, and prices drop sharply with a coupon at the counter.' },
+    note: 'Discount coupons at any pharmacy, no insurance needed. Use it in the uninsured gap between landing and your Covered California plan starting. Prices drop sharply with a coupon at the counter.' },
   { n: 'Zocdoc', dom: 'zocdoc.com', cat: 'health', l: 'w12', q: 'Zocdoc',
     note: 'Book doctors and dentists by insurance, specialty and rating. Free.' },
   { n: 'Amazon One Medical', dom: 'onemedical.com', cat: 'health', l: 'w26', q: 'One Medical',
-    note: 'Same-day primary care at $199 a year, or $99 with US Prime, and one-off virtual visits from $29 with no membership. Be clear what it isn\u2019t: a membership, not insurance. You still need the marketplace plan.' },
+    note: 'Same-day primary care at $199 a year, or $99 with US Prime. One-off virtual visits from $29 with no membership. It is a membership, not insurance. You still need the marketplace plan.' },
   { n: 'CVS', dom: 'cvs.com', cat: 'health', l: 'w26', q: 'CVS',
     note: 'Pharmacy app for refills, once you have prescriptions on this side.' },
   { n: 'Walgreens', dom: 'walgreens.com', cat: 'health', l: 'w26', q: 'Walgreens',
-    note: 'The other pharmacy chain. Pick whichever is closer to your flat and stay with it.' },
+    note: 'The other pharmacy chain. Pick whichever is closer to your flat and stick with it.' },
 
   // ===== DRIVING =====
   { n: 'ParkMobile', dom: 'parkmobile.io', cat: 'driving', l: 'w26', q: 'ParkMobile', needs: ['drive'],
-    note: 'One of the two apps SF\u2019s meters switched to. PayByPhone stopped working at SFMTA meters on 1 June 2026. Mobile payments carry a $0.35 fee, and it works across many other Bay Area cities.' },
+    note: 'One of the two apps SF\u2019s meters switched to. PayByPhone stopped working at SFMTA meters on 1 June 2026. Mobile payments carry a $0.35 fee. Works across many other Bay Area cities too.' },
   { n: 'HotSpot', dom: 'hotspotparking.com', cat: 'driving', l: 'w26', q: 'HotSpot Parking', needs: ['drive'],
-    note: 'The other official meter app. Either one covers SF; there\u2019s no reason to run both.' },
+    note: 'The other official meter app. Either one covers SF. No reason to run both.' },
   { n: 'SpotAngels', dom: 'spotangels.com', cat: 'driving', l: 'w26', q: 'SpotAngels', needs: ['drive'],
-    note: 'A free map of every street-parking rule, with reminders before street cleaning. The street-cleaning ticket is the classic newcomer tax and this is how you stop paying it.' },
+    note: 'A free map of every street-parking rule, with reminders before street cleaning. The street-cleaning ticket is the classic newcomer tax. This is how you stop paying it.' },
   { n: 'Zipcar', dom: 'zipcar.com', cat: 'driving', l: 'w26', q: 'Zipcar', needs: ['drive'],
     note: 'Hourly rentals for weekend trips. Check the policy on foreign licences before you count on it.' },
   { n: 'Turo', dom: 'turo.com', cat: 'driving', l: 'w26', q: 'Turo', needs: ['drive'],
-    note: 'The peer-to-peer option. Getaround, the old third choice, shut its US operations in February 2025, so strike it from any older list you\u2019re following.' },
+    note: 'The peer-to-peer option. Getaround, the old third choice, shut its US operations in February 2025. Strike it from any older list you\u2019re following.' },
 
   // ===== CITY LIFE =====
   { n: 'SF311', dom: 'sf.gov', cat: 'city', l: 'w12', q: 'SF311',
-    note: 'Report broken streetlights and dumped mattresses. Also the front door for most city services, and the escalation route for a landlord ignoring you.' },
+    note: 'Report broken streetlights and dumped mattresses. Also the front door for most city services, and the escalation route when a landlord ignores you.' },
   { n: 'MyShake', dom: 'myshake.berkeley.edu', cat: 'city', l: 'w12', q: 'MyShake',
     note: 'Earthquake early warning, built at UC Berkeley, a few seconds ahead of the shaking. Two minutes of setup, once.' },
   { n: 'AlertSF', dom: 'sf.gov', cat: 'city', l: 'w12', q: null, site: 'https://www.sf.gov/how-to-get-ready-for-emergencies-in-san-francisco', siteLabel: 'text ZIP to 888-777',
-    note: 'The city\u2019s emergency alerts. Not an app: you text your ZIP to 888-777. Register the ZIP where you sleep and the one where you work.' },
+    note: 'The city\u2019s emergency alerts. Not an app. You text your ZIP to 888-777. Register the ZIP where you sleep and the one where you work.' },
   { n: 'USPS Informed Delivery', dom: 'usps.com', cat: 'city', l: 'w26', q: null, site: 'https://informeddelivery.usps.com', siteLabel: 'sign up',
-    note: 'Emails you scans of the day\u2019s incoming post. When your SSN card, debit cards and DMV letters all arrive by mail, knowing what\u2019s coming matters. Sign up the day you have a stable address.' },
+    note: 'Emails you scans of the day\u2019s incoming post. When your SSN card, debit cards and DMV letters all arrive by mail, knowing what\u2019s coming matters. Sign up the day you have a stable mailing address.' },
   { n: 'Nextdoor', dom: 'nextdoor.com', cat: 'city', l: 'w26', q: 'Nextdoor',
     note: 'Hyper-local tips and lost-cat drama in equal measure. Genuinely useful for free furniture and neighbourhood intel. Mute liberally.' },
   { n: 'AllTrails', dom: 'alltrails.com', cat: 'city', l: 'w12', q: 'AllTrails',
-    note: 'The Bay\u2019s real perk is trails thirty minutes out, in Marin and on the Peninsula. The free tier is enough to start.' },
+    note: 'The Bay\u2019s real perk is trails thirty minutes out, in Marin and on the Peninsula. Free tier is enough to start.' },
 
   // ===== INDIA =====
   { n: 'Willow', dom: 'willow.tv', aka: 'Hotstar, for cricket only', cat: 'india', l: 'w26', q: 'Willow TV',
-    note: 'IPL and ICC tournaments, $9.99 a month or $79.99 a year direct, also available as a Prime Video channel. Most India matches land in early-morning Pacific hours, so the replays matter as much as the live feed.' },
+    note: 'IPL and ICC tournaments. $9.99 a month or $79.99 a year direct, also available as a Prime Video channel. Most India matches land in early-morning Pacific hours, so the replays matter as much as the live feed.' },
   { n: 'JioHotstar', dom: 'hotstar.com', cat: 'india', l: 'w26', q: null, site: 'https://www.hotstar.com', siteLabel: 'read this first',
-    note: 'The honest answer is there is no US app. The Indian library is geo-blocked, a thin slice surfaces on Hulu through the Disney bundle, and that is the legal ceiling. Netflix and Prime carry deep Indian catalogues natively. If your must-watch lives only here, nothing on this page solves it cleanly.' },
+    note: 'The honest answer is there is no US app. The Indian library is geo-blocked. A thin slice surfaces on Hulu through the Disney bundle, and that is the legal ceiling. Netflix and Prime carry deep Indian catalogues natively. If your must-watch lives only here, nothing on this page solves it cleanly.' },
   { n: 'Amazon', dom: 'amazon.com', cat: 'india', l: 'w26', q: 'Amazon Shopping',
-    note: 'Your Indian login works on Amazon.com, so add a US card and address. Your Prime does not: the .in and .com subscriptions are separate, and the .com one is what unlocks the One Medical discount.' },
+    note: 'Your Indian login works on Amazon.com, so add a US card and address. Your Prime does not carry over. The .in and .com subscriptions are separate, and the .com one is what unlocks the One Medical discount.' },
 ];
 
 const LAYERS = [
@@ -339,12 +339,12 @@ const GATE_META = {
 };
 
 const CHECKS = [
-  { id: 'transport', text: 'Download the transport row on day 1, everything else in layers over week 1' },
+  { id: 'transport', text: 'Install the transport row on day 1. Add the rest in layers over week 1' },
   { id: 'clipper', text: 'Add Clipper to your phone wallet and load $20' },
   { id: 'wise', text: 'Set up Wise with your Indian bank before you fly' },
   { id: 'luma', text: 'Subscribe to the two Luma calendars and RSVP to one event this week' },
   { id: 'usps', text: 'Sign up for USPS Informed Delivery the day you have a stable mailing address' },
-  { id: 'zelle', text: 'After your US bank account opens, enrol in Zelle inside the banking app' },
+  { id: 'zelle', text: 'Once your US bank account opens, enrol in Zelle inside the banking app' },
   { id: 'ssn', text: 'The week your SSN arrives, verify Venmo and add the SSN to every existing account' },
 ];
 
@@ -432,7 +432,7 @@ class Component extends DCLogic {
       })),
 
       readyCount: ready.length + ' of ' + inCat.length + (cat === 'all' ? ' are worth installing today' : ' in ' + catName + ' are worth installing today'),
-      blockedCount: blocked.length === 0 ? 'nothing is waiting on anything' : blocked.length + ' still gated',
+      blockedCount: blocked.length === 0 ? 'nothing is gated' : blocked.length + ' still gated',
       anyBlocked: blocked.length > 0,
       noMatches: ready.length === 0,
 
@@ -463,9 +463,9 @@ class Component extends DCLogic {
 
       gotchas: [
         { t: 'Your Indian cards cost you 3 to 4% until the US card lands', d: 'The Uber, Amazon and Google logins carry over, which is genuinely useful. What carries over with them is a forex markup on every US charge. Add a US payment method the day you have one.' },
-        { t: 'Google Pay India and US Google Wallet are different products', d: 'Your UPI stack does not work at US terminals. Tap-to-pay here runs through Apple or Google Wallet with a card behind it, and nothing about your Indian setup transfers.' },
+        { t: 'Google Pay India and US Google Wallet are different products', d: 'Your UPI stack does not work at US terminals. Tap-to-pay here runs through Apple or Google Wallet with a card behind it. Nothing about your Indian setup transfers.' },
         { t: 'Zelle has no buyer protection', d: 'Buying or selling furniture on Craigslist or Marketplace, treat a Zelle transfer exactly like handing over cash. In person, only.' },
-        { t: 'Anyone who landed before June 2026 will tell you PayByPhone', d: 'The city switched its meters. They are a month out of date and you will get a ticket taking their word for it. ParkMobile or HotSpot.' },
+        { t: 'Anyone who landed before June 2026 will tell you PayByPhone', d: 'The city switched its meters. They are a month out of date, and taking their word for it gets you a ticket. Use ParkMobile or HotSpot.' },
       ],
 
       checks: CHECKS.map(c => {
