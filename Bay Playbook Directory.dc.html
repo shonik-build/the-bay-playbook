@@ -38,9 +38,9 @@ input::placeholder{color:#9B927F}
 <section style="max-width:1120px;margin:0 auto;padding:44px 32px 0;display:flex;flex-wrap:wrap;gap:32px;align-items:center">
   <div style="flex:1;min-width:340px">
     <h1 style="font-size:42px;line-height:1.05;font-weight:900;letter-spacing:-0.03em;margin:0 0 10px">Every <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">room</em> worth being in.</h1>
-    <p style="font-size:16.5px;line-height:1.55;max-width:640px;margin:0;color:#3D3629">Communities, event series, VCs, workspaces and newsletters — one database. <strong>Vouched</strong> means a TFF member was in the room within 6 months. Every link human-clicked.</p>
+    <p style="font-size:16.5px;line-height:1.55;max-width:640px;margin:0;color:#3D3629">Communities, event series, VCs, workspaces and newsletters in one database. <strong>Vouched</strong> means a TFF member was in the room within 6 months. Every link human-clicked.</p>
   </div>
-  <img src="https://framerusercontent.com/images/L3pC2A7vFtUruK0vZ5IjOr5drE.png?width=1536&height=1024" alt="Founders co-working in a cafe — watercolor" style="width:260px;flex:none;mix-blend-mode:multiply;border-radius:4px">
+  <img src="https://framerusercontent.com/images/L3pC2A7vFtUruK0vZ5IjOr5drE.png?width=1536&height=1024" alt="Founders co-working in a cafe, watercolor" style="width:260px;flex:none;mix-blend-mode:multiply;border-radius:4px">
 </section>
 
 <section style="max-width:1120px;margin:28px auto 0;padding:0 32px;position:sticky;top:60px;z-index:40;background:#FAF7F1">
@@ -80,7 +80,7 @@ input::placeholder{color:#9B927F}
       <a href="{{ r.url }}" target="_blank" style="font-size:13px;font-weight:700;white-space:nowrap;padding:9px 16px;border:1.5px solid #1A1712;border-radius:999px;color:#1A1712" style-hover="background:#1A1712;color:#FAF7F1">{{ r.cta }}</a>
     </div>
   </sc-for>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;margin-top:18px;text-align:center">Sort: vouched first, then freshness · Entries &gt;6 months old auto-flag for recheck · ★ flags pending TFF confirmation</div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;margin-top:18px;text-align:center">Sort: vouched first, then freshness. Entries &gt;6 months old auto-flag for recheck. ★ flags pending TFF confirmation</div>
 </section>
 
 </x-dc>
@@ -99,44 +99,44 @@ class Component extends DCLogic {
   renderVals() {
     // [name, one-liner, type, area, desi, vouched, cost, url, verified]
     const E = [
-      ['Bay Area Desi Founders', 'WhatsApp home base for early-stage desi founders — meetups, jobs, referrals, room shares', 'Community', 'Online', 1, 1, 'Invite via TFF', '#', 'Jul 2026 · SA'],
+      ['Bay Area Desi Founders', 'WhatsApp home base for early-stage desi founders. Meetups, jobs, referrals, room shares', 'Community', 'Online', 1, 1, 'Invite via TFF', '#', 'Jul 2026 · SA'],
       ['SF Indian Founders+Builders', 'Fundraising help, peer pushes and advice for Indian startup founders', 'Community', 'Online', 1, 1, 'Invite via TFF', '#', 'Jul 2026 · SA'],
-      ['South Asian Techies in SF', 'Immigrant tech workers — jobs, venting, IRL events', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
-      ['Indian Women in Tech + Founders', 'Supportive, safe, real talk for women founders and professionals', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
-      ['Bay Area Desi Friends', 'Social-first desi meetups — food crawls, karaoke, poetry; the friend-making gap filler', 'Community', 'SF', 1, 0, 'Free', 'https://www.meetup.com/bay-area-desi-friends/', 'Jul 2026 · SA'],
+      ['South Asian Techies in SF', 'Immigrant tech workers. Jobs, venting, IRL events', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
+      ['Indian Women in Tech + Founders', 'Real talk for women founders and professionals', 'Community', 'Online', 1, 0, 'Invite via TFF', '#', 'Jul 2026 · SU'],
+      ['Bay Area Desi Friends', 'Social-first desi meetups: food crawls, karaoke, poetry. Fills the friend-making gap', 'Community', 'SF', 1, 0, 'Free', 'https://www.meetup.com/bay-area-desi-friends/', 'Jul 2026 · SA'],
       ['eChai Ventures SF', 'Demo days, hackathons and Startup Touchdown Dinners for Indian-origin founders', 'Community', 'Peninsula', 1, 1, 'Free', 'https://echai.ventures/', 'Jul 2026 · SA'],
-      ['Founders Brew', 'No-agenda Sunday meetups — no entry fees, no corporate agenda, just vibes', 'Community', 'SF', 0, 1, 'Free', 'https://foundersbrew.org/', 'Jul 2026 · SA'],
+      ['Founders Brew', 'No-agenda Sunday meetups. No entry fee, no pitch', 'Community', 'SF', 0, 1, 'Free', 'https://foundersbrew.org/', 'Jul 2026 · SA'],
       ['Founders Common', 'Third spaces for early-stage founders and builders', 'Community', 'SF', 0, 0, 'Free', 'https://lu.ma/founderscommon', 'Jun 2026 · SU'],
-      ['Sundays in SF', 'Weekly co-working club for side projects and creative interests', 'Community', 'SF', 0, 1, 'Free', 'https://lu.ma/sundaysinsf', 'Jul 2026 · SA'],
-      ['Homebrew Club', '24/7 member-run DIY space — co-working and experimentation at the frontier', 'Community', 'SF', 0, 0, 'Application', 'https://bento.me/homebrew', 'Jun 2026 · SU'],
-      ['AGI House', 'ML hacker house bringing hackathon life back to Silicon Valley', 'Community', 'Peninsula', 0, 1, 'Application', 'https://agihouse.ai/', 'Jul 2026 · SA'],
-      ['AI Tinkerers', 'Exclusive meetup for practitioners actually shipping with LLMs', 'Community', 'SF', 0, 0, 'Application', 'https://sf.tinkerer.ai/', 'Jun 2026 · SU'],
-      ['The AI Collective', 'Grassroots non-profit uniting 70k+ AI founders, researchers and investors', 'Community', 'SF', 0, 0, 'Free', 'https://www.aicollective.com/', 'Jun 2026 · SU'],
-      ['Product Folks', 'Volunteer-driven PM community with IRL output marathons', 'Community', 'Online', 0, 0, 'Free', 'https://www.theproductfolks.com/', 'Jun 2026 · SU'],
-      ['Design Buddies', 'The world\u2019s largest design community — SF events and online', 'Community', 'Online', 0, 0, 'Free', 'https://www.designbuddies.community/', 'Jun 2026 · SU'],
-      ['Lenny\u2019s Community', 'Paid Slack + monthly meetups with thousands of PMs and founders', 'Community', 'Online', 0, 0, 'Paid', 'https://www.lennysnewsletter.com/p/community', 'Jun 2026 · SU'],
+      ['Sundays in SF', 'Weekly co-working club for side projects and creative work', 'Community', 'SF', 0, 1, 'Free', 'https://lu.ma/sundaysinsf', 'Jul 2026 · SA'],
+      ['Homebrew Club', '24/7 member-run DIY space for co-working and hardware tinkering', 'Community', 'SF', 0, 0, 'Application', 'https://bento.me/homebrew', 'Jun 2026 · SU'],
+      ['AGI House', 'ML hacker house running frequent weekend hackathons', 'Community', 'Peninsula', 0, 1, 'Application', 'https://agihouse.ai/', 'Jul 2026 · SA'],
+      ['AI Tinkerers', 'Meetup for practitioners shipping with LLMs. Application only', 'Community', 'SF', 0, 0, 'Application', 'https://sf.tinkerer.ai/', 'Jun 2026 · SU'],
+      ['The AI Collective', '70k+ AI founders, researchers and investors. Non-profit', 'Community', 'SF', 0, 0, 'Free', 'https://www.aicollective.com/', 'Jun 2026 · SU'],
+      ['Product Folks', 'Volunteer-run PM community. IRL output marathons', 'Community', 'Online', 0, 0, 'Free', 'https://www.theproductfolks.com/', 'Jun 2026 · SU'],
+      ['Design Buddies', 'Large design community. SF events and online', 'Community', 'Online', 0, 0, 'Free', 'https://www.designbuddies.community/', 'Jun 2026 · SU'],
+      ['Lenny\u2019s Community', 'Paid Slack plus monthly meetups. Thousands of PMs and founders', 'Community', 'Online', 0, 0, 'Paid', 'https://www.lennysnewsletter.com/p/community', 'Jun 2026 · SU'],
       ['Impact Hustlers SF Bay', 'Low-ego pitch sessions and mentorship for mission-driven founders', 'Community', 'SF', 0, 0, 'Application', 'https://www.impacthustlers.com/chapters/san-francisco-bay-area', 'Jun 2026 · SU'],
-      ['Work on Climate', 'Mobilizing talent for climate — Slack + working groups', 'Community', 'Online', 0, 0, 'Free', 'https://workonclimate.org/', 'Jun 2026 · SU'],
+      ['Work on Climate', 'Climate talent Slack plus working groups', 'Community', 'Online', 0, 0, 'Free', 'https://workonclimate.org/', 'Jun 2026 · SU'],
       ['This Week in Fintech', 'Fintech meetups, happy hours and dinners worldwide', 'Community', 'Online', 0, 0, 'Free', 'https://www.thisweekinfintech.com/', 'Jun 2026 · SU'],
       ['SF Hardware Meetup', 'Monthly meetup for people building physical products', 'Community', 'SF', 0, 0, 'Free', 'https://www.meetup.com/hardwarestartupsf/', 'Jun 2026 · SU'],
-      ['Marina Plunge Club', 'Weekly cold plunges at Crissy Field — founders in towels', 'Community', 'SF', 0, 0, 'Free', 'https://x.com/marinaplunge', 'Jun 2026 · SU'],
+      ['Marina Plunge Club', 'Weekly cold plunges at Crissy Field. Founders in towels', 'Community', 'SF', 0, 0, 'Free', 'https://x.com/marinaplunge', 'Jun 2026 · SU'],
       ['The Board Walks', 'Saturday 8am 5-mile walks with curious people', 'Community', 'SF', 0, 0, 'Free', 'https://www.theboardwalks.com/', 'Jun 2026 · SU'],
-      ['Pitch & Run Fridays', 'Run with angels and VCs — pitching without the pitch meeting', 'Event series', 'SF', 0, 1, 'Free', 'https://lu.ma/pnr', 'Jul 2026 · SA'],
-      ['Founders You Should Know', 'Jen Yip\u2019s recurring showcase of the best seed-to-growth founders', 'Event series', 'SF', 0, 0, 'Application', 'https://foundersysk.com/', 'Jun 2026 · SU'],
-      ['Brex Startup Community', 'Flex clubs, supper clubs, golf clubs — Brex-powered founder socials', 'Event series', 'SF', 0, 0, 'Free', 'https://lu.ma/brexevents', 'Jun 2026 · SU'],
-      ['TiEcon', 'The largest Indian founder/VC conference in the world — deep desi connects', 'Event series', 'South Bay/Fremont', 1, 1, 'Paid', 'https://tiecon.org/', 'Jul 2026 · SA'],
-      ['Indian Startups Silicon Valley', 'Hyperactive Meetup group — mixers, pitch events, mentorship', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/indianstartupssiliconvalley/', 'Jun 2026 · SU'],
-      ['FUNDA Club', 'Founders, VCs and C-suite in Los Altos — with food and an afterparty', 'Event series', 'Peninsula', 1, 1, 'Application', 'https://www.funda.club/', 'Jul 2026 · SA'],
-      ['SaaSBoomi US–India', 'Top Asia SaaS founders + investors; Bay Area editions', 'Event series', 'SF', 1, 0, 'Application', 'https://saasboomi.org/events/', 'Jun 2026 · SU'],
+      ['Pitch & Run Fridays', 'Run with angels and VCs. Pitch without the pitch meeting', 'Event series', 'SF', 0, 1, 'Free', 'https://lu.ma/pnr', 'Jul 2026 · SA'],
+      ['Founders You Should Know', 'Jen Yip\u2019s recurring showcase of seed-to-growth founders', 'Event series', 'SF', 0, 0, 'Application', 'https://foundersysk.com/', 'Jun 2026 · SU'],
+      ['Brex Startup Community', 'Flex clubs, supper clubs, golf clubs. Brex-powered founder socials', 'Event series', 'SF', 0, 0, 'Free', 'https://lu.ma/brexevents', 'Jun 2026 · SU'],
+      ['TiEcon', 'Largest Indian founder and VC conference. Real desi dealflow', 'Event series', 'South Bay/Fremont', 1, 1, 'Paid', 'https://tiecon.org/', 'Jul 2026 · SA'],
+      ['Indian Startups Silicon Valley', 'Active Meetup group. Mixers, pitch events, mentorship', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/indianstartupssiliconvalley/', 'Jun 2026 · SU'],
+      ['FUNDA Club', 'Founders, VCs and C-suite in Los Altos. Food and an afterparty', 'Event series', 'Peninsula', 1, 1, 'Application', 'https://www.funda.club/', 'Jul 2026 · SA'],
+      ['SaaSBoomi US–India', 'Asia SaaS founders and investors. Bay Area editions', 'Event series', 'SF', 1, 0, 'Application', 'https://saasboomi.org/events/', 'Jun 2026 · SU'],
       ['Bootstrappers Breakfast', 'Recurring breakfasts for founders growing on revenue, not raises', 'Event series', 'SF', 0, 0, 'Free', 'https://www.eventbrite.com/o/bootstrappers-breakfast-10771471165', 'Jun 2026 · SU'],
-      ['We The Builders', 'Podcasts, live events and dinners with heavyweight guests', 'Event series', 'SF', 0, 0, 'Application', 'https://lu.ma/user/suffiyanmalik', 'Jun 2026 · SU'],
-      ['Bay Area Investing in India', 'NRI investors and founders — Syndicate 101, India pitch nights', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/investinginindia/', 'Jun 2026 · SU'],
-      ['Indiaspora Forum for Good', 'Annual mega-event of top diaspora founders, VCs and CXOs', 'Event series', 'SF', 1, 0, 'Application', 'https://indiaspora.vfairs.com/', 'Jun 2026 · SU'],
-      ['Peak XV Partners', 'Ex-Sequoia India — AI, SaaS, consumer; full SF office', 'VC', 'SF', 1, 1, 'Application', 'https://www.peakxv.com/', 'Jul 2026 · SA'],
-      ['Elevation Capital', 'Heavy US–India corridor, AI focus; SF office and constant dealflow', 'VC', 'SF', 1, 0, 'Application', 'https://elevationcapital.com/', 'Jun 2026 · SU'],
-      ['Blume Ventures', 'SaaS, fintech, AI — dual Bengaluru/SF presence', 'VC', 'SF', 1, 0, 'Application', 'https://blume.vc/', 'Jun 2026 · SU'],
+      ['We The Builders', 'Podcasts, live events and dinners with big-name guests', 'Event series', 'SF', 0, 0, 'Application', 'https://lu.ma/user/suffiyanmalik', 'Jun 2026 · SU'],
+      ['Bay Area Investing in India', 'NRI investors and founders. Syndicate 101, India pitch nights', 'Event series', 'South Bay/Fremont', 1, 0, 'Free', 'https://www.meetup.com/investinginindia/', 'Jun 2026 · SU'],
+      ['Indiaspora Forum for Good', 'Annual gathering of diaspora founders, VCs and CXOs', 'Event series', 'SF', 1, 0, 'Application', 'https://indiaspora.vfairs.com/', 'Jun 2026 · SU'],
+      ['Peak XV Partners', 'Ex-Sequoia India. AI, SaaS, consumer. Full SF office', 'VC', 'SF', 1, 1, 'Application', 'https://www.peakxv.com/', 'Jul 2026 · SA'],
+      ['Elevation Capital', 'Heavy US-India corridor, AI focus. SF office, active dealflow', 'VC', 'SF', 1, 0, 'Application', 'https://elevationcapital.com/', 'Jun 2026 · SU'],
+      ['Blume Ventures', 'SaaS, fintech, AI. Dual Bengaluru and SF presence', 'VC', 'SF', 1, 0, 'Application', 'https://blume.vc/', 'Jun 2026 · SU'],
       ['Z47', 'Early/growth AI, expanding SF presence', 'VC', 'SF', 1, 0, 'Application', 'https://www.z47.com/', 'Jun 2026 · SU'],
-      ['Monta Vista Capital', 'US–India corridor, founder-to-founder network, invite events', 'VC', 'Peninsula', 1, 0, 'Invite-only', 'https://www.montavc.com/', 'Jun 2026 · SU'],
+      ['Monta Vista Capital', 'US-India corridor, founder-to-founder network, invite events', 'VC', 'Peninsula', 1, 0, 'Invite-only', 'https://www.montavc.com/', 'Jun 2026 · SU'],
       ['WeWork Salesforce Tower', 'Desi-heavy WeWork location; informal founder meetups', 'Workspace', 'SF', 0, 0, 'Paid', 'https://www.wework.com/l/coworking-space/sf-bay-area--CA', 'Jun 2026 · SU'],
       ['eChai cowork pop-ups', 'Rotating desi co-work + chai + demo days, Palo Alto and Fremont', 'Workspace', 'Peninsula', 1, 1, 'Free', 'https://echai.ventures/', 'Jul 2026 · SA'],
       ['Bay Area Founders Club', 'Weekly pulse on desi and cross-border VC events', 'Newsletter', 'Online', 1, 1, 'Free', 'https://bayareafoundersclub.substack.com/', 'Jul 2026 · SA'],
