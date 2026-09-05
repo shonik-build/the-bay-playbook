@@ -65,7 +65,7 @@ a:hover{color:#1A1712}
     <sc-if value="{{ page.draft }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;align-items:center;gap:10px;border:1.5px dashed #B4451F;border-radius:8px;padding:10px 14px;margin:16px 0 4px;background:#FBEFE7">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#B4451F">DRAFT</span>
-        <span style="font-size:13px;color:#6B4A38">New page from the v1 content plan. Numbers and claims pending expert review.</span>
+        <span style="font-size:13px;color:#6B4A38">New page per the v1 content plan — numbers and claims pending expert review.</span>
       </div>
     </sc-if>
 
@@ -110,7 +110,7 @@ a:hover{color:#1A1712}
         </sc-if>
         <sc-if value="{{ b.isLinks }}" hint-placeholder-val="{{ false }}">
           <div style="margin:22px 0 6px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES. EVERY LINK HUMAN-CLICKED</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES — EVERY LINK HUMAN-CLICKED</div>
             <div style="display:flex;flex-wrap:wrap;gap:8px">
               <sc-for list="{{ b.items }}" as="lnk" hint-placeholder-count="4"><a href="{{ lnk.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ lnk.label }} ↗</a></sc-for>
             </div>
@@ -156,87 +156,87 @@ class Component extends DCLogic {
 
     const PAGES = {
       'visa': { title: 'Visa guide for founders', stage: 'S1 · BEFORE YOU FLY', typeLabel: 'GUIDE', draft: true, dec: 'D2',
-        intro: 'O-1, H-1B and B-1 in plain words. What each permits, what to collect now, what it costs. The #1 blind spot.',
+        intro: 'O-1, H-1B and B-1 in plain words — what each permits, what to collect now, what it costs. The #1 blind spot.',
         blocks: [
           table(['Route', 'What it permits', 'Timeline', 'Rough cost'], [
-            ['B-1/B-2 visitor', 'Scout trips, meetings, fundraising conversations. No work, no US salary.', 'Appointment backlog varies. Plan 2–3 months ahead', '$185 fee'],
+            ['B-1/B-2 visitor', 'Scout trips, meetings, fundraising conversations. No work, no US salary.', 'Appointment backlog varies — plan 2–3 months ahead', '$185 fee'],
             ['O-1A extraordinary ability', 'Work for your own US company (via petition). The default founder route.', '4–8 weeks petition prep; ~3–4 months end-to-end; 15 business days with premium', '$12–18k all-in'],
-            ['H-1B specialty occupation', 'Salaried role, incl. your own startup with the right structure. Lottery-gated.', 'Register in March, start in October. Not a fast route', '$2–5k employer costs'],
+            ['H-1B specialty occupation', 'Salaried role, incl. your own startup with the right structure. Lottery-gated.', 'Register in March, start in October — not a fast route', '$2–5k employer costs'],
           ]),
           nobody('Start collecting O-1 evidence 6 months before you need it: press mentions, judging hackathons, letters from known names, funding announcements, patents. The visa is won in the evidence folder, not the interview.'),
-          friend('Premium processing exists. $2,965 turns an O-1 decision around in 15 business days.'),
-          nobody("The O-1A has no cap, no lottery, and a ~94% recent approval rate. Its criteria overlap with EB-1A, so filing early locks a green-card priority date. That matters given India's EB backlog (~36 months behind)."),
+          friend('Premium processing exists — $2,965 turns an O-1 decision around in 15 business days.'),
+          nobody('The O-1A has no cap, no lottery, and a ~94% recent approval rate — and its criteria overlap with EB-1A. Filing early locks a green-card priority date, which matters enormously given India\u2019s EB backlog (~36 months behind).'),
           h('Do these this week'),
           steps([
-            ['Book the appointment now', 'Slots move slowly. Grab one and improve your file while you wait.'],
+            ['Book the appointment now', 'Slots move slowly; grab one and improve your file while you wait.'],
             ['Talk to two immigration lawyers', 'Most do free 30-minute consults. Ask: O-1 now vs H-1B later, and where your evidence gaps are.'],
             ['Download your I-94 after every US entry', 'Banks, the DMV and future petitions will ask for it.'],
           ]),
-          note('Fees change. Verify against the current USCIS fee schedule with counsel before filing.'),
-          links([['USCIS O-1 visa', 'https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement'], ['CBP I-94 portal', 'https://i94.cbp.dhs.gov/I94/'], ['Alma founder visa guides', 'https://www.tryalma.com/'], ['Deel self-sponsored O-1', 'https://www.deel.com/']]),
+          note('Fees change — verify against the current USCIS fee schedule with counsel before filing.'),
+          links([['USCIS — O-1 visa', 'https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement'], ['CBP I-94 portal', 'https://i94.cbp.dhs.gov/I94/'], ['Alma — founder visa guides', 'https://www.tryalma.com/'], ['Deel — self-sponsored O-1', 'https://www.deel.com/']]),
         ] },
       'short-term-housing': { title: 'Short-term housing', stage: 'S1 · BEFORE YOU FLY', typeLabel: 'GUIDE', dec: 'D7',
         intro: 'Your first 2–8 weeks: co-livings and Airbnbs, not leases.',
         blocks: [
           steps([
-            ['Book 2–4 weeks before flying', 'Airbnb monthly discounts, Sonder, Outsite. Enough runway to hunt long-term in person.'],
+            ['Book 2–4 weeks before flying', 'Airbnb monthly discounts, Sonder, Outsite — enough runway to hunt long-term in person.'],
             ['Consider a founder co-living', 'The fastest way to bootstrap a network in SF.'],
-            ['Join 3 housing groups before you land', 'Listings move in hours. Being in the group beats refreshing Zillow.'],
+            ['Join 3 housing groups before you land', 'Listings move in hours; being in the group beats refreshing Zillow.'],
           ]),
           h('Founder co-livings'),
           list(['Tech-focused: Mission Control · AGI House · Arcadia House · Atmos House', 'General: Tribe Coliving · Vybe Living · Hack n Sleep · Brownstone · LinkedLivin']),
           h('Groups to join before landing'),
-          list(['Bay Area Rooms and Apartments. Facebook, 181k members', 'San Francisco Housing, Rooms, Apartments, Sublets. Facebook, 153k members', 'San Francisco SF Housing. Facebook, 27k members', 'Directory SF. Post and find tech roommates', 'Flashmates / Subletter SF. Sublets']),
+          list(['Bay Area Rooms and Apartments — Facebook, 181k members', 'San Francisco Housing, Rooms, Apartments, Sublets — Facebook, 153k members', 'San Francisco SF Housing — Facebook, 27k members', 'Directory SF — post & find tech roommates', 'Flashmates / Subletter SF — sublets']),
           nobody('Never send a deposit before an in-person or live-video viewing. No written lease = scam. A price way below market = scam.'),
           links([['Airbnb', 'https://airbnb.com/'], ['Sonder', 'https://sonder.com/'], ['Outsite', 'https://outsite.co/'], ['Directory SF', 'https://www.directorysf.com/directory'], ['AGI House', 'https://agihouse.ai/'], ['Tribe Coliving', 'https://www.tribecoliving.com/']]),
         ] },
-      'day07': { title: 'Day 0–7 checklist', stage: 'S2 · LANDING, WEEK 1', typeLabel: 'CHECKLIST', img: 'https://framerusercontent.com/images/tQL81mDAGUjwh8qzeSBrl4F4Sjk.png?width=1536&height=1024',
-        intro: 'The first week, in order. SIM and cash first. Everything else depends on them.',
+      'day07': { title: 'Day 0–7 checklist', stage: 'S2 · LANDING — WEEK 1', typeLabel: 'CHECKLIST', img: 'https://framerusercontent.com/images/tQL81mDAGUjwh8qzeSBrl4F4Sjk.png?width=1536&height=1024',
+        intro: 'The first week, in order. SIM and cash first — everything else depends on them.',
         blocks: [
           h('Day 0–1 · Critical'),
           steps([
-            ['Get a local SIM working', 'T-Mobile, AT&T or Verizon store (airport or downtown) with your passport. Unlocks banking, Uber and OTPs.'],
-            ['Confirm short-term housing', 'Check in, and save your US address. Every form from here asks for it.'],
+            ['Get a local SIM working', 'T-Mobile, AT&T or Verizon store (airport or downtown) with your passport — unlocks banking, Uber and OTPs.'],
+            ['Confirm short-term housing', 'Check in, and save your US address — every form from here asks for it.'],
             ['Withdraw cash', 'Airport ATMs and bank branches accept international cards. Carry some dollars for groceries and transport.'],
           ]),
           h('Day 2–3 · Important'),
           steps([
-            ['Buy a Clipper card', 'Walgreens, SFO or online. Ask for the BART + MUNI combo.'],
+            ['Buy a Clipper card', 'Walgreens, SFO or online — ask for the BART + MUNI combo.'],
             ['Open a US bank account', 'Mercury online, or Wells Fargo/Chase in person with passport, visa and your US address.'],
-            ['Do a basic grocery run', "Safeway, Trader Joe's or a local supermarket. Snacks, water, basics."],
+            ['Do a basic grocery run', 'Safeway, Trader Joe\u2019s or a local supermarket — snacks, water, basics.'],
           ]),
           h('Day 4–7 · Settling in'),
           steps([
-            ['Apply for a credit card', 'Deserve, Amex or a secured card. Ask the bank for no-SSN options.'],
-            ['Download the essential apps', 'Uber/Lyft, Google Maps, WhatsApp. Full list on the Apps page.'],
-            ['Settle in and reflect', "Unpack, walk your neighborhood, note what's missing for week 2."],
+            ['Apply for a credit card', 'Deserve, Amex or a secured card — ask the bank for no-SSN options.'],
+            ['Download the essential apps', 'Uber/Lyft, Google Maps, WhatsApp — full list on the Apps page.'],
+            ['Settle in and reflect', 'Unpack, walk your neighborhood, note what\u2019s missing for week 2.'],
           ]),
-          friend("Do SIM and cash at SFO itself. The kiosks and ATMs are landside, and you'll want Uber working before you reach the curb."),
+          friend('Do SIM and cash at SFO itself — the kiosks and ATMs are landside, and you\u2019ll want Uber working before you reach the curb.'),
         ] },
-      'sim': { title: 'SIM + phone', stage: 'S2 · LANDING, WEEK 1', typeLabel: 'GUIDE', dec: 'D8', img: 'https://framerusercontent.com/images/WzCC6K6N8pk6wLtpqxLJvJOFDQ.png?width=1536&height=1024',
-        intro: 'Lead with eSIM. A working number unlocks banking, transport and OTPs.',
+      'sim': { title: 'SIM + phone', stage: 'S2 · LANDING — WEEK 1', typeLabel: 'GUIDE', dec: 'D8', img: 'https://framerusercontent.com/images/WzCC6K6N8pk6wLtpqxLJvJOFDQ.png?width=1536&height=1024',
+        intro: 'Lead with eSIM. Staying connected unlocks banking, transport and OTPs.',
         blocks: [
           steps([
             ['Pick a provider', 'T-Mobile, Mint Mobile, AT&T or Verizon. Mint lets you buy and activate online before you arrive.'],
             ['Activate the eSIM', 'Provider app or in-store QR code; physical SIMs at their stores, Best Buy, Target or SFO kiosks.'],
             ['Keep your Indian number for OTPs', 'Airtel/Jio international roaming covers SMS for the first 1–2 weeks.'],
-            ['Have paperwork handy', 'Passport, US visa, latest I-94, and a US address (hotel is fine). Carriers sometimes ask.'],
+            ['Have paperwork handy', 'Passport, US visa, latest I-94, and a US address (hotel is fine) — carriers sometimes ask.'],
           ]),
-          friend('WhatsApp keeps your Indian number even after you switch to the US SIM. No need to migrate the account.'),
-          nobody("Roaming data will bankrupt you. It's for OTPs only. Buy the US eSIM before you fly and flip it on when the wheels touch down."),
+          friend('WhatsApp keeps your Indian number even after you switch to the US SIM — no need to migrate the account.'),
+          nobody('Roaming data will bankrupt you — it\u2019s for OTPs only. Buy the US eSIM before you fly and flip it on when the wheels touch down.'),
           links([['T-Mobile', 'https://www.t-mobile.com/'], ['Mint Mobile', 'https://www.mintmobile.com/'], ['Airtel roaming', 'https://www.airtel.in/ir/'], ['CBP I-94 portal', 'https://i94.cbp.dhs.gov/I94/'], ['WhatsApp number change', 'https://faq.whatsapp.com/1294841057948784']]),
         ] },
-      'bank': { title: 'Bank, cash & Clipper', stage: 'S2 · LANDING, WEEK 1', typeLabel: 'GUIDE', img: 'https://framerusercontent.com/images/UKZB3x8ADRO1oZ9nzXBwGVM81w.png?width=1536&height=1024',
+      'bank': { title: 'Bank, cash & Clipper', stage: 'S2 · LANDING — WEEK 1', typeLabel: 'GUIDE', img: 'https://framerusercontent.com/images/UKZB3x8ADRO1oZ9nzXBwGVM81w.png?width=1536&height=1024',
         intro: 'Money = mobility. The week-1 basics; credit depth lives in the Money guide.',
         blocks: [
           steps([
-            ['Choose your bank', 'No SSN: Mercury, Wise or Revolut for remote sign-up. In person: Wells Fargo or Chase (call the branch ahead to confirm requirements).'],
+            ['Choose your bank', 'No SSN: Mercury, Wise or Revolut — remote sign-up. In person: Wells Fargo or Chase (call the branch ahead to confirm requirements).'],
             ['Bring the documents', 'Passport + visa, US address (hotel/Airbnb fine), SSN or ITIN if you have one, formation docs for a business account.'],
             ['Set up the app', 'Mobile deposit, transfers and card controls all live there.'],
-            ['Get a Clipper card + some cash', 'Clipper at Walgreens or SFO covers BART + MUNI. Keep a little cash for the first days.'],
+            ['Get a Clipper card + some cash', 'Clipper at Walgreens or SFO covers BART + MUNI; keep a little cash for the first days.'],
           ]),
-          friend('Your hotel address is fine on the application. Update it when you sign a lease.'),
-          p('Building credit from zero, ITIN vs SSN, and India/US transfers are month-one work. See the Money, credit & ITIN guide.'),
+          friend('Your hotel address is fine on the application — update it when you sign a lease.'),
+          p('Building credit from zero, ITIN vs SSN, and India↔US transfers are month-one work — see the Money, credit & ITIN guide.'),
           links([['Mercury', 'https://mercury.com/'], ['Wise', 'https://wise.com/us/'], ['Wells Fargo checking', 'https://www.wellsfargo.com/checking/'], ['Chase', 'https://www.chase.com/']]),
         ] },
       'entity': { title: 'US entity & the Delaware flip', stage: 'S5 · COMPANY MATTERS', typeLabel: 'GUIDE', draft: true, dec: 'D3',
@@ -244,11 +244,11 @@ class Component extends DCLogic {
         blocks: [
           steps([
             ['Decide if you need the flip at all', 'US investors and YC generally want a Delaware C-corp. Revenue mostly in India? You may not need it yet.'],
-            ['Get India-side advice first', 'FEMA/ODI rules govern Indian founders holding foreign entities. This is where flips go wrong.'],
+            ['Get India-side advice first', 'FEMA/ODI rules govern Indian founders holding foreign entities — this is where flips go wrong.'],
             ['Budget 3–6 months for mechanics', 'Share swaps, valuations and approvals take longer than the Delaware paperwork.'],
             ['Ask your lawyer these', 'Tax event on the swap? ODI route for each founder? What happens to Indian ESOPs and existing investors?'],
           ]),
-          nobody("A genuine flip needs real US substance. Customers, ops, a rationale. Without it you're in prohibited round-tripping territory (FEMA NDI Rule 19). The whole thing is governed by the ODI Rules 2022, and the flip is a tax event in India. Get cross-border advice before you incorporate anything."),
+          nobody('A genuine flip needs real US substance — customers, ops, a rationale. Without it you\u2019re in prohibited round-tripping territory (FEMA NDI Rule 19). The whole thing is governed by the ODI Rules 2022, and the flip is a tax event in India — get cross-border advice before you incorporate anything.'),
           h('What it costs'),
           table(['Line item', 'Typical range'], [
             ['Delaware incorporation', '$500–2,000'],
@@ -256,7 +256,7 @@ class Component extends DCLogic {
             ['Valuation report (India side)', '\u20B91–2 lakh'],
             ['FEMA / RBI filings', '\u20B91–3 lakh'],
           ]),
-          note('LRS caps individual outward remittance at $250k per financial year. Above that, the ODI route is forced.'),
+          note('LRS caps individual outward remittance at $250k per financial year — above that, the ODI route is forced.'),
           note('Corridor VC profiles (Peak XV, Elevation, Blume, Z47 and diaspora angels) live in the Directory under type: VC.'),
         ] },
     };
@@ -304,7 +304,7 @@ class Component extends DCLogic {
       cColor: b.k === 'nobody' ? '#1A1712' : '#8A8172',
     }));
     return { navGroups, blocks, page: { ...pg, draft: !!pg.draft, hasImg: !!pg.img, hasDec: !!pg.dec, decHref: pg.dec ? 'Bay Playbook Decisions.dc.html#' + pg.dec.slice(0, 3).trim().toLowerCase() : '',
-      verified: pg.draft ? 'UNPUBLISHED' : 'VERIFIED JUL 2026', verifiedBy: pg.draft ? '(draft)' : 'Jul 2026 · SA' } };
+      verified: pg.draft ? 'UNPUBLISHED' : 'VERIFIED JUL 2026', verifiedBy: pg.draft ? '— (draft)' : 'Jul 2026 · SA' } };
   }
 }
 </script>

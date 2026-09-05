@@ -34,7 +34,7 @@ a:hover{color:#1A1712}
 <section style="max-width:1060px;margin:0 auto;padding:44px 32px 0">
   <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;color:var(--accent);font-weight:600;margin-bottom:12px">DECISION INDEX · QUICK-REFERENCE</div>
   <h1 style="font-size:42px;line-height:1.05;font-weight:900;letter-spacing:-0.03em;margin:0 0 12px;text-wrap:balance">Start with your <em style="font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0">decision</em>.</h1>
-  <p style="font-size:16.5px;line-height:1.55;max-width:620px;margin:0;color:#3D3629">Nobody arrives thinking in site sections. You arrive mid-decision. Ten questions, what each one turns on, and the guide that answers it.</p>
+  <p style="font-size:16.5px;line-height:1.55;max-width:620px;margin:0;color:#3D3629">Nobody arrives thinking in site sections — you arrive mid-decision. Ten questions, what each turns on, and the exact guides that answer it.</p>
 </section>
 
 <section style="max-width:1060px;margin:32px auto 0;padding:0 32px 64px;display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:16px">
@@ -55,7 +55,7 @@ a:hover{color:#1A1712}
 </section>
 
 <footer style="max-width:1060px;margin:0 auto;padding:0 32px 48px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-  <span>A decision with no guide behind it is one we missed. Tell us which one.</span>
+  <span>A decision with no guide behind it is a content gap — tell us which one we missed.</span>
   <span>Last verified Jul 2026 · SA</span>
 </footer>
 
@@ -69,10 +69,10 @@ class Component extends DCLogic {
   renderVals() {
     const G = 'Bay Playbook Guides.dc.html#', D = 'Bay Playbook Directory.dc.html', L = 'Bay Playbook Landing v2.dc.html';
     const cards = [
-      { num:'D1', q:'Go, wait, or don\'t?', on:'Runway vs SF burn, where your market actually is, visa readiness, who you have at home.', links:[['Reality Check', 'https://thefounderfolks.com/bay-playbook/reality-check'], ['Self-check on the checklist', L + '#s0']] },
-      { num:'D2', q:'B-1 scout, O-1, or H-1B?', on:'Evidence you can assemble, timeline, funding stage, how permanent the move is.', links:[['Visa guide', G+'visa']] },
-      { num:'D3', q:'Flip to Delaware, incorporate fresh, or India HQ with a US subsidiary?', on:'Raising from US VCs? US revenue? ODI/FEMA exposure, cost, and a 3 to 6 month timeline.', links:[['Entity & flip guide', G+'entity']] },
-      { num:'D4', q:'2-week scout, 3-month sprint, or permanent?', on:'Sets everything downstream: insurance, SIM, banking, housing type.', links:[['Master checklist', L]] },
+      { num:'D1', q:'Go, wait, or don\u2019t?', on:'Runway vs SF burn, market location, visa readiness, personal support system.', links:[['Reality Check', 'https://thefounderfolks.com/bay-playbook/reality-check'], ['Self-check on the checklist', L + '#s0']] },
+      { num:'D2', q:'Which visa path — B-1 scout, O-1, or the H-1B route?', on:'Evidence you can assemble, timeline, funding stage, how permanent the move is.', links:[['Visa guide', G+'visa']] },
+      { num:'D3', q:'Entity: flip to Delaware, incorporate fresh, or India HQ + US subsidiary?', on:'Raising from US VCs? US revenue? ODI/FEMA exposure, cost and a 3–6 month timeline.', links:[['Entity & flip guide', G+'entity']] },
+      { num:'D4', q:'How long is this trip — 2-week scout, 3-month sprint, or permanent?', on:'Changes everything downstream: insurance, SIM, banking, housing type.', links:[['Master checklist', L]] },
       { num:'D5', q:'Solo or with family?', on:'Area choice, housing size, insurance plan, schools.', links:[['Housing', G+'housing'], ['Healthcare', G+'healthcare']] },
       { num:'D6', q:'SF vs Peninsula vs South Bay vs East Bay?', on:'Persona: AI-density solo founder → SF; family + car → Fremont/Santa Clara; budget → East Bay.', links:[['Neighborhood decision tree', G+'housing']] },
       { num:'D7', q:'Short-term first, or commit to a lease?', on:'No US credit history, guarantor workarounds, co-living vs Airbnb math.', links:[['Short-term housing', G+'short-term-housing'], ['Housing', G+'housing']] },

@@ -68,7 +68,7 @@ a:hover{color:#1A1712}
       </div>
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT CHANGED, TWO</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Delivery flipped the geography. Weee! and Quicklly cover the city, so the Fremont trip becomes monthly and social rather than weekly and necessary.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">Delivery flipped the geography. With Weee! and Quicklly covering the city, living in SF is no longer grocery exile. The Fremont trip becomes monthly and social rather than weekly and necessary.</div>
       </div>
     </div>
 
@@ -152,7 +152,7 @@ a:hover{color:#1A1712}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Where to go</h2>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">In the city there is one serious option. The density is in Fremont and Sunnyvale, where Indian grocery is a solved problem rather than a hunt.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">In the city there is essentially one serious option, and it's a good one. The density is in Fremont and Sunnyvale, where Indian grocery is a solved problem rather than a hunt.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
       <sc-for list="{{ stores }}" as="s" hint-placeholder-count="5">
         <div style="border:1px solid {{ s.border }};background:#FFFDF8;border-radius:10px;padding:14px 15px">
@@ -172,7 +172,7 @@ a:hover{color:#1A1712}
     </div>
     <div style="border:1.5px solid #C9C0AD;background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">GO WEEKEND MORNINGS</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">Desi store produce turns over fast but unevenly, so mornings just after a restock is when the methi and curry leaves are worth buying. Do not skip the freezer aisle. Frozen parathas and cut sabzi are what you cook on the nights you don't cook.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Desi store produce turns over fast but unevenly, so mornings just after a restock is when the methi and curry leaves are worth buying. And do not skip the freezer aisle: parathas and cut sabzi are the real weeknight survival kit on a founder's schedule.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Delivery, if you're in the city without a car</h2>
@@ -195,7 +195,7 @@ a:hover{color:#1A1712}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Tiffin, when you stop cooking</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.tiffin.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.tiffin.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">tiffin</button><sc-if value="{{ g.tiffin.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tiffin.tag }}</span>{{ g.tiffin.def }}</span></sc-if></span> subscription is the fastest fix if your evenings keep disappearing.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.tiffin.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.tiffin.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">tiffin</button><sc-if value="{{ g.tiffin.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tiffin.tag }}</span>{{ g.tiffin.def }}</span></sc-if></span> subscription is the single highest-leverage thing on this page if your evenings keep disappearing.</p>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:12px">
       <sc-for list="{{ tiffins }}" as="t" hint-placeholder-count="4">
         <div style="display:grid;grid-template-columns:minmax(120px,168px) minmax(180px,1fr) 84px;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
@@ -270,7 +270,7 @@ const ITEMS = [
   { id: 'spices', n: 'Whole spices', at: ['american', 'costco', 'desi'],
     note: 'Cumin, turmeric, coriander. Any Whole Foods or Trader Joe\u2019s aisle covers these, and there is no reason to make a special trip.' },
   { id: 'frozen', n: 'Frozen parathas and roti', at: ['costco', 'desi'],
-    note: 'Costco carries both. Stock these before you need them on a 10pm night.' },
+    note: 'Costco carries both. The freezer aisle is the real weeknight survival kit on a founder\u2019s schedule.' },
   { id: 'produce', n: 'Onions, tomatoes, ginger', at: ['costco', 'american'],
     note: 'Bulk produce staples. Costco wins on volume; any American store does fine for a week\u2019s worth.' },
   { id: 'masala', n: 'Masala blends', at: ['desi'], only: true, def: true,
@@ -383,7 +383,7 @@ class Component extends DCLogic {
       note = 'Tick what you actually need and this becomes a route rather than a directory.';
     } else if (trips === 0) {
       head = 'No trip at all';
-      note = 'Everything you ticked delivers. From the city without a car, Weee! and Quicklly cover a full Indian shop.';
+      note = 'Everything you ticked delivers. This is the part that changed: from the city without a car, Weee! and Quicklly cover a full Indian shop.';
     } else {
       head = trips === 1 ? 'One trip' : trips + ' trips';
       const bits = [];

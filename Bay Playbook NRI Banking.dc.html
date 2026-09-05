@@ -59,10 +59,10 @@ input[type=range]{accent-color:#E8500A}
     </div>
 
     <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Sending money home &amp; NRI banking</h1>
-    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">The day you become a non-resident, your money sits under two tax systems at once. Which accounts to hold, how to move money in each direction without overpaying, and the two US forms that catch people out.</p>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 14px;max-width:640px">The day you become a non-resident, your money starts living under two tax systems at once. Which accounts to hold, how to move money in each direction without overpaying, and the two US forms that catch people out.</p>
 
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:34px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:12px">THE EXPENSIVE MISTAKES ARE ALL BORING ONES</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:12px">THE EXPENSIVE MISTAKES HERE ARE ALL BORING ONES</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
         <sc-for list="{{ opener }}" as="o" hint-placeholder-count="3">
           <div style="border:1px solid #E2DACA;border-radius:9px;padding:12px 13px">
@@ -71,11 +71,11 @@ input[type=range]{accent-color:#E8500A}
           </div>
         </sc-for>
       </div>
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">None of these are exotic. A resident savings account you forgot to convert. An SIP that quietly became a US tax problem. A gift from your parents that owed no tax but needed a form.</div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">None of these are exotic. A resident savings account you forgot to convert, an SIP that quietly became a US tax problem, and a gift from your parents that owed no tax but needed a form.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which account does this money belong in?</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The two accounts are not interchangeable. The source of the money picks for you.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">The two accounts are not interchangeable, and the source of the money decides for you.</p>
 
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
       <sc-for list="{{ srcChips }}" as="c" hint-placeholder-count="4">
@@ -96,11 +96,11 @@ input[type=range]{accent-color:#E8500A}
       </div>
       <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ acct.note }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The line most guides skip. NRE interest is only tax-free <em>in India</em>. Once you are a US tax resident, interest on NRE, NRO and FCNR accounts all lands in your US return. Plan your US taxes on that basis from year one.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The line most guides skip: NRE interest is only tax-free <em>in India</em>. Once you are a US tax resident, interest on NRE, NRO and FCNR accounts all lands in your US return. Plan your US taxes on that basis from year one.</div>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE NRO RATE IS 31.2%, NOT THE 30.9% OLDER GUIDES QUOTE</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">The India-US treaty rate of 15% does not apply automatically. Your bank needs a Tax Residency Certificate from the IRS, meaning Form 6166, plus an e-filed Form 10F. The lower rate applies prospectively, so set it up before the interest is credited, not at filing time.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">And the India–US treaty rate of 15% does not apply automatically. Your bank needs a Tax Residency Certificate from the IRS, meaning Form 6166, plus an e-filed Form 10F, and it applies the lower rate prospectively. Set this up before the interest is credited, not at filing time.</div>
     </div>
 
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
@@ -116,7 +116,7 @@ input[type=range]{accent-color:#E8500A}
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">What the transfer actually costs</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Compare rupees landed, never the stated fee. Rates are a snapshot at a mid-market rate near ₹95. Corridor pricing changes without an announcement.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Compare rupees landed, never the stated fee. Rates are a snapshot at a mid-market rate near ₹95, and corridor pricing changes without an announcement.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
@@ -143,33 +143,33 @@ input[type=range]{accent-color:#E8500A}
       </div>
       <div style="margin-top:16px;padding-top:14px;border-top:1px solid #EFE9DC;font-size:15px;line-height:1.6;color:#1A1712">{{ railNote }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Conventional wisdom says Remitly wins small transfers and Wise wins above $3,000. On this corridor in August 2026 that crossover did not show up. Remitly landed more rupees at both $1,000 and $5,000. So the boring advice. Run both calculators for anything over $2,000 and take that day's winner.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">The conventional wisdom says Remitly wins small transfers and Wise wins above $3,000. On this corridor in August 2026 that crossover did not show up, and Remitly landed more rupees at both $1,000 and $5,000. So the advice is the boring one: run both calculators for anything over $2,000 and take that day's winner.</div>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE 1% REMITTANCE TAX ONLY HITS CASH</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">Started January 2026. It applies only to transfers funded with physical cash, money orders or cashier's cheques. Anything funded from a bank account or a US-issued card, meaning Wise, Remitly or a wire, is exempt. If you were going to walk cash into a transfer agent, don't.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Started January 2026, and it applies only to transfers funded with physical cash, money orders or cashier's cheques. Anything funded from a bank account or a US-issued card, meaning Wise, Remitly or a wire, is exempt. If you were going to walk cash into a transfer agent, don't.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Going the other way</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two routes, and which one you use depends on whose money it is. Once you are an NRI, your channel out of India is the NRO one, not <span style="position:relative;display:inline-block"><button onClick="{{ g.lrs.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.lrs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">LRS</button><sc-if value="{{ g.lrs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.lrs.tag }}</span>{{ g.lrs.def }}</span></sc-if></span>.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two different routes, and which one you use depends on whose money it is. Once you are an NRI, your channel out of India is the NRO one, not <span style="position:relative;display:inline-block"><button onClick="{{ g.lrs.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.lrs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">LRS</button><sc-if value="{{ g.lrs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.lrs.tag }}</span>{{ g.lrs.def }}</span></sc-if></span>.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
       <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:16px 18px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">YOUR MONEY · THE NRO CHANNEL</div>
         <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:7px">$1M per year</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">After tax, out of the NRO account. Not a simple wire. Under ₹5 lakh aggregate in the financial year you file Form 15CA Part A yourself. Above it you need Form 15CB from a Chartered Accountant certifying taxes are settled, then 15CA Part C.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">After tax, out of the NRO account. Not a simple wire: under ₹5 lakh aggregate in the financial year you file Form 15CA Part A yourself, and above it you need Form 15CB from a Chartered Accountant certifying taxes are settled, then 15CA Part C.</div>
       </div>
       <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">PARENTS' MONEY · LRS</div>
         <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;margin-bottom:7px">$250k per year</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">Per resident individual, for permitted purposes. <span style="position:relative;display:inline-block"><button onClick="{{ g.tcs.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.tcs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">TCS</button><sc-if value="{{ g.tcs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tcs.tag }}</span>{{ g.tcs.def }}</span></sc-if></span> above ₹10 lakh a year runs 20% for funding your living costs or a startup, 2% for education and medical. It is claimable back on their Indian return, so it is a cash-flow hit rather than a cost. The credit only arrives when the return is processed.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Per resident individual, for permitted purposes. <span style="position:relative;display:inline-block"><button onClick="{{ g.tcs.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.tcs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">TCS</button><sc-if value="{{ g.tcs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-family:'Archivo',sans-serif;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.tcs.tag }}</span>{{ g.tcs.def }}</span></sc-if></span> above ₹10 lakh a year runs 20% for funding your living costs or a startup, and 2% for education and medical. It is claimable back on their Indian return, so it is a cash-flow hit rather than a cost, and the credit only arrives when the return is processed.</div>
       </div>
     </div>
     <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:6px">THE FORMS ARE RENAMED FROM 1 APRIL 2026</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">15CA becomes Form 145 and 15CB becomes Form 146 under the Income-tax Act, 2025. Thresholds and the CA requirement carry over. Remittances completed before 31 March 2026 stay on the old names. Some purposes are exempt from the forms entirely, so a CA who does NRI work will steer you in a ten-minute call.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">15CA becomes Form 145 and 15CB becomes Form 146 under the Income-tax Act, 2025. Thresholds and the CA requirement carry over, and remittances completed before 31 March 2026 stay on the old names. Some purposes are exempt from the forms entirely, so a CA who does NRI work will steer you in a ten-minute call.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Which forms do you owe?</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">None of these create tax. All of them carry penalties for silence. Your Indian bank is already reporting your accounts to the IRS. Set three numbers.</p>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">None of these create tax. All of them carry penalties for silence, and your Indian bank is already reporting your accounts to the IRS. Set three numbers.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:12px">
       <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:18px">
@@ -211,7 +211,7 @@ input[type=range]{accent-color:#E8500A}
       </sc-if>
       <div style="border-top:1px solid #332D24;margin-top:14px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ formsNote }}</div>
     </div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Rough guidance, not tax advice. Thresholds shown are the 2026 figures for someone living in the US. The year-end and any-time tests for Form 8938 differ. A CPA who does corridor work will confirm your set in one call.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Rough guidance, not tax advice. Thresholds shown are the 2026 figures for someone living in the US; the year-end and any-time tests for Form 8938 differ, and a CPA who does corridor work will confirm your set in one call.</div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
       <sc-for list="{{ formNotes }}" as="n" hint-placeholder-count="3">
@@ -237,12 +237,12 @@ input[type=range]{accent-color:#E8500A}
     </div>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:34px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE FCNR WINDOW, WHILE IT IS OPEN</div>
-      <div style="font-size:15px;line-height:1.6;color:#1A1712">The RBI temporarily lifted the rate ceiling on 3 to 5 year deposits until 30 September 2026. Banks are advertising 6.25 to 6.75% on those tenures. That is well above US savings rates with no rupee risk, though the interest is still US taxable. Rates move, so compare two or three banks the week you invest.</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">The RBI temporarily lifted the rate ceiling on 3 to 5 year deposits until 30 September 2026, and banks are advertising 6.25 to 6.75% on those tenures. That is well above US savings rates with no rupee risk, though the interest is still US taxable. Rates move, so compare two or three banks the week you invest.</div>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
-      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. Saves in your browser.</p>
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
       <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
     </div>
     <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
@@ -273,8 +273,8 @@ input[type=range]{accent-color:#E8500A}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
 const GLOSS = {
-  lrs: { tag: 'LRS · LIBERALISED REMITTANCE SCHEME', def: 'RBI\u2019s rule letting each Indian resident individual send up to $250,000 per financial year abroad for permitted purposes. Note the word resident. Once you are an NRI it is not your route.' },
-  tcs: { tag: 'TCS · TAX COLLECTED AT SOURCE', def: 'Tax the bank collects from the sender at the moment of transfer. Not a net cost, because it is claimable back through their Indian tax return. The credit arrives only when the return is processed.' },
+  lrs: { tag: 'LRS · LIBERALISED REMITTANCE SCHEME', def: 'RBI\u2019s rule letting each Indian resident individual send up to $250,000 per financial year abroad for permitted purposes. Note the word resident: once you are an NRI it is not your route.' },
+  tcs: { tag: 'TCS · TAX COLLECTED AT SOURCE', def: 'Tax the bank collects from the sender at the moment of transfer. Not a net cost, because it is claimable back through their Indian tax return, but the credit arrives only when the return is processed.' },
 };
 
 const SRC = {
@@ -291,28 +291,28 @@ const ACCT = {
       { k: 'INTEREST · US', v: 'Taxable once you are a US tax resident.' },
       { k: 'REPATRIATION', v: 'Principal and interest, no limit, ordinary bank transfer.' },
     ],
-    note: 'Open a fresh NRE account before your first US-income remittance. This is the only account that is both exempt in India and freely repatriable. You cannot convert a resident account into one.' },
+    note: 'Open a fresh NRE account before your first US-income remittance. This is the only account that is both exempt in India and freely repatriable, and you cannot convert a resident account into one.' },
   rent: { tag: 'INDIAN-SOURCE INCOME', head: 'NRO', color: '#FAF7F1',
     facts: [
-      { k: 'INTEREST · INDIA', v: '31.2% TDS. The treaty caps it at 15% if you file the paperwork first.' },
+      { k: 'INTEREST · INDIA', v: '31.2% TDS. The treaty caps it at 15% if you file the paperwork.' },
       { k: 'INTEREST · US', v: 'Taxable.' },
       { k: 'REPATRIATION', v: 'Up to $1M per financial year, after tax, with forms.' },
     ],
-    note: 'Redirect the standing instruction the moment the NRO account is active. This is the step people forget. It leaves Indian-source income landing in a technically-closed resident account.' },
+    note: 'Redirect the standing instruction the moment the NRO account is active. This is the step people forget, and it leaves Indian-source income landing in a technically-closed resident account.' },
   old: { tag: 'YOUR EXISTING RESIDENT ACCOUNT', head: 'NRO, and only NRO', color: '#FAF7F1',
     facts: [
       { k: 'THE CONSTRAINT', v: 'A resident account can only convert to NRO. Never to NRE.' },
       { k: 'THE URGENCY', v: 'Holding a resident account as an NRI is a FEMA violation.' },
       { k: 'WHAT YOU NEED', v: 'Visa copy, passport, overseas address proof. Some banks do it online.' },
     ],
-    note: 'Do this immediately. ICICI, HDFC, SBI and Axis all accept the conversion request, and the account keeps working throughout.' },
+    note: 'Do this immediately rather than at leisure. ICICI, HDFC, SBI and Axis all accept the conversion request, and the account keeps working throughout.' },
   parents: { tag: 'A GIFT FROM A RELATIVE', head: 'NRO, and a US form', color: '#FAF7F1',
     facts: [
       { k: 'INDIA SIDE', v: 'Tax-free for them in any amount, no Indian reporting.' },
       { k: 'THEIR ROUTE OUT', v: 'LRS, with 20% TCS above \u20B910 lakh a year.' },
       { k: 'YOUR US SIDE', v: 'Not income. Form 3520 above $100,000 aggregate.' },
     ],
-    note: 'A genuine gift from a foreign parent is not part of your US gross income. It is the disclosure that bites. The form checker below sizes it.' },
+    note: 'A genuine gift from a foreign parent is not part of your US gross income. It is the disclosure that bites, and the form checker below sizes it.' },
 };
 
 const RATE = 95;      // mid-market INR per USD, snapshot
@@ -327,7 +327,7 @@ const CHECKS = [
   { id: 'ca', text: 'Line up a CA before you need Form 15CB, or Form 146 from April 2026' },
   { id: 'quotes', text: 'Run both a Wise and a Remitly quote for anything over $2,000 and compare rupees landed' },
   { id: 'kyc', text: 'Update KYC to NRI on your mutual fund and demat accounts' },
-  { id: 'pfic', text: 'Talk to a PFIC-aware CA before you add money to any Indian mutual fund' },
+  { id: 'pfic', text: 'Talk to a PFIC-aware CA before adding money to any Indian mutual fund' },
   { id: 'fbar', text: 'Indian accounts over $10,000 combined? Put FBAR on your US filing calendar' },
 ];
 
@@ -385,17 +385,17 @@ class Component extends DCLogic {
     const rails = [
       { name: 'Remitly', tag: 'CHEAPEST TODAY', tagColor: accent, color: '#1A1712',
         landed: inr(remitly), width: (remitly / best) * 100 + '%',
-        note: 'Small markup inside the rate, $0 stated fee above $1,000. Pricing India aggressively right now. That can change without an announcement.' },
+        note: 'Small markup inside the rate, $0 stated fee above $1,000. Pricing India aggressively right now, and that can change without an announcement.' },
       { name: 'Wise', tag: 'THE BENCHMARK', tagColor: '#8A8172', color: '#1A1712',
         landed: inr(wise), width: (wise / best) * 100 + '%',
-        note: 'Mid-market rate with the fee shown upfront, roughly 0.4 to 0.7%. The rate you see is the real rate. That makes it the honest yardstick even when it is not the winner.' },
+        note: 'Mid-market rate with the fee shown upfront, roughly 0.4 to 0.7%. The rate you see is the real rate, which makes it the honest yardstick even when it is not the winner.' },
       { name: 'Bank wire', tag: 'RARELY CHEAPEST', tagColor: accent, color: accent,
         landed: inr(wire), width: (wire / best) * 100 + '%',
-        note: '$0 to $50 sending fee, $10 to $30 of intermediary fees, and a 2 to 4% FX margin. The "$0 fee" online foreign-currency wire is the trap. The margin is in the rate.' },
+        note: '$0 to $50 sending fee, $10 to $30 of intermediary fees, and a 2 to 4% FX margin. The "$0 fee" online foreign-currency wire is the trap: the margin is in the rate.' },
     ];
     const railNote = 'On ' + usd(amt) + ', the bank wire costs you about ' + inr(best - wire)
       + ' more than the best transfer app. The gap between Remitly and Wise is ' + inr(Math.abs(remitly - wise))
-      + '. That is why you check both rather than picking a favourite once.';
+      + ', which is why you check both rather than picking a favourite once.';
 
     // ---- disclosure forms ----
     const forms = [];
@@ -404,13 +404,13 @@ class Component extends DCLogic {
       const pen = Math.min(gift * 0.25, gift * 0.25);
       forms.push({ name: 'FORM 3520', nameColor: accent,
         why: 'Required. Gifts from a nonresident alien crossed $100,000.',
-        how: 'Paper-only, mailed separately to Ogden, Utah, due 15 April with your 1040 extension. Every individual gift above $5,000 gets itemised. Skipping it costs 5% of the gift per month up to 25%, meaning up to ' + usd(pen) + ' here on money that owed no tax.' });
+        how: 'Paper-only, mailed separately to Ogden, Utah, due 15 April with your 1040 extension. Every individual gift above $5,000 gets itemised. Skipping it costs 5% of the gift per month up to 25%, meaning up to ' + usd(pen) + ' here, on money that owed no tax.' });
     }
     if (given > exclusion) {
       forms.push({ name: 'FORM 709', nameColor: '#F5B896',
         why: 'Required. You gave more than ' + usd(exclusion) + ' to one person.',
         how: joint
-          ? 'You and your spouse can jointly give $38,000 per recipient by electing to gift-split. The form itself is how you elect. No tax is due until lifetime giving crosses $15 million.'
+          ? 'You and your spouse can jointly give $38,000 per recipient by electing to gift-split, which the form itself is how you elect. No tax is due until lifetime giving crosses $15 million.'
           : 'Disclosure, not a bill. No tax is due until your lifetime giving crosses $15 million. Married? Gift-splitting doubles the exclusion to $38,000 per recipient.' });
     }
     if (peak > 10000) {
@@ -422,7 +422,7 @@ class Component extends DCLogic {
     if (peak > t8938) {
       forms.push({ name: 'FORM 8938', nameColor: '#F5B896',
         why: 'Likely. Above the ' + usd(t8938) + ' year-end threshold.',
-        how: 'Rides with your 1040 rather than filed separately. The any-time threshold is higher, at ' + usd(joint ? 150000 : 75000) + '. Check which test your year actually meets.' });
+        how: 'Rides with your 1040 rather than being filed separately. The any-time threshold is higher, at ' + usd(joint ? 150000 : 75000) + ', so check which test your year actually meets.' });
     }
 
     const hasForms = forms.length > 0;
@@ -430,11 +430,11 @@ class Component extends DCLogic {
     if (!hasForms) {
       formsHead = 'Nothing to file, at these numbers';
       formsColor = '#7FD1A6';
-      formsNote = 'Every threshold here is an aggregate across the year. A single balance peak or a second parent\u2019s gift can cross one without anything feeling different. Re-check in December rather than in April.';
+      formsNote = 'Every threshold here is an aggregate across the year, so a single balance peak or a second parent\u2019s gift can cross one without anything feeling different. Re-check in December rather than in April.';
     } else {
       formsHead = forms.length === 1 ? '1 form' : forms.length + ' forms';
       formsNote = gift > 100000
-        ? 'Form 3520 is the single easiest expensive mistake on this page. A paper form, mailed separately, on money that was never taxable. The penalty is for the silence, not the gift.'
+        ? 'Form 3520 is the single easiest expensive mistake on this page: a paper form, mailed separately, on money that was never taxable. The penalty is for the silence, not the gift.'
         : 'None of these create tax. Your Indian bank is already reporting these accounts to the IRS under FATCA, so the filings match records the IRS holds either way.';
     }
 
@@ -456,9 +456,9 @@ class Component extends DCLogic {
 
       conversion: [
         { n: '01', v: 'Your existing resident savings account can only convert to NRO. You cannot convert a resident account into NRE, whatever a relationship manager tells you.' },
-        { n: '02', v: 'Open a fresh NRE account separately if you plan to remit US income into India and want it exempt there and freely repatriable.' },
+        { n: '02', v: 'Open a fresh NRE account separately, if you plan to remit US income into India and want it exempt there and freely repatriable.' },
         { n: '03', v: 'ICICI, HDFC, SBI and Axis all accept the conversion request with a visa copy, passport and overseas address proof. Some offer it fully online.' },
-        { n: '04', v: 'Redirect standing instructions, meaning rent collection, dividend payouts and any SIP, to the NRO account the day it goes live.' },
+        { n: '04', v: 'Redirect standing instructions, meaning rent collection, dividend payouts and any SIP, to the NRO account once it is active.' },
       ],
 
       sendStep: this.state.sendStep,
@@ -482,18 +482,18 @@ class Component extends DCLogic {
       formNotes: [
         { t: 'Both parents count as one', d: 'The $100,000 Form 3520 threshold aggregates gifts from a nonresident alien and everyone related to them. Two parents sending $60,000 each crosses it.' },
         { t: 'The deadline matches, the envelope does not', d: 'Form 3520 cannot be e-filed with your return even though its deadline is the same. It goes in its own envelope to Ogden, Utah.' },
-        { t: 'Gift-splitting doubles the room', d: 'Married founders can jointly give $38,000 per recipient per year by electing to gift-split on Form 709. Useful when supporting both parents.' },
+        { t: 'Gift-splitting doubles the room', d: 'Married founders can jointly give $38,000 per recipient per year by electing to gift-split on Form 709, which is useful when supporting both parents.' },
       ],
 
       ends: [
         { name: 'Indian mutual funds', tag: 'THE EXPENSIVE ONE', tagColor: accent, border: '#1A1712',
-          d: 'Taxed punitively under US PFIC rules once you are a US tax resident. Often at top rates plus interest charges on deemed gains, with a separate form per fund per year. Most NRIs exit before their first full US tax year, and I would do the same. Talk to a PFIC-aware CA before adding new money.' },
+          d: 'Taxed punitively under US PFIC rules once you are a US tax resident, often at top rates plus interest charges on deemed gains, with a separate form per fund per year. Most NRIs exit before their first full US tax year, and I would do the same. Talk to a PFIC-aware CA before adding new money.' },
         { name: 'KYC and demat', tag: 'FEMA COMPLIANCE, NOT OPTIONAL', tagColor: '#8A8172', border: '#E2DACA',
-          d: 'One modification through the KYC registration agency, plus a note to the fund registrars, covers your folios. Your resident demat and trading accounts close and reopen as NRO versions.' },
+          d: 'One modification through the KYC registration agency plus notifying the fund registrars covers your folios. Your resident demat and trading accounts close and reopen as NRO versions.' },
         { name: 'PPF', tag: 'CONTINUE, DON\u2019T IGNORE', tagColor: '#8A8172', border: '#E2DACA',
-          d: 'Tell your bank or post office of your NRI status promptly. Since October 2024 accounts with undisclosed NRI status can have interest cut to the savings rate or to zero. You can keep contributing to the 15-year maturity on a non-repatriable basis, but it cannot be extended past it and you cannot open a new one. Calendar the maturity date.' },
+          d: 'Tell your bank or post office of your NRI status promptly, because since October 2024 accounts with undisclosed NRI status can have interest cut to the savings rate or to zero. You can keep contributing to the 15-year maturity on a non-repatriable basis, but it cannot be extended past it and you cannot open a new one. Calendar the maturity date.' },
         { name: 'FCNR deposits', tag: 'DOLLARS, PARKED IN INDIA', tagColor: '#8A8172', border: '#E2DACA',
-          d: 'A fixed deposit held in foreign currency, so principal and interest stay in USD with zero rupee risk. Roughly 3.5 to 5% on one to two year tenures. Exempt in India, still taxable in the US. For dollars you do not need in the US near-term but want accessible for India-side plans.' },
+          d: 'A fixed deposit held in foreign currency, so principal and interest stay in USD and carry zero rupee risk. Roughly 3.5 to 5% on one to two year tenures. Exempt in India, still taxable in the US. For dollars you do not need in the US near-term but want accessible for India-side plans.' },
       ],
 
       checks: CHECKS.map(c => {
