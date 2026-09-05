@@ -2,7 +2,12 @@
 
 A hands-on operating manual for Indian founders relocating to San Francisco. Twenty guides, sequenced across five stages — deciding, before you fly, landing week one, first month, and living here.
 
-**Live site**: _(Netlify URL will go here after first deploy)_
+**Live site**: https://the-bay-playbook.netlify.app/
+
+## Branches
+
+- **`main`** — source of truth, auto-deployed to Netlify. Matches what's live. Edit here.
+- **`unslop-pass`** — the Aug 27 unslop pass across all 21 pages, preserved for reference. Not deployed. Can be reviewed and re-applied deliberately if/when we want to ship the tighter prose.
 
 ## What this repo is
 
