@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S1 · BEFORE YOU FLY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">US entity &amp; the Delaware flip</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Decide whether you need a US entity, which structure to pick, and how the Indian-side rules (FEMA / ODI) actually constrain you. Most founders get this wrong, and unwinding it costs lakhs at best — crores at worst.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">TICK WHAT'S TRUE. WE'LL POINT AT THE STRUCTURE.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ scenarioChips }}" as="s" hint-placeholder-count="3">
+          <button onClick="{{ s.toggle }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="border-color:#1A1712">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ s.dot }}"></span>
+            {{ s.label }}
+          </button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid {{ verdict.border }};background:{{ verdict.bg }};border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ verdict.tagColor }};margin-bottom:5px">{{ verdict.tag }}</div>
+        <div style="font-size:20px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:7px">{{ verdict.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ verdict.note }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px"><b>The decision rule:</b> structure for fundraising, not for customers. Indian companies can invoice and serve US customers without a Delaware parent. Most US VCs — including YC — prefer not to invest in an Indian parent. That is the entire distinction.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Your three options</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:34px">
+      <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+        <div style="border:1.5px solid {{ o.border }};background:{{ o.bg }};border-radius:12px;padding:18px 20px">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+            <span style="font-size:17px;font-weight:900;letter-spacing:-0.02em">{{ o.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ o.tagColor }}">{{ o.tag }}</span>
+          </div>
+          <div style="font-size:14.5px;line-height:1.6;color:#3D3629;margin-bottom:8px">{{ o.what }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;line-height:1.55;color:#5A5243"><b>Right when:</b> {{ o.when }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The Indian-side rules: ODI 2022 and round-tripping</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The <span style="position:relative;display:inline-block"><button onClick="{{ g.odi.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.odi.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">Overseas Investment Rules 2022</button><sc-if value="{{ g.odi.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.odi.tag }}</span>{{ g.odi.def }}</span></sc-if></span> (issued August 2022) govern Indians acquiring foreign shares. Two things matter for a flip.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">ROUND-TRIPPING, WITH CONDITIONS</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">The old blanket ban on structures where a foreign entity owns an Indian one is gone. Now permitted for bona fide business — but only up to <b>two layers of subsidiaries</b>, and only where the US parent has genuine substance: real US customers, US operations, a documented commercial rationale. A shell Delaware parent existing purely to hold Indian shares invites RBI trouble.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">THE SWAP USES YOUR LRS HEADROOM</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">The <span style="position:relative;display:inline-block"><button onClick="{{ g.lrs.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.lrs.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">Liberalised Remittance Scheme</button><sc-if value="{{ g.lrs.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.lrs.tag }}</span>{{ g.lrs.def }}</span></sc-if></span> caps each resident Indian at <b>$250,000 per financial year</b> for overseas investment. Acquiring US parent shares is an ODI transaction under these rules, valued by a SEBI-registered merchant banker. Budget the valuation report at ₹1–2 lakh and FEMA/RBI filings (Form FC, annual APR) at ₹1–3 lakh in professional fees.</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">FEMA is India's Foreign Exchange Management Act — the law behind all of this. ODI is Overseas Direct Investment — an Indian resident buying into a foreign company.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Timeline and cost reality</h2>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:1fr minmax(120px,160px) minmax(90px,120px);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>ITEM</div><div>COST</div><div>TIME</div>
+      </div>
+      <sc-for list="{{ costs }}" as="c" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:1fr minmax(120px,160px) minmax(90px,120px);gap:6px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;line-height:1.4;color:#1A1712">{{ c.item }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3D3629">{{ c.cost }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3D3629">{{ c.time }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">FRESH DELAWARE IS 10–50× CHEAPER THAN A LATER FLIP</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">A fresh Delaware inc is about a week and under $1,000. If you know you will raise in the US, incorporating there first is the strongest argument this page can make. Flipping later runs 10–50× the cost of starting right.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Tooling (2026)</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">None of these do the flip itself — the share swap and FEMA side need real lawyers and a CA on the Indian end.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ tooling }}" as="t" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:5px">
+            <span style="font-size:15px;font-weight:800;letter-spacing:-0.01em">{{ t.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent)">{{ t.cost }}</span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ t.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The warning label: reverse flips are brutal</h2>
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px">$600M+ collectively paid to un-flip.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">In 2024–25, Meesho, Groww and Razorpay collectively paid $600M+ in US taxes to un-flip and move HQ back to India for domestic IPOs. Meesho paid ~$288M; Groww ~$160M. If your realistic exit is an India listing, think hard before flipping at all. The flip is close to a one-way door once value builds up in the Delaware parent.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">The decision is not "do I flip?" — it is "is a US listing my realistic exit?" If the answer is no or unclear, delay the flip until the fundraising forces it.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">ESOPs during the flip — the section nobody warns you about</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px"><b>Options are not shares.</b> This is the sentence that catches most founders out. When you do a share swap, shareholders swap; optionholders do not, because they hold a contract, not a security. Your ESOP does not travel with the flip automatically. It has to be moved deliberately, by paperwork, and every unvested and vested option in the pool needs to be accounted for.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">EARLY-EXERCISED SHARES ARE A SEPARATE PROBLEM</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Employees who exercised early are shareholders. They participate in the swap, which means each becomes an ODI filer with their own LRS headroom, their own valuation compliance and their own Form FC. Twelve employees who exercised is twelve extra sets of FEMA filings. Keep the pre-flip cap table as thin as you can.</div>
+    </div>
+
+    <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:24px 0 8px">What happens to the existing Indian options</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;margin-bottom:4px">{{ r.name }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629;margin-bottom:6px">{{ r.what }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A5243"><b>When to pick it:</b> {{ r.when }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:14px 17px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">PRESERVE THE VESTING COMMENCEMENT DATE IN WRITING</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Whichever route you take. If the regrant paperwork resets the clock, an employee three years into a four-year vest starts again — and you will find out about it in the worst possible way. The vesting commencement date is the joining date, and it is the number that actually matters in a regrant.</div>
+    </div>
+
+    <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:24px 0 8px">The tax split, which nobody models in advance</h2>
+    <p style="font-size:15px;line-height:1.6;color:#3D3629;margin:0 0 14px;max-width:640px">After the flip your Indian employees hold options over shares of a foreign company. That changes three things.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ taxSplit }}" as="x" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ x.tag }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ x.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px"><b>NSO</b> is a non-qualified stock option — the default. <b>ISO</b> is an incentive stock option, which carries a US tax benefit and only helps people who file US taxes. Your India team gets NSOs regardless of what the plan document permits.</div>
+
+    <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:24px 0 8px">If you're flipping — the ESOP readiness list</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 12px">Tick as you go. This saves in your browser.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ flipChecks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ flipProgress }}</div>
+
+    <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:24px 0 8px">ESOP tooling and cost (2026)</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 12px">Plan design and ongoing administration are different problems. It is worth not conflating them.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:1fr minmax(140px,180px) minmax(100px,140px);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>ITEM</div><div>COST</div><div>TIME</div>
+      </div>
+      <sc-for list="{{ esopCosts }}" as="c" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:1fr minmax(140px,180px) minmax(100px,140px);gap:6px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;line-height:1.4;color:#1A1712">{{ c.item }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3D3629">{{ c.cost }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3D3629">{{ c.time }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Costs from Incentiv (as quoted, August 2026). Taking design, valuation and demat together gets ~10–15% off the combined package. Migration and onboarding are included in year one on Tabulate.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">The main entity checklist. Saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="4">
+        <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="10">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:14px">This is general information, not legal or tax advice. Verify with a professional before acting. ESOP section contributed by Indranil Tiwary (Incentiv).</div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  odi: { tag: 'OI RULES 2022', def: 'The Overseas Investment Rules issued by RBI in August 2022, replacing the older ODI framework. This is what governs an Indian resident acquiring foreign shares — including your flip swap.' },
+  lrs: { tag: 'LRS · LIBERALISED REMITTANCE SCHEME', def: 'RBI’s rule capping each Indian resident individual at $250,000 per financial year for overseas investment. Your share swap is an ODI transaction that consumes this headroom.' },
+};
+
+const SCENARIOS = [
+  { id: 'usVCs', label: 'US VCs / YC will lead my next round' },
+  { id: 'hasIndianEntity', label: 'I already have an Indian company with revenue or IP' },
+  { id: 'indiaIpo', label: 'An India IPO is a realistic exit' },
+];
+
+const OPTIONS = {
+  fresh: {
+    name: 'Fresh Delaware C-corp',
+    tag: 'CLEANEST START',
+    what: 'A new US company. Indian entity either does not exist yet, or stays separate and dormant.',
+    when: 'You have not incorporated in India yet, or the Indian entity has no meaningful assets or revenue.',
+  },
+  flip: {
+    name: 'Delaware flip',
+    tag: 'US-VC PATH',
+    what: 'New Delaware parent; your existing Indian company becomes its wholly-owned subsidiary via a share swap.',
+    when: 'You have an Indian company with IP, revenue or investors, and US VCs (or YC) require a US parent.',
+  },
+  sub: {
+    name: 'Indian HQ + US subsidiary',
+    tag: 'INDIA-FIRST PATH',
+    what: 'Indian parent opens a US subsidiary for sales and operations.',
+    when: 'You sell to US customers but raise from Indian investors, or plan an India IPO.',
+  },
+};
+
+const COSTS = [
+  { item: 'Delaware incorporation + EIN + registered agent', cost: '$500–2,000', time: '1–2 weeks' },
+  { item: 'Legal structuring of the flip (US + India counsel)', cost: '$8,000–25,000', time: '—' },
+  { item: 'Merchant banker valuation', cost: '₹1–2 lakh', time: '2–4 weeks' },
+  { item: 'FEMA/ODI filings and CA fees', cost: '₹1–3 lakh', time: 'ongoing' },
+  { item: 'Full flip, end to end', cost: '—', time: '3–6 months' },
+];
+
+const TOOLING = [
+  { name: 'Stripe Atlas', cost: '$500 one-time', d: 'Fastest self-serve path — C-corp, EIN, bank intro in days. ~$100/yr agent after year one.' },
+  { name: 'Clerky', cost: '~$819 lifetime', d: "The VC-lawyer favourite. Cleanest post-incorporation paperwork for fundraising." },
+  { name: 'Firstbase', cost: '~$399', d: 'Back-office add-ons (bookkeeping, payroll) as you grow.' },
+  { name: 'Inkle', cost: 'quote', d: 'India-focused. Cross-border tax and compliance layer, partners with Indian accelerators.' },
+];
+
+const ROUTES = [
+  { name: 'Cancel and regrant',
+    what: 'Indian options are cancelled and equivalent options are issued from the new Delaware plan, carrying the original vesting commencement date.',
+    when: 'The default for most flips. Cleanest going forward. Needs written consent from every single optionholder, including the ones who left.' },
+  { name: 'Parent assumes the plan',
+    what: 'The Delaware parent formally adopts the Indian scheme; existing options become options over parent stock.',
+    when: 'Larger pools where chasing fresh consents is impractical. More US legal work upfront, less chasing.' },
+  { name: 'Mirror plan at the subsidiary',
+    what: 'The Indian scheme stays alive at the subsidiary while new grants come from the Delaware plan.',
+    when: 'Usually a stopgap where some optionholders genuinely cannot be reached. You now run two plans, two valuations and two sets of accounting, indefinitely.' },
+];
+
+const TAX_SPLIT = [
+  { tag: 'PERQUISITE TAX STILL HITS AT EXERCISE',
+    d: 'Section 17(2)(vi): taxed as salary income on FMV minus exercise price, with TDS withheld by the Indian subsidiary. FMV is now that of an unlisted foreign share — Category I merchant banker valuation on every exercise date.' },
+  { tag: 'DPIIT DEFERRAL DISAPPEARS',
+    d: 'The section 192(1C) benefit that lets eligible startups defer ESOP TDS by up to 48 months depends on an 80-IAC certificate. A subsidiary of a foreign parent will not hold one. Tell the team before the flip, not after.' },
+  { tag: 'SCHEDULE FA REPORTING BECOMES PERSONAL',
+    d: 'Every employee holding parent shares must report them as a foreign asset in their income tax return. Non-disclosure is a Black Money Act exposure with a ₹10 lakh penalty, carried personally. Build the reminder into HR annual calendar.' },
+  { tag: 'ISO / NSO SPLIT',
+    d: 'ISOs are only meaningful to US taxpayers. Your India team gets NSOs regardless of what the plan document says, and the ISO tax advantage your US counsel talks about is worth nothing to them.' },
+];
+
+const ESOP_COSTS = [
+  { item: 'ESOP scheme design + documentation (seed to pre-A)', cost: '₹50,000–₹75,000 + GST', time: '7–10 working days' },
+  { item: 'Plan redraft / post-flip restructuring (Series A+)', cost: '₹50,000–₹75,000 + GST', time: '2–3 weeks' },
+  { item: 'Rule 11UA / FMV valuation, per exercise', cost: '₹40,000 onwards', time: '1–2 weeks' },
+  { item: 'Dematerialisation (required before the swap)', cost: '₹20,000 per ISIN', time: '6–8 weeks' },
+  { item: 'Tabulate: ESOP + cap table + equity compliance', cost: '₹800–₹1,200 per stakeholder/yr', time: '24–48 hr onboarding' },
+  { item: 'US 409A valuation for the Delaware parent', cost: '$999 onwards', time: '1–3 weeks' },
+];
+
+const FLIP_CHECKS = [
+  { id: 'holderList', text: 'Pull a full optionholder list before you touch anything: name, grant date, vesting commencement date, vested/unvested counts, current employment status' },
+  { id: 'leavers', text: 'Track down the leavers with vested options now, while their email addresses still work — their consent is on the critical path' },
+  { id: 'demat', text: 'Check Rule 9B: if your Indian company is not a small company, its shares must be in demat form before any transfer. Start demat 8 weeks before you need it' },
+  { id: 'pool', text: 'Size the pool to US norms (10–15% unallocated post-money at seed) as part of the flip, not after the term sheet' },
+  { id: 'teamTell', text: 'Tell the team what changes for them personally: perquisite tax at exercise, Schedule FA reporting, loss of any DPIIT deferral' },
+];
+
+const CHECKS = [
+  { id: 'q1', text: 'Answer one question honestly: are US VCs going to lead your next round? If no, don’t flip yet' },
+  { id: 'q2', text: 'If yes and you have no Indian entity: incorporate Delaware directly via Atlas or Clerky this week' },
+  { id: 'q3', text: 'If flipping: engage a cross-border lawyer and an Indian CA together — get quotes from both before signing either' },
+  { id: 'q4', text: 'Check every founder’s LRS headroom for this FY (April–March) before structuring the swap' },
+  { id: 'q5', text: 'Document US substance — US customer contracts, US hires, board minutes on why Delaware — file it away for RBI questions' },
+];
+
+const NOBODY = [
+  { t: 'YC and most US funds pay for the flip', d: 'They will heavily subsidize or cover the paperwork post-acceptance. Do not pre-emptively spend $25k flipping "to be ready" before a term sheet or acceptance exists.' },
+  { t: 'The two-layer rule bites later', d: 'Delaware parent → Indian subsidiary is fine. Add a Singapore entity or a second step-down and you may need prior RBI approval. Keep the stack flat.' },
+  { t: 'Transfer pricing from day one', d: 'The Indian subsidiary, now a cost center doing R&D, and the US parent need an arm’s-length agreement. Indian tax officers audit flipped structures specifically for this. Cheap to set up, expensive to retrofit.' },
+  { t: 'Demat is on the critical path', d: 'A private company that is not a small company cannot transfer shares in physical form, and a flip is a transfer of every share on the register. Founders discover this in week two of a three-month timeline and lose a month.' },
+];
+
+const KEY = 'bp-entity';
+
+class Component extends DCLogic {
+  state = {
+    scenario: {},
+    flipReady: {},
+    done: {},
+    term: null,
+    align: 'left',
+  };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({
+          scenario: s.scenario || {},
+          flipReady: s.flipReady || {},
+          done: s.done || {},
+        });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { scenario: this.state.scenario, flipReady: this.state.flipReady, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  toggle(bucket, id) {
+    const next = { ...this.state[bucket], [id]: !this.state[bucket][id] };
+    this.persist({ [bucket]: next });
+  }
+
+  chip(on) {
+    return { border: on ? '#1A1712' : '#C9C0AD', bg: on ? '#1A1712' : '#FFFDF8', color: on ? '#FAF7F1' : '#3D3629', dot: on ? (this.props.accent ?? '#E8500A') : '#C9C0AD' };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { scenario, term } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 288 > window.innerWidth && r.right - 288 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // ---- Verdict ----
+    let winner, vHead, vNote, vTag, vBorder, vBg, vTagColor;
+    if (!scenario.usVCs) {
+      winner = 'sub';
+      vHead = 'Don’t flip yet';
+      vTag = 'STRUCTURE FOR FUNDRAISING, NOT CUSTOMERS';
+      vNote = 'US customers do not require a Delaware parent. An Indian company (or Indian + US subsidiary for sales) can invoice and serve US customers without one. Wait until US VCs are actually the plan.';
+      vBorder = '#1A1712'; vBg = 'transparent'; vTagColor = '#8A8172';
+    } else if (scenario.indiaIpo) {
+      winner = 'sub';
+      vHead = 'Indian HQ + US subsidiary — and warn your VCs';
+      vTag = 'INDIA-EXIT PATH';
+      vNote = 'If an India listing is realistic, the flip is close to a one-way door. Meesho, Groww and Razorpay collectively paid $600M+ un-flipping. Signal to US VCs early that India is your listing plan — some will pass, and that is information you want before the term sheet.';
+      vBorder = accent; vBg = '#F5E4D8'; vTagColor = accent;
+    } else if (!scenario.hasIndianEntity) {
+      winner = 'fresh';
+      vHead = 'Fresh Delaware C-corp, this week';
+      vTag = 'CHEAPEST START';
+      vNote = 'A fresh Delaware inc is a week and under $1,000. Flipping later costs 10–50× as much. Since you have no Indian entity to swap out, this is the whole decision — Stripe Atlas or Clerky, no lawyers required to start.';
+      vBorder = accent; vBg = '#F5E4D8'; vTagColor = accent;
+    } else {
+      winner = 'flip';
+      vHead = 'Delaware flip — but not until you need it';
+      vTag = 'FUNDRAISING TRIGGER';
+      vNote = 'The flip is expensive ($8–25k+ legal, 3–6 months) and near-irreversible. Do it when a US term sheet or YC acceptance triggers it — YC and most US funds subsidize the paperwork post-acceptance. Engage a cross-border lawyer and an Indian CA together, and start demat 8 weeks ahead.';
+      vBorder = accent; vBg = '#F5E4D8'; vTagColor = accent;
+    }
+    const verdict = { head: vHead, note: vNote, tag: vTag, border: vBorder, bg: vBg, tagColor: vTagColor };
+
+    const scenarioChips = SCENARIOS.map(s => ({
+      label: s.label,
+      toggle: () => this.toggle('scenario', s.id),
+      ...this.chip(!!scenario[s.id]),
+    }));
+
+    const options = ['fresh', 'flip', 'sub'].map(k => ({
+      name: OPTIONS[k].name, tag: OPTIONS[k].tag, what: OPTIONS[k].what, when: OPTIONS[k].when,
+      tagColor: k === winner ? accent : '#8A8172',
+      border: k === winner ? '#1A1712' : '#E2DACA',
+      bg: k === winner ? '#F5F1E7' : '#FFFDF8',
+    }));
+
+    const flipChecks = FLIP_CHECKS.map(c => {
+      const done = !!this.state.flipReady[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ flipReady: { ...this.state.flipReady, [c.id]: !done } }),
+      };
+    });
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      scenarioChips,
+      verdict,
+      options,
+      costs: COSTS,
+      tooling: TOOLING,
+      routes: ROUTES,
+      taxSplit: TAX_SPLIT,
+      esopCosts: ESOP_COSTS,
+
+      flipChecks,
+      flipProgress: FLIP_CHECKS.filter(c => this.state.flipReady[c.id]).length + ' of ' + FLIP_CHECKS.length + ' done',
+
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {}, flipReady: {} }),
+
+      nobody: NOBODY,
+
+      sources: [
+        { label: 'treelife · flip structure for indian startups', url: 'https://www.treelife.in/' },
+        { label: 'enterslice · round tripping under odi rules 2022', url: 'https://enterslice.com/' },
+        { label: 'ey india · revised odi framework', url: 'https://www.ey.com/en_in' },
+        { label: 'incorpx · indian saas flip structure', url: 'https://incorpx.com/' },
+        { label: 'rustic flute · the delaware flip dilemma', url: 'https://rusticflute.substack.com/' },
+        { label: 'inc42 · yc and india\'s tech economy', url: 'https://inc42.com/' },
+        { label: 'indmoney · what is lrs', url: 'https://www.indmoney.com/' },
+        { label: 'flowjam · stripe atlas vs clerky 2026', url: 'https://flowjam.co/' },
+        { label: 'mmjc · rule 9b dematerialisation', url: 'https://mmjc.in/' },
+        { label: 'income tax dept · schedule fa', url: 'https://www.incometax.gov.in/' },
+        { label: 'incentiv · esop scheme design', url: 'https://incentiv.tech/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__entity';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['US entity & flip', '__entity'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 · COMPANY', pages: [['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

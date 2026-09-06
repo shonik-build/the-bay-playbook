@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S1 · BEFORE YOU FLY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Visas for Indian founders</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Pick the right path before you book flights. Most Indian founders land on one of four: a B-1 to scout, an O-1A to build, an L-1A if you already run a real Indian company, or an H-1B if you already hold one.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">TICK WHAT'S TRUE. WE'LL POINT YOU AT THE RIGHT VISA.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ situationChips }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.toggle }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="border-color:#1A1712">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ s.dot }}"></span>
+            {{ s.label }}
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:12px">
+        <div style="border:1px solid {{ scout.border }};background:{{ scout.bg }};border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ scout.tagColor }};margin-bottom:5px">{{ scout.tag }}</div>
+          <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ scout.head }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ scout.note }}</div>
+        </div>
+        <div style="border:1px solid {{ work.border }};background:{{ work.bg }};border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ work.tagColor }};margin-bottom:5px">{{ work.tag }}</div>
+          <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ work.head }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ work.note }}</div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">The four paths are described in detail below.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">The entity decision sits alongside the visa decision. A US entity you majority-own can sponsor your O-1 — so <a href="Bay Playbook Guides.dc.html#entity">US entity &amp; the Delaware flip</a> usually comes before the visa, not after.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The four paths, in plain words</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">A <span style="position:relative;display:inline-block"><button onClick="{{ g.pet.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.pet.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">petition</button><sc-if value="{{ g.pet.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:280px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.pet.tag }}</span>{{ g.pet.def }}</span></sc-if></span> is the application a US company files with USCIS to employ you. You cannot file for yourself, but a company you own can petition for you — which is why the entity choice comes first.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <sc-for list="{{ paths }}" as="p" hint-placeholder-count="4">
+        <div style="padding:14px 16px;border-bottom:1px solid #EFE9DC;background:{{ p.bg }}">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px">
+            <span style="font-size:16px;font-weight:900;letter-spacing:-0.02em">{{ p.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ p.tagColor }}">{{ p.tag }}</span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629;margin-bottom:9px">{{ p.permits }}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px 16px">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">BEST FOR</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.best }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">TIMELINE</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.timeline }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:var(--accent);margin-bottom:2px">WATCH FOR</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ p.watch }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">B-1: scout the market, don't work</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Meetings, contract negotiation, investor conversations, conferences. Not: production code for your US entity, US salary, or "running" US ops day-to-day. Border officers have tightened since 2025, so carry the return ticket and the meeting schedule.</p>
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE REAL BOTTLENECK IS THE INTERVIEW QUEUE</div>
+      <div style="font-size:15px;line-height:1.65;color:#1A1712;margin-bottom:12px">First-time B1/B2 interview waits at Indian consulates ran roughly <b>100 to 400 days</b> across 2025 and 2026, city-by-city. Chennai and Hyderabad have consistently run shorter than Mumbai and Delhi, sometimes by months. If you already hold a valid B1/B2 from a past trip, you have dodged this entirely.</div>
+      <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 12px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">Check live wait times ↗</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">THE CONSULATE-CITY ARBITRAGE</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Founders routinely fly to Chennai for an interview rather than wait 9+ months in Mumbai. One MRV fee lets you reschedule endlessly while hunting cancellation slots.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">TELL THE OFFICER THE TRUTH, NARROWLY</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">You're visiting for meetings and conferences. Not "moving to SF." Carry a return ticket, a printed meeting schedule, and proof of ties to India.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">O-1A: the founder default</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">"Extraordinary ability" sounds intimidating — in practice it's an evidence-assembly exercise. You need to hit <b>3 of 8 criteria</b> codified at 8 CFR 214.2(o)(3)(iii), unless you hold one major internationally-recognised award (Nobel, Olympic medal, etc — almost nobody does).</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">TICK WHAT YOU CAN PLAUSIBLY EVIDENCE</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;color:{{ o1a.color }}">{{ o1a.count }} OF 8 · {{ o1a.status }}</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <sc-for list="{{ criteriaChips }}" as="c" hint-placeholder-count="8">
+          <button onClick="{{ c.toggle }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};cursor:pointer;display:flex;align-items:center;gap:7px;text-align:left" style-hover="border-color:#1A1712">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ c.dot }}"></span>
+            {{ c.label }}
+          </button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid {{ o1a.border }};background:{{ o1a.bg }};border-radius:10px;padding:13px 15px">
+        <div style="font-size:14.5px;line-height:1.6;color:#1A1712">{{ o1a.note }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:14px">Funded founders most commonly clear <b>critical role</b> (founder or CTO of a VC-backed company), <b>high remuneration</b> (Indian salary benchmarked against Indian norms counts), <b>judging</b> (hackathon jury, accelerator judging, peer review), <b>press</b> (named coverage in real publications), and <b>original contributions</b> (patents, widely-adopted product). Start collecting months before you engage a lawyer.</div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE REQUIREMENT NOBODY PLANS FOR</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Every O-1 petition needs a written <b>advisory opinion</b> from a peer group, labor organisation or expert in your field under 8 CFR 214.2(o)(5). Waived only where no appropriate body exists. Turnaround runs from a couple of days to a few weeks — start it early rather than at filing.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ o1aFacts }}" as="f" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ f.tag }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ f.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Duration: up to 3 years initially, extensions in 1-year increments with no overall cap. Spouses get O-3 with no work authorisation, so plan for that.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">L-1A: if you already run a company in India</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">If your Indian company is real and staffed, you can transfer yourself into a US entity instead of proving you are extraordinary. The test is structural rather than reputational: a qualifying parent/subsidiary/affiliate relationship, plus <b>one continuous year of managerial or executive work</b> at the Indian entity in the three years before filing. Evidence is payroll, org charts and contracts — not press clippings.</p>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THE NEW OFFICE RULE</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">If the US entity is newly formed, USCIS approves you for <b>one year, not three</b>, and you spend that year proving you built something real. Officers also expect a secured physical premises — signed commercial lease with room for the headcount in your business plan. Virtual offices and co-working desks draw heavy scrutiny. Extension is judged on execution, not the plan you filed.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Timelines are shorter than the O-1A (about a month with premium processing) because the evidence already exists in your company records. Costs sit close: I-129 L is $1,385 or $695 for small employers, plus the $600/$300 asylum fee and a $500 fraud-prevention fee on new L-1 petitions. Premium processing is the same $2,965. Approval rates run a little lower and RFE rates higher than the O-1A, because new-office cases get read hard.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">H-1B: the founder rule changed in 2025</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">If you already hold an H-1B, your Delaware C-corp can file a transfer with <b>no new lottery</b>. The bigger change is for owners. Since <b>17 January 2025</b>, USCIS has removed the old employer-employee control test and expressly allows a founder with a controlling interest to be sponsored by their own company — provided you spend the majority of your time on specialty-occupation work rather than running the business. The trade-off is validity: initial approval and first extension are capped at <b>18 months each</b>, against three years for a standard H-1B. You no longer need outside directors to make this work, which was true before 2025 and is repeated in a lot of stale advice.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Think green card from day one</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">The O-1A is temporary. The long-term play is <b>EB-1A</b>, the green card cousin with a higher evidence bar. EB-1 India is badly backlogged — the September 2026 Final Action Date sits around 15 October 2022, and realistic I-140-to-green-card timelines for India run <b>4 to 6 years</b>.</p>
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">File the I-140 as early as your evidence supports it.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Filing locks your priority date — your place in the queue. Every month you delay is a month added at the back end. If you came in on L-1A, your green-card cousin is <b>EB-1C</b>, not EB-1A: multinational manager or executive rather than extraordinary ability. Same backlogged queue, same filing-early logic.</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Ask your lawyer about EB-1A timing in the same engagement as the O-1 — the priority date compounds, and adding it later costs six months you did not need to lose.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="4">
+        <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="8">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:14px">This is general information, not legal or tax advice. Verify with a professional before acting.</div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const GLOSS = {
+  pet: { tag: 'PETITION', def: 'The application a US company files with USCIS asking to employ you. You cannot file for yourself, but a company you own can petition for you.' },
+};
+
+const SITUATIONS = [
+  { id: 'b12', label: 'I already hold a valid B1/B2' },
+  { id: 'h1b', label: 'I already hold an H-1B' },
+  { id: 'indianEntity', label: 'I run a staffed Indian company (1+ year)' },
+  { id: 'evidence', label: 'I have O-1 evidence building (press, judging, funding)' },
+];
+
+const CRITERIA = [
+  { id: 'awards', label: 'Awards' },
+  { id: 'memberships', label: 'Selective memberships' },
+  { id: 'press', label: 'Press about you' },
+  { id: 'judging', label: "Judging others' work" },
+  { id: 'original', label: 'Original contributions' },
+  { id: 'scholarly', label: 'Scholarly articles' },
+  { id: 'criticalRole', label: 'Critical role' },
+  { id: 'remuneration', label: 'High remuneration' },
+];
+
+const PATHS = {
+  b1: { name: 'B-1', tag: 'BUSINESS VISITOR',
+    permits: 'Meetings, contract negotiation, attending conferences, investor conversations. No productive work, no US salary.',
+    best: 'A 2–6 week scouting trip before you commit.',
+    timeline: 'Interview wait is the bottleneck — 100 to 400 days across Indian consulates.',
+    watch: 'Do not tell the CBP officer you are "moving to SF." Return ticket and meeting schedule in hand.' },
+  o1a: { name: 'O-1A', tag: 'THE FOUNDER DEFAULT',
+    permits: 'Full-time work for the petitioning US company, usually your own Delaware C-corp.',
+    best: 'The default founder visa in 2026.',
+    timeline: 'About 2 months with premium processing, once evidence is collected.',
+    watch: 'The peer advisory opinion under 8 CFR 214.2(o)(5) is easy to miss and slow to fetch.' },
+  l1a: { name: 'L-1A', tag: 'INTRACOMPANY TRANSFER',
+    permits: 'Work as a manager or executive for a US entity related to your Indian company.',
+    best: 'Founders who already run a staffed Indian company.',
+    timeline: 'About a month with premium processing; new-office approvals run 1 year.',
+    watch: 'New-office rule: 1 year, not 3, and extension is judged on what you actually built.' },
+  h1b: { name: 'H-1B', tag: 'TRANSFER OR SELF-SPONSOR',
+    permits: 'Work for the petitioning employer, including a company you control.',
+    best: 'Founders already on H-1B, or majority owners of a US entity post-Jan 2025.',
+    timeline: 'Weeks with premium processing. No new lottery for a transfer.',
+    watch: 'Founder self-sponsor route caps initial + first extension at 18 months each, not 3 years.' },
+};
+
+const CHECKS = [
+  { id: 'b12check', text: 'Check your existing B1/B2 today. If valid, your scouting trip needs zero new paperwork' },
+  { id: 'folder', text: 'Start an O-1 evidence folder: press links, judging invites, funding docs, salary proof, patents' },
+  { id: 'quotes', text: 'Get 2–3 quotes from founder-focused immigration lawyers, and ask which 3 criteria they would argue' },
+  { id: 'consulate', text: 'Check current India consulate wait times on the State Department site before booking anything' },
+  { id: 'eb1', text: 'Ask your lawyer about EB-1A timing in the same engagement — the priority date compounds' },
+  { id: 'l1price', text: "If you already run an Indian company with staff, price the L-1A alongside the O-1A" },
+];
+
+const NOBODY = [
+  { t: 'Your own startup can sponsor your O-1', d: 'The "employer" can be a US entity you majority-own. Many lawyers add board oversight to strengthen the petition, which is why the Delaware entity usually comes before the visa.' },
+  { t: 'Judging is the cheapest criterion to build', d: 'Accepting hackathon judge and pitch-competition jury invitations over 3 to 6 months can manufacture a whole criterion from scratch.' },
+  { t: 'The 94% approval rate is survivorship-shaped', d: 'Lawyers filter out weak cases before filing. So if a good lawyer hesitates on your case, that is signal, not gatekeeping.' },
+  { t: 'On a new-office L-1A, the clock starts when you land', d: 'Not when you file. Founders who spend the first quarter on setup instead of hiring reach the extension with nothing to show — and the extension is judged on what you actually built.' },
+];
+
+const KEY = 'bp-visas';
+
+class Component extends DCLogic {
+  state = {
+    situation: {},
+    criteria: {},
+    term: null,
+    align: 'left',
+    done: {},
+  };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({
+          situation: s.situation || {},
+          criteria: s.criteria || {},
+          done: s.done || {},
+        });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { situation: this.state.situation, criteria: this.state.criteria, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  toggle(bucket, id) {
+    const next = { ...this.state[bucket], [id]: !this.state[bucket][id] };
+    this.persist({ [bucket]: next });
+  }
+
+  chip(on) {
+    return { border: on ? '#1A1712' : '#C9C0AD', bg: on ? '#1A1712' : '#FFFDF8', color: on ? '#FAF7F1' : '#3D3629', dot: on ? (this.props.accent ?? '#E8500A') : '#C9C0AD' };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { situation, criteria, term } = this.state;
+
+    const g = {};
+    Object.keys(GLOSS).forEach(k => {
+      const open = term === k;
+      g[k] = { tag: GLOSS[k].tag, def: GLOSS[k].def, open,
+        bg: open ? '#F5E4D8' : 'transparent',
+        toggle: e => {
+          let align = 'left';
+          try {
+            const r = e.currentTarget.getBoundingClientRect();
+            if (r.left + 288 > window.innerWidth && r.right - 288 > 0) align = 'right';
+          } catch (err) {}
+          this.setState({ term: term === k ? null : k, align });
+        } };
+    });
+
+    // ---- Path recommender ----
+    let scoutHead, scoutNote, scoutTag = 'FOR THE SCOUT TRIP', scoutBorder, scoutBg, scoutTagColor;
+    if (situation.b12) {
+      scoutHead = 'You already have B1/B2';
+      scoutNote = 'Skip the interview queue entirely. Book your trip around SF Tech Week or a Demo Day window and let the density work for you.';
+      scoutBorder = '#7FD1A6'; scoutBg = 'transparent'; scoutTagColor = '#8A8172';
+    } else {
+      scoutHead = 'B-1, but book any consulate that opens up';
+      scoutNote = 'First-time waits run 100–400 days by city. Chennai and Hyderabad have been shorter than Mumbai and Delhi. One MRV fee lets you reschedule for free — hunt cancellations daily.';
+      scoutBorder = accent; scoutBg = '#F5E4D8'; scoutTagColor = accent;
+    }
+
+    let workHead, workNote, workTag = 'FOR THE WORK VISA', workBorder, workBg, workTagColor;
+    if (situation.h1b) {
+      workHead = 'H-1B transfer to your own C-corp';
+      workNote = 'No new lottery. And since Jan 2025 the founder self-sponsor route is explicit, though initial + first extension cap at 18 months each. Keep the O-1A folder building in parallel, because the H-1B validity trade-off makes it a bridge, not an endpoint.';
+      workBorder = '#7FD1A6'; workBg = 'transparent'; workTagColor = '#8A8172';
+    } else if (situation.indianEntity) {
+      workHead = 'L-1A alongside O-1A — price both';
+      workNote = 'Your staffed Indian company is unusual leverage. Structural test rather than reputation, and premium processing runs about a month. If the US entity is new, watch the 1-year new-office rule — extension is judged on what you built.';
+      workBorder = accent; workBg = '#F5E4D8'; workTagColor = accent;
+    } else {
+      workHead = 'O-1A, the founder default';
+      workNote = situation.evidence
+        ? 'You are already building the folder — good. Aim to clear 3 of 8 criteria on the tracker below, engage a lawyer once you can name your 3, and start the peer advisory opinion early.'
+        : 'Start the evidence folder today: press, judging invites, funding docs, salary proof, patents. 3 of 8 criteria is the bar. Two months from evidence-in-hand to approval with premium processing.';
+      workBorder = accent; workBg = '#F5E4D8'; workTagColor = accent;
+    }
+
+    const scout = { head: scoutHead, note: scoutNote, tag: scoutTag, border: scoutBorder, bg: scoutBg, tagColor: scoutTagColor };
+    const work = { head: workHead, note: workNote, tag: workTag, border: workBorder, bg: workBg, tagColor: workTagColor };
+
+    const situationChips = SITUATIONS.map(s => ({
+      label: s.label,
+      toggle: () => this.toggle('situation', s.id),
+      ...this.chip(!!situation[s.id]),
+    }));
+
+    // ---- O-1A criteria tracker ----
+    const criteriaChips = CRITERIA.map(c => ({
+      label: c.label,
+      toggle: () => this.toggle('criteria', c.id),
+      ...this.chip(!!criteria[c.id]),
+    }));
+
+    const count = CRITERIA.filter(c => criteria[c.id]).length;
+    let o1aStatus, o1aColor, o1aBorder, o1aBg, o1aNote;
+    if (count === 0) {
+      o1aStatus = 'START YOUR FOLDER'; o1aColor = '#8A8172';
+      o1aBorder = '#E2DACA'; o1aBg = 'transparent';
+      o1aNote = 'Nothing ticked yet. The most common early wins are critical role (founder of a VC-backed company), judging (accept hackathon jury invites), and press (a named quote in a real publication).';
+    } else if (count < 3) {
+      o1aStatus = 'BELOW THE BAR'; o1aColor = accent;
+      o1aBorder = accent; o1aBg = '#F5E4D8';
+      o1aNote = 'You need 3 to file. The gap is manufacturable — accepting hackathon judge invites over 3–6 months clears "judging" from a standing start. A well-placed guest article clears "scholarly articles" or bolsters press.';
+    } else if (count < 5) {
+      o1aStatus = 'AT THE BAR'; o1aColor = '#7FD1A6';
+      o1aBorder = '#7FD1A6'; o1aBg = 'transparent';
+      o1aNote = 'You meet the 3-criteria bar. Get 2–3 lawyer quotes and ask each which criteria they would argue — the answer tells you a lot about the lawyer.';
+    } else {
+      o1aStatus = 'STRONG CASE'; o1aColor = '#7FD1A6';
+      o1aBorder = '#7FD1A6'; o1aBg = 'transparent';
+      o1aNote = 'Strong case on paper. Start the peer advisory opinion this week — it is easy to underestimate the turnaround, and it blocks filing.';
+    }
+    const o1a = { count, status: o1aStatus, color: o1aColor, border: o1aBorder, bg: o1aBg, note: o1aNote };
+
+    // ---- Paths ----
+    const paths = ['b1', 'o1a', 'l1a', 'h1b'].map(k => {
+      const p = PATHS[k];
+      const isRec = (k === 'b1' && !situation.b12)
+        || (k === 'o1a' && !situation.h1b && !situation.indianEntity)
+        || (k === 'l1a' && situation.indianEntity && !situation.h1b)
+        || (k === 'h1b' && situation.h1b);
+      return {
+        name: p.name, tag: p.tag, permits: p.permits, best: p.best,
+        timeline: p.timeline, watch: p.watch,
+        tagColor: isRec ? accent : '#8A8172',
+        bg: isRec ? '#F5F1E7' : 'transparent',
+      };
+    });
+
+    const o1aFacts = [
+      { tag: 'APPROVAL RATE', d: 'Roughly 94% recently, with about 18.7% of cases seeing an RFE. An RFE adds 2–4 months and usually still ends in approval.' },
+      { tag: 'GOVERNMENT FEES', d: 'I-129 O is $1,055 (or $530 for small employers with ≤25 FTE) plus a $600 (or $300) asylum programme fee. A startup sponsoring its own founder pays about $830 in filing fees.' },
+      { tag: 'ATTORNEY FEES', d: 'Founder-focused immigration lawyers run $6,000–$15,000. Premium processing is $2,965 (effective 1 March 2026) for a 15-business-day decision.' },
+      { tag: 'WHY IT BEATS H-1B WAITING', d: 'No lottery, no annual cap, no per-country cap. That last one is what puts India-born applicants in decade-long green card queues.' },
+    ];
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      g,
+      tipL: this.state.align === 'right' ? 'auto' : '0',
+      tipR: this.state.align === 'right' ? '0' : 'auto',
+
+      situationChips, scout, work,
+      paths,
+      criteriaChips, o1a, o1aFacts,
+      nobody: NOBODY,
+
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+
+      sources: [
+        { label: 'uscis · o-1 visa', url: 'https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement' },
+        { label: 'uscis · o-1a policy manual', url: 'https://www.uscis.gov/policy-manual/volume-2-part-m-chapter-4' },
+        { label: 'uscis · b-1 temporary business visitor', url: 'https://www.uscis.gov/working-in-the-united-states/temporary-business-visitor' },
+        { label: 'cbp · b-1 permissible activities', url: 'https://help.cbp.gov/s/article/Article-1140' },
+        { label: 'uscis · l-1a intracompany transferee', url: 'https://www.uscis.gov/working-in-the-united-states/temporary-workers/l-1a-intracompany-transferee-executive-or-manager' },
+        { label: 'uscis · h-1b modernization final rule', url: 'https://www.uscis.gov/newsroom/news-releases/dhs-modernizes-h-1b-program-adds-benefits-and-flexibilities-improves-integrity-measures' },
+        { label: 'state dept · visa wait times', url: 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html' },
+        { label: 'state dept · visa bulletin', url: 'https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html' },
+        { label: 'uscis · fee schedule (8 cfr 106.2)', url: 'https://www.uscis.gov/g-1055' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__visas';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['US entity & flip', '__entity'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 · COMPANY', pages: [['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -55,6 +55,21 @@
   status = 200
 
 [[redirects]]
+  from = "/visas"
+  to = "/Bay Playbook Visas.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/entity"
+  to = "/Bay Playbook Entity Delaware Flip.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/delaware-flip"
+  to = "/Bay Playbook Entity Delaware Flip.dc.html"
+  status = 200
+
+[[redirects]]
   from = "/housing"
   to = "/Bay Playbook Housing.dc.html"
   status = 200
