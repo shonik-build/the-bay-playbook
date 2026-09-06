@@ -50,6 +50,11 @@
   status = 200
 
 [[redirects]]
+  from = "/personalbank"
+  to = "/Bay Playbook Personal Banking.dc.html"
+  status = 200
+
+[[redirects]]
   from = "/housing"
   to = "/Bay Playbook Housing.dc.html"
   status = 200

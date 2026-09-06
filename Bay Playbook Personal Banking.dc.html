@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S2 · LANDING, WEEK 1</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Personal banking — walk into the right branch on day one</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Which US bank actually opens an account for a fresh Indian arrival without an SSN, what to bring, and the two digital accounts that cover what a branch can't.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">TICK WHAT YOU HAVE. WE'LL RANK THE BRANCHES.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ docChips }}" as="d" hint-placeholder-count="6">
+          <button onClick="{{ d.toggle }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.color }};cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="border-color:#1A1712">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ d.dot }}"></span>
+            {{ d.label }}
+          </button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid {{ verdict.border }};background:{{ verdict.bg }};border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ verdict.tagColor }};margin-bottom:5px">{{ verdict.tag }}</div>
+        <div style="font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ verdict.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ verdict.note }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Business accounts are a different problem with a different sequence, and the fintech route (Mercury and friends) needs no branch at all. That is the <a href="Bay Playbook Business Banking.dc.html">Business banking</a> guide. Cards, ITIN and personal credit sit in <a href="Bay Playbook Money.dc.html">Money, credit &amp; ITIN</a>. Keep the two strictly separate from day one.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The five banks, ranked as they open for you</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">All five open accounts for non-residents in principle. What varies is how much friction a branch adds when your document set is short, and which corridor-specific tips actually shave weeks off the process.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <sc-for list="{{ banks }}" as="b" hint-placeholder-count="5">
+        <div style="padding:14px 16px;border-bottom:1px solid #EFE9DC;background:{{ b.bg }}">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px">
+            <span style="font-size:15.5px;font-weight:800;letter-spacing:-0.01em">{{ b.name }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ b.rankColor }}">{{ b.rank }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ b.scoreColor }};margin-left:auto">{{ b.score }}</span>
+          </div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629;margin-bottom:9px">{{ b.pitch }}</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px 16px">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">TYPICAL DOCS</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ b.docs }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">HOW YOU APPLY</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ b.channel }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:var(--accent);margin-bottom:2px">WATCH FOR</div>
+              <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ b.watch }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Branch-visit hacks that actually work</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Policy varies by individual banker more than by institution. These are the four that swing a marginal case.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ hacks }}" as="h" hint-placeholder-count="4">
+        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ h.tag }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ h.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The two digital accounts a branch doesn't cover</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">A branch account solves Zelle, checks and in-person cash. It does not solve multi-currency holding or cheap India transfers. Those are separate digital accounts, not replacements.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+      <sc-for list="{{ digital }}" as="x" hint-placeholder-count="2">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px">
+            <a href="{{ x.url }}" target="_blank" style="font-size:15.5px;font-weight:800;letter-spacing:-0.01em;color:#1A1712" style-hover="color:var(--accent)">{{ x.name }} ↗</a>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ x.tagColor }}">{{ x.tag }}</span>
+          </div>
+          <div style="font-size:14px;line-height:1.6;color:#3D3629">{{ x.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Sending money home in volume is a separate topic: NRE and NRO mechanics, Wise-vs-Remitly and the 1% remittance tax all live in <a href="Bay Playbook NRI Banking.dc.html">Sending money home &amp; NRI banking</a>.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const DOCS = [
+  { id: 'passport', label: 'Passport' },
+  { id: 'visa', label: 'Visa stamp' },
+  { id: 'address', label: 'US address proof' },
+  { id: 'ssn', label: 'SSN' },
+  { id: 'itin', label: 'ITIN' },
+  { id: 'hsbcIndia', label: 'HSBC India customer' },
+];
+
+const BANKS = {
+  bofa: {
+    name: 'Bank of America',
+    pitch: 'Broadest accepted-ID list of the big three, including foreign passports and consular IDs. The default suggestion when the SSN has not landed.',
+    docs: 'Passport, second document, US address. Consular ID accepted at many branches.',
+    channel: 'In-branch. Book a new-to-country appointment ahead.',
+    watch: 'SafeBalance is $4.95, waived at $500. Ask the specific waiver threshold, banker-to-banker.',
+  },
+  hsbc: {
+    name: 'HSBC',
+    pitch: 'Existing HSBC India customers can sometimes pre-open a US account before landing. Nothing else on this list beats that.',
+    docs: 'Passport, visa. If pre-arrival, an active Indian HSBC relationship.',
+    channel: 'Some pre-arrival setup possible. Ask your India relationship manager before you fly.',
+    watch: 'Only a live edge if you were already an HSBC India customer. Walk-in for non-HSBC applicants is closer to Chase in difficulty.',
+  },
+  chase: {
+    name: 'Chase',
+    pitch: 'Biggest branch network of the three. Most branches expect a taxpayer ID (SSN or ITIN) even though official policy allows exceptions, so branch-lottery matters.',
+    docs: 'Passport, second ID, US address. Most branches also expect SSN or ITIN in practice.',
+    channel: 'In-branch for non-residents. Online applications generally require an SSN.',
+    watch: 'Total Checking is $15/month, waived at $1,500 balance or $500 monthly deposits. Confirm the exact waiver with your banker.',
+  },
+  wells: {
+    name: 'Wells Fargo',
+    pitch: 'Similar profile to Chase: strong branch network, moderate friction for non-residents, banker-dependent outcomes.',
+    docs: 'Passport, visa, US address. Some branches also expect an SSN.',
+    channel: 'In-branch. Book ahead if possible.',
+    watch: 'Everyday Checking is $10/month, waived at $500 monthly deposits or a $500 minimum daily balance.',
+  },
+  cu: {
+    name: 'Credit unions (Alliant, Bay Area CUs)',
+    pitch: 'Often the most flexible on documentation. The tradeoff is membership eligibility rules, which vary by CU and can be the actual bottleneck.',
+    docs: 'Passport, visa, address proof. Membership eligibility varies (employer, geography, association).',
+    channel: 'Branch or online, CU-dependent.',
+    watch: 'Confirm you qualify for membership before applying — it is a harder gate than the documents in most cases.',
+  },
+};
+
+const HACKS = [
+  { tag: 'BOOK THE APPOINTMENT', d: 'Ask specifically for a "new-to-country account opening" appointment. Bankers pattern-match to it and pull the right forms in advance.' },
+  { tag: 'WEEKDAY MORNING', d: 'Bankers have more time to escalate an edge case to a manager if any of your documents sit slightly outside the standard checklist.' },
+  { tag: 'BRING MORE THAN THE MINIMUM', d: 'Passport, visa, I-94 printout, lease or hotel confirmation, and any US business paperwork (EIN letter, Mercury statement) all read as "real operating founder" rather than "flight risk".' },
+  { tag: 'TRY A DIFFERENT BRANCH', d: 'If declined, try a different branch of the same bank before switching institutions. Policy genuinely varies by individual banker, not just by name over the door.' },
+];
+
+const DIGITAL = {
+  wise: {
+    name: 'Wise (personal)',
+    url: 'https://wise.com/us/',
+    tag: 'THE MULTI-CURRENCY WORKHORSE',
+    d: 'Hold and convert USD and INR at a transparent mid-market rate, with a fee shown separately rather than baked into the exchange rate. Worth opening the moment you are moving money in both directions regularly — not just for one-off transfers home.',
+  },
+  revolut: {
+    name: 'Revolut',
+    url: 'https://www.revolut.com/en-US/',
+    tag: 'INDIA-TRAVEL COMPANION',
+    d: 'Multi-currency cards useful primarily around India trips: hold small INR balances, avoid the India-side FX markup at ATMs and merchants. Not a replacement for a US daily-banking account.',
+  },
+};
+
+const CHECKS = [
+  { id: 'appt', text: 'Book a new-to-country appointment at two banks in your first week, not one' },
+  { id: 'docs', text: 'Take passport, visa, I-94 printout and address proof to every branch visit' },
+  { id: 'branch', text: 'If declined, try a different branch of the same bank before switching institutions' },
+  { id: 'hsbc', text: 'HSBC India customer? Email your India relationship manager before you fly and ask about US pre-arrival setup' },
+  { id: 'wise', text: 'Open Wise personal once your US account exists — the moment you start moving money in both directions' },
+  { id: 'revolut', text: 'Add Revolut before your first India trip if you travel back often, otherwise skip it' },
+];
+
+const KEY = 'bp-personalbank';
+
+class Component extends DCLogic {
+  state = {
+    docs: { passport: true, visa: true, address: false, ssn: false, itin: false, hsbcIndia: false },
+    done: {},
+  };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ docs: s.docs || this.state.docs, done: s.done || {} });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { docs: this.state.docs, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  toggleDoc(id) {
+    const docs = { ...this.state.docs, [id]: !this.state.docs[id] };
+    this.persist({ docs });
+  }
+
+  saveChecks(done) {
+    this.persist({ done });
+  }
+
+  chip(on) {
+    return { border: on ? '#1A1712' : '#C9C0AD', bg: on ? '#1A1712' : '#FFFDF8', color: on ? '#FAF7F1' : '#3D3629', dot: on ? this.props.accent ?? '#E8500A' : '#C9C0AD' };
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { docs } = this.state;
+
+    const hasTaxId = docs.ssn || docs.itin;
+
+    // Rank the banks based on the selected doc set.
+    // Higher score = better fit today. Tie-breaks: HSBC-India first, then broader-ID banks.
+    const score = {
+      bofa: 60 + (docs.address ? 15 : 0) + (hasTaxId ? 10 : 20),
+      hsbc: docs.hsbcIndia ? 95 : 50,
+      chase: 55 + (docs.address ? 10 : 0) + (hasTaxId ? 25 : -5),
+      wells: 50 + (docs.address ? 10 : 0) + (hasTaxId ? 20 : 0),
+      cu: 45 + (docs.address ? 10 : 0) + 5,
+    };
+
+    const ordered = Object.keys(BANKS).sort((a, b) => score[b] - score[a]);
+
+    const banks = ordered.map((k, i) => {
+      const rank = i === 0 ? 'START HERE' : i === 1 ? 'THEN' : i === ordered.length - 1 ? 'FALLBACK' : 'ALSO';
+      const rankColor = i === 0 ? accent : '#8A8172';
+      const scoreColor = score[k] >= 80 ? '#1A1712' : score[k] >= 60 ? '#5A5243' : '#8A8172';
+      const scoreLabel = score[k] >= 80 ? 'STRONG FIT TODAY' : score[k] >= 60 ? 'WORKABLE' : 'LOW ODDS TODAY';
+      return {
+        name: BANKS[k].name, pitch: BANKS[k].pitch, docs: BANKS[k].docs,
+        channel: BANKS[k].channel, watch: BANKS[k].watch,
+        rank, rankColor, score: scoreLabel, scoreColor,
+        bg: i === 0 ? '#F5F1E7' : 'transparent',
+      };
+    });
+
+    // Verdict headline based on the winner and the doc set.
+    const top = ordered[0];
+    let vHead, vNote, vTag, vBorder, vBg, vTagColor;
+    if (top === 'hsbc') {
+      vHead = 'HSBC first, before you fly';
+      vTag = 'YOUR PRE-ARRIVAL WINDOW';
+      vNote = 'Email your India HSBC relationship manager this week. The US onboarding can start before you land, which nothing else on this list matches. Walk into BofA in week one as your fallback.';
+      vBorder = accent; vBg = '#F5E4D8'; vTagColor = accent;
+    } else if (!hasTaxId) {
+      vHead = 'Bank of America, in-branch, week one';
+      vTag = 'WITHOUT AN SSN OR ITIN';
+      vNote = 'BofA takes the broadest ID list of the big three, including foreign passports and consular IDs. Book a new-to-country appointment before you land, and take Wells Fargo as your second try if a specific banker balks.';
+      vBorder = accent; vBg = '#F5E4D8'; vTagColor = accent;
+    } else {
+      vHead = 'Chase first, with BofA as your second appointment';
+      vTag = 'WITH A TAX ID IN HAND';
+      vNote = 'An SSN or ITIN opens the widest branch network to you. Chase is the biggest surface area, BofA is the softer landing if a specific Chase banker says no. Book both appointments in the same week.';
+      vBorder = '#1A1712'; vBg = '#FFFDF8'; vTagColor = '#8A8172';
+    }
+    const verdict = { head: vHead, note: vNote, tag: vTag, border: vBorder, bg: vBg, tagColor: vTagColor };
+
+    const docChips = DOCS.map(d => ({
+      label: d.label,
+      toggle: () => this.toggleDoc(d.id),
+      ...this.chip(!!docs[d.id]),
+    }));
+
+    const hacks = HACKS;
+    const digital = ['wise', 'revolut'].map(k => ({
+      name: DIGITAL[k].name, url: DIGITAL[k].url, tag: DIGITAL[k].tag,
+      d: DIGITAL[k].d, tagColor: k === 'wise' ? accent : '#8A8172',
+    }));
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.saveChecks({ ...this.state.done, [c.id]: !done }),
+      };
+    });
+
+    return {
+      docChips,
+      verdict,
+      banks,
+      hacks,
+      digital,
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.saveChecks({}),
+
+      sources: [
+        { label: 'bofa · id requirements for accounts', url: 'https://www.bankofamerica.com/deposits/checking/what-you-need-to-open-an-account/' },
+        { label: 'chase · accounts for non-residents', url: 'https://www.chase.com/personal/banking/education/basics/us-bank-account-for-non-residents' },
+        { label: 'wells fargo · checking accounts', url: 'https://www.wellsfargo.com/checking/' },
+        { label: 'hsbc · usa', url: 'https://www.us.hsbc.com/' },
+        { label: 'alliant credit union', url: 'https://www.alliantcreditunion.org/' },
+        { label: 'wise · personal accounts', url: 'https://wise.com/us/' },
+        { label: 'revolut · usa', url: 'https://www.revolut.com/en-US/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__personalbank';
+        const H = {
+          '__reality': 'https://thefounderfolks.com/bay-playbook/reality-check',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visa guide', 'visa'], ['Remote setup', '__remote'], ['Short-term housing', 'short-term-housing'], ['Packing + medications', '__packing']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', 'day07'], ['SIM + phone', 'sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends']] },
+          { label: 'S5 · COMPANY', pages: [['US entity', 'entity'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>
