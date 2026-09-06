@@ -236,7 +236,7 @@ a:hover{color:#1A1712}
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:34px">
-      <sc-for list="{{ itinFacts }}" as="f" hint-placeholder-count="3">
+      <sc-for list="{{ itinFacts }}" as="f" hint-placeholder-count="4">
         <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
           <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">{{ f.t }}</div>
           <div style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ f.d }}</div>
@@ -475,7 +475,7 @@ class Component extends DCLogic {
 
       sequencing: [
         { when: 'MONTH 6\u20139', what: 'Call your oldest card\u2019s issuer and ask about graduation to unsecured, or a limit increase. It is a soft pull. Don\u2019t apply anywhere new yet.' },
-        { when: 'MONTH 12+', what: 'At a 670 to 700 score, add one everyday card. Chase Freedom Rise is the current starter, since the old Freedom closed to new applicants years ago. If you rent, Bilt still earns on rent with no transaction fee, but under the February 2026 rules you now need 25%+ of your rent amount in regular card spend each month to earn meaningfully, so it only works as your daily card.' },
+        { when: 'MONTH 12+', what: 'At a 670 to 700 score, add one everyday card. Chase Freedom Rise is the current starter, since the old Freedom closed to new applicants years ago. If you rent, Bilt still earns on rent with no transaction fee, but under the February 2026 rules you now need 25%+ of your rent amount in regular card spend each month to earn meaningfully, so it only works as your daily card. If you fly to India two or three times a year, this is also when a travel card starts to earn its keep: Chase Sapphire Preferred or Amex Gold both drop the FX fee and carry Indian airline transfer partners.' },
         { when: 'ON THE WAY OUT', what: 'Secured deposits come back 2 to 8 weeks after you close or graduate, depending on issuer. Budget for the float.' },
       ],
 
@@ -499,6 +499,7 @@ class Component extends DCLogic {
         { t: 'A tax number only', d: 'No work authorisation, no Social Security credit, no EITC.' },
         { t: 'It expires', d: 'Unused on a return for 3 consecutive years and it lapses.' },
         { t: 'The credits changed in 2025', d: 'The Child Tax Credit now requires SSNs, and education credits will from 2026, so an ITIN-only household member no longer unlocks those. If credits are part of your filing math, run it past your CPA.' },
+        { t: 'Some banks open accounts on it', d: 'A handful of banks and state credit unions treat an ITIN as sufficient for primary account opening, not just for a spouse. Worth a branch ask if your SSN path is blocked or slow, especially at community banks and immigrant-focused credit unions.' },
       ],
 
       buckets: [

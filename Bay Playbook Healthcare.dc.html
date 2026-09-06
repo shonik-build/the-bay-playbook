@@ -181,7 +181,7 @@ input[type=date]{font-family:'IBM Plex Mono',monospace}
       </div>
       <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">WHAT BEATS ALL OF THIS</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">Once the startup can offer a group plan: no windows, no cliff, and the 2027 change does not touch employer coverage. Whether a founders-only company qualifies for small-group coverage in California is broker territory, so ask one before counting on it.</div>
+        <div style="font-size:14px;line-height:1.6;color:#3D3629">Once the startup can offer a group plan the 60-day trap disappears entirely: group enrollment runs on its own calendar, not the individual-market SEP. No windows, no cliff, and the 2027 change does not touch employer coverage. Whether a founders-only company qualifies for small-group coverage in California is broker territory, so ask one before counting on it.</div>
       </div>
     </div>
 
@@ -362,7 +362,7 @@ class Component extends DCLogic {
     ];
 
     const clockNote = expired
-      ? 'Your window has closed. The next entry is open enrollment, 1 November to 31 January in California, for a 1 January start. Until then you are on visitor insurance, and the state fines you for it: the uninsured penalty was $950 per adult for 2025 and visitor plans do not count as coverage. A gap of three months or less is exempt, which forgives a normal landing. It does not forgive missing this deadline and coasting to November.'
+      ? 'Your window has closed. The next entry is open enrollment, 1 November to 31 January in California, for a 1 January start. Until then you are on visitor insurance, and the state fines you for it: the uninsured penalty was $950 per adult for 2025 and visitor plans do not count as coverage. A gap of three months or less is exempt, which forgives a normal landing. It does not forgive missing this deadline and coasting to November. If you need real cover in the gap, a US short-term medical plan (up to 12 months in California) can bridge you to open enrollment: it excludes pre-existing conditions and sits outside the No Surprises Act, but it does treat acute illness and injury like a real policy.'
       : tight
         ? 'Under two weeks left. Enroll this week rather than this month, because the plan is not active until the first premium clears and a payment hiccup at the wrong moment costs you the whole window.'
         : 'After the deadline there is no marketplace plan until open enrollment on 1 November, and California fines you $950 per adult for the gap. Enrolling in your arrival month is what keeps the bridge plan to ' + days(bridgeDays) + ' rather than a full extra month.';
