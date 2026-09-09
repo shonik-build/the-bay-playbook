@@ -57,8 +57,8 @@ a:hover{color:#1A1712}
       <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED AUG 2026</span>
     </div>
 
-    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Money, credit &amp; ITIN</h1>
-    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">The fix is mechanical and takes about 12 months. Bank account, first cards, an ITIN if your household needs one, and the money setup that keeps a thin file clean.</p>
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Money &amp; credit</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">The fix is mechanical and takes about 12 months. Bank account, first cards, and the money setup that keeps a thin file clean. If anyone in your household needs an ITIN, the walkthrough is on <a href="Bay Playbook SSN ITIN License.dc.html">Get your US IDs</a>.</p>
 
     <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:26px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">A LANDLORD RUNS A CREDIT CHECK ON DAY ONE</div>
@@ -180,68 +180,13 @@ a:hover{color:#1A1712}
       </div>
     </div>
 
-    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Who in your household needs an ITIN</h2>
-    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 16px">Probably not you. The IRS will not issue an <span style="position:relative;display:inline-block"><button onClick="{{ g.itin.toggle }}" style="font:inherit;font-weight:600;color:#3D3629;background:{{ g.itin.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">ITIN</button><sc-if value="{{ g.itin.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.itin.tag }}</span>{{ g.itin.def }}</span></sc-if></span> to anyone who can get an SSN. Pick the case that matches.</p>
-
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
-      <sc-for list="{{ caseChips }}" as="c" hint-placeholder-count="4">
-        <button onClick="{{ c.pick }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }}" style-hover="border-color:#1A1712">{{ c.label }}</button>
-      </sc-for>
-    </div>
-    <sc-if value="{{ showEad }}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">DOES THAT SPOUSE HOLD AN APPROVED EAD?</span>
-        <button onClick="{{ eadChip.toggle }}" style="display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:7px 12px;border-radius:999px;cursor:pointer;border:1px solid {{ eadChip.border }};background:{{ eadChip.bg }};color:{{ eadChip.color }}" style-hover="border-color:#1A1712">
-          <span style="width:9px;height:9px;border-radius:50%;background:{{ eadChip.dot }};flex-shrink:0"></span>{{ eadChip.label }}
-        </button>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:12px;padding:20px 24px;margin-bottom:34px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;justify-content:space-between">
+      <div style="flex:1;min-width:260px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">NEED AN ITIN?</div>
+        <div style="font-size:16px;font-weight:800;line-height:1.3;margin-bottom:4px">The walkthrough moved.</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Who needs one, the four W-7 cases, the CAA route and the rejection traps all live on <b>Get your US IDs</b> now — alongside the SSN and licence walkthroughs they belong next to.</div>
       </div>
-    </sc-if>
-
-    <div style="background:#1A1712;color:#FAF7F1;border-radius:12px;padding:24px;margin-bottom:12px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172">{{ itin.tag }}</div>
-      <div style="font-size:26px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-top:3px;color:{{ itin.color }}">{{ itin.head }}</div>
-      <sc-if value="{{ itin.needsForm }}" hint-placeholder-val="{{ true }}">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px">
-          <div style="border:1px solid #332D24;border-radius:10px;padding:14px 15px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#F5B896;margin-bottom:6px">W-7 BOX</div>
-            <div style="font-size:19px;font-weight:800;line-height:1.2">{{ itin.box }}</div>
-            <div style="font-size:13px;line-height:1.5;color:#C9C0AD;margin-top:5px">{{ itin.boxNote }}</div>
-          </div>
-          <div style="border:1px solid #332D24;border-radius:10px;padding:14px 15px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#F5B896;margin-bottom:6px">RETURN ATTACHED</div>
-            <div style="font-size:19px;font-weight:800;line-height:1.2">{{ itin.ret }}</div>
-            <div style="font-size:13px;line-height:1.5;color:#C9C0AD;margin-top:5px">{{ itin.retNote }}</div>
-          </div>
-        </div>
-      </sc-if>
-      <div style="border-top:1px solid #332D24;margin-top:18px;padding-top:14px;font-size:15px;line-height:1.6;color:#FAF7F1;max-width:600px">{{ itin.note }}</div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
-      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">THE CLOCK · NOTHING SHORTENS IT</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">About 7 weeks, stretching to 9 or 11 between mid-January and April, or when applying from abroad.</div>
-      </div>
-      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHAT A CAA ACTUALLY BUYS YOU</div>
-        <div style="font-size:14px;line-height:1.6;color:#3D3629">A <span style="position:relative;display:inline-block"><button onClick="{{ g.caa.toggle }}" style="font:inherit;font-weight:600;color:#1A1712;background:{{ g.caa.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">Certifying Acceptance Agent</button><sc-if value="{{ g.caa.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;width:270px;max-width:calc(100vw - 44px);box-sizing:border-box;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.caa.tag }}</span>{{ g.caa.def }}</span></sc-if></span> verifies the original passport in person and hands it straight back, instead of you mailing your only passport to the IRS for two months. Not speed. Fees vary more than the service does, so quote two or three corridor CPA firms.</div>
-      </div>
-    </div>
-    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px">THE IRS REJECTS PACKETS RATHER THAN ASKING FOR CORRECTIONS</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:7px 18px">
-        <sc-for list="{{ rejections }}" as="r" hint-placeholder-count="5">
-          <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ r.v }}</span></div>
-        </sc-for>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:34px">
-      <sc-for list="{{ itinFacts }}" as="f" hint-placeholder-count="4">
-        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
-          <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">{{ f.t }}</div>
-          <div style="font-size:13.5px;line-height:1.5;color:#3D3629">{{ f.d }}</div>
-        </div>
-      </sc-for>
+      <a href="Bay Playbook SSN ITIN License.dc.html" style="display:inline-block;background:#1A1712;color:#FAF7F1;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:700;white-space:nowrap" style-hover="background:var(--accent)">Get your US IDs →</a>
     </div>
 
     <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Day-to-day money</h2>
@@ -571,7 +516,7 @@ class Component extends DCLogic {
           { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
           { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
           { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
-          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['Get your US IDs', '__ssn'], ['Money & credit', '__money'], ['Send money home', '__nri'], ['Healthcare & insurance', '__health']] },
           { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF↔India travel', '__travel']] },
         ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
           title: p[0],

@@ -215,7 +215,7 @@ const WIZ_STAGES = [
     ] },
   { key: 'month1', label: 'First month figuring it out', tag: 'S3 · FIRST MONTH', head: 'The paperwork + housing sprint', next: [
       ['Housing & neighbourhoods', 'Whole Bay, persona decision tree', 'Bay Playbook Housing.dc.html'],
-      ['Money, credit & ITIN', 'Zolve, Amex, secured — in that order', 'Bay Playbook Money.dc.html'],
+      ['Money & credit', 'Zolve, Amex, secured — in that order', 'Bay Playbook Money.dc.html'],
       ['Healthcare & insurance', '60-day marketplace clock starts on landing', 'Bay Playbook Healthcare.dc.html'],
     ] },
   { key: 'living', label: 'Living here already', tag: 'S4 · LIVING HERE', head: 'The ongoing life — community, culture, corridor', next: [
@@ -351,7 +351,7 @@ class Component extends DCLogic {
       { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', P.visas], ['Moving with family', P.family], ['Remote setup', P.remote], ['Landing pad', P.landingpad], ['Packing + medications', P.packing]] },
       { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', P.entity], ['Visas for founders', P.visas], ['Business banking', P.bizbank], ['Accelerators & programs', P.accel]] },
       { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', P.day07], ['SIM + phone', P.sim], ['Apps to download', P.apps], ['Personal banking', P.personalbank], ['Getting around', P.around], ['Emergency contacts', P.emergency]] },
-      { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', P.money], ['Money home & NRI banking', P.nri], ['Healthcare & insurance', P.health]] },
+      { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['Get your US IDs', P.ssn], ['Money & credit', P.money], ['Send money home', P.nri], ['Healthcare & insurance', P.health]] },
       { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', P.culture], ['Networking in SF', P.networking], ['Live events calendar', P.events], ['Indian groceries & food', P.groceries], ['What to do on weekends', P.weekends], ['SF↔India travel', P.travel]] },
     ].map(g => ({ label: g.label, pages: g.pages.map(p => ({ title: p[0], href: p[1] })) }));
     const wiz = WIZ_STAGES.find(w => w.key === this.state.wizStage) || WIZ_STAGES[1];

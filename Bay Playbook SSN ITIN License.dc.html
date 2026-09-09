@@ -253,9 +253,70 @@ a:hover{color:#1A1712}
     </div>
     <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 34px;max-width:640px">I'd spend an hour with a local driving instructor the week before, because they teach the examiner's checklist rather than driving, and you need someone in the passenger seat anyway. Pass, and you get a paper temporary licence valid 60 days. The plastic card arrives in three to four weeks.</p>
 
-    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Walkthrough C: the ITIN, in brief</h2>
-    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">The <a href="Bay Playbook Guides.dc.html#money">money and credit guide</a> carries the full walkthrough. The short version, because it changes what you do in month one: an ITIN is for people who owe US tax but can't get an SSN, which usually means an O-3 or H-4 spouse without work authorisation. If your spouse is eligible for an SSN, they cannot have an ITIN.</p>
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Walkthrough C: the ITIN</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 12px;max-width:640px">An ITIN is for people who owe US tax but can't get an SSN, which usually means an O-3 or H-4 spouse without work authorisation. If your spouse is eligible for an SSN, they cannot have an ITIN — the two are mutually exclusive.</p>
     <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">You can't apply on a whim. <a href="https://www.irs.gov/tin/itin/how-to-apply-for-an-itin" target="_blank">The <span style="position:relative;display:inline-block"><button onClick="{{ g.w7.toggle }}" style="font:inherit;font-weight:600;color:var(--accent);background:{{ g.w7.bg }};border:none;border-bottom:1.5px dotted var(--accent);padding:0 1px;cursor:help">W-7</button><sc-if value="{{ g.w7.open }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:{{ tipL }};right:{{ tipR }};top:calc(100% + 8px);z-index:30;max-width:calc(100vw - 44px);width:270px;background:#1A1712;color:#FAF7F1;border-radius:9px;padding:12px 14px;font-size:13px;line-height:1.5;font-weight:400;text-align:left;box-shadow:0 10px 28px rgba(26,23,18,0.3)"><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:4px">{{ g.w7.tag }}</span>{{ g.w7.def }}</span></sc-if></span> has to travel attached to a tax return</a> unless you meet one of a few narrow exceptions, so the first realistic window is your first US filing, the April after your first year here. The IRS asks for 7 weeks, or 9 to 11 between 15 January and 30 April when everyone files at once. File early in that window rather than on 14 April.</p>
+    <h3 style="font-size:16px;font-weight:800;letter-spacing:-0.01em;margin:26px 0 8px">Who in your household needs one</h3>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 12px">The IRS won't issue an ITIN to anyone who can get an SSN. The four cases that legitimately need one:</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(160px,220px) minmax(90px,120px) minmax(110px,140px) 1fr;gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>CASE</div><div>W-7 BOX</div><div>RETURN?</div><div>WHAT IT MEANS</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(160px,220px) minmax(90px,120px) minmax(110px,140px) 1fr;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+        <div style="font-size:14px;font-weight:700;line-height:1.3">Spouse on H-4 or O-3, no work authorisation</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600">(e)</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent)">Yes · joint 1040</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#3D3629">The standard corridor case. Needs the primary filer's name and SSN on the form. Since 2018, applications only clear if the spouse is actually claimed for a tax benefit — "for the records" filings get rejected.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(160px,220px) minmax(90px,120px) minmax(110px,140px) 1fr;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+        <div style="font-size:14px;font-weight:700;line-height:1.3">You, abroad with a US LLC or C-corp</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600">(b)</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent)">Yes · 1040-NR</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#3D3629">Non-resident alien with US-source income to report. The W-7 goes in with the return, unless a specific exception applies.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(160px,220px) minmax(90px,120px) minmax(110px,140px) 1fr;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+        <div style="font-size:14px;font-weight:700;line-height:1.3">Treaty-rate withholding claim (royalties, dividends)</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600">(a) + (h)</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7FD1A6">No · withholding cert</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#3D3629">The one case that doesn't attach a return. Claiming reduced US–India treaty withholding on royalties or dividends. Missing the article number is a standard rejection.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(160px,220px) minmax(90px,120px) minmax(110px,140px) 1fr;gap:5px 14px;align-items:baseline;padding:12px 16px">
+        <div style="font-size:14px;font-weight:700;line-height:1.3">You, on a work visa (H-1B, O-1, L-1)</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172">—</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7FD1A6">Not eligible</div>
+        <div style="font-size:13.5px;line-height:1.55;color:#3D3629">You're SSN-eligible, so the IRS won't issue you an ITIN. Apply for the SSN in week 1 and skip this section.</div>
+      </div>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px">THE IRS REJECTS PACKETS RATHER THAN ASKING FOR CORRECTIONS</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:7px 18px">
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">Wrong W-7 box for the actual situation</span></div>
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">Expired passport</span></div>
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">Non-English documents without certified translation</span></div>
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">Treaty claims without the article number</span></div>
+        <div style="display:grid;grid-template-columns:8px 1fr;gap:10px;align-items:baseline"><span style="width:5px;height:5px;background:var(--accent);border-radius:50%;position:relative;top:-2px"></span><span style="font-size:13.5px;line-height:1.5;color:#3D3629">No tax benefit claimed (per the 2018 rule)</span></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:18px">
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">A tax number only</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#3D3629">No work authorisation, no Social Security credit, no EITC.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">It expires</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#3D3629">Unused on a return for 3 consecutive years and it lapses.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">The credits changed in 2025</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#3D3629">Child Tax Credit now requires SSNs; education credits from 2026. ITIN-only members no longer unlock those.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-size:14px;font-weight:800;line-height:1.3;margin-bottom:4px">Some banks open accounts on it</div>
+        <div style="font-size:13.5px;line-height:1.5;color:#3D3629">A handful of banks and CUs treat ITIN as sufficient for primary account opening — not just for a spouse. Worth asking at community banks.</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:800;letter-spacing:-0.01em;margin:26px 0 8px">Where to apply — three in-person routes</h3>
     <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:14px 18px;margin-bottom:14px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:#1A1712;margin-bottom:6px">DON'T MAIL YOUR SPOUSE'S PASSPORT</div>
       <div style="font-size:15px;line-height:1.6;color:#1A1712">The IRS can hold original documents for up to 60 days. Three in-person routes hand them back at the end of the appointment instead.</div>
@@ -602,7 +663,7 @@ class Component extends DCLogic {
           { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
           { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
           { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
-          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['Get your US IDs', '__ssn'], ['Money & credit', '__money'], ['Send money home', '__nri'], ['Healthcare & insurance', '__health']] },
           { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF↔India travel', '__travel']] },
         ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
           title: p[0],
