@@ -70,15 +70,15 @@ class Component extends DCLogic {
     const G = 'Bay Playbook Guides.dc.html#', D = 'Bay Playbook Directory.dc.html', L = 'Bay Playbook Landing v2.dc.html';
     const cards = [
       { num:'D1', q:'Go, wait, or don\u2019t?', on:'Runway vs SF burn, market location, visa readiness, personal support system.', links:[['Reality Check', 'https://thefounderfolks.com/bay-playbook/reality-check'], ['Self-check on the checklist', L + '#s0']] },
-      { num:'D2', q:'Which visa path — B-1 scout, O-1, or the H-1B route?', on:'Evidence you can assemble, timeline, funding stage, how permanent the move is.', links:[['Visa guide', G+'visa']] },
-      { num:'D3', q:'Entity: flip to Delaware, incorporate fresh, or India HQ + US subsidiary?', on:'Raising from US VCs? US revenue? ODI/FEMA exposure, cost and a 3–6 month timeline.', links:[['Entity & flip guide', G+'entity']] },
+      { num:'D2', q:'Which visa path — B-1 scout, O-1, or the H-1B route?', on:'Evidence you can assemble, timeline, funding stage, how permanent the move is.', links:[['Visas for founders', 'Bay Playbook Visas.dc.html']] },
+      { num:'D3', q:'Entity: flip to Delaware, incorporate fresh, or India HQ + US subsidiary?', on:'Raising from US VCs? US revenue? ODI/FEMA exposure, cost and a 3–6 month timeline.', links:[['US entity & flip', 'Bay Playbook Entity Delaware Flip.dc.html']] },
       { num:'D4', q:'How long is this trip — 2-week scout, 3-month sprint, or permanent?', on:'Changes everything downstream: insurance, SIM, banking, housing type.', links:[['Master checklist', L]] },
       { num:'D5', q:'Solo or with family?', on:'Area choice, housing size, insurance plan, schools.', links:[['Housing', G+'housing'], ['Healthcare', G+'healthcare']] },
       { num:'D6', q:'SF vs Peninsula vs South Bay vs East Bay?', on:'Persona: AI-density solo founder → SF; family + car → Fremont/Santa Clara; budget → East Bay.', links:[['Neighborhood decision tree', G+'housing']] },
       { num:'D7', q:'Short-term first, or commit to a lease?', on:'No US credit history, guarantor workarounds, co-living vs Airbnb math.', links:[['Short-term housing', G+'short-term-housing'], ['Housing', G+'housing']] },
       { num:'D8', q:'Keep Indian number & banking, or cut over fully?', on:'OTP dependence, WhatsApp identity, LRS transfer costs.', links:[['SIM & phone', G+'sim'], ['Money guide', G+'money']] },
       { num:'D9', q:'Health cover: travel insurance or a marketplace plan?', on:'The 60-day enrollment window after arrival; visa status; the cost of being wrong is one ER visit.', links:[['Healthcare guide', G+'healthcare']] },
-      { num:'D10', q:'Raise from corridor VCs, US-native VCs, or angels first?', on:'Stage, sector, and who actually opens doors for Indian founders.', links:[['Corridor VCs', D+'#vcs'], ['Entity guide', G+'entity']] },
+      { num:'D10', q:'Raise from corridor VCs, US-native VCs, or angels first?', on:'Stage, sector, and who actually opens doors for Indian founders.', links:[['Corridor VCs', D+'#vcs'], ['US entity & flip', 'Bay Playbook Entity Delaware Flip.dc.html']] },
     ].map(c => ({ ...c, id: c.num.toLowerCase(), links: c.links.map(l => ({ label: l[0], href: l[1] })) }));
     return { cards };
   }
