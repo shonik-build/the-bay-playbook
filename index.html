@@ -102,7 +102,7 @@ input::placeholder{color:#9B927F}
       <sc-if value="{{ realityOpen }}" hint-placeholder-val="{{ true }}">
         <div style="padding:4px 20px 20px;border-top:1px solid #EFE9DC">
           <p style="margin:12px 0 10px;font-size:15.5px;line-height:1.65;color:#3D3629;max-width:640px">It&rsquo;s expensive, it&rsquo;s lonely for the first two months, and your visa is the single biggest thing between you and everything else here. Rent will hurt — the SF 1-bed median just crossed $4,000/mo (Jul 2026, +21.9% in a year). If you haven&rsquo;t raised, aren&rsquo;t default-alive, or are moving because the timeline looks good on X — <strong>don&rsquo;t move yet</strong>.</p>
-          <a href="https://thefounderfolks.com/bay-playbook/reality-check" target="_blank" style="font-size:14px;font-weight:700">Read the full Reality Check →</a>
+          <a href="Bay Playbook Reality Check.dc.html" style="font-size:14px;font-weight:700">Read the full Reality Check →</a>
         </div>
       </sc-if>
     </div>
@@ -310,7 +310,7 @@ class Component extends DCLogic {
       landingpad: 'Bay Playbook Landing Pad.dc.html', day07: 'Bay Playbook Day 07.dc.html', sim: 'Bay Playbook Sim Phone.dc.html',
       events: 'Bay Playbook Live Events.dc.html', travel: 'Bay Playbook SF India Travel.dc.html',
     };
-    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': P.visas, 'Entity guide': P.entity, 'Money guide': P.money, 'Money & ITIN': P.money, 'NRI banking': P.nri, 'SIM guide': G+'sim', 'Bank basics': P.personalbank, 'Short-term housing': G+'short-term-housing', 'Healthcare': P.health, 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Business banking': P.bizbank, 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking, 'Reality check': P.reality, 'Scout trip': P.scout, 'Moving with family': P.family, 'Landing pad': P.landingpad, 'Day 0–7 checklist': P.day07, 'SIM + phone': P.sim, 'Live events': P.events, 'SF↔India travel': P.travel };
+    const HREF = { 'Reality Check': P.reality, 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': P.visas, 'Entity guide': P.entity, 'Money guide': P.money, 'Money & ITIN': P.money, 'NRI banking': P.nri, 'SIM guide': G+'sim', 'Bank basics': P.personalbank, 'Short-term housing': G+'short-term-housing', 'Healthcare': P.health, 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Business banking': P.bizbank, 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking, 'Scout trip': P.scout, 'Moving with family': P.family, 'Landing pad': P.landingpad, 'Day 0–7 checklist': P.day07, 'SIM + phone': P.sim, 'Live events': P.events, 'SF↔India travel': P.travel };
     const decorate = (item) => {
       const c = !!checked[item.id];
       const nobody = item.tag === 'nobody';
