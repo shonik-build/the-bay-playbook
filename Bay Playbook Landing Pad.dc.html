@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S1 · BEFORE YOU FLY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">The landing pad — your first 4 weeks</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Where you sleep before you sign a lease. Co-livings, Airbnbs and hacker houses — not commitments. The rule: never sign long from India.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">HOW LONG DO YOU NEED THE LANDING PAD?</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ durChips }}" as="d" hint-placeholder-count="4">
+          <button onClick="{{ d.pick }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.color }};cursor:pointer" style-hover="border-color:#1A1712">{{ d.label }}</button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid {{ pick.border }};background:{{ pick.bg }};border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ pick.tagColor }};margin-bottom:5px">{{ pick.tag }}</div>
+        <div style="font-size:18px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ pick.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629;margin-bottom:8px">{{ pick.note }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);font-weight:600">Rough cost · {{ pick.cost }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Book 2–4 weeks before flying, never sign a long lease from India, and treat the landing pad as a networking accelerator — not just a bed.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Founder co-livings — where the network compounds</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">A hacker house or founder co-living is often the fastest way to bootstrap a network in SF. Your roommates are your first ten warm intros.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">TECH-FOCUSED</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Mission Control · AGI House · Arcadia House · Atmos House — apply weeks ahead; visible curation, high signal.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">GENERAL</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Tribe Coliving · Vybe Living · Hack n Sleep · Brownstone · LinkedLivin — easier to get into, still founder-dense.</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">The rule: never send a deposit before an in-person or live-video viewing. No written lease = scam. A price way below market = scam.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Groups to join before landing</h2>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:1fr minmax(140px,180px);gap:14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:700;line-height:1.4">{{ g.name }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5A5243">{{ g.size }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Listings move in hours. Being in the group beats refreshing Zillow. Turn on notifications for the top 2.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. Saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const DURS = {
+  '1': { label: '1 week (scout trip)', tag: 'SCOUT MODE',
+    head: 'Airbnb weekly rate or a hacker house bunk',
+    note: 'Book Airbnb with 7-night minimum or grab a bunk at a founder co-living for $40–75/night. Location: SoMa, Hayes Valley or the Mission for max walkable networking. Prioritise density over comfort.',
+    cost: '$400–800' },
+  '2': { label: '2 weeks', tag: 'VALIDATION MODE',
+    head: 'Airbnb with weekly discount, or hacker house',
+    note: 'Airbnb\'s 7+ night discount kicks in. Hacker houses are still the highest ROI for network-building — you meet 20+ founders under one roof. Use the two weeks to walk 3+ neighbourhoods and price rooms.',
+    cost: '$800–1,600' },
+  '4': { label: '4 weeks', tag: 'THE STANDARD LANDING PAD',
+    head: 'Airbnb monthly discount + start apartment hunt',
+    note: 'The Airbnb 28+ night monthly discount cuts your rate 20–50%. This is the sweet spot: enough time to hunt long-term in person, not so long you commit before you\'ve seen the neighbourhood at night. Book the extension option before you fly.',
+    cost: '$1,500–2,800' },
+  '8': { label: '8 weeks', tag: 'FAMILY MODE',
+    head: 'Furnished corporate rental or extended-stay',
+    note: 'Sonder, Outsite or a Zeus Living — furnished, month-to-month, ready for a family. More expensive per night than Airbnb but the walk-in setup (kitchen, laundry, workspace) is worth it if kids or spouse are landing with you.',
+    cost: '$4,000–7,000/mo' },
+};
+
+const GROUPS = [
+  { name: 'Bay Area Rooms and Apartments — Facebook', size: '~181k members' },
+  { name: 'San Francisco Housing, Rooms, Sublets — Facebook', size: '~153k members' },
+  { name: 'San Francisco SF Housing — Facebook', size: '~27k members' },
+  { name: 'Directory SF', size: 'Post & find tech roommates' },
+  { name: 'Flashmates / Subletter SF', size: 'Sublets, weekly turnover' },
+];
+
+const CHECKS = [
+  { id: 'book', text: 'Book weeks 1–4 housing only — never sign a long lease from India' },
+  { id: 'coliving', text: 'Apply to 2+ founder co-livings 2–4 weeks before flying (some have short waitlists)' },
+  { id: 'groups', text: 'Join 3 housing groups before you land — listings move in hours' },
+  { id: 'monthly', text: 'If Airbnb, book 28+ nights to unlock the monthly discount' },
+  { id: 'novid', text: 'Never send a deposit without an in-person or live-video viewing' },
+];
+
+class Component extends DCLogic {
+  state = { dur: '4', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem('bp-landingpad');
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ dur: s.dur || '4', done: s.done || {} });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { dur: this.state.dur, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem('bp-landingpad', JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const dur = this.state.dur || '4';
+    const D = DURS[dur];
+
+    const durChips = Object.keys(DURS).map(k => {
+      const on = dur === k;
+      return { label: DURS[k].label,
+        pick: () => this.persist({ dur: k }),
+        border: on ? '#1A1712' : '#C9C0AD',
+        bg: on ? '#1A1712' : '#FFFDF8',
+        color: on ? '#FAF7F1' : '#3D3629',
+      };
+    });
+
+    const pick = { head: D.head, note: D.note, tag: D.tag, cost: D.cost,
+      border: accent, bg: '#F5E4D8', tagColor: accent };
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      durChips, pick,
+      groups: GROUPS,
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+      sources: [
+        { label: 'airbnb · monthly stays', url: 'https://www.airbnb.com/monthly-stays' },
+        { label: 'sonder', url: 'https://sonder.com/' },
+        { label: 'outsite', url: 'https://outsite.co/' },
+        { label: 'directory sf', url: 'https://www.directorysf.com/directory' },
+        { label: 'agi house · residency', url: 'https://agihouse.org/' },
+        { label: 'hack n sleep', url: 'https://www.hacknsleep.com/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__landingpad';
+        const H = {
+          '__reality': 'Bay Playbook Reality Check.dc.html',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__scout': 'Bay Playbook Scout Trip.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__family': 'Bay Playbook Moving With Family.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__landingpad': 'Bay Playbook Landing Pad.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__day07': 'Bay Playbook Day 07.dc.html',
+          '__sim': 'Bay Playbook Sim Phone.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__events': 'Bay Playbook Live Events.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__travel': 'Bay Playbook SF India Travel.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 \u00B7 DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions'], ['Scout trip', '__scout']] },
+          { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
+          { label: 'BUSINESS \u00B7 YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+          { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF\u2194India travel', '__travel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S4 · LIVING HERE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">QUICK-REFERENCE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">SF↔India travel playbook</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">The repeatable checklist for the 2–4 India trips a year you'll actually take. Routes, timing, jet-lag protocol, documents and customs — both directions.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">WHICH DIRECTION ARE YOU FLYING?</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ dirChips }}" as="d" hint-placeholder-count="2">
+          <button onClick="{{ d.pick }}" style="font:inherit;font-size:13.5px;font-weight:700;padding:10px 18px;border-radius:999px;border:1.5px solid {{ d.border }};background:{{ d.bg }};color:{{ d.color }};cursor:pointer" style-hover="border-color:#1A1712">{{ d.label }}</button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid {{ dir.border }};background:{{ dir.bg }};border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ dir.tagColor }};margin-bottom:5px">{{ dir.tag }}</div>
+        <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ dir.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ dir.note }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Routing options and the packing checklist adapt below based on your direction.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Routes as of 2026</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The Pakistan airspace closure (April 2025) blew up the nonstop map. Current state:</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(150px,1.5fr) minmax(120px,150px);gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>ROUTE</div><div>STATUS</div><div>DURATION</div>
+      </div>
+      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(150px,1.5fr) minmax(120px,150px);gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:700;line-height:1.4">{{ r.route }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#3D3629">{{ r.status }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ r.color }}">{{ r.duration }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">FARES · MID-2026</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">Economy round trip runs $1,000–1,400 SFO↔BLR/MAA on Gulf/Singapore carriers in normal months. SFO↔DEL sometimes dips to $650–900. <b>December (Dec 10 – Jan 5) spikes to $1,800–2,500+</b> — the NRI rush.</div>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">WHEN TO BOOK</div>
+        <div style="font-size:14px;line-height:1.55;color:#3D3629">2–3 months out for normal trips. <b>Book December travel by August or September.</b> Set Google Flights alerts on your two home-city routes permanently — the alerts catch the ~30% dips that don't publish anywhere else.</div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Jet-lag protocol for founders who work on landing</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">India is +12.5 hours from California — the worst possible shift. The direction changes the protocol.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ jetlag }}" as="j" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:minmax(120px,160px) 1fr;gap:14px;align-items:baseline;padding:13px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;color:{{ j.color }}">{{ j.when }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ j.what }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">WORKING RULE</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Schedule no important calls in the first 36 hours either direction. Day 2 afternoon is when your brain returns.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">{{ carryHead }}</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">The carry-on checklist for this direction. Regenerates when you switch above.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <sc-for list="{{ carry }}" as="c" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:12px 1fr;gap:12px;align-items:baseline;padding:11px 16px;border-bottom:1px solid #EFE9DC">
+          <span style="width:6px;height:6px;background:var(--accent);border-radius:50%;position:relative;top:5px"></span>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ c }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now — before every trip</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">The pre-trip ritual. Saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="3">
+        <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="5">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const DIRECTIONS = {
+  out: { label: 'SFO → India',
+    tag: 'THE HARDER JET-LAG DIRECTION',
+    head: 'Eastward: advance your clock',
+    note: 'Start shifting sleep 30–60 min earlier for 3 nights before you fly. On landing, get morning outdoor light before 10am local. Melatonin 0.5 mg (not 5 mg) at local bedtime for 3–5 nights. Eat on local meal times from meal 1, hungry or not.' },
+  in: { label: 'India → SFO',
+    tag: 'THE EASIER DIRECTION',
+    head: 'Westward: delay your clock',
+    note: 'On landing, get evening light — walk after dinner, sit near windows late. Stay up until at least 9:30pm local. The 6pm crash is the enemy; caffeine cutoff 2pm. First morning: outdoor light can wait until mid-morning — don\'t blast yourself at 6am.' },
+};
+
+const ROUTES = [
+  { route: 'SFO→DEL, Air India', status: '10× weekly, but outbound makes a ~90-min refuelling stop in Kolkata (you stay on board). DEL→SFO mostly nonstop.', duration: '~17–19 hr out / ~15–16 hr back', hot: false },
+  { route: 'SFO→BLR, Air India nonstop', status: 'Discontinued Feb 27, 2026 (airspace closure). May return if restrictions ease.', duration: '—', hot: true },
+  { route: 'SFO→BOM, Air India nonstop', status: 'Discontinued Feb 28, 2026.', duration: '—', hot: true },
+  { route: 'One-stop via Gulf (Emirates DXB, Qatar DOH, Etihad AUH)', status: 'Best coverage to BLR/BOM/HYD/MAA. Strong onboard products, reliable connections.', duration: '~21–24 hr', hot: false },
+  { route: 'One-stop via East Asia (SIN, TYO, HKG)', status: 'Good for BLR/MAA/DEL. SIN→BLR is a short hop; Singapore Airlines premium is worth the delta.', duration: '~22–25 hr', hot: false },
+  { route: 'One-stop via Europe (FRA, CDG)', status: 'Fine for DEL/BOM. Watch short connections — European snow disruption is a real risk Dec–Feb.', duration: '~20–23 hr', hot: false },
+];
+
+const JETLAG_OUT = [
+  { when: 'BEFORE YOU FLY', what: '3 days before departure: shift sleep 30–60 min earlier each night.' },
+  { when: 'ON LANDING', what: 'Morning outdoor light, 20–30 minutes before 10am local. Avoid bright light after 8pm.' },
+  { when: 'MEALS', what: 'Eat on local meal times from meal 1, even if not hungry. Food entrains the body clock.' },
+  { when: 'MELATONIN', what: '0.5 mg at local bedtime for 3–5 nights. Low dose works as well as 5 mg and doesn\'t leave you groggy.' },
+];
+
+const JETLAG_IN = [
+  { when: 'ON LANDING', what: 'Evening light — walk after dinner, sit near windows late.' },
+  { when: 'STAY UP', what: 'Force yourself to at least 9:30pm local no matter what. The 6pm crash is the enemy.' },
+  { when: 'CAFFEINE', what: 'Cutoff 2pm. Any coffee after that ruins night 1 and cascades into day 3.' },
+  { when: 'FIRST MORNING', what: 'Outdoor light can wait until mid-morning. Don\'t blast yourself at 6am — that shifts you the wrong way.' },
+];
+
+const CARRY_OUT = [
+  'Passport + valid US visa stamp (see re-entry note below), OCI / Indian passport for spouse and kids as applicable',
+  'If your US visa stamp is expired: your renewal appointment confirmation and full petition paperwork',
+  'Prescription meds in original packaging + doctor\'s letter',
+  'Gifts under India\'s duty-free limit — ₹75,000 (~$875) of goods under Baggage Rules 2026 (effective Feb 2, 2026), plus one new laptop duty-free (a second laptop counts against the ₹75,000)',
+  'Gold jewellery: 40g (women) / 20g (men) by weight, jewellery only — bars and coins get taxed. Excess attracts a flat ~10% duty under the 2026 rules.',
+];
+
+const CARRY_IN = [
+  'Passport with unexpired US visa stamp matching your current status — an approval notice (I-797) alone does not board you; the stamp does. If your stamp expired, you needed a consulate appointment this trip.',
+  'I-797 approval notice original, employment / company evidence, recent pay stubs — CBP can ask.',
+  '3–6 month medication supply with prescriptions; no more than 90-day supply per drug is the safe rule for US entry.',
+  'Packaged / sealed food only. Declare everything agricultural — declaring is free, not declaring is a fine.',
+  'Homemade ghee / pickles / sweets: sealed and declared usually fine. Meat and fresh produce never.',
+];
+
+const CHECKS = [
+  { id: 'stamp', text: 'Check your US visa stamp validity 6+ months before the trip. Expired stamp means a consulate appointment this trip, no exceptions.' },
+  { id: 'alerts', text: 'Set Google Flights alerts on your two home-city routes permanently — the price drops don\'t publish anywhere else.' },
+  { id: 'book', text: 'Book normal trips 2–3 months out. Book December travel by August–September or eat the $2k+ premium.' },
+  { id: 'i94', text: 'Save the CBP I-94 portal link — you\'ll need the latest I-94 printout on the return flight.' },
+  { id: 'family', text: 'For family travel: verify OCI validity for kids (renewals needed at 20 and 50, and after every new passport for minors).' },
+];
+
+const NOBODY = [
+  { t: 'The airspace closure changed everything', d: 'From April 2025, Air India\'s SFO nonstops to BLR and BOM were suspended. Even DEL adds a Kolkata refuelling stop outbound. If someone tells you "just take the AI nonstop," they\'re on 2024 information.' },
+  { t: 'The Kolkata stop is on the plane', d: 'You do not deplane at CCU on the SFO→DEL outbound refuel. It\'s ~90 minutes on the ground; some passengers get off, most stay. Bring noise-cancelling headphones or a sleep mask — the cabin lights come on.' },
+  { t: 'December return flights are the trap', d: 'Booking outbound in October for a Dec 25 return means you\'ll pay $2,500+ round trip. Locking December by August is worth the awkwardness of committing early — the difference is a Bangalore rent month.' },
+];
+
+const KEY = 'bp-travel';
+
+class Component extends DCLogic {
+  state = { dir: 'out', done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ dir: s.dir || 'out', done: s.done || {} });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { dir: this.state.dir, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { dir } = this.state;
+    const D = DIRECTIONS[dir];
+
+    const dirChips = Object.keys(DIRECTIONS).map(k => {
+      const on = dir === k;
+      return { label: DIRECTIONS[k].label,
+        pick: () => this.persist({ dir: k }),
+        border: on ? '#1A1712' : '#C9C0AD',
+        bg: on ? '#1A1712' : '#FFFDF8',
+        color: on ? '#FAF7F1' : '#3D3629',
+      };
+    });
+
+    const dirVerdict = { head: D.head, note: D.note, tag: D.tag,
+      border: accent, bg: '#F5E4D8', tagColor: accent };
+
+    const routes = ROUTES.map(r => ({ ...r, color: r.hot ? accent : '#3D3629' }));
+
+    const jetlag = (dir === 'out' ? JETLAG_OUT : JETLAG_IN).map((j, i) => ({ ...j, color: i === 0 ? accent : '#8A8172' }));
+
+    const carry = dir === 'out' ? CARRY_OUT : CARRY_IN;
+    const carryHead = dir === 'out' ? 'Carry-on checklist — SFO → India' : 'Carry-on checklist — India → SFO';
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      dirChips, dir: dirVerdict,
+      routes, jetlag,
+      carry, carryHead,
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+      nobody: NOBODY,
+
+      sources: [
+        { label: 'air india · schedule', url: 'https://www.airindia.com/' },
+        { label: 'cbp · i-94 portal', url: 'https://i94.cbp.dhs.gov/' },
+        { label: 'india customs · baggage rules 2026', url: 'https://www.cbic.gov.in/' },
+        { label: 'google flights', url: 'https://www.google.com/flights' },
+        { label: 'oci services · india', url: 'https://ociservices.gov.in/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__travel';
+        const H = {
+          '__reality': 'Bay Playbook Reality Check.dc.html',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__scout': 'Bay Playbook Scout Trip.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__family': 'Bay Playbook Moving With Family.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__landingpad': 'Bay Playbook Landing Pad.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__day07': 'Bay Playbook Day 07.dc.html',
+          '__sim': 'Bay Playbook Sim Phone.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__events': 'Bay Playbook Live Events.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__travel': 'Bay Playbook SF India Travel.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions'], ['Scout trip', '__scout']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
+          { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF↔India travel', '__travel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

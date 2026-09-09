@@ -107,6 +107,28 @@ input::placeholder{color:#9B927F}
       </sc-if>
     </div>
 
+    
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:22px 24px;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:#8A8172;margin-bottom:12px">WHERE ARE YOU IN THE MOVE?</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ wizChips }}" as="w" hint-placeholder-count="6">
+          <button onClick="{{ w.pick }}" style="font:inherit;font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid {{ w.border }};background:{{ w.bg }};color:{{ w.color }};cursor:pointer" style-hover="border-color:#1A1712">{{ w.label }}</button>
+        </sc-for>
+      </div>
+      <div style="border:1px solid #E2DACA;background:#F5F1E7;border-radius:10px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px">{{ wiz.tag }}</div>
+        <div style="font-size:15px;font-weight:700;line-height:1.3;margin-bottom:10px">{{ wiz.head }}</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ wiz.next }}" as="n" hint-placeholder-count="3">
+            <a href="{{ n.href }}" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 12px;background:#FFFDF8;border:1px solid #E2DACA;border-radius:8px" style-hover="border-color:#1A1712">
+              <span style="font-size:14px;font-weight:700;color:#1A1712">{{ n.title }}</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A8172">{{ n.note }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
     <a href="Bay Playbook Decisions.dc.html" style="display:flex;align-items:center;gap:14px;background:#1A1712;color:#FAF7F1;border-radius:10px;padding:15px 20px;margin-bottom:44px" style-hover="background:#2B2620;color:#FAF7F1">
       <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;background:var(--accent);color:#FAF7F1;padding:4px 8px;border-radius:4px;white-space:nowrap">D1–D10</span>
       <span style="font-size:14.5px;font-weight:600;line-height:1.4">Arriving mid-decision? Start with the 10 questions founders actually ask — go or wait, visa path, entity, where to live.</span>
@@ -170,10 +192,44 @@ input::placeholder{color:#9B927F}
   &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#6C8CF5&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#6C8CF5&quot;, &quot;#E8500A&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot; },
   &quot;defaultFilter&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;all&quot;, &quot;options&quot;: [&quot;all&quot;, &quot;friend&quot;, &quot;nobody&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Checklist&quot; }
 }">
+const WIZ_STAGES = [
+  { key: 'deciding', label: 'Just thinking about it', tag: 'S0 · DECIDING', head: 'Be honest before you buy anything', next: [
+      ['Reality check', 'Pass the 5-question test first', 'Bay Playbook Reality Check.dc.html'],
+      ['Scout trip', 'Two weeks on a B-1 before you commit', 'Bay Playbook Scout Trip.dc.html'],
+      ['Decision index', '10 questions that route you to the right guide', 'Bay Playbook Decisions.dc.html'],
+    ] },
+  { key: 'planning', label: 'Decided, planning the move', tag: 'S1 · BEFORE YOU FLY', head: 'The paperwork you can start from India', next: [
+      ['Visas for founders', 'B-1 / O-1A / L-1A / H-1B — pick the path', 'Bay Playbook Visas.dc.html'],
+      ['Moving with family', 'Spouse visa, schools, area — the family gate', 'Bay Playbook Moving With Family.dc.html'],
+      ['Remote setup', 'OTPs, eSIM, Mercury, IDP — from India', 'Bay Playbook Remote Setup.dc.html'],
+    ] },
+  { key: 'business', label: 'Setting up the company', tag: 'BUSINESS · YOUR COMPANY', head: 'Structure first, cash second', next: [
+      ['US entity & flip', 'Fresh Delaware, flip, or India HQ + sub', 'Bay Playbook Entity Delaware Flip.dc.html'],
+      ['Visas for founders', 'Because the entity sponsors your visa', 'Bay Playbook Visas.dc.html'],
+      ['Business banking', 'Mercury, Brex, Rho — which platform for what', 'Bay Playbook Business Banking.dc.html'],
+    ] },
+  { key: 'week1', label: 'On the ground — week 1', tag: 'S2 · LANDING, WEEK 1', head: 'SIM and cash first — everything depends on them', next: [
+      ['Day 0–7 checklist', 'The week in order, tick as you go', 'Bay Playbook Day 07.dc.html'],
+      ['SIM + phone', 'US number from the airport curb', 'Bay Playbook Sim Phone.dc.html'],
+      ['Personal banking', 'Which branch will actually open for you', 'Bay Playbook Personal Banking.dc.html'],
+    ] },
+  { key: 'month1', label: 'First month figuring it out', tag: 'S3 · FIRST MONTH', head: 'The paperwork + housing sprint', next: [
+      ['Housing & neighbourhoods', 'Whole Bay, persona decision tree', 'Bay Playbook Housing.dc.html'],
+      ['Money, credit & ITIN', 'Zolve, Amex, secured — in that order', 'Bay Playbook Money.dc.html'],
+      ['Healthcare & insurance', '60-day marketplace clock starts on landing', 'Bay Playbook Healthcare.dc.html'],
+    ] },
+  { key: 'living', label: 'Living here already', tag: 'S4 · LIVING HERE', head: 'The ongoing life — community, culture, corridor', next: [
+      ['Culture & etiquette', "Don't pitch first — the actual rules", 'Bay Playbook Culture.dc.html'],
+      ['Networking in SF', 'Where founders actually meet', 'Bay Playbook Networking.dc.html'],
+      ['SF↔India travel', 'Routes, jet-lag, customs — both directions', 'Bay Playbook SF India Travel.dc.html'],
+    ] },
+];
+
 class Component extends DCLogic {
-  state = { checked: {}, filter: 'all', realityOpen: true };
+  state = { checked: {}, filter: 'all', realityOpen: true, wizStage: 'planning' };
   componentDidMount() {
     try { const s = localStorage.getItem('bp-checklist'); if (s) this.setState({ checked: JSON.parse(s) }); } catch(e) {}
+    try { const w = localStorage.getItem('bp-wizstage'); if (w) this.setState({ wizStage: w }); } catch(e) {}
     this.setState({ filter: this.props.defaultFilter ?? 'all' });
     this.applyAccent();
   }
@@ -250,8 +306,11 @@ class Component extends DCLogic {
       networking: 'Bay Playbook Networking.dc.html', groceries: 'Bay Playbook Groceries.dc.html',
       weekends: 'Bay Playbook Weekends.dc.html', accel: 'Bay Playbook Accelerators.dc.html', bizbank: 'Bay Playbook Business Banking.dc.html',
       visas: 'Bay Playbook Visas.dc.html', entity: 'Bay Playbook Entity Delaware Flip.dc.html', personalbank: 'Bay Playbook Personal Banking.dc.html',
+      reality: 'Bay Playbook Reality Check.dc.html', scout: 'Bay Playbook Scout Trip.dc.html', family: 'Bay Playbook Moving With Family.dc.html',
+      landingpad: 'Bay Playbook Landing Pad.dc.html', day07: 'Bay Playbook Day 07.dc.html', sim: 'Bay Playbook Sim Phone.dc.html',
+      events: 'Bay Playbook Live Events.dc.html', travel: 'Bay Playbook SF India Travel.dc.html',
     };
-    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': P.visas, 'Entity guide': P.entity, 'Money guide': P.money, 'Money & ITIN': P.money, 'NRI banking': P.nri, 'SIM guide': G+'sim', 'Bank basics': P.personalbank, 'Short-term housing': G+'short-term-housing', 'Healthcare': P.health, 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Business banking': P.bizbank, 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking };
+    const HREF = { 'Reality Check': 'https://thefounderfolks.com/bay-playbook/reality-check', 'Decision index': 'Bay Playbook Decisions.dc.html', 'Visa guide': P.visas, 'Entity guide': P.entity, 'Money guide': P.money, 'Money & ITIN': P.money, 'NRI banking': P.nri, 'SIM guide': G+'sim', 'Bank basics': P.personalbank, 'Short-term housing': G+'short-term-housing', 'Healthcare': P.health, 'Day 0\u20137': G+'day07', 'Directory': D, 'Calendar': D+'#events', 'Fundraising': D+'#vcs', 'Business banking': P.bizbank, 'Getting around': P.around, 'Housing guide': P.housing, 'Packing list': P.packing, 'Apps list': P.apps, 'Emergency': P.emergency, 'Culture': P.culture, 'Everyday essentials': P.groceries, 'Remote setup': P.remote, 'SSN & licence': P.ssn, 'Networking': P.networking, 'Reality check': P.reality, 'Scout trip': P.scout, 'Moving with family': P.family, 'Landing pad': P.landingpad, 'Day 0–7 checklist': P.day07, 'SIM + phone': P.sim, 'Live events': P.events, 'SF↔India travel': P.travel };
     const decorate = (item) => {
       const c = !!checked[item.id];
       const nobody = item.tag === 'nobody';
@@ -288,13 +347,25 @@ class Component extends DCLogic {
         dot: f.dotOff, bg: active ? '#1A1712' : 'transparent', color: active ? '#FAF7F1' : '#3D3629', border: active ? '#1A1712' : '#DCD4C3' };
     });
     const pageIndex = [
-      { label: 'S1 \u00B7 BEFORE YOU FLY', pages: [['Visas for founders', P.visas], ['US entity & flip', P.entity], ['Remote setup', P.remote], ['Short-term housing', G+'short-term-housing'], ['Packing + medications', P.packing]] },
-      { label: 'S2 \u00B7 LANDING, WEEK 1', pages: [['Day 0\u20137 checklist', G+'day07'], ['SIM + phone', G+'sim'], ['Apps to download', P.apps], ['Personal banking', P.personalbank], ['Getting around', P.around], ['Emergency contacts', P.emergency]] },
-      { label: 'S3 \u00B7 FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', P.money], ['Money home & NRI banking', P.nri], ['Healthcare & insurance', P.health]] },
-      { label: 'S4 \u00B7 LIVING HERE', pages: [['Culture & etiquette', P.culture], ['Networking in SF', P.networking], ['Indian groceries & food', P.groceries], ['What to do on weekends', P.weekends]] },
-      { label: 'S5 \u00B7 COMPANY', pages: [['Business banking', P.bizbank], ['Accelerators & programs', P.accel]] },
+      { label: 'S0 · DECIDING', pages: [['Reality check', P.reality], ['Decision index', 'Bay Playbook Decisions.dc.html'], ['Scout trip', P.scout]] },
+      { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', P.visas], ['Moving with family', P.family], ['Remote setup', P.remote], ['Landing pad', P.landingpad], ['Packing + medications', P.packing]] },
+      { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', P.entity], ['Visas for founders', P.visas], ['Business banking', P.bizbank], ['Accelerators & programs', P.accel]] },
+      { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', P.day07], ['SIM + phone', P.sim], ['Apps to download', P.apps], ['Personal banking', P.personalbank], ['Getting around', P.around], ['Emergency contacts', P.emergency]] },
+      { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', P.housing], ['SSN, ITIN & licence', P.ssn], ['Money, credit & ITIN', P.money], ['Money home & NRI banking', P.nri], ['Healthcare & insurance', P.health]] },
+      { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', P.culture], ['Networking in SF', P.networking], ['Live events calendar', P.events], ['Indian groceries & food', P.groceries], ['What to do on weekends', P.weekends], ['SF↔India travel', P.travel]] },
     ].map(g => ({ label: g.label, pages: g.pages.map(p => ({ title: p[0], href: p[1] })) }));
-    return { stages, navStages, filters, realityOpen, pageIndex,
+    const wiz = WIZ_STAGES.find(w => w.key === this.state.wizStage) || WIZ_STAGES[1];
+    const wizChips = WIZ_STAGES.map(w => {
+      const on = w.key === this.state.wizStage;
+      return { label: w.label,
+        pick: () => { this.setState({ wizStage: w.key }); try { localStorage.setItem('bp-wizstage', w.key); } catch(e) {} },
+        border: on ? '#1A1712' : '#C9C0AD',
+        bg: on ? '#1A1712' : '#FFFDF8',
+        color: on ? '#FAF7F1' : '#3D3629',
+      };
+    });
+    const wizOut = { tag: wiz.tag, head: wiz.head, next: wiz.next.map(n => ({ title: n[0], note: n[1], href: n[2] })) };
+    return { stages, navStages, filters, realityOpen, pageIndex, wizChips, wiz: wizOut,
       realityChevron: realityOpen ? '−' : '+',
       toggleReality: () => this.setState(s => ({ realityOpen: !s.realityOpen })),
       progressLabel: done + '/' + all.length, progressPct: all.length ? Math.round(done / all.length * 100) : 0 };

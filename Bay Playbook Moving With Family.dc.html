@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S1 · BEFORE YOU FLY</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Moving with family</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">What changes when the move isn't just you. Spouse work rights, school districts, childcare math, and sequencing the landing so the family survives month one.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172;margin-bottom:14px">TICK WHAT'S TRUE FOR YOUR FAMILY. WE'LL SURFACE WHAT MATTERS MOST.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+        <sc-for list="{{ situationChips }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.toggle }}" style="font:inherit;font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;border:1.5px solid {{ s.border }};background:{{ s.bg }};color:{{ s.color }};cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="border-color:#1A1712">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ s.dot }}"></span>
+            {{ s.label }}
+          </button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ verdicts }}" as="v" hint-placeholder-count="3">
+          <div style="border:1px solid {{ v.border }};background:{{ v.bg }};border-radius:10px;padding:14px 16px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ v.tagColor }};margin-bottom:5px">{{ v.tag }}</div>
+            <div style="font-size:16px;font-weight:900;letter-spacing:-0.02em;line-height:1.2;margin-bottom:6px">{{ v.head }}</div>
+            <div style="font-size:14px;line-height:1.6;color:#3D3629">{{ v.note }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">The details of each of these are below — this box just surfaces the ones you actually need to decide first.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Your visa decides your spouse's career</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">This is the single biggest family decision embedded in your visa choice. Get it clear before you file.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:minmax(80px,110px) minmax(100px,140px) 1fr;gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>YOUR VISA</div><div>SPOUSE'S VISA</div><div>CAN SPOUSE WORK?</div>
+      </div>
+      <sc-for list="{{ visas }}" as="v" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:minmax(80px,110px) minmax(100px,140px) 1fr;gap:5px 14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:800;line-height:1.3">{{ v.you }}</div>
+          <div style="font-size:14px;font-weight:600;line-height:1.3">{{ v.spouse }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ v.work }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:14px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">THREE HARD TRUTHS AS OF 2026</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#3D3629">
+        <b>1.</b> The H-4 EAD only unlocks after an approved I-140 — typically years away for new arrivals. A newly-landed H-4 spouse cannot work day 1.<br><br>
+        <b>2.</b> Auto-extensions are gone. An October 2025 interim rule eliminated automatic extensions for EAD renewals filed on or after 30 Oct 2025. Work authorization ends when the card expires, even if renewal is pending. Renew the full 180 days early; processing runs 5–9 months.<br><br>
+        <b>3.</b> O-3 means <b>zero work</b>, full stop — including unpaid work for your own startup. Unauthorized employment wrecks both spouses' immigration records. The workarounds are the spouse getting their own work visa (H-1B, O-1) or switching to F-1 for study.
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">For a two-career couple, this is often the strongest argument for the spouse pursuing an independent visa. Model both careers before choosing your own category.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Schools: your address is the admission letter</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">US public schools are free, and enrollment is by home address — each house maps to a specific school. There is no entrance exam and no fee. The "admission process" is the housing market. Families effectively buy or rent their way into a school.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <sc-for list="{{ schoolAreas }}" as="s" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ s.tag }}</div>
+          <div style="font-size:15px;font-weight:800;letter-spacing:-0.01em;margin-bottom:4px">{{ s.name }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ s.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Enrollment mechanics: proof of address (lease), the child's immunization records (US schools require specific vaccines — a US pediatrician can map and top up), and birth certificate. Kids on H-4/O-3 attend public school like anyone else. Mid-year enrollment is normal after a move — but if you can time it, August arrival aligns with the US school calendar.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Childcare: budget for a second rent</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">If your child is under 5, childcare is likely your largest expense after housing. Bay Area, 2026:</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:14px">
+      <sc-for list="{{ childcare }}" as="c" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:1fr minmax(140px,180px);gap:14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;line-height:1.4;color:#1A1712">{{ c.type }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ c.color }}">{{ c.cost }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="border:1.5px solid var(--accent);background:#FFFDF8;border-radius:10px;padding:15px 18px;margin-bottom:34px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.08em;color:var(--accent);margin-bottom:6px">WAITLISTS BEAT WALK-INS</div>
+      <div style="font-size:15px;line-height:1.6;color:#1A1712">Waitlists at good centres run <b>6–12 months</b>. Join waitlists before you fly, not after you land.</div>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Sequencing: who lands first</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:14px">
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">FOUNDER SOLO FIRST · 4–8 WEEKS AHEAD</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">You absorb the chaos — housing, SSN, bank, car — then the family lands into a set-up home. Best when you have a school-age child (land before the school year) or an infant. Cost: separation, and you're doing the school/daycare hunt remotely.</div>
+      </div>
+      <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">LAND TOGETHER</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">Better for morale, harder logistics. Book a one-month furnished rental so you're not apartment-hunting with jet-lagged kids.</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Avoid landing mid-school-year if you can. August arrival aligns with the US school calendar; December mid-year drops mean the school hunt starts under time pressure.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The #1 underrated risk: spouse isolation</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Well-documented in H-4 communities: the founder gets an instant network — investors, cofounders, events. The spouse — often a professional who paused a career — gets an empty apartment in a suburb where they know no one and legally cannot work. Depression and resentment build quietly over months. Treat this as a project with an owner (you) from week one.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:34px">
+      <sc-for list="{{ isolation }}" as="i" hint-placeholder-count="3">
+        <div style="border:1px solid #E2DACA;background:#F7F3EA;border-radius:10px;padding:15px 17px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--accent);margin-bottom:6px">{{ i.tag }}</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ i.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="6">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="5">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const SITUATIONS = [
+  { id: 'spouseWork', label: 'Spouse wants to work in the US' },
+  { id: 'schoolKids', label: 'School-age kids (5–18)' },
+  { id: 'youngKids', label: 'Kids under 5' },
+  { id: 'twoCareer', label: 'Two-career household' },
+];
+
+const VISAS = [
+  { you: 'H-1B', spouse: 'H-4', work: 'Only with an H-4 EAD, and only if you have an approved I-140 (green card petition) or qualify under AC21 extensions. New arrivals rarely qualify.' },
+  { you: 'O-1', spouse: 'O-3', work: 'No. Cannot work at all — no employment, no freelancing, no "helping with the startup." Can study full-time.' },
+  { you: 'E-2', spouse: 'E-2 dependent', work: 'Yes, spouse gets work authorization incident to status. The friendliest dependent visa for two-career couples.' },
+];
+
+const SCHOOL_AREAS = [
+  { tag: 'THE GRAVITATIONAL CENTRE', name: 'Fremont',
+    d: 'Mission San Jose High is the anchor — ~89% Asian, nationally ranked. Priciest housing per bedroom, but the school premium is priced into everything east of the Bay.' },
+  { tag: 'THE ESTABLISHED SUBURBS', name: 'Cupertino & Sunnyvale',
+    d: 'Some district schools exceed 50% Indian students. Peninsula-adjacent, closer to SF than Fremont. Rent premium is real.' },
+  { tag: 'THE FASTEST-GROWING HUB', name: 'Tri-Valley (Dublin, Pleasanton, San Ramon)',
+    d: 'Trades longer commutes for newer housing stock and strong schools. Where Indian families increasingly land in 2026 — the price-to-school-quality ratio still beats Fremont and Cupertino.' },
+];
+
+const CHILDCARE = [
+  { type: 'Daycare centre, infant', cost: '$2,400–3,200/mo', hot: true },
+  { type: 'Home-based daycare (licensed)', cost: '$1,800–2,200/mo', hot: false },
+  { type: 'Nanny, full-time', cost: '$4,000+/mo', hot: true },
+];
+
+const ISOLATION = [
+  { tag: 'IF SPOUSE CAN\'T WORK', d: 'Enroll in something structured — community college classes are cheap and give both structure and community. Certifications, volunteering (allowed on O-3/H-4 if genuinely volunteer — confirm specifics with your attorney).' },
+  { tag: 'COMMUNITY, THE FAST WAY', d: 'Indian community organisations, temple / gurdwara / church groups, and city library programmes are the fastest real-world networks. Bay Area suburbs have dense Indian parent networks — school and daycare pickup is where they form.' },
+  { tag: 'BUDGET FOR IT', d: 'A second car is not optional — Bay Area suburbs have no autos and thin transit; without it the spouse is stranded. Also budget for the spouse\'s independent flights home. Emotional runway is a line item.' },
+];
+
+const CHECKS = [
+  { id: 'visa', text: 'Decide dependent visa strategy — model your spouse\'s career under H-4 vs O-3 vs an independent visa BEFORE you file your own' },
+  { id: 'waitlist', text: 'Join 3+ daycare / preschool waitlists before you fly if you have kids under 5 (6–12 month waits are normal)' },
+  { id: 'school', text: 'Pick the target school district before the housing area — everything else is downstream of this' },
+  { id: 'immunize', text: 'Get English-language immunization records for kids before flying — US schools require specific vaccines and reject non-English docs' },
+  { id: 'sequence', text: 'Choose sequencing — solo first (4–8 weeks) or land together — and book a 1-month furnished rental to bridge either way' },
+  { id: 'spouseweek1', text: 'Line up 3 structured things for the non-working spouse before landing: a class, a community, a routine' },
+];
+
+const KEY = 'bp-family';
+
+class Component extends DCLogic {
+  state = { situation: {}, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ situation: s.situation || {}, done: s.done || {} });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { situation: this.state.situation, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { situation } = this.state;
+
+    const situationChips = SITUATIONS.map(s => {
+      const on = !!situation[s.id];
+      return { label: s.label,
+        toggle: () => this.persist({ situation: { ...situation, [s.id]: !on } }),
+        border: on ? '#1A1712' : '#C9C0AD',
+        bg: on ? '#1A1712' : '#FFFDF8',
+        color: on ? '#FAF7F1' : '#3D3629',
+        dot: on ? accent : '#C9C0AD',
+      };
+    });
+
+    const verdicts = [];
+    if (situation.spouseWork || situation.twoCareer) {
+      verdicts.push({ tag: 'YOUR VISA DECIDES YOUR SPOUSE\'S CAREER',
+        head: 'Model the spouse\'s independent visa before you pick yours',
+        note: 'H-4 EAD needs an approved I-140 — years away. O-3 blocks all work. If the spouse\'s career matters, the strongest play is often for them to pursue their own H-1B, O-1 or E-2. Do this math BEFORE you file your visa, not after.',
+        border: accent, bg: '#F5E4D8', tagColor: accent });
+    }
+    if (situation.schoolKids) {
+      verdicts.push({ tag: 'SCHOOL DISTRICT DECIDES YOUR AREA',
+        head: 'Fremont / Cupertino-Sunnyvale / Tri-Valley — pick the district first, then the house',
+        note: 'US public schools admit by address. Your house choice is your school choice. If timing lets you, aim for an August arrival to align with the school calendar; December drops mean starting the school hunt under pressure.',
+        border: accent, bg: '#F5E4D8', tagColor: accent });
+    }
+    if (situation.youngKids) {
+      verdicts.push({ tag: 'CHILDCARE IS A SECOND RENT',
+        head: 'Join 3+ daycare waitlists before you fly',
+        note: 'Waitlists at good centres run 6–12 months. Infant daycare is $2,400–3,200/month; a full-time nanny is $4,000+. Add this to your SF burn or the childcare shortfall becomes the reason you leave.',
+        border: accent, bg: '#F5E4D8', tagColor: accent });
+    }
+    if (verdicts.length === 0) {
+      verdicts.push({ tag: 'PICK WHAT APPLIES',
+        head: 'Tick above and this will surface the decisions that block your move',
+        note: 'This page is deep but only 2–3 sections will actually gate your family move. Use the chips to surface those, then read only what matters.',
+        border: '#E2DACA', bg: 'transparent', tagColor: '#8A8172' });
+    }
+
+    const childcare = CHILDCARE.map(c => ({ ...c, color: c.hot ? accent : '#3D3629' }));
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      situationChips, verdicts,
+      visas: VISAS, schoolAreas: SCHOOL_AREAS, childcare, isolation: ISOLATION,
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+
+      sources: [
+        { label: 'uscis · h-4 employment authorization', url: 'https://www.uscis.gov/working-in-the-united-states/temporary-nonimmigrant-workers/employment-authorization-for-certain-h-4-dependent-spouses' },
+        { label: 'uscis · october 2025 ead rule change', url: 'https://www.uscis.gov/newsroom' },
+        { label: 'california school directory', url: 'https://www.cde.ca.gov/schooldirectory/' },
+        { label: 'greatschools · school ratings', url: 'https://www.greatschools.org/' },
+        { label: 'ca department of social services · childcare', url: 'https://www.cdss.ca.gov/inforesources/child-care-licensing' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__family';
+        const H = {
+          '__reality': 'Bay Playbook Reality Check.dc.html',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__scout': 'Bay Playbook Scout Trip.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__family': 'Bay Playbook Moving With Family.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__landingpad': 'Bay Playbook Landing Pad.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__day07': 'Bay Playbook Day 07.dc.html',
+          '__sim': 'Bay Playbook Sim Phone.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__events': 'Bay Playbook Live Events.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__travel': 'Bay Playbook SF India Travel.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions'], ['Scout trip', '__scout']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
+          { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF↔India travel', '__travel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>

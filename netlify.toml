@@ -120,6 +120,46 @@
   status = 200
 
 [[redirects]]
+  from = "/reality"
+  to = "/Bay Playbook Reality Check.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/scout"
+  to = "/Bay Playbook Scout Trip.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/family"
+  to = "/Bay Playbook Moving With Family.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/travel"
+  to = "/Bay Playbook SF India Travel.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/events"
+  to = "/Bay Playbook Live Events.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-pad"
+  to = "/Bay Playbook Landing Pad.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/day07"
+  to = "/Bay Playbook Day 07.dc.html"
+  status = 200
+
+[[redirects]]
+  from = "/sim"
+  to = "/Bay Playbook Sim Phone.dc.html"
+  status = 200
+
+[[redirects]]
   from = "/bizbank"
   to = "/Bay Playbook Business Banking.dc.html"
   status = 200

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=Caveat:wght@600;700&amp;family=Silkscreen:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--accent:#E8500A}
+body{margin:0;background:#FAF7F1;color:#1A1712;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#1A1712}
+input[type=range]{accent-color:#E8500A}
+@media print{aside{display:none}}
+</style>
+</helmet>
+
+<div style="display:grid;grid-template-columns:280px 1fr;min-height:100vh;max-width:1240px;margin:0 auto">
+
+  <aside style="position:sticky;top:0;height:100vh;box-sizing:border-box;overflow-y:auto;padding:28px 24px 24px;border-right:1.5px solid #E2DACA;display:flex;flex-direction:column;gap:20px">
+    <div>
+      <a href="Bay Playbook Landing v2.dc.html" style="display:block;line-height:1;width:fit-content;color:#1A1712">
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-5deg);margin-left:2px">The</div>
+        <div style="font-family:'Silkscreen',monospace;font-size:27px;font-weight:700;color:var(--accent);text-shadow:2.5px 2.5px 0 #1A1712;letter-spacing:-1px;margin:-4px 0 -2px">bay</div>
+        <div style="font-family:'Caveat',cursive;font-size:19px;font-weight:700;transform:rotate(-4deg);text-align:right">Playbook</div>
+      </a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;margin-top:8px">Guides</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="Bay Playbook Landing v2.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">← Back to the checklist</a>
+      <a href="Bay Playbook Decisions.dc.html" style="font-size:13px;font-weight:700;color:#1A1712" style-hover="color:var(--accent)">Decision index →</a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ navGroups }}" as="g" hint-placeholder-count="6">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:6px">{{ g.label }}</div>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <sc-for list="{{ g.pages }}" as="pg" hint-placeholder-count="4">
+              <a href="{{ pg.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:7px;font-size:13.5px;font-weight:600;color:{{ pg.color }};background:{{ pg.bg }}" style-hover="background:#F1EBDD">{{ pg.title }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </nav>
+    <a href="Bay Playbook Directory.dc.html" style="margin-top:auto;display:block;background:#1A1712;color:#FAF7F1;padding:11px 16px;border-radius:8px;font-size:13.5px;font-weight:700;text-align:center" style-hover="background:var(--accent);color:#FAF7F1">Open the Directory</a>
+  </aside>
+
+  <main style="padding:48px 56px 72px;box-sizing:border-box;min-width:0;max-width:900px">
+
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--accent)">S0 · DECIDING</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:0.06em;background:#1A1712;color:#FAF7F1;padding:3px 8px;border-radius:4px">GUIDE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172">VERIFIED SEP 2026</span>
+    </div>
+
+    <h1 style="font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-0.02em;margin:0 0 14px;text-wrap:balance">Reality check — the honest case against moving</h1>
+    <p style="font-size:17px;line-height:1.55;color:#3D3629;margin:0 0 20px;max-width:640px">Read this before booking anything. Five costs nobody puts in the pitch, six signs you should wait, and a five-question self-assessment with a real answer at the end.</p>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The five costs nobody puts in the pitch</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:34px">
+      <sc-for list="{{ costs }}" as="c" hint-placeholder-count="5">
+        <div style="border:1px solid #E2DACA;background:#FFFDF8;border-radius:10px;padding:16px 18px">
+          <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.08em;color:var(--accent)">{{ c.tag }}</span>
+            <span style="font-size:16px;font-weight:800;letter-spacing:-0.01em">{{ c.head }}</span>
+          </div>
+          <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ c.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Who should NOT move (yet)</h2>
+    <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0 0 14px">Two or more of these describe you, wait. "Wait" is a strategy with a to-do list, not a rejection.</p>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:34px">
+      <div style="display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:14px;padding:11px 16px;border-bottom:1.5px solid #E2DACA;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#8A8172">
+        <div>SIGN</div><div>WHY IT KILLS THE MOVE</div>
+      </div>
+      <sc-for list="{{ signs }}" as="s" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:14px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC">
+          <div style="font-size:14px;font-weight:700;line-height:1.4">{{ s.sign }}</div>
+          <div style="font-size:13.5px;line-height:1.55;color:#3D3629">{{ s.why }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">The go / wait / don't self-assessment</h2>
+    <p style="font-size:15.5px;line-height:1.65;color:#3D3629;margin:0 0 14px;max-width:640px">Answer honestly. Have your co-founder answer separately. Compare.</p>
+
+    <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:12px;padding:20px 22px;margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#8A8172">TICK EACH ONE THAT'S HONESTLY TRUE</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.06em;color:{{ verdict.tagColor }}">{{ verdict.count }} OF 5</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="5">
+          <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;cursor:pointer;padding:10px 14px;border:1px solid {{ q.border }};border-radius:9px;background:{{ q.bg }}">
+            <input type="checkbox" checked="{{ q.on }}" onChange="{{ q.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.08em;color:#8A8172;margin-bottom:2px">{{ q.label }}</div>
+              <div style="font-size:14.5px;line-height:1.5;color:#1A1712;font-weight:{{ q.weight }}">{{ q.text }}</div>
+            </div>
+          </label>
+        </sc-for>
+      </div>
+      <div style="border:1.5px solid {{ verdict.border }};background:{{ verdict.bg }};border-radius:10px;padding:15px 17px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:{{ verdict.tagColor }};margin-bottom:5px">{{ verdict.tag }}</div>
+        <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin-bottom:7px">{{ verdict.head }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#3D3629">{{ verdict.note }}</div>
+      </div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8A8172;margin-bottom:34px">Scoring: 5 yes = go. 3–4 yes = wait, fix the specific gap or run a <a href="Bay Playbook Scout Trip.dc.html">scout trip</a> first. 0–2 yes = don't move yet; build from India and revisit in six months.</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 4px">Do this now</h2>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px">
+      <p style="font-size:14px;line-height:1.55;color:#8A8172;margin:0">Tick as you go. This saves in your browser.</p>
+      <button onClick="{{ resetChecks }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A8172;background:none;border:none;cursor:pointer;padding:0" style-hover="color:#1A1712">reset</button>
+    </div>
+    <div style="border:1px solid #E2DACA;border-radius:10px;background:#FFFDF8;overflow:hidden;margin-bottom:10px">
+      <sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
+        <label style="display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:baseline;padding:12px 16px;border-bottom:1px solid #EFE9DC;cursor:pointer;background:{{ c.bg }}">
+          <input type="checkbox" checked="{{ c.done }}" onChange="{{ c.toggle }}" style="width:15px;height:15px;accent-color:#E8500A;cursor:pointer;position:relative;top:2px">
+          <span style="font-size:14.5px;line-height:1.5;color:{{ c.color }};text-decoration:{{ c.strike }}">{{ c.text }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8172;margin-bottom:34px">{{ progress }}</div>
+
+    <h2 style="font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">Nobody tells you</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:34px">
+      <sc-for list="{{ nobody }}" as="n" hint-placeholder-count="3">
+        <div style="border:1.5px solid #1A1712;background:#FFFDF8;border-radius:10px;padding:15px 17px">
+          <div style="font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:5px">{{ n.t }}</div>
+          <div style="font-size:14px;line-height:1.55;color:#3D3629">{{ n.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin:0 0 6px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#8A8172;margin-bottom:10px">SOURCES · EVERY LINK HUMAN-CLICKED</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+          <a href="{{ s.url }}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid #C9C0AD;border-radius:999px;color:#3D3629;background:#FFFDF8" style-hover="border-color:#1A1712;color:#1A1712">{{ s.label }} ↗</a>
+        </sc-for>
+      </div>
+    </div>
+
+    <footer style="margin-top:36px;border-top:1.5px solid #E2DACA;padding-top:16px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8A8172">
+      <span>Last verified Sep 2026 · Bay Playbook</span>
+      <a href="Bay Playbook Landing v2.dc.html" style="color:var(--accent)">← Back to the checklist</a>
+    </footer>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E8500A&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#E8500A&quot;, &quot;#6C8CF5&quot;, &quot;#0E7C7B&quot;, &quot;#1A1712&quot;], &quot;section&quot;: &quot;Theme&quot;}}">
+const COSTS = [
+  { tag: 'THE PERMANENT TAX', head: 'Visa uncertainty never leaves',
+    d: 'There is no clean founder visa. O-1, H-1B, L-1 all involve lawyers, evidence-gathering, waiting, and the possibility of a no. Founders describe the constant sense of being at the mercy of an anonymous official — it shapes hiring, travel and fundraising for years. Every plan gets a visa asterisk.' },
+  { tag: 'RECORD-HIGH COST', head: 'SF is more expensive than the podcasts admit',
+    d: 'Median SF one-bedroom sits around $4,000–4,060/month (Zumper, mid-2026), the highest in that dataset ever, up ~22% year-over-year. Add $150–300/mo utilities, $15 lunches, and a modest solo life runs $6,000–7,500/month — $72,000–90,000/year. A shared flat cuts rent to $1,500–2,500 but doesn’t change the ambient cost of everything else.' },
+  { tag: 'THE HEALTHCARE GAP', head: 'Insurance is a rent-tier line item',
+    d: 'India trained you to treat healthcare as cheap and on-demand. In the US, an unsubsidised individual marketplace plan averages ~$728/month in California (2026), enhanced federal subsidies expired for 2026, and an uninsured ER visit runs $1,500–3,500 for a non-critical case — five figures if anything serious happens.' },
+  { tag: 'THE MONTH-THREE WALL', head: 'Isolation hits at month three',
+    d: 'The first month is adrenaline and coffee meetings. Month three is when the time-zone gap eats your family calls, your social graph is still transactional and everyone you meet is also too busy. Founders who thrive here joined one recurring community early. Founders who quietly went home usually didn’t.' },
+  { tag: 'THE INVISIBLE HEADWIND', head: 'Fundraising as an outsider is slower',
+    d: 'US-native VCs pattern-match on networks you don’t have yet. Warm-intro culture means your first quarter is spent building the graph, not pitching. Corridor funds close the gap but bring their own pricing. Being in SF improves the odds — it does not suspend gravity.' },
+];
+
+const SIGNS = [
+  { sign: 'Runway under ~12 months', why: 'The move consumes 2–3 months and $25k+ before it produces anything. Short runway + SF burn = forced bad decisions.' },
+  { sign: 'Your market is India', why: 'If users, revenue and hiring are all in India, SF gives you networking and jet lag. Visit; don’t move.' },
+  { sign: 'No credible fundraising path', why: 'If you’re not raising, or can’t yet show why a US investor would care, the main economic reason to be here is absent.' },
+  { sign: 'Not committed to 3+ years', why: 'Visas, credit history, network — everything here compounds on a multi-year clock. A one-year experiment pays the costs and misses the returns.' },
+  { sign: 'Business needs you in India', why: 'Ops-heavy India businesses degrade when the founder leaves. If the org chart cannot absorb your absence, the move breaks the company.' },
+  { sign: 'Emotional toll is flashing', why: 'Ailing parents, a strained relationship, health issues. SF amplifies stress; it does not dilute it. Fix the flashing thing first.' },
+];
+
+const QUESTIONS = [
+  { id: 'runway', label: 'RUNWAY', text: 'After move costs, we have 12+ months of cash at SF burn.' },
+  { id: 'market', label: 'MARKET', text: 'Our next 100 customers (or our investors) are primarily in the US.' },
+  { id: 'visa', label: 'VISA', text: 'I have a lawyer-validated path — O-1 evidence, H-1B route, L-1 structure — not just optimism.' },
+  { id: 'commitment', label: 'COMMITMENT', text: 'I and my family are genuinely signed up for 3+ years.' },
+  { id: 'pull', label: 'PULL', text: 'Someone in the US (customer, investor, partner) has shown real pull, ideally on a scout trip.' },
+];
+
+const NOBODY = [
+  { t: 'The quiet returnees don’t post', d: 'Founders who moved and quietly went home rarely post about it. Survivorship bias makes your feed look like everyone who moved won. Immigrant-founder sentiment surveys show visa stress as a top-two ongoing drain, not a one-time hurdle.' },
+  { t: '2026 is an expensive year to arrive', d: 'SF rents hit all-time records this summer (~22% YoY). ACA enhanced subsidies expired, raising post-subsidy premiums sharply. The same move cost meaningfully less in 2023–24. Budget on 2026 numbers, not older blog posts.' },
+  { t: '"Wait" usually beats "don’t"', d: 'Most no-go signals — runway, evidence folder, India org depth — are fixable in one focused six-month block from India. And the O-1 evidence you build while waiting is exactly what the move needs anyway.' },
+];
+
+const CHECKS = [
+  { id: 'burn', text: 'Price your real SF burn: current Zumper rents + $728/mo insurance placeholder + food/transit; multiply by 12' },
+  { id: 'assess', text: 'Take the 5-question assessment above in writing; have your co-founder do it separately, then compare' },
+  { id: 'lawyer', text: 'Get one paid consult with a US immigration lawyer before spending anything else' },
+  { id: 'scout', text: 'If you scored "wait", book the scout trip instead of the one-way ticket' },
+];
+
+const KEY = 'bp-reality';
+
+class Component extends DCLogic {
+  state = { ans: {}, done: {} };
+
+  componentDidMount() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A');
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) {
+        const s = JSON.parse(raw) || {};
+        this.setState({ ans: s.ans || {}, done: s.done || {} });
+      }
+    } catch (e) {}
+  }
+  componentDidUpdate() { document.documentElement.style.setProperty('--accent', this.props.accent ?? '#E8500A'); }
+
+  persist(patch) {
+    const next = { ans: this.state.ans, done: this.state.done, ...patch };
+    this.setState(patch);
+    try { localStorage.setItem(KEY, JSON.stringify(next)); } catch (e) {}
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? '#E8500A';
+    const { ans } = this.state;
+    const count = QUESTIONS.filter(q => ans[q.id]).length;
+
+    const questions = QUESTIONS.map(q => {
+      const on = !!ans[q.id];
+      return { ...q, on,
+        border: on ? '#1A1712' : '#E2DACA',
+        bg: on ? '#F5F1E7' : 'transparent',
+        weight: on ? 700 : 500,
+        toggle: () => this.persist({ ans: { ...ans, [q.id]: !on } }),
+      };
+    });
+
+    let vHead, vNote, vTag, vBorder, vBg, vTagColor;
+    if (count === 5) {
+      vHead = 'Go. All five clear.';
+      vTag = 'THE VERDICT'; vTagColor = '#1A1712';
+      vBorder = '#7FD1A6'; vBg = 'transparent';
+      vNote = 'You have the setup most founders wish for. Book flights, run the Before-you-fly stack, and land into the network you’ve already been building.';
+    } else if (count >= 3) {
+      vHead = 'Wait — fix the specific gap first.';
+      vTag = 'THE VERDICT'; vTagColor = accent;
+      vBorder = accent; vBg = '#F5E4D8';
+      vNote = 'The 3–4 yes range is where the scout trip earns its keep. Fix the missing item first (usually visa evidence or US pull), or use a 2-week B-1 trip to validate the ones you’re not sure about. "Wait" here is a plan with a to-do list, not a rejection.';
+    } else if (count >= 1) {
+      vHead = 'Don’t move now. Build from India first.';
+      vTag = 'THE VERDICT'; vTagColor = '#1A1712';
+      vBorder = '#1A1712'; vBg = 'transparent';
+      vNote = 'Most of the gaps at 0–2 yes are fixable in one focused six-month block from India — runway, evidence folder, India org depth. The O-1 evidence you build while waiting is exactly what the move needs anyway. Revisit in six months.';
+    } else {
+      vHead = 'Answer the five questions to see your verdict.';
+      vTag = 'YOUR VERDICT SHOWS HERE'; vTagColor = '#8A8172';
+      vBorder = '#E2DACA'; vBg = 'transparent';
+      vNote = 'Tick honestly, not optimistically. The point of this page is to catch the mistake before it costs you six figures.';
+    }
+    const verdict = { head: vHead, note: vNote, tag: vTag, tagColor: vTagColor, border: vBorder, bg: vBg, count };
+
+    const checks = CHECKS.map(c => {
+      const done = !!this.state.done[c.id];
+      return { ...c, done,
+        bg: done ? '#F5F1E7' : 'transparent',
+        color: done ? '#8A8172' : '#1A1712',
+        strike: done ? 'line-through' : 'none',
+        toggle: () => this.persist({ done: { ...this.state.done, [c.id]: !done } }),
+      };
+    });
+
+    return {
+      costs: COSTS, signs: SIGNS,
+      questions, verdict,
+      nobody: NOBODY,
+      checks,
+      progress: CHECKS.filter(c => this.state.done[c.id]).length + ' of ' + CHECKS.length + ' done',
+      resetChecks: () => this.persist({ done: {} }),
+
+      sources: [
+        { label: 'zumper · sf rent research', url: 'https://www.zumper.com/rent-research/san-francisco-ca' },
+        { label: 'sfist · sf 1-bedroom hits $4k', url: 'https://sfist.com/' },
+        { label: 'sf standard · why sf rents are soaring', url: 'https://sfstandard.com/' },
+        { label: 'chcf · covered california 2026 premiums', url: 'https://www.chcf.org/' },
+        { label: 'valuepenguin · cheap health insurance ca 2026', url: 'https://www.valuepenguin.com/health-insurance/cheap-health-insurance-california' },
+        { label: 'mira · er visit cost 2026', url: 'https://www.talktomira.com/' },
+        { label: 'nbc · visa woes plague foreign-born entrepreneurs', url: 'https://www.nbcnews.com/' },
+        { label: 'unshackled vc · founder sentiment survey', url: 'https://unshackledvc.substack.com/' },
+      ],
+
+      navGroups: (() => {
+        const SELF = '__reality';
+        const H = {
+          '__reality': 'Bay Playbook Reality Check.dc.html',
+          '__decisions': 'Bay Playbook Decisions.dc.html',
+          '__scout': 'Bay Playbook Scout Trip.dc.html',
+          '__visas': 'Bay Playbook Visas.dc.html',
+          '__entity': 'Bay Playbook Entity Delaware Flip.dc.html',
+          '__family': 'Bay Playbook Moving With Family.dc.html',
+          '__remote': 'Bay Playbook Remote Setup.dc.html',
+          '__landingpad': 'Bay Playbook Landing Pad.dc.html',
+          '__packing': 'Bay Playbook Packing.dc.html',
+          '__day07': 'Bay Playbook Day 07.dc.html',
+          '__sim': 'Bay Playbook Sim Phone.dc.html',
+          '__apps': 'Bay Playbook Apps.dc.html',
+          '__personalbank': 'Bay Playbook Personal Banking.dc.html',
+          '__around': 'Bay Playbook Getting Around.dc.html',
+          '__emergency': 'Bay Playbook Emergency.dc.html',
+          '__housing': 'Bay Playbook Housing.dc.html',
+          '__ssn': 'Bay Playbook SSN ITIN License.dc.html',
+          '__money': 'Bay Playbook Money.dc.html',
+          '__nri': 'Bay Playbook NRI Banking.dc.html',
+          '__health': 'Bay Playbook Healthcare.dc.html',
+          '__culture': 'Bay Playbook Culture.dc.html',
+          '__networking': 'Bay Playbook Networking.dc.html',
+          '__events': 'Bay Playbook Live Events.dc.html',
+          '__groceries': 'Bay Playbook Groceries.dc.html',
+          '__weekends': 'Bay Playbook Weekends.dc.html',
+          '__travel': 'Bay Playbook SF India Travel.dc.html',
+          '__bizbank': 'Bay Playbook Business Banking.dc.html',
+          '__accel': 'Bay Playbook Accelerators.dc.html',
+        };
+        return [
+          { label: 'S0 · DECIDING', pages: [['Reality check', '__reality'], ['Decision index', '__decisions'], ['Scout trip', '__scout']] },
+          { label: 'S1 · BEFORE YOU FLY', pages: [['Visas for founders', '__visas'], ['Moving with family', '__family'], ['Remote setup', '__remote'], ['Landing pad', '__landingpad'], ['Packing + medications', '__packing']] },
+          { label: 'BUSINESS · YOUR COMPANY', pages: [['US entity & flip', '__entity'], ['Visas for founders', '__visas'], ['Business banking', '__bizbank'], ['Accelerators & programs', '__accel']] },
+          { label: 'S2 · LANDING, WEEK 1', pages: [['Day 0–7 checklist', '__day07'], ['SIM + phone', '__sim'], ['Apps to download', '__apps'], ['Personal banking', '__personalbank'], ['Getting around', '__around'], ['Emergency contacts', '__emergency']] },
+          { label: 'S3 · FIRST MONTH', pages: [['Housing & neighbourhoods', '__housing'], ['SSN, ITIN & licence', '__ssn'], ['Money, credit & ITIN', '__money'], ['Money home & NRI banking', '__nri'], ['Healthcare & insurance', '__health']] },
+          { label: 'S4 · LIVING HERE', pages: [['Culture & etiquette', '__culture'], ['Networking in SF', '__networking'], ['Live events calendar', '__events'], ['Indian groceries & food', '__groceries'], ['What to do on weekends', '__weekends'], ['SF↔India travel', '__travel']] },
+        ].map(grp => ({ label: grp.label, pages: grp.pages.map(p => ({
+          title: p[0],
+          href: p[1] === SELF ? '#' : (H[p[1]] || 'Bay Playbook Guides.dc.html#' + p[1]),
+          color: p[1] === SELF ? '#FAF7F1' : '#1A1712',
+          bg: p[1] === SELF ? '#1A1712' : 'transparent',
+        })) }));
+      })(),
+      accent,
+    };
+  }
+}
+</script>
+</body>
+</html>
